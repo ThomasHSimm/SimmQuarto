@@ -3042,7 +3042,7 @@
     "href": "posts/NeuralNetworksMaths.html#the-problem",
     "title": "Neural Network Maths",
     "section": "The Problem",
-    "text": "The Problem\nCeate a simple problem whereby \\(y=0.5 + 3.X\\)\nAnd hence create the variable X and y. To allow for matrix multiplication to a form \\(y= bX + m\\) we’ll also make X a matrix with ones in the first column. So we can use np.matmul\n\nX = np.ones((50,2))\nX[:,1]=np.arange(0,1,.02)\ntheta_act = [.5,3]\ny = np.matmul(X,theta_act)\nplt.plot(X[:,0],y,'.r')\nplt.plot(X[:,1],y,'.k')\nplt.grid(True)\nplt.title('Data')\nplt.legend(['bias b','m gradient']);\nplt.xlabel('X')\nplt.ylabel('y');"
+    "text": "The Problem\nCreate a simple problem whereby \\(y=0.5 + 3.X\\)\nAnd hence create the variable X and y. To allow for matrix multiplication to a form \\(y= bX + m\\) we’ll also make X a matrix with ones in the first column. So we can use np.matmul\n\nX = np.ones((50,2))\nX[:,1]=np.arange(0,1,.02)\ntheta_act = [.5,3]\ny = np.matmul(X,theta_act)\nplt.plot(X[:,0],y,'.r')\nplt.plot(X[:,1],y,'.k')\nplt.grid(True)\nplt.title('Data')\nplt.legend(['bias b','m gradient']);\nplt.xlabel('X')\nplt.ylabel('y');"
   },
   {
     "objectID": "posts/NeuralNetworksMaths.html#the-maths",
@@ -3056,7 +3056,7 @@
     "href": "posts/NeuralNetworksMaths.html#the-fit",
     "title": "Neural Network Maths",
     "section": "The Fit",
-    "text": "The Fit\nUse the gradient descent iteration\n\ntheta_=np.array([0, 0])\nthetaALL=[]; jALL=[]\niterTot=100\nfor _ in range(iterTot):\n    thetaALL.append( theta_ )\n    (deltaTheta, J) =computeGrad(X, y, theta_,learningRate=.5)\n    theta_ = theta_ - deltaTheta\n    \n    jALL.append(J)\n\nplt.plot(range(iterTot),thetaALL,'.-')\nplt.plot(range(iterTot),np.ones((iterTot,2))*theta_act,'--',linewidth=4)\nplt.plot(range(iterTot),jALL,':',linewidth=4)\nplt.grid(True)\nplt.legend(['b','m','actual values b','actual values m','Loss'])\nplt.xlabel('Iteration')\nplt.ylabel('Values');"
+    "text": "The Fit\nUse the gradient descent iteration with starting values of m and b of [0, 0]\n\ntheta_=np.array([0, 0])\nthetaALL=[]; jALL=[]\niterTot=100\nfor _ in range(iterTot):\n    thetaALL.append( theta_ )\n    (deltaTheta, J) =computeGrad(X, y, theta_,learningRate=.5)\n    theta_ = theta_ - deltaTheta\n    \n    jALL.append(J)\n\nplt.plot(range(iterTot),thetaALL,'.-')\nplt.plot(range(iterTot),np.ones((iterTot,2))*theta_act,'--',linewidth=4)\nplt.plot(range(iterTot),jALL,':',linewidth=4)\nplt.grid(True)\nplt.legend(['b','m','actual values b','actual values m','Loss'])\nplt.xlabel('Iteration')\nplt.ylabel('Values');"
   },
   {
     "objectID": "posts/NeuralNetworksMaths.html#an-example",

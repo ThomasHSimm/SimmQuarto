@@ -282,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
-<p>Ceate a simple problem whereby <span class="math inline">\(y=0.5 + 3.X\)</span></p>
+<p>Create a simple problem whereby <span class="math inline">\(y=0.5 + 3.X\)</span></p>
 <p>And hence create the variable X and y. To allow for matrix multiplication to a form <span class="math inline">\(y= bX + m\)</span> we’ll also make X a matrix with ones in the first column. So we can use np.matmul</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.ones((<span class="dv">50</span>,<span class="dv">2</span>))</span>
@@ -303,7 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="the-fit" class="level2">
 <h2 class="anchored" data-anchor-id="the-fit">The Fit</h2>
-<p>Use the gradient descent iteration</p>
+<p>Use the gradient descent iteration with starting values of m and b of [0, 0]</p>
 <div class="cell" data-execution_count="130">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>theta_<span class="op">=</span>np.array([<span class="dv">0</span>, <span class="dv">0</span>])</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>thetaALL<span class="op">=</span>[]<span class="op">;</span> jALL<span class="op">=</span>[]</span>
