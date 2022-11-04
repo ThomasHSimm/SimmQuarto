@@ -1,0 +1,243 @@
+,Rank,Nation,NOC,Country,Continent,Population
+0,–,World,---,World,,7965207000
+1,1,China,CHN,China,Asia,1412600000
+2,2,India,IND,India,Asia,1373761000
+3,3,USA,USA,United States,Americas,332906919
+4,4,Indonesia,INA,Indonesia,Asia,272248500
+5,5,Pakistan,PAK,Pakistan,Asia,229488994
+6,6,Nigeria,NGR,Nigeria,Africa,216746934
+7,7,Brazil,BRA,Brazil,Americas,214907015
+8,8,Bangladesh,BAN,Bangladesh,Asia,168220000
+9,9,Russia,EUN,Russia,Europe,147190000
+10,10,Mexico,MEX,Mexico,Americas,128271248
+11,11,Japan,JPN,Japan,Asia,125502000
+12,12,Ethiopia,ETH,Ethiopia,Africa,120812698
+13,13,Philippines,PHI,Philippines,Asia,112174568
+14,14,Egypt,EGY,Egypt,Africa,103600370
+15,15,Vietnam,VIE,Vietnam,Asia,98505400
+16,16,DR Congo,---,DR Congo,Africa,92378000
+17,17,Iran,IRI,Iran,Asia,85620023
+18,18,Turkey,TUR,Turkey,Asia,84680273
+19,19,Germany,FRG,Germany,Europe,83695430
+20,20,France,FRA,France,Europe,67874000
+21,21,UK,GBR,United Kingdom,Europe,67081234
+22,22,Thailand,THA,Thailand,Asia,66813717
+23,23,South Africa,RSA,South Africa,Africa,60142978
+24,24,Tanzania,TAN,Tanzania,Africa,59441988
+25,25,Italy,ITA,Italy,Europe,58906742
+26,26,Myanmar,MYA,Myanmar,Asia,55294979
+27,27,South Korea,KOR,South Korea,Asia,51745000
+28,28,Colombia,COL,Colombia,Americas,51049498
+29,29,Kenya,KEN,Kenya,Africa,47564296
+30,30,Spain,ESP,Spain,Europe,47432805
+31,31,Argentina,ARG,Argentina,Americas,47327407
+32,32,Algeria,ALG,Algeria,Africa,45400000
+33,33,Sudan,SUD,Sudan,Africa,44603905
+34,34,Uganda,UGA,Uganda,Africa,42885900
+35,35,Iraq,IRQ,Iraq,Asia,41190700
+36,36,Ukraine,UKR,Ukraine,Europe,41130432
+37,37,Canada,CAN,Canada,Americas,38824797
+38,38,Poland,POL,Poland,Europe,38014000
+39,39,Morocco,MAR,Morocco,Africa,36665750
+40,40,Uzbekistan,UZB,Uzbekistan,Asia,35663524
+41,41,Saudi Arabia,KSA,Saudi Arabia,Asia,35013414
+42,42,Peru,PER,Peru,Americas,33396698
+43,43,Angola,ANG,Angola,Africa,33086278
+44,44,Afghanistan,AFG,Afghanistan,Asia,32890171
+45,45,Malaysia,MAL,Malaysia,Asia,32728600
+46,46,Mozambique,MOZ,Mozambique,Africa,31616078
+47,47,Ghana,GHA,Ghana,Africa,30832019
+48,48,Yemen,YAR,Yemen,Asia,30491000
+49,49,Nepal,NEP,Nepal,Asia,29192480
+50,50,Venezuela,VEN,Venezuela,Americas,28705000
+51,51,Ivory Coast,CIV,Ivory Coast,Africa,27087732
+52,52,Madagascar,MAD,Madagascar,Africa,26923353
+53,53,Australia,ANZ,Australia,Oceania,25921518
+54,54,North Korea,PRK,North Korea,Asia,25660000
+55,55,Cameroon,CMR,Cameroon,Africa,24348251
+56,56,Niger,NIG,Niger,Africa,24112753
+57,–,Taiwan,TPE,Taiwan,Asia,23375314
+58,57,Sri Lanka,SRI,Sri Lanka,Asia,22156000
+59,58,Burkina Faso,BUR,Burkina Faso,Africa,21510181
+60,59,Malawi,MAW,Malawi,Africa,21507723
+61,60,Mali,MLI,Mali,Africa,21473764
+62,61,Chile,CHI,Chile,Americas,19678363
+63,62,Kazakhstan,KAZ,Kazakhstan,Asia,19268272
+64,63,Romania,ROU,Romania,Europe,19186201
+65,64,Zambia,ZAM,Zambia,Africa,18400556
+66,65,Syria,SYR,Syria,Asia,18276000
+67,66,Ecuador,ECU,Ecuador,Americas,18023888
+68,67,Netherlands,NED,Netherlands,Europe,17718309
+69,68,Senegal,SEN,Senegal,Africa,17223497
+70,69,Guatemala,GUA,Guatemala,Americas,17109746
+71,70,Chad,CHA,Chad,Africa,16818391
+72,71,Somalia,SOM,Somalia,Africa,16360000
+73,72,Zimbabwe,RHO,Zimbabwe,Africa,15790716
+74,73,Cambodia,CAM,Cambodia,Asia,15552211
+75,74,South Sudan,SSD,South Sudan,Africa,13249924
+76,75,Rwanda,RWA,Rwanda,Africa,12955768
+77,76,Guinea,GUI,Guinea,Africa,12907395
+78,77,Burundi,BDI,Burundi,Africa,12574571
+79,78,Benin,BEN,Benin,Africa,12506347
+80,79,Bolivia,---,Bolivia,Americas,11797257
+81,80,Tunisia,TUN,Tunisia,Africa,11746695
+82,81,Haiti,HAI,Haiti,Americas,11743017
+83,82,Belgium,BEL,Belgium,Europe,11657619
+84,83,Jordan,JOR,Jordan,Asia,11256832
+85,84,Cuba,CUB,Cuba,Americas,11113215
+86,85,Dominican Republic,DOM,Dominican Republic,Americas,10535535
+87,86,Czech Republic,BOH,Czech Republic,Europe,10516708
+88,87,Greece,CRT,Greece,Europe,10432481
+89,88,Sweden,SWE,Sweden,Europe,10402070
+90,89,Portugal,POR,Portugal,Europe,10344802
+91,90,Azerbaijan,AZE,Azerbaijan,Asia,10164464
+92,91,Hungary,HUN,Hungary,Europe,9689000
+93,92,Israel,ISR,Israel,Asia,9548540
+94,93,Honduras,HON,Honduras,Americas,9546178
+95,94,Tajikistan,TJK,Tajikistan,Asia,9506000
+96,95,Belarus,BLR,Belarus,Europe,9349645
+97,96,United Arab Emirates,UAE,United Arab Emirates,Asia,9282410
+98,97,Papua New Guinea,PNG,Papua New Guinea,Oceania,9122994
+99,98,Austria,AUT,Austria,Europe,9027999
+100,99,Switzerland,SUI,Switzerland,Europe,8753933
+101,100,Sierra Leone,SLE,Sierra Leone,Africa,8297882
+102,101,Togo,TOG,Togo,Africa,7886000
+103,–,Hong Kong (China),---,Hong Kong (China),Asia,7403100
+104,102,Paraguay,PAR,Paraguay,Americas,7353038
+105,103,Laos,LAO,Laos,Asia,7337783
+106,104,Libya,LBA,Libya,Africa,7054493
+107,105,El Salvador,ESA,El Salvador,Americas,6825935
+108,106,Serbia,SCG,Serbia,Europe,6797105
+109,107,Lebanon,LIB,Lebanon,Asia,6769000
+110,108,Kyrgyzstan,KGZ,Kyrgyzstan,Asia,6700000
+111,109,Nicaragua,NCA,Nicaragua,Americas,6595674
+112,110,Bulgaria,BUL,Bulgaria,Europe,6520314
+113,111,Turkmenistan,TKM,Turkmenistan,Asia,6118000
+114,112,Denmark,DEN,Denmark,Europe,5883562
+115,113,Congo,---,Congo,Africa,5657000
+116,114,Central African Republic,CAF,Central African Republic,Africa,5633412
+117,115,Finland,FIN,Finland,Europe,5550066
+118,116,Singapore,SIN,Singapore,Asia,5453600
+119,117,Norway,NOR,Norway,Europe,5435536
+120,118,Slovakia,SVK,Slovakia,Europe,5434712
+121,119,Palestine,PLE,Palestine,Asia,5227193
+122,120,Costa Rica,CRC,Costa Rica,Americas,5163038
+123,121,New Zealand,NZL,New Zealand,Oceania,5133117
+124,122,Ireland,IRL,Ireland,Europe,5123536
+125,123,Kuwait,KUW,Kuwait,Asia,4670713
+126,124,Liberia,LBR,Liberia,Africa,4661010
+127,125,Oman,OMA,Oman,Asia,4527446
+128,126,Panama,PAN,Panama,Americas,4278500
+129,127,Mauritania,MTN,Mauritania,Africa,4271197
+130,128,Croatia,CRO,Croatia,Europe,3888529
+131,129,Georgia,GEO,Georgia,Asia,3728573
+132,130,Eritrea,ERI,Eritrea,Africa,3601000
+133,131,Uruguay,URU,Uruguay,Americas,3554915
+134,132,Mongolia,MGL,Mongolia,Asia,3448103
+135,133,Bosnia and Herzegovina,BIH,Bosnia and Herzegovina,Europe,3320954
+136,–,Puerto Rico (United States),---,Puerto Rico (United States),Americas,3285874
+137,134,Armenia,ARM,Armenia,Asia,2963900
+138,135,Albania,ALB,Albania,Europe,2829741
+139,136,Qatar,QAT,Qatar,Asia,2799202
+140,137,Lithuania,LTU,Lithuania,Europe,2794961
+141,138,Jamaica,JAM,Jamaica,Americas,2734093
+142,139,Moldova,MDA,Moldova,Europe,2597100
+143,140,Namibia,NAM,Namibia,Africa,2550226
+144,141,Gambia,GAM,Gambia,Africa,2487000
+145,142,Botswana,BOT,Botswana,Africa,2410338
+146,143,Gabon,GAB,Gabon,Africa,2233272
+147,144,Lesotho,LES,Lesotho,Africa,2159000
+148,145,Slovenia,SLO,Slovenia,Europe,2108977
+149,146,Latvia,LAT,Latvia,Europe,1874900
+150,147,North Macedonia,---,North Macedonia,Europe,1832696
+151,–,Kosovo,KOS,Kosovo,Europe,1798188
+152,148,Guinea-Bissau,GBS,Guinea-Bissau,Africa,1646077
+153,149,Equatorial Guinea,GEQ,Equatorial Guinea,Africa,1505588
+154,150,Bahrain,BRN,Bahrain,Asia,1501635
+155,151,Trinidad,TTO,Trinidad and Tobago,Americas,1367558
+156,152,Estonia,EST,Estonia,Europe,1331796
+157,153,East Timor,---,East Timor,Asia,1317780
+158,154,Mauritius,MRI,Mauritius,Africa,1266334
+159,155,Eswatini,---,Eswatini,Africa,1172000
+160,156,Djibouti,DJI,Djibouti,Africa,976107
+161,157,Cyprus,CYP,Cyprus,Asia,918100
+162,158,Fiji,FIJ,Fiji,Oceania,898402
+163,159,Comoros,COM,Comoros,Africa,758316
+164,160,Bhutan,BHU,Bhutan,Asia,763200
+165,161,Guyana,GUY,Guyana,Americas,743699
+166,162,Solomon Islands,SOL,Solomon Islands,Oceania,728041
+167,–,Macau (China),---,Macau (China),Asia,683200
+168,163,Luxembourg,LUX,Luxembourg,Europe,645397
+169,164,Montenegro,MNE,Montenegro,Europe,621306
+170,–,Western Sahara,---,Western Sahara,Africa,612000
+171,165,Suriname,SUR,Suriname,Americas,598000
+172,166,Cape Verde,CPV,Cape Verde,Africa,563198
+173,167,Malta,MLT,Malta,Europe,514564
+174,168,Belize,BIZ,Belize,Americas,430191
+175,169,Brunei,BRU,Brunei,Asia,429999
+176,170,Bahamas,BAH,Bahamas,Americas,393450
+177,171,Maldives,MDV,Maldives,Asia,383135
+178,–,Northern Cyprus,---,Northern Cyprus,Asia,382230
+179,172,Iceland,ISL,Iceland,Europe,377280
+180,–,Transnistria,---,Transnistria,Europe,306000
+181,173,Vanuatu,VAN,Vanuatu,Oceania,301295
+182,174,Barbados,BAR,Barbados,Americas,288000
+183,–,French Polynesia (France),---,French Polynesia (France),Oceania,279890
+184,–,New Caledonia (France),---,New Caledonia (France),Oceania,273674
+185,–,Abkhazia,---,Abkhazia,Asia,245424
+186,175,São Tomé and Príncipe,---,São Tomé and Príncipe,Africa,214610
+187,176,Samoa,SAM,Samoa,Oceania,199853
+188,177,Saint Lucia,LCA,Saint Lucia,Americas,178696
+189,–,Guam (United States),---,Guam (United States),Oceania,153836
+190,–,Curaçao (Netherlands),---,Curaçao (Netherlands),Americas,153671
+191,–,Artsakh,---,Artsakh,Asia,148900
+192,178,Kiribati,KIR,Kiribati,Oceania,120740
+193,179,Grenada,GRN,Grenada,Americas,113000
+194,–,Aruba (Netherlands),---,Aruba (Netherlands),Americas,111050
+195,180,Saint Vincent and the Grenadines,---,Saint Vincent and the Grenadines,Americas,110696
+196,–,Jersey (British Crown Dependency),---,Jersey (British Crown Dependency),Europe,107800
+197,181,Micronesia,FSM,Micronesia,Oceania,105754
+198,182,Tonga,TGA,Tonga,Oceania,99532
+199,183,Antigua,ANT,Antigua and Barbuda,Americas,99337
+200,184,Seychelles,SEY,Seychelles,Africa,99202
+201,–,U.S. Virgin Islands (United States),---,U.S. Virgin Islands (United States),Americas,87146
+202,–,Isle of Man (British Crown Dependency),---,Isle of Man (British Crown Dependency),Europe,84069
+203,185,Andorra,AND,Andorra,Europe,79535
+204,186,Dominica,DMA,Dominica,Americas,72000
+205,–,Cayman Islands (United Kingdom),---,Cayman Islands (United Kingdom),Americas,65786
+206,–,Bermuda (United Kingdom),---,Bermuda (United Kingdom),Americas,64055
+207,–,Guernsey (British Crown Dependency),---,Guernsey (British Crown Dependency),Europe,63124
+208,–,Greenland (Denmark),---,Greenland (Denmark),Americas,56562
+209,187,Marshall Islands,MHL,Marshall Islands,Oceania,54516
+210,188,Saint Kitts and Nevis,---,Saint Kitts and Nevis,Americas,54000
+211,–,Faroe Islands (Denmark),---,Faroe Islands (Denmark),Europe,53941
+212,–,South Ossetia,---,South Ossetia,Asia,53532
+213,–,American Samoa (United States),---,American Samoa (United States),Oceania,49710
+214,–,Northern Mariana Islands (United States),---,Northern Mariana Islands (United States),Oceania,47329
+215,–,Turks and Caicos Islands (United Kingdom),---,Turks and Caicos Islands (United Kingdom),Americas,44542
+216,–,Sint Maarten (Netherlands),---,Sint Maarten (Netherlands),Americas,42577
+217,189,Liechtenstein,LIE,Liechtenstein,Europe,39315
+218,190,Monaco,MON,Monaco,Europe,39150
+219,–,Gibraltar (United Kingdom),---,Gibraltar (United Kingdom),Europe,34000
+220,191,San Marino,SMR,San Marino,Europe,33705
+221,–,Saint Martin (France),---,Saint Martin (France),Americas,32489
+222,–,Åland (Finland),---,Åland (Finland),Europe,30344
+223,–,British Virgin Islands (United Kingdom),---,British Virgin Islands (United Kingdom),Americas,30000
+224,192,Palau,PLW,Palau,Oceania,17957
+225,–,Cook Islands,COK,Cook Islands,Oceania,15342
+226,–,Anguilla (United Kingdom),---,Anguilla (United Kingdom),Americas,15000
+227,193,Nauru,NRU,Nauru,Oceania,11832
+228,–,Wallis and Futuna (France),---,Wallis and Futuna (France),Oceania,11369
+229,194,nan,TUV,Tuvalu,Oceania,10679
+230,–,Saint Barthélemy (France),---,Saint Barthélemy (France),Americas,10289
+231,–,"Saint Helena, Ascension and Tristan da Cunha (United Kingdom)",---,"Saint Helena, Ascension and Tristan da Cunha (United Kingdom)",Africa,6000
+232,–,Saint Pierre and Miquelon (France),---,Saint Pierre and Miquelon (France),Americas,5974
+233,–,Montserrat (United Kingdom),---,Montserrat (United Kingdom),Americas,5000
+234,–,Falkland Islands (United Kingdom),---,Falkland Islands (United Kingdom),Americas,4000
+235,–,Christmas Island (Australia),---,Christmas Island (Australia),Oceania,1966
+236,–,Norfolk Island (Australia),---,Norfolk Island (Australia),Oceania,1734
+237,–,Niue,---,Niue,Oceania,1549
+238,–,Tokelau (New Zealand),---,Tokelau (New Zealand),Oceania,1501
+239,195,Vatican City,---,Vatican City,Europe,825
+240,–,Cocos (Keeling) Islands (Australia),---,Cocos (Keeling) Islands (Australia),Oceania,573
+241,–,Pitcairn Islands (United Kingdom),---,Pitcairn Islands (United Kingdom),Oceania,40

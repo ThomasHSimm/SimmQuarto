@@ -1,0 +1,23 @@
+project:
+  type: website
+
+website:
+  title: "ThomasHSimm"
+  favicon: /posts/Picture3.png
+  body-header: <img src="/posts/header2.png" height=200>
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/ThomasHSimm
+      - icon: twitter
+        href: https://twitter.com/ThomasHSimm
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: darkly
+    css: styles.css
+
+
+
