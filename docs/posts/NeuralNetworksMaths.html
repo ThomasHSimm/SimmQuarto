@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2022-10-10">
 
-<title>ThomasHSimm – neuralnetworksmaths</title>
+<title>ThomasHSimm - Neural Network Maths</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -176,22 +176,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Neural Network Maths</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">neural networks</div>
+                <div class="quarto-category">maths</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 10, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content"><p><img src="../posts/header2.png" height="200"></p>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<section id="neural-network-maths" class="level1">
-<h1>Neural Network Maths</h1>
-<blockquote class="blockquote">
-<p>Basic maths of machine learning</p>
-</blockquote>
-<section id="gradient-descent" class="level2">
+
+<p><img src="../posts/header2.png" height="200"></p><section id="gradient-descent" class="level2">
 <h2 class="anchored" data-anchor-id="gradient-descent">Gradient Descent</h2>
+<blockquote class="blockquote">
+<p>An optimization method in machine learning</p>
+</blockquote>
 <p>Gradient descent is an algroithm used to determine the value of parameters that are used to map input variables to target variables. The steps are:</p>
 <ul>
 <li>Determine a loss function that relates predictions and actual values, i.e.&nbsp;a function that determines how good the predictions are
@@ -201,6 +226,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Find the gradient of the loss function with respect to the parameters</li>
 <li>Update the weights based on this gradient</li>
 </ul>
+<blockquote class="blockquote">
+<p>Gradient descent is not the only optimisation method to determine parameters but is an easy one to understand.</p>
+</blockquote>
+</section>
+<section id="an-example" class="level2">
+<h2 class="anchored" data-anchor-id="an-example">An Example</h2>
 <p>For example, in the figure below:</p>
 <ul>
 <li>if the weight W=0 then the Loss is 1 and the gradient is -1.0. In this case we’d want to increase the value of the weight W towards it’s minimum 0.5</li>
@@ -209,12 +240,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>i.e.&nbsp;the weights can be updated by a formula of the form below to get the best fit:</p>
 <p><span class="math display">\[W_{i+1} = W_i - const . \frac{dJ}{dW}\]</span></p>
-<blockquote class="blockquote">
-<p>Gradient descent is not the only optimisation method to determine parameters but is an easy one to understand.</p>
-</blockquote>
-</section>
-<section id="the-problem" class="level2">
-<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
 <div class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <p><img src="NeuralNetworksMaths_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
@@ -255,56 +280,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>So for each iteration (<code>K</code>) the weights <code>W</code> (<code>j</code> are the different parts to the weights e.g.&nbsp;<code>b</code> and <code>m</code>) are updated. Noting that there are <code>N</code> observations (length of y is N) we get:</p>
 <p><span class="math inline">\(W_j^{K+1} = W_j^{K} - [\alpha . \frac{1}{N}\sum(\hat{Y}-Y).X_j]\)</span></p>
 </section>
-<section id="the-fit" class="level2">
-<h2 class="anchored" data-anchor-id="the-fit">The Fit</h2>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> computeCost(X,y, theta):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    Ypred <span class="op">=</span> np.matmul(X,theta)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    J <span class="op">=</span>np.<span class="bu">sum</span>( (<span class="dv">1</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span><span class="bu">len</span>(y)))<span class="op">*</span> (Ypred <span class="op">-</span> y)<span class="op">**</span><span class="dv">2</span> )</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> J,Ypred</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> computeGrad(X, y, theta,learningRate):</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    J,Ypred <span class="op">=</span> computeCost(X,y, theta)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    error <span class="op">=</span> (Ypred <span class="op">-</span> y)<span class="op">*</span>learningRate<span class="op">/</span><span class="bu">len</span>(y)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [np.<span class="bu">sum</span>(error),np.<span class="bu">sum</span>(X[:,<span class="dv">1</span>]<span class="op">*</span>error)], J</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Create the variables to fit to</p>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>Ceate a simple problem whereby <span class="math inline">\(y=0.5 + 3.X\)</span></p>
+<p>And hence create the variable X and y. To allow for matrix multiplication to a form <span class="math inline">\(y= bX + m\)</span> we’ll also make X a matrix with ones in the first column. So we can use np.matmul</p>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.ones((<span class="dv">50</span>,<span class="dv">2</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X[:,<span class="dv">1</span>]<span class="op">=</span>np.arange(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">.02</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>theta_act <span class="op">=</span> [<span class="fl">.5</span>,<span class="dv">3</span>]</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.matmul(X,theta_act)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.plot(X[:,<span class="dv">0</span>],y,<span class="st">'.r'</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">'.k'</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Data'</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'bias b'</span>,<span class="st">'m gradient'</span>])<span class="op">;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'X'</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.ones((<span class="dv">50</span>,<span class="dv">2</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>X[:,<span class="dv">1</span>]<span class="op">=</span>np.arange(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">.02</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>theta_act <span class="op">=</span> [<span class="fl">.5</span>,<span class="dv">3</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.matmul(X,theta_act)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plt.plot(X[:,<span class="dv">0</span>],y,<span class="st">'.r'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>plt.plot(X[:,<span class="dv">1</span>],y,<span class="st">'.k'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Data'</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'bias b'</span>,<span class="st">'m gradient'</span>])<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'X'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="NeuralNetworksMaths_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+</section>
+<section id="the-fit" class="level2">
+<h2 class="anchored" data-anchor-id="the-fit">The Fit</h2>
 <p>Use the gradient descent iteration</p>
 <div class="cell" data-execution_count="130">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>theta_<span class="op">=</span>np.array([<span class="dv">0</span>, <span class="dv">0</span>])</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>thetaALL<span class="op">=</span>[]<span class="op">;</span> jALL<span class="op">=</span>[]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>iterTot<span class="op">=</span><span class="dv">100</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(iterTot):</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    thetaALL.append( theta_ )</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    (deltaTheta, J) <span class="op">=</span>computeGrad(X, y, theta_,learningRate<span class="op">=</span><span class="fl">.5</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    theta_ <span class="op">=</span> theta_ <span class="op">-</span> deltaTheta</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    jALL.append(J)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),thetaALL,<span class="st">'.-'</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),np.ones((iterTot,<span class="dv">2</span>))<span class="op">*</span>theta_act,<span class="st">'--'</span>,linewidth<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),jALL,<span class="st">':'</span>,linewidth<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'b'</span>,<span class="st">'m'</span>,<span class="st">'actual values b'</span>,<span class="st">'actual values m'</span>,<span class="st">'Loss'</span>])</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Iteration'</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Values'</span>)<span class="op">;</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>theta_<span class="op">=</span>np.array([<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>thetaALL<span class="op">=</span>[]<span class="op">;</span> jALL<span class="op">=</span>[]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>iterTot<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(iterTot):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    thetaALL.append( theta_ )</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    (deltaTheta, J) <span class="op">=</span>computeGrad(X, y, theta_,learningRate<span class="op">=</span><span class="fl">.5</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    theta_ <span class="op">=</span> theta_ <span class="op">-</span> deltaTheta</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    jALL.append(J)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),thetaALL,<span class="st">'.-'</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),np.ones((iterTot,<span class="dv">2</span>))<span class="op">*</span>theta_act,<span class="st">'--'</span>,linewidth<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),jALL,<span class="st">':'</span>,linewidth<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'b'</span>,<span class="st">'m'</span>,<span class="st">'actual values b'</span>,<span class="st">'actual values m'</span>,<span class="st">'Loss'</span>])</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Iteration'</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Values'</span>)<span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="NeuralNetworksMaths_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
@@ -314,13 +332,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="with-tensorflow">With TensorFlow</h2>
 <p>We can do approximately the same thing with tensorflow: - input shape is 1 as the length 50 are treated as different inputs - one dense layer which is given by: - SGD or gradient descent - with a learning rate of 0.5 - and loss calculated by mean squared error - and fit over the same number of epochs = 100</p>
 <div class="cell" data-execution_count="131">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>tf.keras.Sequential([</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Input(shape<span class="op">=</span>(<span class="dv">1</span>)),</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">1</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(optimizer<span class="op">=</span>tf.keras.optimizers.SGD(learning_rate<span class="op">=</span><span class="fl">0.5</span>),loss<span class="op">=</span><span class="st">'mse'</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>tf.keras.Sequential([</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Input(shape<span class="op">=</span>(<span class="dv">1</span>)),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(optimizer<span class="op">=</span>tf.keras.optimizers.SGD(learning_rate<span class="op">=</span><span class="fl">0.5</span>),loss<span class="op">=</span><span class="st">'mse'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Model: "sequential_28"
 _________________________________________________________________
@@ -335,17 +353,17 @@ _________________________________________________________________</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="132">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>XX<span class="op">=</span>tf.reshape(X[:,<span class="dv">1</span>],(<span class="bu">len</span>(y),<span class="dv">1</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>yy<span class="op">=</span>tf.reshape(y,(<span class="bu">len</span>(y),<span class="dv">1</span>))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> model.fit(X[:,<span class="dv">1</span>],y,epochs<span class="op">=</span><span class="dv">100</span>,verbose<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.plot(history.history[<span class="st">"loss"</span>],<span class="st">'-k'</span>,linewidth<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),jALL,<span class="st">'x'</span>,linewidth<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'TensorFlow'</span>,<span class="st">'ComputeGrad'</span>])</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Iteration'</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Values'</span>)<span class="op">;</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Predictions: m is </span><span class="sc">{</span>model<span class="sc">.</span>get_weights()[<span class="dv">0</span>][<span class="dv">0</span>][<span class="dv">0</span>]<span class="sc">:.4f}</span><span class="ss"> and b is </span><span class="sc">{</span>model<span class="sc">.</span>get_weights()[<span class="dv">1</span>][<span class="dv">0</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>XX<span class="op">=</span>tf.reshape(X[:,<span class="dv">1</span>],(<span class="bu">len</span>(y),<span class="dv">1</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>yy<span class="op">=</span>tf.reshape(y,(<span class="bu">len</span>(y),<span class="dv">1</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> model.fit(X[:,<span class="dv">1</span>],y,epochs<span class="op">=</span><span class="dv">100</span>,verbose<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.plot(history.history[<span class="st">"loss"</span>],<span class="st">'-k'</span>,linewidth<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),jALL,<span class="st">'x'</span>,linewidth<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'TensorFlow'</span>,<span class="st">'ComputeGrad'</span>])</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Iteration'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Values'</span>)<span class="op">;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Predictions: m is </span><span class="sc">{</span>model<span class="sc">.</span>get_weights()[<span class="dv">0</span>][<span class="dv">0</span>][<span class="dv">0</span>]<span class="sc">:.4f}</span><span class="ss"> and b is </span><span class="sc">{</span>model<span class="sc">.</span>get_weights()[<span class="dv">1</span>][<span class="dv">0</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Predictions: m is 3.0000 and b is 0.5000</code></pre>
 </div>
@@ -355,7 +373,6 @@ _________________________________________________________________</code></pre>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
