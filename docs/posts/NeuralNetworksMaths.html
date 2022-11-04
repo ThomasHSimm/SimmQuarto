@@ -212,7 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>Gradient descent is not the only optimisation method to determine parameters but is an easy one to understand.</p>
 </blockquote>
-<div class="cell" data-execution_count="167">
+<div class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <p><img src="NeuralNetworksMaths_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
 </div>
@@ -248,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To allow for matrix multiplication we create <code>X</code> as a matrix of two vectors one with just ones and the 2nd part the original X. This then allows us to have one variable for the weights <code>m</code> and <code>b</code> that we are fitting to.</p>
 <p>So for each iteration (<code>K</code>) the weights <code>W</code> (<code>j</code> are the different parts to the weights e.g.&nbsp;<code>b</code> and <code>m</code>) are updated. Noting that there are <code>N</code> observations (length of y is N) we get:</p>
 <p><span class="math inline">\(W_j^{K+1} = W_j^{K} - [\alpha . \frac{1}{N}\sum(\hat{Y}-Y).X_j]\)</span></p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> computeCost(X,y, theta):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    Ypred <span class="op">=</span> np.matmul(X,theta)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    J <span class="op">=</span>np.<span class="bu">sum</span>( (<span class="dv">1</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span><span class="bu">len</span>(y)))<span class="op">*</span> (Ypred <span class="op">-</span> y)<span class="op">**</span><span class="dv">2</span> )</span>
@@ -260,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Create the variables to fit to</p>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.ones((<span class="dv">50</span>,<span class="dv">2</span>))</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X[:,<span class="dv">1</span>]<span class="op">=</span>np.arange(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">.02</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>theta_act <span class="op">=</span> [<span class="fl">.5</span>,<span class="dv">3</span>]</span>
@@ -277,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Use the gradient descent iteration</p>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>theta_<span class="op">=</span>np.array([<span class="dv">0</span>, <span class="dv">0</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>thetaALL<span class="op">=</span>[]<span class="op">;</span> jALL<span class="op">=</span>[]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>iterTot<span class="op">=</span><span class="dv">100</span></span>
@@ -290,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),thetaALL,<span class="st">'.-'</span>)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),np.ones((iterTot,<span class="dv">2</span>))<span class="op">*</span>theta_act,<span class="st">'--'</span>,linewidth<span class="op">=</span><span class="dv">4</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.plot(range(iterTot),jALL,':',linewidth=4)</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(iterTot),jALL,<span class="st">':'</span>,linewidth<span class="op">=</span><span class="dv">4</span>)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'b'</span>,<span class="st">'m'</span>,<span class="st">'actual values b'</span>,<span class="st">'actual values m'</span>,<span class="st">'Loss'</span>])</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Iteration'</span>)</span>
