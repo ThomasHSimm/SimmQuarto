@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.258">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ThomasHSimm – olympicssql_createcountrydf</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//posts/Picture3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ThomasHSimm</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ThomasHSimm"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ThomasHSimm"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><img src="../posts/header2.png" height="200"></p>
+
+
+
+<section id="olympics-data-with-sql-and-pandas--creating-a-country-table" class="level1">
+<h1>Olympics data with SQL and pandas- creating a country table</h1>
+<blockquote class="blockquote">
+<p>Creating a country table of the Olympics</p>
+</blockquote>
+<ul>
+<li>toc: true</li>
+<li>badges: true</li>
+<li>categories: [SQL, Pandas, python, Olympics]</li>
+</ul>
+<p><img src="ghtop_images/header2.png" class="img-fluid"></p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The country table needed extra analysis so I seperated it from the rest of the analysis.</p>
+<p>It also requires importing some new data, which I will add here too</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandasql <span class="im">import</span> sqldf</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span> pd.read_csv(<span class="st">"athlete_events.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>pd.read_csv(<span class="st">"noc_regions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The next line is just to add a unique ID for athletes when the data is split up later</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span> df.reset_index()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df.rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'event_athlete_ID'</span>,<span class="st">'ID'</span>:<span class="st">'athlete_ID'</span>},inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_athlete_ID</th>
+      <th>athlete_ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Games</th>
+      <th>Year</th>
+      <th>Season</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>A Dijiang</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>180.0</td>
+      <td>80.0</td>
+      <td>China</td>
+      <td>CHN</td>
+      <td>1992 Summer</td>
+      <td>1992</td>
+      <td>Summer</td>
+      <td>Barcelona</td>
+      <td>Basketball</td>
+      <td>Basketball Men's Basketball</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>A Lamusi</td>
+      <td>M</td>
+      <td>23.0</td>
+      <td>170.0</td>
+      <td>60.0</td>
+      <td>China</td>
+      <td>CHN</td>
+      <td>2012 Summer</td>
+      <td>2012</td>
+      <td>Summer</td>
+      <td>London</td>
+      <td>Judo</td>
+      <td>Judo Men's Extra-Lightweight</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>3</td>
+      <td>Gunnar Nielsen Aaby</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Denmark</td>
+      <td>DEN</td>
+      <td>1920 Summer</td>
+      <td>1920</td>
+      <td>Summer</td>
+      <td>Antwerpen</td>
+      <td>Football</td>
+      <td>Football Men's Football</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>4</td>
+      <td>Edgar Lindenau Aabye</td>
+      <td>M</td>
+      <td>34.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Denmark/Sweden</td>
+      <td>DEN</td>
+      <td>1900 Summer</td>
+      <td>1900</td>
+      <td>Summer</td>
+      <td>Paris</td>
+      <td>Tug-Of-War</td>
+      <td>Tug-Of-War Men's Tug-Of-War</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>21.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1988 Winter</td>
+      <td>1988</td>
+      <td>Winter</td>
+      <td>Calgary</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df2.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="89">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>NOC</th>
+      <th>region</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AHO</td>
+      <td>Curacao</td>
+      <td>Netherlands Antilles</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ALB</td>
+      <td>Albania</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ALG</td>
+      <td>Algeria</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AND</td>
+      <td>Andorra</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="what-do-we-use-to-value-to-identify-a-nation" class="level3">
+<h3 class="anchored" data-anchor-id="what-do-we-use-to-value-to-identify-a-nation">What do we use to value to identify a nation</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'There are </span><span class="sc">{}</span><span class="st"> unique teams and </span><span class="sc">{}</span><span class="st"> unique NOCs in df.</span><span class="ch">\n</span><span class="st">     </span><span class="ch">\</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">And </span><span class="sc">{}</span><span class="st"> unique NOC values, </span><span class="sc">{}</span><span class="st"> unique regions and </span><span class="sc">{}</span><span class="st"> unique notes in df2.'</span>.<span class="bu">format</span>( <span class="op">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">len</span>(pd.unique(df.Team)),<span class="bu">len</span>(pd.unique(df.NOC)), </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">len</span>(pd.unique(df2.region)),<span class="bu">len</span>(pd.unique(df2.region)),<span class="bu">len</span>(pd.unique(df2.notes)) ))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>There are 1184 unique teams and 230 unique NOCs in df.
+     And 207 unique NOC values, 207 unique regions and 22 unique notes in df2.</code></pre>
+</div>
+</div>
+<p>1184 Seems a lot of teams to consider, it may be best to stick with using <code>NOC</code> as a unique identifier for a country. We can then probably use <code>regions</code> as the name of the country.</p>
+<p>Let’s have a look at the values of <code>teams</code>,<code>NOC</code> and <code>regions</code></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sqldf(<span class="st">"SELECT                                </span><span class="ch">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">         NOC,                                </span><span class="ch">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">         Team,                               </span><span class="ch">\</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">         count(*)                            </span><span class="ch">\</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM                                  </span><span class="ch">\</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="st">         df                                  </span><span class="ch">\</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">       GROUP BY                              </span><span class="ch">\</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">         Team, NOC                           </span><span class="ch">\</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY team DESC                    </span><span class="ch">\</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="st">       LIMIT 30;"</span>,<span class="bu">locals</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="91">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>NOC</th>
+      <th>Team</th>
+      <th>count(*)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FIN</td>
+      <td>rn-2</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BEL</td>
+      <td>Zut</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ZIM</td>
+      <td>Zimbabwe</td>
+      <td>309</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GRE</td>
+      <td>Zefyros</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ZAM</td>
+      <td>Zambia</td>
+      <td>183</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>YUG</td>
+      <td>Yugoslavia-2</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>YUG</td>
+      <td>Yugoslavia-1</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>YUG</td>
+      <td>Yugoslavia</td>
+      <td>2558</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>SUI</td>
+      <td>Ylliam VIII</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>SUI</td>
+      <td>Ylliam VII</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>SUI</td>
+      <td>Ylliam II</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>GBR</td>
+      <td>Yeoman XII</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>GBR</td>
+      <td>Yeoman VII</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>RSA</td>
+      <td>Yeoman V</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>BAH</td>
+      <td>Yeoman</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>YEM</td>
+      <td>Yemen</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>MYA</td>
+      <td>Yangon</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>MEX</td>
+      <td>Xolotl</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>FIN</td>
+      <td>Xantippa</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>GBR</td>
+      <td>Wolseley-Siddeley-1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>CAN</td>
+      <td>Winnipeg Shamrocks-1</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>CAN</td>
+      <td>Windor</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>NED</td>
+      <td>Willem-Six</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>ARG</td>
+      <td>Wiking</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>USA</td>
+      <td>Widgeon</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>FRA</td>
+      <td>Whitini Star</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>DEN</td>
+      <td>White Lady</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>JPN</td>
+      <td>Whisper</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>CAN</td>
+      <td>Whirlaway</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>USA</td>
+      <td>Western Rowing Club-3</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Team in df seems to not reflect the country very well. e.g.&nbsp;Whisper is not a country but JPN probably represents Japan.</p>
+<p>So the use of NOC seems to make sense</p>
+<p>Now let us consider the <code>NOC</code>, <code>region</code> and <code>notes</code> variables</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sqldf(<span class="st">"SELECT                                </span><span class="ch">\</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="st">         NOC,                                </span><span class="ch">\</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="st">         Region,                             </span><span class="ch">\</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">         Notes,                              </span><span class="ch">\</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="st">         count(*)                            </span><span class="ch">\</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM                                  </span><span class="ch">\</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">         df2                                 </span><span class="ch">\</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="st">       GROUP BY                              </span><span class="ch">\</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="st">         NOC, Region, Notes                  </span><span class="ch">\</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY Region DESC                  </span><span class="ch">\</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="st">       LIMIT 30;"</span>,<span class="bu">locals</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>NOC</th>
+      <th>region</th>
+      <th>notes</th>
+      <th>count(*)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RHO</td>
+      <td>Zimbabwe</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ZIM</td>
+      <td>Zimbabwe</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ZAM</td>
+      <td>Zambia</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>YAR</td>
+      <td>Yemen</td>
+      <td>North Yemen</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>YEM</td>
+      <td>Yemen</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>YMD</td>
+      <td>Yemen</td>
+      <td>South Yemen</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>ISV</td>
+      <td>Virgin Islands, US</td>
+      <td>Virgin Islands</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>IVB</td>
+      <td>Virgin Islands, British</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>VIE</td>
+      <td>Vietnam</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>VNM</td>
+      <td>Vietnam</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>VEN</td>
+      <td>Venezuela</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>VAN</td>
+      <td>Vanuatu</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>UZB</td>
+      <td>Uzbekistan</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>URU</td>
+      <td>Uruguay</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>UAE</td>
+      <td>United Arab Emirates</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>UKR</td>
+      <td>Ukraine</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>UGA</td>
+      <td>Uganda</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>USA</td>
+      <td>USA</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>GBR</td>
+      <td>UK</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>TKM</td>
+      <td>Turkmenistan</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>TUR</td>
+      <td>Turkey</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>TUN</td>
+      <td>Tunisia</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>TTO</td>
+      <td>Trinidad</td>
+      <td>Trinidad and Tobago</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>WIF</td>
+      <td>Trinidad</td>
+      <td>West Indies Federation</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>TGA</td>
+      <td>Tonga</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>TOG</td>
+      <td>Togo</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>TLS</td>
+      <td>Timor-Leste</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>THA</td>
+      <td>Thailand</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>TAN</td>
+      <td>Tanzania</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>TJK</td>
+      <td>Tajikistan</td>
+      <td>None</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>NOC doesn’t look unique enough for us. For example, - Zimbabwe is RHO and ZIM and this probably just reflects a name change in the country - Yemen has 3 NOC values, presumably reflecting the unification that took place in 1990. Most of these differences are not that important to what I am looking at, where it would be better to have a broader description of a nation</p>
+<p>So what I will do is - use the region tag as a unique identifier of a country - replace multiple NOC values of a single country with a single NOC value</p>
+<p>The first step is to identify which <code>region</code>s have multiple NOC values. We can do this again in SQL by creating a new table</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>d1<span class="op">=</span>sqldf(<span class="st">"SELECT                               </span><span class="ch">\</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="st">            NOC,                               </span><span class="ch">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="st">            region,                            </span><span class="ch">\</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="st">            notes,                             </span><span class="ch">\</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="st">            count(*)                           </span><span class="ch">\</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="st">         FROM                                  </span><span class="ch">\</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="st">            df2                                </span><span class="ch">\</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="st">         GROUP BY                              </span><span class="ch">\</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="st">            region                             </span><span class="ch">\</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="st">         HAVING COUNT(*)&gt;1                     </span><span class="ch">\</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="st">         ORDER BY count(*) DESC;"</span>,<span class="bu">locals</span>())</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>d1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="93">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>NOC</th>
+      <th>region</th>
+      <th>notes</th>
+      <th>count(*)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FRG</td>
+      <td>Germany</td>
+      <td>None</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>YAR</td>
+      <td>Yemen</td>
+      <td>North Yemen</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SCG</td>
+      <td>Serbia</td>
+      <td>Serbia and Montenegro</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>EUN</td>
+      <td>Russia</td>
+      <td>None</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>MAL</td>
+      <td>Malaysia</td>
+      <td>None</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>BOH</td>
+      <td>Czech Republic</td>
+      <td>Bohemia</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>ROT</td>
+      <td>None</td>
+      <td>Refugee Olympic Team</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>RHO</td>
+      <td>Zimbabwe</td>
+      <td>None</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>VIE</td>
+      <td>Vietnam</td>
+      <td>None</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>TTO</td>
+      <td>Trinidad</td>
+      <td>Trinidad and Tobago</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>SYR</td>
+      <td>Syria</td>
+      <td>None</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>CRT</td>
+      <td>Greece</td>
+      <td>Crete</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>CHN</td>
+      <td>China</td>
+      <td>None</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>CAN</td>
+      <td>Canada</td>
+      <td>None</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>ANZ</td>
+      <td>Australia</td>
+      <td>Australasia</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>We can then create a table to get - the country, - the new NOC value for each country - all the NOC values that correspond to that country</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>d2<span class="op">=</span>sqldf(<span class="st">"SELECT                            </span><span class="ch">\</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">            d1.NOC      AS new_NOC,         </span><span class="ch">\</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="st">            df2.NOC     AS orig_NOC,        </span><span class="ch">\</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="st">            df2.region,                     </span><span class="ch">\</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="st">            df2.notes                       </span><span class="ch">\</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="st">          FROM                              </span><span class="ch">\</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="st">            d1                              </span><span class="ch">\</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="st">          LEFT JOIN                         </span><span class="ch">\</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="st">            df2                             </span><span class="ch">\</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="st">          ON                                </span><span class="ch">\</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="st">            d1.region=df2.region            </span><span class="ch">\</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="st">          ORDER BY                          </span><span class="ch">\</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="st">            df2.region DESC;"</span>,<span class="bu">locals</span>())</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>d2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="94">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>new_NOC</th>
+      <th>orig_NOC</th>
+      <th>region</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RHO</td>
+      <td>RHO</td>
+      <td>Zimbabwe</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>RHO</td>
+      <td>ZIM</td>
+      <td>Zimbabwe</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>YAR</td>
+      <td>YAR</td>
+      <td>Yemen</td>
+      <td>North Yemen</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>YAR</td>
+      <td>YEM</td>
+      <td>Yemen</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>YAR</td>
+      <td>YMD</td>
+      <td>Yemen</td>
+      <td>South Yemen</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>VIE</td>
+      <td>VIE</td>
+      <td>Vietnam</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>VIE</td>
+      <td>VNM</td>
+      <td>Vietnam</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>TTO</td>
+      <td>TTO</td>
+      <td>Trinidad</td>
+      <td>Trinidad and Tobago</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>TTO</td>
+      <td>WIF</td>
+      <td>Trinidad</td>
+      <td>West Indies Federation</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>SYR</td>
+      <td>SYR</td>
+      <td>Syria</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>SYR</td>
+      <td>UAR</td>
+      <td>Syria</td>
+      <td>United Arab Republic</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>SCG</td>
+      <td>SCG</td>
+      <td>Serbia</td>
+      <td>Serbia and Montenegro</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>SCG</td>
+      <td>SRB</td>
+      <td>Serbia</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>SCG</td>
+      <td>YUG</td>
+      <td>Serbia</td>
+      <td>Yugoslavia</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>EUN</td>
+      <td>EUN</td>
+      <td>Russia</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>EUN</td>
+      <td>RUS</td>
+      <td>Russia</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>EUN</td>
+      <td>URS</td>
+      <td>Russia</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>MAL</td>
+      <td>MAL</td>
+      <td>Malaysia</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>MAL</td>
+      <td>MAS</td>
+      <td>Malaysia</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>MAL</td>
+      <td>NBO</td>
+      <td>Malaysia</td>
+      <td>North Borneo</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>CRT</td>
+      <td>CRT</td>
+      <td>Greece</td>
+      <td>Crete</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>CRT</td>
+      <td>GRE</td>
+      <td>Greece</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>FRG</td>
+      <td>FRG</td>
+      <td>Germany</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>FRG</td>
+      <td>GDR</td>
+      <td>Germany</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>FRG</td>
+      <td>GER</td>
+      <td>Germany</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>FRG</td>
+      <td>SAA</td>
+      <td>Germany</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>BOH</td>
+      <td>BOH</td>
+      <td>Czech Republic</td>
+      <td>Bohemia</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>BOH</td>
+      <td>CZE</td>
+      <td>Czech Republic</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>BOH</td>
+      <td>TCH</td>
+      <td>Czech Republic</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>CHN</td>
+      <td>CHN</td>
+      <td>China</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>CHN</td>
+      <td>HKG</td>
+      <td>China</td>
+      <td>Hong Kong</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>CAN</td>
+      <td>CAN</td>
+      <td>Canada</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>CAN</td>
+      <td>NFL</td>
+      <td>Canada</td>
+      <td>Newfoundland</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>ANZ</td>
+      <td>ANZ</td>
+      <td>Australia</td>
+      <td>Australasia</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>ANZ</td>
+      <td>AUS</td>
+      <td>Australia</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>ROT</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>And finally replace the values of NOC in <code>df</code> and <code>df2</code> with the new values for countries with duplicate values</p>
+<p>Easier to do this with Python</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,old_NOC <span class="kw">in</span> <span class="bu">enumerate</span>(d2.orig_NOC):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    df.loc[df.NOC<span class="op">==</span>old_NOC,<span class="st">'NOC'</span>]<span class="op">=</span>d2.loc[i,<span class="st">'new_NOC'</span>]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    df2.loc[df2.NOC<span class="op">==</span>old_NOC,<span class="st">'NOC'</span>]<span class="op">=</span>d2.loc[i,<span class="st">'new_NOC'</span>]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="gdp-data" class="level3">
+<h3 class="anchored" data-anchor-id="gdp-data">GDP data</h3>
+<p>Wikipedia was used to get data on population and GDP of different countries. The data was imported using Excel’s capability to give it a url to obtain the table, and saved as different tabs in the file <code>CountryData.xlsx</code>. For GDP I selected the World Bank Estimate.</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)">GDP data</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population">Population data</a></li>
+</ul>
+<p><em>Website urls correct as of 23/7/22</em></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_GDP <span class="op">=</span> pd.read_excel(<span class="st">'CountryData.xlsx'</span>,sheet_name<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df_GDP<span class="op">=</span>df_GDP.drop(columns<span class="op">=</span>[<span class="st">'IMF[1][12] Estimate'</span>,<span class="st">'IMF[1][12] Year'</span>,<span class="st">'United Nations[13] Estimate'</span>,<span class="st">'United Nations[13] Year'</span>,<span class="st">'World Bank[14][15] Year'</span>])</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>df_GDP<span class="op">=</span>df_GDP.rename(columns<span class="op">=</span>{<span class="st">'World Bank[14][15] Estimate'</span>:<span class="st">'GDP'</span>,<span class="st">'Country/Territory'</span>:<span class="st">'Country'</span>,<span class="st">'UN Region'</span>:<span class="st">'Continent'</span>},errors<span class="op">=</span><span class="st">'raise'</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>df_GDP.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="96">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Country</th>
+      <th>Continent</th>
+      <th>GDP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>World</td>
+      <td>-</td>
+      <td>84,705,567</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>United States</td>
+      <td>Americas</td>
+      <td>20,936,600</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>China</td>
+      <td>Asia</td>
+      <td>14,722,731</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Japan</td>
+      <td>Asia</td>
+      <td>4,975,415</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Germany</td>
+      <td>Europe</td>
+      <td>3,806,060</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>India</td>
+      <td>Asia</td>
+      <td>2,622,984</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>United Kingdom</td>
+      <td>Europe</td>
+      <td>2,707,744</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>France</td>
+      <td>Europe</td>
+      <td>2,603,004</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Canada</td>
+      <td>Americas</td>
+      <td>1,643,408</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Italy</td>
+      <td>Europe</td>
+      <td>1,886,445</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>make column GDP an integer, and remove the comma</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_GDP[<span class="st">'GDP'</span>]<span class="op">=</span>[x.replace(<span class="st">','</span>,<span class="st">''</span>) <span class="cf">for</span> x <span class="kw">in</span> df_GDP[<span class="st">'GDP'</span>]]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df_GDP[<span class="st">'GDP'</span>]<span class="op">=</span>pd.to_numeric(df_GDP[<span class="st">'GDP'</span>],errors<span class="op">=</span><span class="st">'coerce'</span>).fillna(<span class="dv">0</span>).astype(<span class="st">'int'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We now need to match the names of countries from the data we have found on the internet with the Olympics data.</p>
+<p>A good example of this is United Kingdom, which can be named several ways (with slightly different meanings) including: UK, Great Britain, Great Britain, Great Britain and Northern Ireland, GB.</p>
+<p>The function <code>changeDF_country</code> takes the imported dataframes and <code>df2</code> as inputs and outputs the imported dataframes with corrected <code>NOC</code> and <code>country</code> values</p>
+<ol type="1">
+<li>Checks whether country in imported df matches region in <code>df</code></li>
+</ol>
+<ul>
+<li>If so country doesn’t need to be changed and can provide matching NOC value</li>
+</ul>
+<ol start="2" type="1">
+<li>If not above then see if <code>df2.notes</code> matches the country</li>
+</ol>
+<ul>
+<li>If so can return country and NOC matching the notes that match</li>
+</ul>
+<ol start="3" type="1">
+<li>If not aboves, try some name changes, like United States to USA</li>
+</ol>
+<ul>
+<li>Then return the matching NOC and country and NOC matching values</li>
+</ul>
+<ol start="4" type="1">
+<li>None of the above</li>
+</ol>
+<ul>
+<li>Then return country given and give NOC a name to show there was no match.</li>
+<li>Print out the name of the country where no match was found. To see if missing anything big or obvious</li>
+</ul>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> getNation(region_to_check):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> region_to_check<span class="op">==</span><span class="st">'United States'</span>:</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        region_out <span class="op">=</span> <span class="st">'USA'</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">bool</span>(re.search(<span class="vs">r'Germany'</span>, region_to_check)):</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        region_out<span class="op">=</span><span class="st">'Germany'</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> region_to_check<span class="op">==</span><span class="st">'United Kingdom'</span>:</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        region_out <span class="op">=</span> <span class="st">'UK'</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> region_to_check<span class="op">==</span><span class="st">'Soviet Union'</span>:</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        region_out<span class="op">=</span><span class="st">'Russia'</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        region_out<span class="op">=</span>region_to_check</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'nothing found for </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(region_out))</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> region_out</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> changeDF_country(df__,df2):</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    xALL,nocALL<span class="op">=</span>[],[]</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(df__)):</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>        country_check <span class="op">=</span> df__.loc[i,<span class="st">'Country'</span>]</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">#         print(i,country_check)</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>        boolCountry<span class="op">=</span>df2.region<span class="op">==</span>country_check</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>df2[boolCountry].region</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span><span class="bu">str</span>(x.iloc[<span class="dv">0</span>])</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>            df2.loc[boolCountry,<span class="st">'region'</span>]<span class="op">=</span>x</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span>:</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(x)<span class="op">&lt;</span><span class="dv">1</span>:</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>                boolCountry<span class="op">=</span>df2.notes<span class="op">==</span>df__.loc[i,<span class="st">'Country'</span>]</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span>df2[boolCountry].region</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>                <span class="cf">try</span>:</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>                    x<span class="op">=</span><span class="bu">str</span>(x.iloc[<span class="dv">0</span>])</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>                    df2.loc[boolCountry,<span class="st">'region'</span>]<span class="op">=</span>x</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>                <span class="cf">except</span>:</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> <span class="bu">len</span>(x)<span class="op">&lt;</span><span class="dv">1</span>:</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>                        country_check<span class="op">=</span>getNation(df__.loc[i,<span class="st">'Country'</span>])</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>                        boolCountry<span class="op">=</span>df2.region<span class="op">==</span>country_check</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>                        x<span class="op">=</span>df2[boolCountry].region</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">try</span>:</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>                            x<span class="op">=</span><span class="bu">str</span>(x.iloc[<span class="dv">0</span>])</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>                            df2.loc[boolCountry,<span class="st">'region'</span>]<span class="op">=</span>x</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>                        <span class="cf">except</span>:</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>                            x<span class="op">=</span>country_check</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>        xALL.append(x)</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>            nocALL.append(df2[boolCountry].NOC.iloc[<span class="dv">0</span>])</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span>:</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>            nocALL.append(<span class="st">'---'</span>)</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a><span class="co">#         print('x= ',x)</span></span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a><span class="co">#         print('-------------------')</span></span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a><span class="co">#         if i==42:</span></span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a><span class="co">#             break</span></span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(nocALL)</span></span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a>        df__.insert(<span class="dv">1</span>,<span class="st">'NOC'</span>,nocALL)</span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a>        df__.insert(<span class="dv">1</span>,<span class="st">'Nation'</span>,xALL)<span class="co">#,'Nation',xALL})</span></span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'done allready'</span>)</span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df__</span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a>        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_GDP<span class="op">=</span>changeDF_country(df_GDP,df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nothing found for World
+nothing found for DR Congo
+nothing found for Bolivia
+nothing found for Macau
+nothing found for Congo
+nothing found for North Macedonia
+nothing found for New Caledonia
+nothing found for French Polynesia
+nothing found for Eswatini
+nothing found for Greenland
+nothing found for Curaçao
+nothing found for East Timor
+nothing found for Zanzibar
+nothing found for British Virgin Islands
+nothing found for Northern Mariana Islands
+nothing found for Saint Kitts and Nevis
+nothing found for Saint Vincent and the Grenadines
+nothing found for Sint Maarten
+nothing found for São Tomé and Príncipe
+nothing found for Anguilla
+nothing found for Montserrat</code></pre>
+</div>
+</div>
+</section>
+<section id="population-table" class="level3">
+<h3 class="anchored" data-anchor-id="population-table">Population table</h3>
+<p>The same thing as above but for the population data</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_population <span class="op">=</span> pd.read_excel(<span class="st">'CountryData.xlsx'</span>,sheet_name<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df_population.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="101">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Rank</th>
+      <th>Country / Dependency</th>
+      <th>UN Region</th>
+      <th>Population</th>
+      <th>Percentage of the world</th>
+      <th>Date</th>
+      <th>Source (official or from the United Nations)</th>
+      <th>Notes</th>
+      <th>Column9</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>–</td>
+      <td>World</td>
+      <td>NaN</td>
+      <td>7965207000</td>
+      <td>1.0000</td>
+      <td>2022-07-20</td>
+      <td>UN projection[2]</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>China</td>
+      <td>Asia</td>
+      <td>1412600000</td>
+      <td>0.1770</td>
+      <td>2021-12-31</td>
+      <td>National annual estimate</td>
+      <td>The population figure refers to mainland China...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>India</td>
+      <td>Asia</td>
+      <td>1373761000</td>
+      <td>0.1720</td>
+      <td>2022-03-01</td>
+      <td>Annual national estimate</td>
+      <td>The figure includes the population of Indian-a...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>United States</td>
+      <td>Americas</td>
+      <td>332906919</td>
+      <td>0.0418</td>
+      <td>2022-07-20</td>
+      <td>National population clock</td>
+      <td>The figure includes the 50 states and the Dist...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Indonesia</td>
+      <td>Asia</td>
+      <td>272248500</td>
+      <td>0.0342</td>
+      <td>2021-07-01</td>
+      <td>National annual estimate</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_population.drop(columns<span class="op">=</span>[<span class="st">'Percentage of the world'</span>,<span class="st">'Date'</span>,<span class="st">'Source (official or from the United Nations)'</span>,<span class="st">'Column9'</span>,<span class="st">'Notes'</span>],inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df_population<span class="op">=</span>df_population.rename(columns<span class="op">=</span>{<span class="st">'Country / Dependency'</span>:<span class="st">'Country'</span>,<span class="st">'UN Region'</span>:<span class="st">'Continent'</span>},errors<span class="op">=</span><span class="st">'raise'</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>df_population</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="102">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Rank</th>
+      <th>Country</th>
+      <th>Continent</th>
+      <th>Population</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>–</td>
+      <td>World</td>
+      <td>NaN</td>
+      <td>7965207000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>China</td>
+      <td>Asia</td>
+      <td>1412600000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>India</td>
+      <td>Asia</td>
+      <td>1373761000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>United States</td>
+      <td>Americas</td>
+      <td>332906919</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Indonesia</td>
+      <td>Asia</td>
+      <td>272248500</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>237</th>
+      <td>–</td>
+      <td>Niue</td>
+      <td>Oceania</td>
+      <td>1549</td>
+    </tr>
+    <tr>
+      <th>238</th>
+      <td>–</td>
+      <td>Tokelau (New Zealand)</td>
+      <td>Oceania</td>
+      <td>1501</td>
+    </tr>
+    <tr>
+      <th>239</th>
+      <td>195</td>
+      <td>Vatican City</td>
+      <td>Europe</td>
+      <td>825</td>
+    </tr>
+    <tr>
+      <th>240</th>
+      <td>–</td>
+      <td>Cocos (Keeling) Islands (Australia)</td>
+      <td>Oceania</td>
+      <td>573</td>
+    </tr>
+    <tr>
+      <th>241</th>
+      <td>–</td>
+      <td>Pitcairn Islands (United Kingdom)</td>
+      <td>Oceania</td>
+      <td>40</td>
+    </tr>
+  </tbody>
+</table>
+<p>242 rows × 4 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_population<span class="op">=</span>changeDF_country(df_population,df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>nothing found for World
+nothing found for DR Congo
+nothing found for Bolivia
+nothing found for Hong Kong (China)
+nothing found for Congo
+nothing found for Puerto Rico (United States)
+nothing found for North Macedonia
+nothing found for East Timor
+nothing found for Eswatini
+nothing found for Macau (China)
+nothing found for Western Sahara
+nothing found for Northern Cyprus
+nothing found for Transnistria
+nothing found for French Polynesia (France)
+nothing found for New Caledonia (France)
+nothing found for Abkhazia
+nothing found for São Tomé and Príncipe
+nothing found for Guam (United States)
+nothing found for Curaçao (Netherlands)
+nothing found for Artsakh
+nothing found for Aruba (Netherlands)
+nothing found for Saint Vincent and the Grenadines
+nothing found for Jersey (British Crown Dependency)
+nothing found for U.S. Virgin Islands (United States)
+nothing found for Isle of Man (British Crown Dependency)
+nothing found for Cayman Islands (United Kingdom)
+nothing found for Bermuda (United Kingdom)
+nothing found for Guernsey (British Crown Dependency)
+nothing found for Greenland (Denmark)
+nothing found for Saint Kitts and Nevis
+nothing found for Faroe Islands (Denmark)
+nothing found for South Ossetia
+nothing found for American Samoa (United States)
+nothing found for Northern Mariana Islands (United States)
+nothing found for Turks and Caicos Islands (United Kingdom)
+nothing found for Sint Maarten (Netherlands)
+nothing found for Gibraltar (United Kingdom)
+nothing found for Saint Martin (France)
+nothing found for Åland (Finland)
+nothing found for British Virgin Islands (United Kingdom)
+nothing found for Anguilla (United Kingdom)
+nothing found for Wallis and Futuna (France)
+nothing found for Saint Barthélemy (France)
+nothing found for Saint Helena, Ascension and Tristan da Cunha (United Kingdom)
+nothing found for Saint Pierre and Miquelon (France)
+nothing found for Montserrat (United Kingdom)
+nothing found for Falkland Islands (United Kingdom)
+nothing found for Christmas Island (Australia)
+nothing found for Norfolk Island (Australia)
+nothing found for Niue
+nothing found for Tokelau (New Zealand)
+nothing found for Vatican City
+nothing found for Cocos (Keeling) Islands (Australia)
+nothing found for Pitcairn Islands (United Kingdom)</code></pre>
+</div>
+</div>
+</section>
+<section id="combine-everything-for-one-country-table" class="level3">
+<h3 class="anchored" data-anchor-id="combine-everything-for-one-country-table">Combine everything for one country table</h3>
+<p>Now we merge all data sets together. I’ll use pandas but this is the same as a SQL left outer join. Because we want to keep all the NOC values in <code>df2</code> we start with that then join each one after</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_country<span class="op">=</span>[]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_country<span class="op">=</span>df2.merge(df_population,left_on<span class="op">=</span><span class="st">'NOC'</span>,right_on<span class="op">=</span><span class="st">'NOC'</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>df_country<span class="op">=</span>df_country.merge(df_GDP,left_on<span class="op">=</span><span class="st">'Nation'</span>,right_on<span class="op">=</span><span class="st">'Nation'</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>df_country.drop(columns<span class="op">=</span>[<span class="st">'Continent_y'</span>,<span class="st">'Country_x'</span>,<span class="st">'Country_y'</span>,<span class="st">'NOC_y'</span>,<span class="st">'Rank'</span>,<span class="st">'notes'</span>,<span class="st">'region'</span>],inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>df_country<span class="op">=</span>df_country.rename(columns<span class="op">=</span>{<span class="st">'NOC_x'</span>:<span class="st">'NOC'</span>,<span class="st">'Continent_x'</span>:<span class="st">'Continent'</span>},errors<span class="op">=</span><span class="st">'raise'</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># We have multiple versions of Nation so we just take the max one</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>df_country <span class="op">=</span> df_country.groupby(<span class="st">'NOC'</span>).<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df_country.to_csv(<span class="st">'country'</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"athlete_events.csv"</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>df2.to_csv(<span class="st">"noc_regions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,5316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.258">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ThomasHSimm – olympicssql_createdfs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//posts/Picture3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ThomasHSimm</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ThomasHSimm"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ThomasHSimm"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><img src="../posts/header2.png" height="200"></p>
+
+
+
+<section id="olympics-data-with-sql-and-pandas--create-the-tables" class="level1">
+<h1>Olympics data with SQL and pandas- create the tables</h1>
+<blockquote class="blockquote">
+<p>Splitting up and cleaning Olympic dataset</p>
+</blockquote>
+<ul>
+<li>toc: true</li>
+<li>badges: true</li>
+<li>categories: [SQL, Pandas, python, Olympics]</li>
+</ul>
+<p><img src="ghtop_images/header2.png" class="img-fluid"></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Two csv files (representing two different tables) were imported to databricks.</p>
+<p>The main table (<code>athlete_events</code>) consists of 270,000 rows, whereas the unique names in the table are 135,000, or around half the total.</p>
+<ul>
+<li>Lots of columns and lots that are objects,
+<ul>
+<li>so we want to refine this by reducing columns and making it an integer or something smaller than object if possible</li>
+</ul></li>
+<li>There are some NaN values, particularly for height/weight at earlier games and also for medals</li>
+<li>An athlete can be represented in several rows if they do multiple events or at different games (e.g.&nbsp;Christine Jacoba Aaftink). So we may want a seperate ID that incorporate the athlete and the event/games that is unique</li>
+<li>The TEAM, NOC we only want one identifier and a seperate table for countries</li>
+</ul>
+<p>The first step was to split the table up. - First the users are split up based on whether they are male or female and whether they are in the summer or winter games. So split into 4. - Secondly not all data is needed for these athletes table, so instead of 15 columns this is reduced to 9 - Thirdly, the size of these athlete table is reduced by replacing several variables from string to int to reduce the size. Since for example, there is only a limited number of events.</p>
+<p>An entity relationship diagram (ERD) of the tables described above was developed as shown below.</p>
+<p>Those highlighted in blue and light blue would require additional data, the darkness of blue representing how much new data is needed.</p>
+<p><a href="https://lucid.app/documents/view/d72a6cca-7411-45d1-9bc6-e12608166eed">Lucid Chart</a> was used to produce the ERD</p>
+<p><img src="ghtop_images/SportTree.png" class="img-fluid"></p>
+<p><em>N.B. Most of these are steps not really necessary for this dataset, but I wanted to practice SQL (and pandas). If this was a real world problem I would weigh up the benefits of the splitting in terms of my time and computation to see if it was really necessary.</em></p>
+<section id="creating-a-country-table" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-country-table">Creating a country table</h3>
+<p>In a separate page (https://thomashsimm.com/sql/pandas/python/olympics/2022/07/29/OlympicsSQL_createCountryDF.html) I show how I created the country table.</p>
+<p>I also made some slight changes to the two main DataFrames df2 and df. Basically just to change the country label and add unique athlete and athlete + event ids</p>
+<p><code>df= df.reset_index()</code></p>
+<p><code>df.rename(columns={'index':'event_athlete_ID','ID':'athlete_ID'},inplace=True)</code></p>
+<p>The main part is to get rid of some duplicate NOC values, mostly correct but will not work in some regards e.g.&nbsp;China and Hong Kong.</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This gets region (or countries) which are repeated with different NOC values</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>d1<span class="op">=</span>sqldf(<span class="st">"SELECT                              </span><span class="ch">\</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">       NOC, region,notes,count(*)             </span><span class="ch">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM df2                               </span><span class="ch">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">       GROUP BY region                        </span><span class="ch">\</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">       HAVING COUNT(*)&gt;1                      </span><span class="ch">\</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">       ORDER BY count(*) DESC;"</span>,<span class="bu">locals</span>())</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># this then creates a table with one NOC per region and the original NOC values</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># we'll use the new NOC (one per region) a the new index</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>d2<span class="op">=</span>sqldf(<span class="st">"SELECT                              </span><span class="ch">\</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">       d1.NOC as new_NOC,df2.NOC orig_NOC,df2.region,df2.notes             </span><span class="ch">\</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">       FROM d1                                </span><span class="ch">\</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">       LEFT JOIN df2                          </span><span class="ch">\</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="st">       ON d1.region=df2.region                </span><span class="ch">\</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="st">      ORDER BY df2.region DESC;"</span>,<span class="bu">locals</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># then replace the regions with several NOC values with the new one</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,old_NOC <span class="kw">in</span> <span class="bu">enumerate</span>(d2.orig_NOC):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    df.loc[df.NOC<span class="op">==</span>old_NOC,<span class="st">'NOC'</span>]<span class="op">=</span>d2.loc[i,<span class="st">'new_NOC'</span>]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    df2.loc[df2.NOC<span class="op">==</span>old_NOC,<span class="st">'NOC'</span>]<span class="op">=</span>d2.loc[i,<span class="st">'new_NOC'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span> pd.read_csv(<span class="st">"athlete_events.csv"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    df.drop(columns<span class="op">=</span><span class="st">'Unnamed: 0'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>pd.read_csv(<span class="st">"noc_regions.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="look-at-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="look-at-the-data">Look at the data</h2>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-scrolled="true" data-execution_count="107">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install pandasql</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandasql <span class="im">import</span> sqldf</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="107">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_athlete_ID</th>
+      <th>athlete_ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Games</th>
+      <th>Year</th>
+      <th>Season</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>A Dijiang</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>180.0</td>
+      <td>80.0</td>
+      <td>China</td>
+      <td>CHN</td>
+      <td>1992 Summer</td>
+      <td>1992</td>
+      <td>Summer</td>
+      <td>Barcelona</td>
+      <td>Basketball</td>
+      <td>Basketball Men's Basketball</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>A Lamusi</td>
+      <td>M</td>
+      <td>23.0</td>
+      <td>170.0</td>
+      <td>60.0</td>
+      <td>China</td>
+      <td>CHN</td>
+      <td>2012 Summer</td>
+      <td>2012</td>
+      <td>Summer</td>
+      <td>London</td>
+      <td>Judo</td>
+      <td>Judo Men's Extra-Lightweight</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>3</td>
+      <td>Gunnar Nielsen Aaby</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Denmark</td>
+      <td>DEN</td>
+      <td>1920 Summer</td>
+      <td>1920</td>
+      <td>Summer</td>
+      <td>Antwerpen</td>
+      <td>Football</td>
+      <td>Football Men's Football</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>4</td>
+      <td>Edgar Lindenau Aabye</td>
+      <td>M</td>
+      <td>34.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Denmark/Sweden</td>
+      <td>DEN</td>
+      <td>1900 Summer</td>
+      <td>1900</td>
+      <td>Summer</td>
+      <td>Paris</td>
+      <td>Tug-Of-War</td>
+      <td>Tug-Of-War Men's Tug-Of-War</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>21.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1988 Winter</td>
+      <td>1988</td>
+      <td>Winter</td>
+      <td>Calgary</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>271111</th>
+      <td>271111</td>
+      <td>135569</td>
+      <td>Andrzej ya</td>
+      <td>M</td>
+      <td>29.0</td>
+      <td>179.0</td>
+      <td>89.0</td>
+      <td>Poland-1</td>
+      <td>POL</td>
+      <td>1976 Winter</td>
+      <td>1976</td>
+      <td>Winter</td>
+      <td>Innsbruck</td>
+      <td>Luge</td>
+      <td>Luge Mixed (Men)'s Doubles</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>271112</th>
+      <td>271112</td>
+      <td>135570</td>
+      <td>Piotr ya</td>
+      <td>M</td>
+      <td>27.0</td>
+      <td>176.0</td>
+      <td>59.0</td>
+      <td>Poland</td>
+      <td>POL</td>
+      <td>2014 Winter</td>
+      <td>2014</td>
+      <td>Winter</td>
+      <td>Sochi</td>
+      <td>Ski Jumping</td>
+      <td>Ski Jumping Men's Large Hill, Individual</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>271113</th>
+      <td>271113</td>
+      <td>135570</td>
+      <td>Piotr ya</td>
+      <td>M</td>
+      <td>27.0</td>
+      <td>176.0</td>
+      <td>59.0</td>
+      <td>Poland</td>
+      <td>POL</td>
+      <td>2014 Winter</td>
+      <td>2014</td>
+      <td>Winter</td>
+      <td>Sochi</td>
+      <td>Ski Jumping</td>
+      <td>Ski Jumping Men's Large Hill, Team</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>271114</th>
+      <td>271114</td>
+      <td>135571</td>
+      <td>Tomasz Ireneusz ya</td>
+      <td>M</td>
+      <td>30.0</td>
+      <td>185.0</td>
+      <td>96.0</td>
+      <td>Poland</td>
+      <td>POL</td>
+      <td>1998 Winter</td>
+      <td>1998</td>
+      <td>Winter</td>
+      <td>Nagano</td>
+      <td>Bobsleigh</td>
+      <td>Bobsleigh Men's Four</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>271115</th>
+      <td>271115</td>
+      <td>135571</td>
+      <td>Tomasz Ireneusz ya</td>
+      <td>M</td>
+      <td>34.0</td>
+      <td>185.0</td>
+      <td>96.0</td>
+      <td>Poland</td>
+      <td>POL</td>
+      <td>2002 Winter</td>
+      <td>2002</td>
+      <td>Winter</td>
+      <td>Salt Lake City</td>
+      <td>Bobsleigh</td>
+      <td>Bobsleigh Men's Four</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>271116 rows × 16 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
+<pre><code>event_athlete_ID      int64
+athlete_ID            int64
+Name                 object
+Sex                  object
+Age                 float64
+Height              float64
+Weight              float64
+Team                 object
+NOC                  object
+Games                object
+Year                  int64
+Season               object
+City                 object
+Sport                object
+Event                object
+Medal                object
+dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="109">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_athlete_ID</th>
+      <th>athlete_ID</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>271116.000000</td>
+      <td>271116.000000</td>
+      <td>261642.000000</td>
+      <td>210945.000000</td>
+      <td>208241.000000</td>
+      <td>271116.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>135557.500000</td>
+      <td>68248.954396</td>
+      <td>25.556898</td>
+      <td>175.338970</td>
+      <td>70.702393</td>
+      <td>1978.378480</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>78264.592128</td>
+      <td>39022.286345</td>
+      <td>6.393561</td>
+      <td>10.518462</td>
+      <td>14.348020</td>
+      <td>29.877632</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>10.000000</td>
+      <td>127.000000</td>
+      <td>25.000000</td>
+      <td>1896.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>67778.750000</td>
+      <td>34643.000000</td>
+      <td>21.000000</td>
+      <td>168.000000</td>
+      <td>60.000000</td>
+      <td>1960.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>135557.500000</td>
+      <td>68205.000000</td>
+      <td>24.000000</td>
+      <td>175.000000</td>
+      <td>70.000000</td>
+      <td>1988.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>203336.250000</td>
+      <td>102097.250000</td>
+      <td>28.000000</td>
+      <td>183.000000</td>
+      <td>79.000000</td>
+      <td>2002.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>271115.000000</td>
+      <td>135571.000000</td>
+      <td>97.000000</td>
+      <td>226.000000</td>
+      <td>214.000000</td>
+      <td>2016.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="create-all_athletes-table" class="level2">
+<h2 class="anchored" data-anchor-id="create-all_athletes-table">Create all_athletes table</h2>
+<p>Because we are splitting the athlete data based on Summer/Winter and Male/Female we need a folder to be able to join or access different parts of the individual athlete tables.</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span> df.reset_index()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df.rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'event_athlete_ID'</span>,<span class="st">'ID'</span>:<span class="st">'athlete_ID'</span>},inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="76">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_athlete_ID</th>
+      <th>event_athlete_ID</th>
+      <th>athlete_ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Games</th>
+      <th>Year</th>
+      <th>Season</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>A Dijiang</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>180.0</td>
+      <td>80.0</td>
+      <td>China</td>
+      <td>CHN</td>
+      <td>1992 Summer</td>
+      <td>1992</td>
+      <td>Summer</td>
+      <td>Barcelona</td>
+      <td>Basketball</td>
+      <td>Basketball Men's Basketball</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>A Lamusi</td>
+      <td>M</td>
+      <td>23.0</td>
+      <td>170.0</td>
+      <td>60.0</td>
+      <td>China</td>
+      <td>CHN</td>
+      <td>2012 Summer</td>
+      <td>2012</td>
+      <td>Summer</td>
+      <td>London</td>
+      <td>Judo</td>
+      <td>Judo Men's Extra-Lightweight</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>Gunnar Nielsen Aaby</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Denmark</td>
+      <td>DEN</td>
+      <td>1920 Summer</td>
+      <td>1920</td>
+      <td>Summer</td>
+      <td>Antwerpen</td>
+      <td>Football</td>
+      <td>Football Men's Football</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>3</td>
+      <td>4</td>
+      <td>Edgar Lindenau Aabye</td>
+      <td>M</td>
+      <td>34.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Denmark/Sweden</td>
+      <td>DEN</td>
+      <td>1900 Summer</td>
+      <td>1900</td>
+      <td>Summer</td>
+      <td>Paris</td>
+      <td>Tug-Of-War</td>
+      <td>Tug-Of-War Men's Tug-Of-War</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>4</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>21.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1988 Winter</td>
+      <td>1988</td>
+      <td>Winter</td>
+      <td>Calgary</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>21.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1988 Winter</td>
+      <td>1988</td>
+      <td>Winter</td>
+      <td>Calgary</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 1,000 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>6</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>25.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1992 Winter</td>
+      <td>1992</td>
+      <td>Winter</td>
+      <td>Albertville</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>7</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>25.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1992 Winter</td>
+      <td>1992</td>
+      <td>Winter</td>
+      <td>Albertville</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 1,000 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>8</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>27.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1994 Winter</td>
+      <td>1994</td>
+      <td>Winter</td>
+      <td>Lillehammer</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>9</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>27.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1994 Winter</td>
+      <td>1994</td>
+      <td>Winter</td>
+      <td>Lillehammer</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 1,000 metres</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_all_athletes<span class="op">=</span>df[[<span class="st">'event_athlete_ID'</span>,<span class="st">'athlete_ID'</span>,<span class="st">'Name'</span>,<span class="st">'Sex'</span>,<span class="st">'Season'</span>]]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df_all_athletes                    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_athlete_ID</th>
+      <th>event_athlete_ID</th>
+      <th>athlete_ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Season</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>A Dijiang</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>A Lamusi</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>Gunnar Nielsen Aaby</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>3</td>
+      <td>4</td>
+      <td>Edgar Lindenau Aabye</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>4</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>271111</th>
+      <td>271111</td>
+      <td>271111</td>
+      <td>135569</td>
+      <td>Andrzej ya</td>
+      <td>M</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>271112</th>
+      <td>271112</td>
+      <td>271112</td>
+      <td>135570</td>
+      <td>Piotr ya</td>
+      <td>M</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>271113</th>
+      <td>271113</td>
+      <td>271113</td>
+      <td>135570</td>
+      <td>Piotr ya</td>
+      <td>M</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>271114</th>
+      <td>271114</td>
+      <td>271114</td>
+      <td>135571</td>
+      <td>Tomasz Ireneusz ya</td>
+      <td>M</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>271115</th>
+      <td>271115</td>
+      <td>271115</td>
+      <td>135571</td>
+      <td>Tomasz Ireneusz ya</td>
+      <td>M</td>
+      <td>Winter</td>
+    </tr>
+  </tbody>
+</table>
+<p>271116 rows × 6 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-an-events-table" class="level2">
+<h2 class="anchored" data-anchor-id="creating-an-events-table">Creating an Events Table</h2>
+<p>In this table the individual events are displayed. e.g.&nbsp;100m Mens Sprint Athletics or Womens Football</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"There are </span><span class="sc">{}</span><span class="st"> unique sports and </span><span class="sc">{}</span><span class="st"> unique events "</span>.<span class="bu">format</span>(<span class="bu">len</span>(pd.unique(df.Sport)), <span class="bu">len</span>(pd.unique(df.Event))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>There are 66 unique sports and 765 unique events </code></pre>
+</div>
+</div>
+<p>Because of the way that events are named they won’t be duplicated, e.g.&nbsp;400m breaststroke swimming will be different from 400m athletics running because the name is prefixed with Athletics Women, Swimming Men etc</p>
+<p>Instead of using one hot encoding (<code>get_dummies</code> for pandas as done with medals) we want a different number for each unique event in one column. To do this we can use factorize</p>
+<p><code>aa=pd.factorize(df.ColumnCheck)</code></p>
+<p>will give us a variable where - aa[0] is a list of numbers of length of rows in df, where each value represents a different event - aa[1] is then a list of the events of length of the unique events, aa[1][0] is event = 0, aa[1][1] is event = 1 etc - so below aa[1][0] = ‘Basketball Men’s Basketball’ and each row in the df with this event will have a 0 in aa[0]</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>event_details<span class="op">=</span>pd.factorize(df.Event)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>event_details[<span class="dv">1</span>][<span class="dv">0</span>:<span class="dv">100</span>], event_details[<span class="dv">0</span>][<span class="dv">1</span>:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="79">
+<pre><code>(Index(['Basketball Men's Basketball', 'Judo Men's Extra-Lightweight',
+        'Football Men's Football', 'Tug-Of-War Men's Tug-Of-War',
+        'Speed Skating Women's 500 metres',
+        'Speed Skating Women's 1,000 metres',
+        'Cross Country Skiing Men's 10 kilometres',
+        'Cross Country Skiing Men's 50 kilometres',
+        'Cross Country Skiing Men's 10/15 kilometres Pursuit',
+        'Cross Country Skiing Men's 4 x 10 kilometres Relay',
+        'Cross Country Skiing Men's 30 kilometres',
+        'Athletics Women's 100 metres',
+        'Athletics Women's 4 x 100 metres Relay', 'Ice Hockey Men's Ice Hockey',
+        'Swimming Men's 400 metres Freestyle', 'Badminton Men's Singles',
+        'Sailing Women's Windsurfer', 'Biathlon Women's 7.5 kilometres Sprint',
+        'Swimming Men's 200 metres Breaststroke',
+        'Swimming Men's 400 metres Breaststroke',
+        'Gymnastics Men's Individual All-Around',
+        'Gymnastics Men's Team All-Around', 'Gymnastics Men's Floor Exercise',
+        'Gymnastics Men's Horse Vault', 'Gymnastics Men's Parallel Bars',
+        'Gymnastics Men's Horizontal Bar', 'Gymnastics Men's Rings',
+        'Gymnastics Men's Pommelled Horse', 'Athletics Men's Shot Put',
+        'Art Competitions Mixed Sculpturing, Unknown Event',
+        'Alpine Skiing Men's Downhill', 'Alpine Skiing Men's Super G',
+        'Alpine Skiing Men's Giant Slalom', 'Alpine Skiing Men's Slalom',
+        'Alpine Skiing Men's Combined', 'Handball Women's Handball',
+        'Weightlifting Women's Super-Heavyweight',
+        'Wrestling Men's Light-Heavyweight, Greco-Roman',
+        'Speed Skating Men's 500 metres', 'Speed Skating Men's 1,500 metres',
+        'Gymnastics Men's Team All-Around, Free System', 'Luge Women's Singles',
+        'Water Polo Men's Water Polo', 'Sailing Mixed Three Person Keelboat',
+        'Hockey Women's Hockey', 'Rowing Men's Lightweight Double Sculls',
+        'Athletics Men's Pole Vault', 'Athletics Men's High Jump',
+        'Sailing Men's Two Person Dinghy', 'Athletics Men's 1,500 metres',
+        'Bobsleigh Men's Four', 'Swimming Men's 100 metres Butterfly',
+        'Swimming Men's 200 metres Butterfly',
+        'Swimming Men's 4 x 100 metres Medley Relay',
+        'Football Women's Football', 'Fencing Men's Foil, Individual',
+        'Fencing Men's epee, Individual', 'Fencing Men's epee, Team',
+        'Speed Skating Men's 5,000 metres', 'Speed Skating Men's 10,000 metres',
+        'Sailing Mixed 8 metres', 'Equestrianism Mixed Jumping, Individual',
+        'Cross Country Skiing Men's 15 kilometres',
+        'Shooting Men's Small-Bore Rifle, Prone, 50 metres',
+        'Shooting Men's Rapid-Fire Pistol, 25 metres', 'Shooting Men's Trap',
+        'Athletics Men's 4 x 100 metres Relay', 'Athletics Men's Long Jump',
+        'Boxing Men's Light-Welterweight', 'Athletics Women's Javelin Throw',
+        'Wrestling Men's Heavyweight, Freestyle', 'Taekwondo Men's Flyweight',
+        'Boxing Men's Heavyweight', 'Athletics Men's 5,000 metres',
+        'Cycling Men's Road Race, Individual', 'Cycling Men's Road Race, Team',
+        'Weightlifting Men's Lightweight', 'Weightlifting Men's Middleweight',
+        'Rowing Men's Coxless Pairs', 'Judo Men's Half-Middleweight',
+        'Taekwondo Women's Flyweight', 'Boxing Men's Flyweight',
+        'Basketball Women's Basketball', 'Diving Men's Platform',
+        'Canoeing Men's Canadian Doubles, 500 metres',
+        'Canoeing Men's Canadian Doubles, 1,000 metres',
+        'Canoeing Men's Kayak Fours, 1,000 metres', 'Handball Men's Handball',
+        'Rowing Women's Coxless Pairs', 'Boxing Men's Middleweight',
+        'Judo Men's Lightweight', 'Boxing Men's Featherweight',
+        'Tennis Men's Doubles', 'Shooting Mixed Skeet',
+        'Wrestling Men's Featherweight, Freestyle',
+        'Sailing Mixed Two Person Heavyweight Dinghy',
+        'Athletics Women's Shot Put', 'Rowing Men's Coxed Eights',
+        'Cycling Women's Sprint', 'Cycling Women's 500 metres Time Trial'],
+       dtype='object'),
+ array([1, 2, 3, 4, 5, 4, 5, 4, 5], dtype=int64))</code></pre>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df.insert(<span class="dv">2</span>,<span class="st">'event_id'</span>,event_details[<span class="dv">0</span>])</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="80">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_athlete_ID</th>
+      <th>event_athlete_ID</th>
+      <th>event_id</th>
+      <th>athlete_ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Games</th>
+      <th>Year</th>
+      <th>Season</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>A Dijiang</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>180.0</td>
+      <td>80.0</td>
+      <td>China</td>
+      <td>CHN</td>
+      <td>1992 Summer</td>
+      <td>1992</td>
+      <td>Summer</td>
+      <td>Barcelona</td>
+      <td>Basketball</td>
+      <td>Basketball Men's Basketball</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>A Lamusi</td>
+      <td>M</td>
+      <td>23.0</td>
+      <td>170.0</td>
+      <td>60.0</td>
+      <td>China</td>
+      <td>CHN</td>
+      <td>2012 Summer</td>
+      <td>2012</td>
+      <td>Summer</td>
+      <td>London</td>
+      <td>Judo</td>
+      <td>Judo Men's Extra-Lightweight</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>Gunnar Nielsen Aaby</td>
+      <td>M</td>
+      <td>24.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Denmark</td>
+      <td>DEN</td>
+      <td>1920 Summer</td>
+      <td>1920</td>
+      <td>Summer</td>
+      <td>Antwerpen</td>
+      <td>Football</td>
+      <td>Football Men's Football</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>4</td>
+      <td>Edgar Lindenau Aabye</td>
+      <td>M</td>
+      <td>34.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Denmark/Sweden</td>
+      <td>DEN</td>
+      <td>1900 Summer</td>
+      <td>1900</td>
+      <td>Summer</td>
+      <td>Paris</td>
+      <td>Tug-Of-War</td>
+      <td>Tug-Of-War Men's Tug-Of-War</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>21.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1988 Winter</td>
+      <td>1988</td>
+      <td>Winter</td>
+      <td>Calgary</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>21.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1988 Winter</td>
+      <td>1988</td>
+      <td>Winter</td>
+      <td>Calgary</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 1,000 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>6</td>
+      <td>4</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>25.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1992 Winter</td>
+      <td>1992</td>
+      <td>Winter</td>
+      <td>Albertville</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>7</td>
+      <td>5</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>25.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1992 Winter</td>
+      <td>1992</td>
+      <td>Winter</td>
+      <td>Albertville</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 1,000 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>8</td>
+      <td>4</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>27.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1994 Winter</td>
+      <td>1994</td>
+      <td>Winter</td>
+      <td>Lillehammer</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>9</td>
+      <td>5</td>
+      <td>5</td>
+      <td>Christine Jacoba Aaftink</td>
+      <td>F</td>
+      <td>27.0</td>
+      <td>185.0</td>
+      <td>82.0</td>
+      <td>Netherlands</td>
+      <td>NED</td>
+      <td>1994 Winter</td>
+      <td>1994</td>
+      <td>Winter</td>
+      <td>Lillehammer</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 1,000 metres</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>event_details<span class="op">=</span>pd.factorize(df.Event)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df_event <span class="op">=</span> pd.DataFrame(event_details[<span class="dv">1</span>])</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df_event</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="81">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Basketball Men's Basketball</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Judo Men's Extra-Lightweight</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Football Men's Football</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Tug-Of-War Men's Tug-Of-War</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Speed Skating Women's 500 metres</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>760</th>
+      <td>Weightlifting Men's All-Around Dumbbell Contest</td>
+    </tr>
+    <tr>
+      <th>761</th>
+      <td>Archery Men's Au Chapelet, 33 metres</td>
+    </tr>
+    <tr>
+      <th>762</th>
+      <td>Archery Men's Au Cordon Dore, 33 metres</td>
+    </tr>
+    <tr>
+      <th>763</th>
+      <td>Archery Men's Target Archery, 28 metres, Indiv...</td>
+    </tr>
+    <tr>
+      <th>764</th>
+      <td>Aeronautics Mixed Aeronautics</td>
+    </tr>
+  </tbody>
+</table>
+<p>765 rows × 1 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df_event <span class="op">=</span> df[[<span class="st">'Sport'</span>,<span class="st">'Event'</span>,<span class="st">'Sex'</span>,<span class="st">'Season'</span>]]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>event_details<span class="op">=</span>pd.factorize(df.Sport)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>df_event.insert(<span class="dv">0</span>,<span class="st">'sport_id'</span>,event_details[<span class="dv">0</span>])</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>event_details<span class="op">=</span>pd.factorize(df.Event)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>df_event.insert(<span class="dv">0</span>,<span class="st">'event_id'</span>,event_details[<span class="dv">0</span>])</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>df_event</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_id</th>
+      <th>sport_id</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Sex</th>
+      <th>Season</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>Basketball</td>
+      <td>Basketball Men's Basketball</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Judo</td>
+      <td>Judo Men's Extra-Lightweight</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2</td>
+      <td>Football</td>
+      <td>Football Men's Football</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>3</td>
+      <td>Tug-Of-War</td>
+      <td>Tug-Of-War Men's Tug-Of-War</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>4</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>F</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>271111</th>
+      <td>461</td>
+      <td>18</td>
+      <td>Luge</td>
+      <td>Luge Mixed (Men)'s Doubles</td>
+      <td>M</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>271112</th>
+      <td>418</td>
+      <td>48</td>
+      <td>Ski Jumping</td>
+      <td>Ski Jumping Men's Large Hill, Individual</td>
+      <td>M</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>271113</th>
+      <td>419</td>
+      <td>48</td>
+      <td>Ski Jumping</td>
+      <td>Ski Jumping Men's Large Hill, Team</td>
+      <td>M</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>271114</th>
+      <td>50</td>
+      <td>22</td>
+      <td>Bobsleigh</td>
+      <td>Bobsleigh Men's Four</td>
+      <td>M</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>271115</th>
+      <td>50</td>
+      <td>22</td>
+      <td>Bobsleigh</td>
+      <td>Bobsleigh Men's Four</td>
+      <td>M</td>
+      <td>Winter</td>
+    </tr>
+  </tbody>
+</table>
+<p>271116 rows × 6 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_event <span class="op">=</span> df_event.drop_duplicates().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_event<span class="co">#[df_event.Sex=='F'].head(30)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="83">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_id</th>
+      <th>sport_id</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Sex</th>
+      <th>Season</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>Basketball</td>
+      <td>Basketball Men's Basketball</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Judo</td>
+      <td>Judo Men's Extra-Lightweight</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2</td>
+      <td>Football</td>
+      <td>Football Men's Football</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>3</td>
+      <td>Tug-Of-War</td>
+      <td>Tug-Of-War Men's Tug-Of-War</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>4</td>
+      <td>Speed Skating</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>F</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>824</th>
+      <td>221</td>
+      <td>10</td>
+      <td>Sailing</td>
+      <td>Sailing Mixed 7 metres</td>
+      <td>F</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>825</th>
+      <td>333</td>
+      <td>10</td>
+      <td>Sailing</td>
+      <td>Sailing Mixed 6 metres</td>
+      <td>F</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>826</th>
+      <td>764</td>
+      <td>65</td>
+      <td>Aeronautics</td>
+      <td>Aeronautics Mixed Aeronautics</td>
+      <td>M</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>827</th>
+      <td>677</td>
+      <td>13</td>
+      <td>Art Competitions</td>
+      <td>Art Competitions Mixed Sculpturing, Medals And...</td>
+      <td>F</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <th>828</th>
+      <td>648</td>
+      <td>13</td>
+      <td>Art Competitions</td>
+      <td>Art Competitions Mixed Unknown Event</td>
+      <td>F</td>
+      <td>Summer</td>
+    </tr>
+  </tbody>
+</table>
+<p>829 rows × 6 columns</p>
+</div>
+</div>
+</div>
+<section id="an-additional-columns-in-event_table" class="level3">
+<h3 class="anchored" data-anchor-id="an-additional-columns-in-event_table">An additional columns in event_table</h3>
+<p>Lets add a column representing if the sport is a team sport or individual. We can’t do this on the unique members of a team in that event because the team can have multiple members in an individual event. Instead, we can look for how many people took the gold medal. Should work for most circumstances as the gold shouldn’t be shared- so if 2 people won gold it should represent a team sport of 2 people.</p>
+<p>This is a little convoluted so I’ll do it in two steps in SQL. One way to calculate and one to join this new table back in with df_event</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df_event_temp<span class="op">=</span>sqldf(<span class="st">"SELECT                   </span><span class="ch">\</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="st">      event_id,event,num_athletes    </span><span class="ch">\</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="st">      FROM                                    </span><span class="ch">\</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="st">      (SELECT                                 </span><span class="ch">\</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="st">          event,                              </span><span class="ch">\</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="st">          event_id,                           </span><span class="ch">\</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="st">          COUNT(*)    as num_athletes         </span><span class="ch">\</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="st">      FROM df                                 </span><span class="ch">\</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="st">      WHERE Medal='Gold'                      </span><span class="ch">\</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="st">      GROUP BY Team, event_id, Games          </span><span class="ch">\</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="st">      ORDER BY event_id                       </span><span class="ch">\</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="st">      )                                       </span><span class="ch">\</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="st">      GROUP BY event_id                       </span><span class="ch">\</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="st">                    ;"</span>,   <span class="bu">locals</span>())                               </span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>df_event_temp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_id</th>
+      <th>event</th>
+      <th>num_athletes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Basketball Men's Basketball</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Judo Men's Extra-Lightweight</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Football Men's Football</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Tug-Of-War Men's Tug-Of-War</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Speed Skating Women's 500 metres</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>745</th>
+      <td>760</td>
+      <td>Weightlifting Men's All-Around Dumbbell Contest</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>746</th>
+      <td>761</td>
+      <td>Archery Men's Au Chapelet, 33 metres</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>747</th>
+      <td>762</td>
+      <td>Archery Men's Au Cordon Dore, 33 metres</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>748</th>
+      <td>763</td>
+      <td>Archery Men's Target Archery, 28 metres, Indiv...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>749</th>
+      <td>764</td>
+      <td>Aeronautics Mixed Aeronautics</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>750 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_event_temp      <span class="op">=</span> sqldf(<span class="st">"SELECT                                </span><span class="ch">\</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="st">                      d.event_id,                            </span><span class="ch">\</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="st">                      d.sport_id,                            </span><span class="ch">\</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="st">                      d.Sport,                               </span><span class="ch">\</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="st">                      d.Event,                               </span><span class="ch">\</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="st">                      d.Sex,                                 </span><span class="ch">\</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="st">                      d.Season,                              </span><span class="ch">\</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="st">                      t.num_athletes                         </span><span class="ch">\</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="st">                FROM df_event  as d                          </span><span class="ch">\</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="st">                LEFT JOIN                                    </span><span class="ch">\</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="st">                    df_event_temp  as t                      </span><span class="ch">\</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="st">                ON                                           </span><span class="ch">\</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="st">                    t.event_id=d.event_id                    </span><span class="ch">\</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="st">                ORDER BY d.event_id                          </span><span class="ch">\</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="st">                      ;"</span>,<span class="bu">locals</span>())</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_event_temp[((df_event_temp.Sex=='F') &amp; (df_event_temp.Season=='Winter'))].head(30)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df_event<span class="op">=</span>df_event_temp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And make the last column int not float (CAST didn’t seem to work perhaps due to NaN values?)</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_event.fillna(<span class="dv">0</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df_event <span class="op">=</span> df_event.astype({<span class="st">'num_athletes'</span>:<span class="st">'int'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sanity check</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_event[((df_event[<span class="st">'num_athletes'</span>]<span class="op">==</span><span class="dv">4</span>) <span class="op">&amp;</span> (df_event[<span class="st">'Season'</span>]<span class="op">==</span><span class="st">'Winter'</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_id</th>
+      <th>sport_id</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Sex</th>
+      <th>Season</th>
+      <th>num_athletes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>5</td>
+      <td>Cross Country Skiing</td>
+      <td>Cross Country Skiing Men's 4 x 10 kilometres R...</td>
+      <td>M</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>50</td>
+      <td>22</td>
+      <td>Bobsleigh</td>
+      <td>Bobsleigh Men's Four</td>
+      <td>M</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>204</td>
+      <td>40</td>
+      <td>Nordic Combined</td>
+      <td>Nordic Combined Men's Team</td>
+      <td>M</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>238</th>
+      <td>226</td>
+      <td>11</td>
+      <td>Biathlon</td>
+      <td>Biathlon Men's 4 x 7.5 kilometres Relay</td>
+      <td>M</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>274</th>
+      <td>259</td>
+      <td>11</td>
+      <td>Biathlon</td>
+      <td>Biathlon Mixed 2 x 6 kilometres and 2 x 7.5 ki...</td>
+      <td>M</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>275</th>
+      <td>259</td>
+      <td>11</td>
+      <td>Biathlon</td>
+      <td>Biathlon Mixed 2 x 6 kilometres and 2 x 7.5 ki...</td>
+      <td>F</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>330</th>
+      <td>310</td>
+      <td>11</td>
+      <td>Biathlon</td>
+      <td>Biathlon Women's 4 x 7.5 kilometres Relay</td>
+      <td>F</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>451</th>
+      <td>419</td>
+      <td>48</td>
+      <td>Ski Jumping</td>
+      <td>Ski Jumping Men's Large Hill, Team</td>
+      <td>M</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>470</th>
+      <td>435</td>
+      <td>52</td>
+      <td>Short Track Speed Skating</td>
+      <td>Short Track Speed Skating Men's 5,000 metres R...</td>
+      <td>M</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>478</th>
+      <td>443</td>
+      <td>11</td>
+      <td>Biathlon</td>
+      <td>Biathlon Women's 4 x 6 kilometres Relay</td>
+      <td>F</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>504</th>
+      <td>466</td>
+      <td>5</td>
+      <td>Cross Country Skiing</td>
+      <td>Cross Country Skiing Women's 4 x 5 kilometres ...</td>
+      <td>F</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>510</th>
+      <td>472</td>
+      <td>22</td>
+      <td>Bobsleigh</td>
+      <td>Bobsleigh Men's Four/Five</td>
+      <td>M</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>533</th>
+      <td>492</td>
+      <td>52</td>
+      <td>Short Track Speed Skating</td>
+      <td>Short Track Speed Skating Women's 3,000 metres...</td>
+      <td>F</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>615</th>
+      <td>572</td>
+      <td>18</td>
+      <td>Luge</td>
+      <td>Luge Mixed Team Relay</td>
+      <td>M</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>616</th>
+      <td>572</td>
+      <td>18</td>
+      <td>Luge</td>
+      <td>Luge Mixed Team Relay</td>
+      <td>F</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>640</th>
+      <td>594</td>
+      <td>59</td>
+      <td>Military Ski Patrol</td>
+      <td>Military Ski Patrol Men's Military Ski Patrol</td>
+      <td>M</td>
+      <td>Winter</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df[df.event_id<span class="op">==</span><span class="dv">572</span>][[<span class="st">'Sport'</span>,<span class="st">'Event'</span>,<span class="st">'Sex'</span>]].tail(<span class="dv">6</span>),df_event[df_event.event_id<span class="op">==</span><span class="dv">572</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="89">
+<pre><code>(       Sport                  Event Sex
+ 255927  Luge  Luge Mixed Team Relay   M
+ 258882  Luge  Luge Mixed Team Relay   M
+ 262369  Luge  Luge Mixed Team Relay   F
+ 267369  Luge  Luge Mixed Team Relay   M
+ 268477  Luge  Luge Mixed Team Relay   M
+ 270261  Luge  Luge Mixed Team Relay   M,
+      event_id  sport_id Sport                  Event Sex  Season  num_athletes
+ 615       572        18  Luge  Luge Mixed Team Relay   M  Winter             4
+ 616       572        18  Luge  Luge Mixed Team Relay   F  Winter             4)</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="add-a-games-table" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-games-table">Add a Games table</h2>
+<p>The games table is used to give information about a particular Olympic games including - Where it was staged - Is it a summer or winter games - The year it was staged</p>
+<p>Using the same methodology as before we want to - create a unique id for the games - replace this in the athlete tables - add a new table with the unique id and additional information about the particular games</p>
+<p>This is more complex than the events table because we want to add additional data about the cities where the games were held. This data is obtained from wikipedia as before. So some of the methodology used in creating the country table is used here.</p>
+<p><em>There’s a strange thing that there are two summer games in one year</em></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>df.sort_values(by<span class="op">=</span>[<span class="st">'Year'</span>,<span class="st">'City'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># event_details=pd.factorize(pd.lib.fast_zip([df.Games, df.City]))</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>tuples <span class="op">=</span> df[[<span class="st">'Games'</span>, <span class="st">'City'</span>]].<span class="bu">apply</span>(<span class="bu">tuple</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>event_details <span class="op">=</span> pd.factorize( tuples )</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>event_details[<span class="dv">1</span>][<span class="dv">0</span>:<span class="dv">10</span>], event_details[<span class="dv">0</span>][<span class="dv">1</span>:<span class="dv">10</span>],<span class="bu">len</span>(event_details[<span class="dv">1</span>]),<span class="bu">len</span>(event_details[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="91">
+<pre><code>(Index([   ('1896 Summer', 'Athina'),     ('1900 Summer', 'Paris'),
+        ('1904 Summer', 'St. Louis'),    ('1906 Summer', 'Athina'),
+           ('1908 Summer', 'London'), ('1912 Summer', 'Stockholm'),
+        ('1920 Summer', 'Antwerpen'),  ('1924 Winter', 'Chamonix'),
+            ('1924 Summer', 'Paris'), ('1928 Summer', 'Amsterdam')],
+       dtype='object'),
+ array([0, 0, 0, 0, 0, 0, 0, 0, 0], dtype=int64),
+ 52,
+ 271116)</code></pre>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df.insert(<span class="dv">3</span>,<span class="st">'games_id'</span>,event_details[<span class="dv">0</span>])</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_athlete_ID</th>
+      <th>event_athlete_ID</th>
+      <th>event_id</th>
+      <th>games_id</th>
+      <th>athlete_ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Games</th>
+      <th>Year</th>
+      <th>Season</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3079</th>
+      <td>3079</td>
+      <td>3079</td>
+      <td>191</td>
+      <td>0</td>
+      <td>1724</td>
+      <td>Aristidis Akratopoulos</td>
+      <td>M</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Greece</td>
+      <td>CRT</td>
+      <td>1896 Summer</td>
+      <td>1896</td>
+      <td>Summer</td>
+      <td>Athina</td>
+      <td>Tennis</td>
+      <td>Tennis Men's Singles</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3080</th>
+      <td>3080</td>
+      <td>3080</td>
+      <td>92</td>
+      <td>0</td>
+      <td>1724</td>
+      <td>Aristidis Akratopoulos</td>
+      <td>M</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Greece-3</td>
+      <td>CRT</td>
+      <td>1896 Summer</td>
+      <td>1896</td>
+      <td>Summer</td>
+      <td>Athina</td>
+      <td>Tennis</td>
+      <td>Tennis Men's Doubles</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3081</th>
+      <td>3081</td>
+      <td>3081</td>
+      <td>191</td>
+      <td>0</td>
+      <td>1725</td>
+      <td>Konstantinos "Kostas" Akratopoulos</td>
+      <td>M</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Greece</td>
+      <td>CRT</td>
+      <td>1896 Summer</td>
+      <td>1896</td>
+      <td>Summer</td>
+      <td>Athina</td>
+      <td>Tennis</td>
+      <td>Tennis Men's Singles</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3082</th>
+      <td>3082</td>
+      <td>3082</td>
+      <td>92</td>
+      <td>0</td>
+      <td>1725</td>
+      <td>Konstantinos "Kostas" Akratopoulos</td>
+      <td>M</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Greece-3</td>
+      <td>CRT</td>
+      <td>1896 Summer</td>
+      <td>1896</td>
+      <td>Summer</td>
+      <td>Athina</td>
+      <td>Tennis</td>
+      <td>Tennis Men's Doubles</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7348</th>
+      <td>7348</td>
+      <td>7348</td>
+      <td>100</td>
+      <td>0</td>
+      <td>4113</td>
+      <td>Anastasios Andreou</td>
+      <td>M</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Greece</td>
+      <td>CRT</td>
+      <td>1896 Summer</td>
+      <td>1896</td>
+      <td>Summer</td>
+      <td>Athina</td>
+      <td>Athletics</td>
+      <td>Athletics Men's 110 metres Hurdles</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>271024</th>
+      <td>271024</td>
+      <td>271024</td>
+      <td>15</td>
+      <td>51</td>
+      <td>135528</td>
+      <td>Marc Zwiebler</td>
+      <td>M</td>
+      <td>32.0</td>
+      <td>181.0</td>
+      <td>75.0</td>
+      <td>Germany</td>
+      <td>FRG</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Badminton</td>
+      <td>Badminton Men's Singles</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>271053</th>
+      <td>271053</td>
+      <td>271053</td>
+      <td>11</td>
+      <td>51</td>
+      <td>135547</td>
+      <td>Viktoriya Viktorovna Zyabkina</td>
+      <td>F</td>
+      <td>23.0</td>
+      <td>174.0</td>
+      <td>62.0</td>
+      <td>Kazakhstan</td>
+      <td>KAZ</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Athletics</td>
+      <td>Athletics Women's 100 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>271054</th>
+      <td>271054</td>
+      <td>271054</td>
+      <td>174</td>
+      <td>51</td>
+      <td>135547</td>
+      <td>Viktoriya Viktorovna Zyabkina</td>
+      <td>F</td>
+      <td>23.0</td>
+      <td>174.0</td>
+      <td>62.0</td>
+      <td>Kazakhstan</td>
+      <td>KAZ</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Athletics</td>
+      <td>Athletics Women's 200 metres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>271055</th>
+      <td>271055</td>
+      <td>271055</td>
+      <td>12</td>
+      <td>51</td>
+      <td>135547</td>
+      <td>Viktoriya Viktorovna Zyabkina</td>
+      <td>F</td>
+      <td>23.0</td>
+      <td>174.0</td>
+      <td>62.0</td>
+      <td>Kazakhstan</td>
+      <td>KAZ</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Athletics</td>
+      <td>Athletics Women's 4 x 100 metres Relay</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>271110</th>
+      <td>271110</td>
+      <td>271110</td>
+      <td>82</td>
+      <td>51</td>
+      <td>135568</td>
+      <td>Olga Igorevna Zyuzkova</td>
+      <td>F</td>
+      <td>33.0</td>
+      <td>171.0</td>
+      <td>69.0</td>
+      <td>Belarus</td>
+      <td>BLR</td>
+      <td>2016 Summer</td>
+      <td>2016</td>
+      <td>Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>Basketball</td>
+      <td>Basketball Women's Basketball</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>271116 rows × 19 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'games_id'</span>,<span class="st">'Games'</span>,<span class="st">'City'</span>]].groupby([<span class="st">'games_id'</span>,<span class="st">'Games'</span>]).count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="93">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>City</th>
+    </tr>
+    <tr>
+      <th>games_id</th>
+      <th>Games</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <th>1896 Summer</th>
+      <td>380</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <th>1900 Summer</th>
+      <td>1936</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <th>1904 Summer</th>
+      <td>1301</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <th>1906 Summer</th>
+      <td>1733</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <th>1908 Summer</th>
+      <td>3101</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <th>1912 Summer</th>
+      <td>4040</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <th>1920 Summer</th>
+      <td>4292</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <th>1924 Winter</th>
+      <td>460</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <th>1924 Summer</th>
+      <td>5233</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <th>1928 Summer</th>
+      <td>4992</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <th>1928 Winter</th>
+      <td>582</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <th>1932 Winter</th>
+      <td>352</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <th>1932 Summer</th>
+      <td>2969</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <th>1936 Summer</th>
+      <td>6506</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <th>1936 Winter</th>
+      <td>895</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <th>1948 Summer</th>
+      <td>6405</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <th>1948 Winter</th>
+      <td>1075</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <th>1952 Summer</th>
+      <td>8270</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <th>1952 Winter</th>
+      <td>1088</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <th>1956 Winter</th>
+      <td>1307</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <th>1956 Summer</th>
+      <td>4829</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <th>1956 Summer</th>
+      <td>298</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <th>1960 Summer</th>
+      <td>8119</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <th>1960 Winter</th>
+      <td>1116</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <th>1964 Winter</th>
+      <td>1778</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <th>1964 Summer</th>
+      <td>7702</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <th>1968 Winter</th>
+      <td>1891</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <th>1968 Summer</th>
+      <td>8588</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <th>1972 Summer</th>
+      <td>10304</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <th>1972 Winter</th>
+      <td>1655</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <th>1976 Winter</th>
+      <td>1861</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <th>1976 Summer</th>
+      <td>8641</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <th>1980 Winter</th>
+      <td>1746</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <th>1980 Summer</th>
+      <td>7191</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <th>1984 Summer</th>
+      <td>9454</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <th>1984 Winter</th>
+      <td>2134</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <th>1988 Winter</th>
+      <td>2639</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <th>1988 Summer</th>
+      <td>12037</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <th>1992 Winter</th>
+      <td>3436</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <th>1992 Summer</th>
+      <td>12977</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <th>1994 Winter</th>
+      <td>3160</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <th>1996 Summer</th>
+      <td>13780</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <th>1998 Winter</th>
+      <td>3605</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <th>2000 Summer</th>
+      <td>13821</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <th>2002 Winter</th>
+      <td>4109</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <th>2004 Summer</th>
+      <td>13443</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <th>2006 Winter</th>
+      <td>4382</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <th>2008 Summer</th>
+      <td>13602</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <th>2010 Winter</th>
+      <td>4402</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <th>2012 Summer</th>
+      <td>12920</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <th>2014 Winter</th>
+      <td>4891</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <th>2016 Summer</th>
+      <td>13688</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the games table </span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>df_games <span class="op">=</span> pd.read_excel(<span class="st">'CitiesOlympics.xlsx'</span>,sheet_name<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># then sort by year and city like did with df, reset the index</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>df_games<span class="op">=</span>df_games.sort_values(by<span class="op">=</span>[<span class="st">'Year'</span>,<span class="st">'City'</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># and replace games_id with new ordered index</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>df_games[<span class="st">'games_id'</span>]<span class="op">=</span>df_games.index</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co">## sanity check to see if the two tables for games match</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># sanity</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>dtemp<span class="op">=</span>df[[<span class="st">'games_id'</span>,<span class="st">'Games'</span>,<span class="st">'City'</span>,<span class="st">'Year'</span>]].groupby([<span class="st">'games_id'</span>,<span class="st">'Games'</span>,<span class="st">'City'</span>]).count()</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>dtemp.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>pd.concat([df_games[[<span class="st">'City'</span>,<span class="st">'Year'</span>,<span class="st">'Summer'</span>]], dtemp ], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="94">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>City</th>
+      <th>Year</th>
+      <th>Summer</th>
+      <th>games_id</th>
+      <th>Games</th>
+      <th>City</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Athens</td>
+      <td>1896</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1896 Summer</td>
+      <td>Athina</td>
+      <td>380</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Paris</td>
+      <td>1900</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1900 Summer</td>
+      <td>Paris</td>
+      <td>1936</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>St. Louis</td>
+      <td>1904</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1904 Summer</td>
+      <td>St. Louis</td>
+      <td>1301</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Athens</td>
+      <td>1906</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1906 Summer</td>
+      <td>Athina</td>
+      <td>1733</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>London</td>
+      <td>1908</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1908 Summer</td>
+      <td>London</td>
+      <td>3101</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Stockholm</td>
+      <td>1912</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1912 Summer</td>
+      <td>Stockholm</td>
+      <td>4040</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Antwerp</td>
+      <td>1920</td>
+      <td>1</td>
+      <td>6</td>
+      <td>1920 Summer</td>
+      <td>Antwerpen</td>
+      <td>4292</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Chamonix</td>
+      <td>1924</td>
+      <td>0</td>
+      <td>7</td>
+      <td>1924 Winter</td>
+      <td>Chamonix</td>
+      <td>460</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Paris</td>
+      <td>1924</td>
+      <td>1</td>
+      <td>8</td>
+      <td>1924 Summer</td>
+      <td>Paris</td>
+      <td>5233</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Amsterdam</td>
+      <td>1928</td>
+      <td>1</td>
+      <td>9</td>
+      <td>1928 Summer</td>
+      <td>Amsterdam</td>
+      <td>4992</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>St. Moritz</td>
+      <td>1928</td>
+      <td>0</td>
+      <td>10</td>
+      <td>1928 Winter</td>
+      <td>Sankt Moritz</td>
+      <td>582</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Lake Placid</td>
+      <td>1932</td>
+      <td>0</td>
+      <td>11</td>
+      <td>1932 Winter</td>
+      <td>Lake Placid</td>
+      <td>352</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Los Angeles</td>
+      <td>1932</td>
+      <td>1</td>
+      <td>12</td>
+      <td>1932 Summer</td>
+      <td>Los Angeles</td>
+      <td>2969</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Berlin</td>
+      <td>1936</td>
+      <td>1</td>
+      <td>13</td>
+      <td>1936 Summer</td>
+      <td>Berlin</td>
+      <td>6506</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Garmisch-Partenkirchen</td>
+      <td>1936</td>
+      <td>0</td>
+      <td>14</td>
+      <td>1936 Winter</td>
+      <td>Garmisch-Partenkirchen</td>
+      <td>895</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>London</td>
+      <td>1948</td>
+      <td>1</td>
+      <td>15</td>
+      <td>1948 Summer</td>
+      <td>London</td>
+      <td>6405</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>St. Moritz</td>
+      <td>1948</td>
+      <td>0</td>
+      <td>16</td>
+      <td>1948 Winter</td>
+      <td>Sankt Moritz</td>
+      <td>1075</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Helsinki</td>
+      <td>1952</td>
+      <td>1</td>
+      <td>17</td>
+      <td>1952 Summer</td>
+      <td>Helsinki</td>
+      <td>8270</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Oslo</td>
+      <td>1952</td>
+      <td>0</td>
+      <td>18</td>
+      <td>1952 Winter</td>
+      <td>Oslo</td>
+      <td>1088</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Cortina d'Ampezzo</td>
+      <td>1956</td>
+      <td>0</td>
+      <td>19</td>
+      <td>1956 Winter</td>
+      <td>Cortina d'Ampezzo</td>
+      <td>1307</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Melbourne</td>
+      <td>1956</td>
+      <td>1</td>
+      <td>20</td>
+      <td>1956 Summer</td>
+      <td>Melbourne</td>
+      <td>4829</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Stockholm</td>
+      <td>1956</td>
+      <td>0</td>
+      <td>21</td>
+      <td>1956 Summer</td>
+      <td>Stockholm</td>
+      <td>298</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Rome</td>
+      <td>1960</td>
+      <td>1</td>
+      <td>22</td>
+      <td>1960 Summer</td>
+      <td>Roma</td>
+      <td>8119</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Squaw Valley</td>
+      <td>1960</td>
+      <td>0</td>
+      <td>23</td>
+      <td>1960 Winter</td>
+      <td>Squaw Valley</td>
+      <td>1116</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Innsbruck</td>
+      <td>1964</td>
+      <td>0</td>
+      <td>24</td>
+      <td>1964 Winter</td>
+      <td>Innsbruck</td>
+      <td>1778</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Tokyo</td>
+      <td>1964</td>
+      <td>1</td>
+      <td>25</td>
+      <td>1964 Summer</td>
+      <td>Tokyo</td>
+      <td>7702</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Grenoble</td>
+      <td>1968</td>
+      <td>0</td>
+      <td>26</td>
+      <td>1968 Winter</td>
+      <td>Grenoble</td>
+      <td>1891</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Mexico City</td>
+      <td>1968</td>
+      <td>1</td>
+      <td>27</td>
+      <td>1968 Summer</td>
+      <td>Mexico City</td>
+      <td>8588</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Munich</td>
+      <td>1972</td>
+      <td>1</td>
+      <td>28</td>
+      <td>1972 Summer</td>
+      <td>Munich</td>
+      <td>10304</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Sapporo</td>
+      <td>1972</td>
+      <td>0</td>
+      <td>29</td>
+      <td>1972 Winter</td>
+      <td>Sapporo</td>
+      <td>1655</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Innsbruck</td>
+      <td>1976</td>
+      <td>0</td>
+      <td>30</td>
+      <td>1976 Winter</td>
+      <td>Innsbruck</td>
+      <td>1861</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Montreal</td>
+      <td>1976</td>
+      <td>1</td>
+      <td>31</td>
+      <td>1976 Summer</td>
+      <td>Montreal</td>
+      <td>8641</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Lake Placid</td>
+      <td>1980</td>
+      <td>0</td>
+      <td>32</td>
+      <td>1980 Winter</td>
+      <td>Lake Placid</td>
+      <td>1746</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Moscow</td>
+      <td>1980</td>
+      <td>1</td>
+      <td>33</td>
+      <td>1980 Summer</td>
+      <td>Moskva</td>
+      <td>7191</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Los Angeles</td>
+      <td>1984</td>
+      <td>1</td>
+      <td>34</td>
+      <td>1984 Summer</td>
+      <td>Los Angeles</td>
+      <td>9454</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Sarajevo</td>
+      <td>1984</td>
+      <td>0</td>
+      <td>35</td>
+      <td>1984 Winter</td>
+      <td>Sarajevo</td>
+      <td>2134</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Calgary</td>
+      <td>1988</td>
+      <td>0</td>
+      <td>36</td>
+      <td>1988 Winter</td>
+      <td>Calgary</td>
+      <td>2639</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Seoul</td>
+      <td>1988</td>
+      <td>1</td>
+      <td>37</td>
+      <td>1988 Summer</td>
+      <td>Seoul</td>
+      <td>12037</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Albertville</td>
+      <td>1992</td>
+      <td>0</td>
+      <td>38</td>
+      <td>1992 Winter</td>
+      <td>Albertville</td>
+      <td>3436</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Barcelona</td>
+      <td>1992</td>
+      <td>1</td>
+      <td>39</td>
+      <td>1992 Summer</td>
+      <td>Barcelona</td>
+      <td>12977</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Lillehammer</td>
+      <td>1994</td>
+      <td>0</td>
+      <td>40</td>
+      <td>1994 Winter</td>
+      <td>Lillehammer</td>
+      <td>3160</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Atlanta</td>
+      <td>1996</td>
+      <td>1</td>
+      <td>41</td>
+      <td>1996 Summer</td>
+      <td>Atlanta</td>
+      <td>13780</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Nagano</td>
+      <td>1998</td>
+      <td>0</td>
+      <td>42</td>
+      <td>1998 Winter</td>
+      <td>Nagano</td>
+      <td>3605</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Sydney</td>
+      <td>2000</td>
+      <td>1</td>
+      <td>43</td>
+      <td>2000 Summer</td>
+      <td>Sydney</td>
+      <td>13821</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Salt Lake City</td>
+      <td>2002</td>
+      <td>0</td>
+      <td>44</td>
+      <td>2002 Winter</td>
+      <td>Salt Lake City</td>
+      <td>4109</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Athens</td>
+      <td>2004</td>
+      <td>1</td>
+      <td>45</td>
+      <td>2004 Summer</td>
+      <td>Athina</td>
+      <td>13443</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Turin</td>
+      <td>2006</td>
+      <td>0</td>
+      <td>46</td>
+      <td>2006 Winter</td>
+      <td>Torino</td>
+      <td>4382</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Beijing</td>
+      <td>2008</td>
+      <td>1</td>
+      <td>47</td>
+      <td>2008 Summer</td>
+      <td>Beijing</td>
+      <td>13602</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Vancouver</td>
+      <td>2010</td>
+      <td>0</td>
+      <td>48</td>
+      <td>2010 Winter</td>
+      <td>Vancouver</td>
+      <td>4402</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>London</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>49</td>
+      <td>2012 Summer</td>
+      <td>London</td>
+      <td>12920</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Sochi</td>
+      <td>2014</td>
+      <td>0</td>
+      <td>50</td>
+      <td>2014 Winter</td>
+      <td>Sochi</td>
+      <td>4891</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Rio de Janeiro</td>
+      <td>2016</td>
+      <td>1</td>
+      <td>51</td>
+      <td>2016 Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>13688</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># starts with a digit (at start of string) or '.'- goes on for undefinable length  </span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>regex_pattern<span class="op">=</span><span class="vs">r'^[\d|.]*'</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># starts with a comma then spaces then digits or '.'</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>regex_pattern2<span class="op">=</span><span class="st">',\s*[\d|.|]*'</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>test_string <span class="op">=</span> df_games.iloc[<span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>]</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(test_string)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>re.search(regex_pattern2, test_string)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(df_games)):</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(df_games.iloc[i,-2])</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>        df_games.iloc[i,<span class="op">-</span><span class="dv">1</span>]<span class="op">=</span> re.search(regex_pattern2,df_games.iloc[i,<span class="op">-</span><span class="dv">2</span>])[<span class="dv">0</span>][<span class="dv">2</span>:] </span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>        df_games.iloc[i,<span class="op">-</span><span class="dv">2</span>]<span class="op">=</span> re.search(regex_pattern,df_games.iloc[i,<span class="op">-</span><span class="dv">2</span>])[<span class="dv">0</span>] </span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>48.8566° N, 2.3522°</code></pre>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> getNation(region_to_check):</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> re    </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> region_to_check<span class="op">==</span><span class="st">'United States'</span>:</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>        region_out <span class="op">=</span> <span class="st">'USA'</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">bool</span>(re.search(<span class="vs">r'Germany'</span>, region_to_check)):</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>        region_out<span class="op">=</span><span class="st">'Germany'</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> region_to_check<span class="op">==</span><span class="st">'United Kingdom'</span>:</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        region_out <span class="op">=</span> <span class="st">'UK'</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> region_to_check<span class="op">==</span><span class="st">'Soviet Union'</span>:</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        region_out<span class="op">=</span><span class="st">'Russia'</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        region_out<span class="op">=</span>region_to_check</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'nothing found for </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(region_out))</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> region_out</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(df_games)):</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>df2[df2.region<span class="op">==</span>df_games.iloc[i,<span class="dv">2</span>]].region</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(x)<span class="op">&lt;</span><span class="dv">1</span>:</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>        x<span class="op">=</span>df2[df2.notes<span class="op">==</span>df_games.iloc[i,<span class="dv">2</span>]].region</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(x)<span class="op">&lt;</span><span class="dv">1</span>:</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>            x<span class="op">=</span>getNation(df_games.iloc[i,<span class="dv">2</span>])</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a><span class="co">#     </span></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>        df_games.iloc[i,<span class="dv">2</span>]<span class="op">=</span><span class="bu">str</span>(x.iloc[<span class="dv">0</span>]) </span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>        df_games.iloc[i,<span class="dv">2</span>]<span class="op">=</span><span class="bu">str</span>(x) </span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(x)</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a><span class="co">#     if len(x)&lt;1:</span></span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a><span class="co">#         print('----------------------------------')</span></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>        </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df_games.iloc[<span class="dv">10</span>:<span class="dv">20</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="97">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>games_id</th>
+      <th>City</th>
+      <th>Country</th>
+      <th>Year</th>
+      <th>Region</th>
+      <th>Summer</th>
+      <th>Winter</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>St. Moritz</td>
+      <td>Switzerland</td>
+      <td>1928</td>
+      <td>Europe</td>
+      <td>0</td>
+      <td>1</td>
+      <td>46.4908</td>
+      <td>9.8355</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11</td>
+      <td>Lake Placid</td>
+      <td>USA</td>
+      <td>1932</td>
+      <td>North America</td>
+      <td>0</td>
+      <td>1</td>
+      <td>27.2931</td>
+      <td>81.3629</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>Los Angeles</td>
+      <td>USA</td>
+      <td>1932</td>
+      <td>North America</td>
+      <td>1</td>
+      <td>0</td>
+      <td>34.0522</td>
+      <td>118.2437</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>13</td>
+      <td>Berlin</td>
+      <td>Germany</td>
+      <td>1936</td>
+      <td>Europe</td>
+      <td>1</td>
+      <td>0</td>
+      <td>52.5200</td>
+      <td>13.4050</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>14</td>
+      <td>Garmisch-Partenkirchen</td>
+      <td>Germany</td>
+      <td>1936</td>
+      <td>Europe</td>
+      <td>0</td>
+      <td>1</td>
+      <td>47.4919</td>
+      <td>11.0948</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>15</td>
+      <td>London</td>
+      <td>UK</td>
+      <td>1948</td>
+      <td>Europe</td>
+      <td>1</td>
+      <td>0</td>
+      <td>51.5072</td>
+      <td>0.1276</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>16</td>
+      <td>St. Moritz</td>
+      <td>Switzerland</td>
+      <td>1948</td>
+      <td>Europe</td>
+      <td>0</td>
+      <td>1</td>
+      <td>46.4908</td>
+      <td>9.8355</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>17</td>
+      <td>Helsinki</td>
+      <td>Finland</td>
+      <td>1952</td>
+      <td>Europe</td>
+      <td>1</td>
+      <td>0</td>
+      <td>60.1699</td>
+      <td>24.9384</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>18</td>
+      <td>Oslo</td>
+      <td>Norway</td>
+      <td>1952</td>
+      <td>Europe</td>
+      <td>0</td>
+      <td>1</td>
+      <td>59.9139</td>
+      <td>10.7522</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>19</td>
+      <td>Cortina d'Ampezzo</td>
+      <td>Italy</td>
+      <td>1956</td>
+      <td>Europe</td>
+      <td>0</td>
+      <td>1</td>
+      <td>46.5405</td>
+      <td>12.1357</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df.groupby([<span class="st">'games_id'</span>,<span class="st">'Year'</span>,<span class="st">'Games'</span>,<span class="st">'City'</span>]).count().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="98">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>games_id</th>
+      <th>Year</th>
+      <th>Games</th>
+      <th>City</th>
+      <th>event_athlete_ID</th>
+      <th>event_athlete_ID</th>
+      <th>event_id</th>
+      <th>athlete_ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Season</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1896</td>
+      <td>1896 Summer</td>
+      <td>Athina</td>
+      <td>380</td>
+      <td>380</td>
+      <td>380</td>
+      <td>380</td>
+      <td>380</td>
+      <td>380</td>
+      <td>217</td>
+      <td>46</td>
+      <td>49</td>
+      <td>380</td>
+      <td>380</td>
+      <td>380</td>
+      <td>380</td>
+      <td>380</td>
+      <td>143</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1900</td>
+      <td>1900 Summer</td>
+      <td>Paris</td>
+      <td>1936</td>
+      <td>1936</td>
+      <td>1936</td>
+      <td>1936</td>
+      <td>1936</td>
+      <td>1936</td>
+      <td>1146</td>
+      <td>116</td>
+      <td>79</td>
+      <td>1936</td>
+      <td>1936</td>
+      <td>1936</td>
+      <td>1936</td>
+      <td>1936</td>
+      <td>604</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1904</td>
+      <td>1904 Summer</td>
+      <td>St. Louis</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>1027</td>
+      <td>213</td>
+      <td>147</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>1301</td>
+      <td>486</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>1906</td>
+      <td>1906 Summer</td>
+      <td>Athina</td>
+      <td>1733</td>
+      <td>1733</td>
+      <td>1733</td>
+      <td>1733</td>
+      <td>1733</td>
+      <td>1733</td>
+      <td>990</td>
+      <td>257</td>
+      <td>205</td>
+      <td>1733</td>
+      <td>1733</td>
+      <td>1733</td>
+      <td>1733</td>
+      <td>1733</td>
+      <td>458</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>1908</td>
+      <td>1908 Summer</td>
+      <td>London</td>
+      <td>3101</td>
+      <td>3101</td>
+      <td>3101</td>
+      <td>3101</td>
+      <td>3101</td>
+      <td>3101</td>
+      <td>2452</td>
+      <td>475</td>
+      <td>483</td>
+      <td>3101</td>
+      <td>3101</td>
+      <td>3101</td>
+      <td>3101</td>
+      <td>3101</td>
+      <td>831</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>1912</td>
+      <td>1912 Summer</td>
+      <td>Stockholm</td>
+      <td>4040</td>
+      <td>4040</td>
+      <td>4040</td>
+      <td>4040</td>
+      <td>4040</td>
+      <td>4040</td>
+      <td>3884</td>
+      <td>721</td>
+      <td>596</td>
+      <td>4040</td>
+      <td>4040</td>
+      <td>4040</td>
+      <td>4040</td>
+      <td>4040</td>
+      <td>941</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>1920</td>
+      <td>1920 Summer</td>
+      <td>Antwerpen</td>
+      <td>4292</td>
+      <td>4292</td>
+      <td>4292</td>
+      <td>4292</td>
+      <td>4292</td>
+      <td>4292</td>
+      <td>3447</td>
+      <td>767</td>
+      <td>471</td>
+      <td>4292</td>
+      <td>4292</td>
+      <td>4292</td>
+      <td>4292</td>
+      <td>4292</td>
+      <td>1308</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>1924</td>
+      <td>1924 Winter</td>
+      <td>Chamonix</td>
+      <td>460</td>
+      <td>460</td>
+      <td>460</td>
+      <td>460</td>
+      <td>460</td>
+      <td>460</td>
+      <td>403</td>
+      <td>89</td>
+      <td>41</td>
+      <td>460</td>
+      <td>460</td>
+      <td>460</td>
+      <td>460</td>
+      <td>460</td>
+      <td>130</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>1924</td>
+      <td>1924 Summer</td>
+      <td>Paris</td>
+      <td>5233</td>
+      <td>5233</td>
+      <td>5233</td>
+      <td>5233</td>
+      <td>5233</td>
+      <td>5233</td>
+      <td>4148</td>
+      <td>885</td>
+      <td>649</td>
+      <td>5233</td>
+      <td>5233</td>
+      <td>5233</td>
+      <td>5233</td>
+      <td>5233</td>
+      <td>832</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>1928</td>
+      <td>1928 Summer</td>
+      <td>Amsterdam</td>
+      <td>4992</td>
+      <td>4992</td>
+      <td>4992</td>
+      <td>4992</td>
+      <td>4992</td>
+      <td>4992</td>
+      <td>4119</td>
+      <td>853</td>
+      <td>670</td>
+      <td>4992</td>
+      <td>4992</td>
+      <td>4992</td>
+      <td>4992</td>
+      <td>4992</td>
+      <td>734</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>1928</td>
+      <td>1928 Winter</td>
+      <td>Sankt Moritz</td>
+      <td>582</td>
+      <td>582</td>
+      <td>582</td>
+      <td>582</td>
+      <td>582</td>
+      <td>582</td>
+      <td>492</td>
+      <td>122</td>
+      <td>48</td>
+      <td>582</td>
+      <td>582</td>
+      <td>582</td>
+      <td>582</td>
+      <td>582</td>
+      <td>89</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11</td>
+      <td>1932</td>
+      <td>1932 Winter</td>
+      <td>Lake Placid</td>
+      <td>352</td>
+      <td>352</td>
+      <td>352</td>
+      <td>352</td>
+      <td>352</td>
+      <td>352</td>
+      <td>329</td>
+      <td>196</td>
+      <td>55</td>
+      <td>352</td>
+      <td>352</td>
+      <td>352</td>
+      <td>352</td>
+      <td>352</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>1932</td>
+      <td>1932 Summer</td>
+      <td>Los Angeles</td>
+      <td>2969</td>
+      <td>2969</td>
+      <td>2969</td>
+      <td>2969</td>
+      <td>2969</td>
+      <td>2969</td>
+      <td>2662</td>
+      <td>1017</td>
+      <td>495</td>
+      <td>2969</td>
+      <td>2969</td>
+      <td>2969</td>
+      <td>2969</td>
+      <td>2969</td>
+      <td>647</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>13</td>
+      <td>1936</td>
+      <td>1936 Summer</td>
+      <td>Berlin</td>
+      <td>6506</td>
+      <td>6506</td>
+      <td>6506</td>
+      <td>6506</td>
+      <td>6506</td>
+      <td>6506</td>
+      <td>6304</td>
+      <td>1056</td>
+      <td>909</td>
+      <td>6506</td>
+      <td>6506</td>
+      <td>6506</td>
+      <td>6506</td>
+      <td>6506</td>
+      <td>917</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>14</td>
+      <td>1936</td>
+      <td>1936 Winter</td>
+      <td>Garmisch-Partenkirchen</td>
+      <td>895</td>
+      <td>895</td>
+      <td>895</td>
+      <td>895</td>
+      <td>895</td>
+      <td>895</td>
+      <td>884</td>
+      <td>136</td>
+      <td>78</td>
+      <td>895</td>
+      <td>895</td>
+      <td>895</td>
+      <td>895</td>
+      <td>895</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>15</td>
+      <td>1948</td>
+      <td>1948 Summer</td>
+      <td>London</td>
+      <td>6405</td>
+      <td>6405</td>
+      <td>6405</td>
+      <td>6405</td>
+      <td>6405</td>
+      <td>6405</td>
+      <td>5233</td>
+      <td>1053</td>
+      <td>1040</td>
+      <td>6405</td>
+      <td>6405</td>
+      <td>6405</td>
+      <td>6405</td>
+      <td>6405</td>
+      <td>852</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>16</td>
+      <td>1948</td>
+      <td>1948 Winter</td>
+      <td>Sankt Moritz</td>
+      <td>1075</td>
+      <td>1075</td>
+      <td>1075</td>
+      <td>1075</td>
+      <td>1075</td>
+      <td>1075</td>
+      <td>1071</td>
+      <td>116</td>
+      <td>111</td>
+      <td>1075</td>
+      <td>1075</td>
+      <td>1075</td>
+      <td>1075</td>
+      <td>1075</td>
+      <td>135</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>17</td>
+      <td>1952</td>
+      <td>1952 Summer</td>
+      <td>Helsinki</td>
+      <td>8270</td>
+      <td>8270</td>
+      <td>8270</td>
+      <td>8270</td>
+      <td>8270</td>
+      <td>8270</td>
+      <td>7993</td>
+      <td>2038</td>
+      <td>2038</td>
+      <td>8270</td>
+      <td>8270</td>
+      <td>8270</td>
+      <td>8270</td>
+      <td>8270</td>
+      <td>897</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>18</td>
+      <td>1952</td>
+      <td>1952 Winter</td>
+      <td>Oslo</td>
+      <td>1088</td>
+      <td>1088</td>
+      <td>1088</td>
+      <td>1088</td>
+      <td>1088</td>
+      <td>1088</td>
+      <td>1088</td>
+      <td>150</td>
+      <td>149</td>
+      <td>1088</td>
+      <td>1088</td>
+      <td>1088</td>
+      <td>1088</td>
+      <td>1088</td>
+      <td>136</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>19</td>
+      <td>1956</td>
+      <td>1956 Winter</td>
+      <td>Cortina d'Ampezzo</td>
+      <td>1307</td>
+      <td>1307</td>
+      <td>1307</td>
+      <td>1307</td>
+      <td>1307</td>
+      <td>1307</td>
+      <td>1282</td>
+      <td>344</td>
+      <td>342</td>
+      <td>1307</td>
+      <td>1307</td>
+      <td>1307</td>
+      <td>1307</td>
+      <td>1307</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>20</td>
+      <td>1956</td>
+      <td>1956 Summer</td>
+      <td>Melbourne</td>
+      <td>4829</td>
+      <td>4829</td>
+      <td>4829</td>
+      <td>4829</td>
+      <td>4829</td>
+      <td>4829</td>
+      <td>4256</td>
+      <td>2234</td>
+      <td>2232</td>
+      <td>4829</td>
+      <td>4829</td>
+      <td>4829</td>
+      <td>4829</td>
+      <td>4829</td>
+      <td>857</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>21</td>
+      <td>1956</td>
+      <td>1956 Summer</td>
+      <td>Stockholm</td>
+      <td>298</td>
+      <td>298</td>
+      <td>298</td>
+      <td>298</td>
+      <td>298</td>
+      <td>298</td>
+      <td>258</td>
+      <td>108</td>
+      <td>106</td>
+      <td>298</td>
+      <td>298</td>
+      <td>298</td>
+      <td>298</td>
+      <td>298</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>22</td>
+      <td>1960</td>
+      <td>1960 Summer</td>
+      <td>Roma</td>
+      <td>8119</td>
+      <td>8119</td>
+      <td>8119</td>
+      <td>8119</td>
+      <td>8119</td>
+      <td>8119</td>
+      <td>7906</td>
+      <td>7738</td>
+      <td>7675</td>
+      <td>8119</td>
+      <td>8119</td>
+      <td>8119</td>
+      <td>8119</td>
+      <td>8119</td>
+      <td>911</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>23</td>
+      <td>1960</td>
+      <td>1960 Winter</td>
+      <td>Squaw Valley</td>
+      <td>1116</td>
+      <td>1116</td>
+      <td>1116</td>
+      <td>1116</td>
+      <td>1116</td>
+      <td>1116</td>
+      <td>1108</td>
+      <td>536</td>
+      <td>512</td>
+      <td>1116</td>
+      <td>1116</td>
+      <td>1116</td>
+      <td>1116</td>
+      <td>1116</td>
+      <td>147</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>24</td>
+      <td>1964</td>
+      <td>1964 Winter</td>
+      <td>Innsbruck</td>
+      <td>1778</td>
+      <td>1778</td>
+      <td>1778</td>
+      <td>1778</td>
+      <td>1778</td>
+      <td>1778</td>
+      <td>1765</td>
+      <td>1369</td>
+      <td>1348</td>
+      <td>1778</td>
+      <td>1778</td>
+      <td>1778</td>
+      <td>1778</td>
+      <td>1778</td>
+      <td>186</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>25</td>
+      <td>1964</td>
+      <td>1964 Summer</td>
+      <td>Tokyo</td>
+      <td>7702</td>
+      <td>7702</td>
+      <td>7702</td>
+      <td>7702</td>
+      <td>7702</td>
+      <td>7702</td>
+      <td>7659</td>
+      <td>7430</td>
+      <td>7424</td>
+      <td>7702</td>
+      <td>7702</td>
+      <td>7702</td>
+      <td>7702</td>
+      <td>7702</td>
+      <td>1029</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>26</td>
+      <td>1968</td>
+      <td>1968 Winter</td>
+      <td>Grenoble</td>
+      <td>1891</td>
+      <td>1891</td>
+      <td>1891</td>
+      <td>1891</td>
+      <td>1891</td>
+      <td>1891</td>
+      <td>1872</td>
+      <td>1833</td>
+      <td>1817</td>
+      <td>1891</td>
+      <td>1891</td>
+      <td>1891</td>
+      <td>1891</td>
+      <td>1891</td>
+      <td>199</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>27</td>
+      <td>1968</td>
+      <td>1968 Summer</td>
+      <td>Mexico City</td>
+      <td>8588</td>
+      <td>8588</td>
+      <td>8588</td>
+      <td>8588</td>
+      <td>8588</td>
+      <td>8588</td>
+      <td>8489</td>
+      <td>8493</td>
+      <td>8493</td>
+      <td>8588</td>
+      <td>8588</td>
+      <td>8588</td>
+      <td>8588</td>
+      <td>8588</td>
+      <td>1057</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>28</td>
+      <td>1972</td>
+      <td>1972 Summer</td>
+      <td>Munich</td>
+      <td>10304</td>
+      <td>10304</td>
+      <td>10304</td>
+      <td>10304</td>
+      <td>10304</td>
+      <td>10304</td>
+      <td>10211</td>
+      <td>10018</td>
+      <td>9928</td>
+      <td>10304</td>
+      <td>10304</td>
+      <td>10304</td>
+      <td>10304</td>
+      <td>10304</td>
+      <td>1215</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>29</td>
+      <td>1972</td>
+      <td>1972 Winter</td>
+      <td>Sapporo</td>
+      <td>1655</td>
+      <td>1655</td>
+      <td>1655</td>
+      <td>1655</td>
+      <td>1655</td>
+      <td>1655</td>
+      <td>1652</td>
+      <td>1640</td>
+      <td>1642</td>
+      <td>1655</td>
+      <td>1655</td>
+      <td>1655</td>
+      <td>1655</td>
+      <td>1655</td>
+      <td>199</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>30</td>
+      <td>1976</td>
+      <td>1976 Winter</td>
+      <td>Innsbruck</td>
+      <td>1861</td>
+      <td>1861</td>
+      <td>1861</td>
+      <td>1861</td>
+      <td>1861</td>
+      <td>1861</td>
+      <td>1850</td>
+      <td>1343</td>
+      <td>1302</td>
+      <td>1861</td>
+      <td>1861</td>
+      <td>1861</td>
+      <td>1861</td>
+      <td>1861</td>
+      <td>211</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>31</td>
+      <td>1976</td>
+      <td>1976 Summer</td>
+      <td>Montreal</td>
+      <td>8641</td>
+      <td>8641</td>
+      <td>8641</td>
+      <td>8641</td>
+      <td>8641</td>
+      <td>8641</td>
+      <td>8600</td>
+      <td>8283</td>
+      <td>8280</td>
+      <td>8641</td>
+      <td>8641</td>
+      <td>8641</td>
+      <td>8641</td>
+      <td>8641</td>
+      <td>1320</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>32</td>
+      <td>1980</td>
+      <td>1980 Winter</td>
+      <td>Lake Placid</td>
+      <td>1746</td>
+      <td>1746</td>
+      <td>1746</td>
+      <td>1746</td>
+      <td>1746</td>
+      <td>1746</td>
+      <td>1745</td>
+      <td>1388</td>
+      <td>1374</td>
+      <td>1746</td>
+      <td>1746</td>
+      <td>1746</td>
+      <td>1746</td>
+      <td>1746</td>
+      <td>218</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>33</td>
+      <td>1980</td>
+      <td>1980 Summer</td>
+      <td>Moskva</td>
+      <td>7191</td>
+      <td>7191</td>
+      <td>7191</td>
+      <td>7191</td>
+      <td>7191</td>
+      <td>7191</td>
+      <td>7005</td>
+      <td>6961</td>
+      <td>6967</td>
+      <td>7191</td>
+      <td>7191</td>
+      <td>7191</td>
+      <td>7191</td>
+      <td>7191</td>
+      <td>1384</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>34</td>
+      <td>1984</td>
+      <td>1984 Summer</td>
+      <td>Los Angeles</td>
+      <td>9454</td>
+      <td>9454</td>
+      <td>9454</td>
+      <td>9454</td>
+      <td>9454</td>
+      <td>9454</td>
+      <td>9249</td>
+      <td>9032</td>
+      <td>9031</td>
+      <td>9454</td>
+      <td>9454</td>
+      <td>9454</td>
+      <td>9454</td>
+      <td>9454</td>
+      <td>1476</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>35</td>
+      <td>1984</td>
+      <td>1984 Winter</td>
+      <td>Sarajevo</td>
+      <td>2134</td>
+      <td>2134</td>
+      <td>2134</td>
+      <td>2134</td>
+      <td>2134</td>
+      <td>2134</td>
+      <td>2123</td>
+      <td>1958</td>
+      <td>1954</td>
+      <td>2134</td>
+      <td>2134</td>
+      <td>2134</td>
+      <td>2134</td>
+      <td>2134</td>
+      <td>222</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>36</td>
+      <td>1988</td>
+      <td>1988 Winter</td>
+      <td>Calgary</td>
+      <td>2639</td>
+      <td>2639</td>
+      <td>2639</td>
+      <td>2639</td>
+      <td>2639</td>
+      <td>2639</td>
+      <td>2635</td>
+      <td>2024</td>
+      <td>2018</td>
+      <td>2639</td>
+      <td>2639</td>
+      <td>2639</td>
+      <td>2639</td>
+      <td>2639</td>
+      <td>263</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>37</td>
+      <td>1988</td>
+      <td>1988 Summer</td>
+      <td>Seoul</td>
+      <td>12037</td>
+      <td>12037</td>
+      <td>12037</td>
+      <td>12037</td>
+      <td>12037</td>
+      <td>12037</td>
+      <td>11931</td>
+      <td>11719</td>
+      <td>11730</td>
+      <td>12037</td>
+      <td>12037</td>
+      <td>12037</td>
+      <td>12037</td>
+      <td>12037</td>
+      <td>1582</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>38</td>
+      <td>1992</td>
+      <td>1992 Winter</td>
+      <td>Albertville</td>
+      <td>3436</td>
+      <td>3436</td>
+      <td>3436</td>
+      <td>3436</td>
+      <td>3436</td>
+      <td>3436</td>
+      <td>3435</td>
+      <td>2785</td>
+      <td>2783</td>
+      <td>3436</td>
+      <td>3436</td>
+      <td>3436</td>
+      <td>3436</td>
+      <td>3436</td>
+      <td>318</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>39</td>
+      <td>1992</td>
+      <td>1992 Summer</td>
+      <td>Barcelona</td>
+      <td>12977</td>
+      <td>12977</td>
+      <td>12977</td>
+      <td>12977</td>
+      <td>12977</td>
+      <td>12977</td>
+      <td>12934</td>
+      <td>10453</td>
+      <td>10473</td>
+      <td>12977</td>
+      <td>12977</td>
+      <td>12977</td>
+      <td>12977</td>
+      <td>12977</td>
+      <td>1712</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>40</td>
+      <td>1994</td>
+      <td>1994 Winter</td>
+      <td>Lillehammer</td>
+      <td>3160</td>
+      <td>3160</td>
+      <td>3160</td>
+      <td>3160</td>
+      <td>3160</td>
+      <td>3160</td>
+      <td>3158</td>
+      <td>2973</td>
+      <td>2971</td>
+      <td>3160</td>
+      <td>3160</td>
+      <td>3160</td>
+      <td>3160</td>
+      <td>3160</td>
+      <td>331</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>41</td>
+      <td>1996</td>
+      <td>1996 Summer</td>
+      <td>Atlanta</td>
+      <td>13780</td>
+      <td>13780</td>
+      <td>13780</td>
+      <td>13780</td>
+      <td>13780</td>
+      <td>13780</td>
+      <td>13772</td>
+      <td>11909</td>
+      <td>11959</td>
+      <td>13780</td>
+      <td>13780</td>
+      <td>13780</td>
+      <td>13780</td>
+      <td>13780</td>
+      <td>1842</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>42</td>
+      <td>1998</td>
+      <td>1998 Winter</td>
+      <td>Nagano</td>
+      <td>3605</td>
+      <td>3605</td>
+      <td>3605</td>
+      <td>3605</td>
+      <td>3605</td>
+      <td>3605</td>
+      <td>3603</td>
+      <td>3521</td>
+      <td>3519</td>
+      <td>3605</td>
+      <td>3605</td>
+      <td>3605</td>
+      <td>3605</td>
+      <td>3605</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>43</td>
+      <td>2000</td>
+      <td>2000 Summer</td>
+      <td>Sydney</td>
+      <td>13821</td>
+      <td>13821</td>
+      <td>13821</td>
+      <td>13821</td>
+      <td>13821</td>
+      <td>13821</td>
+      <td>13820</td>
+      <td>13698</td>
+      <td>13695</td>
+      <td>13821</td>
+      <td>13821</td>
+      <td>13821</td>
+      <td>13821</td>
+      <td>13821</td>
+      <td>2004</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>44</td>
+      <td>2002</td>
+      <td>2002 Winter</td>
+      <td>Salt Lake City</td>
+      <td>4109</td>
+      <td>4109</td>
+      <td>4109</td>
+      <td>4109</td>
+      <td>4109</td>
+      <td>4109</td>
+      <td>4109</td>
+      <td>4080</td>
+      <td>4062</td>
+      <td>4109</td>
+      <td>4109</td>
+      <td>4109</td>
+      <td>4109</td>
+      <td>4109</td>
+      <td>478</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>45</td>
+      <td>2004</td>
+      <td>2004 Summer</td>
+      <td>Athina</td>
+      <td>13443</td>
+      <td>13443</td>
+      <td>13443</td>
+      <td>13443</td>
+      <td>13443</td>
+      <td>13443</td>
+      <td>13443</td>
+      <td>13407</td>
+      <td>13406</td>
+      <td>13443</td>
+      <td>13443</td>
+      <td>13443</td>
+      <td>13443</td>
+      <td>13443</td>
+      <td>2001</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>46</td>
+      <td>2006</td>
+      <td>2006 Winter</td>
+      <td>Torino</td>
+      <td>4382</td>
+      <td>4382</td>
+      <td>4382</td>
+      <td>4382</td>
+      <td>4382</td>
+      <td>4382</td>
+      <td>4382</td>
+      <td>4376</td>
+      <td>4366</td>
+      <td>4382</td>
+      <td>4382</td>
+      <td>4382</td>
+      <td>4382</td>
+      <td>4382</td>
+      <td>526</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>47</td>
+      <td>2008</td>
+      <td>2008 Summer</td>
+      <td>Beijing</td>
+      <td>13602</td>
+      <td>13602</td>
+      <td>13602</td>
+      <td>13602</td>
+      <td>13602</td>
+      <td>13602</td>
+      <td>13600</td>
+      <td>13451</td>
+      <td>13443</td>
+      <td>13602</td>
+      <td>13602</td>
+      <td>13602</td>
+      <td>13602</td>
+      <td>13602</td>
+      <td>2048</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>48</td>
+      <td>2010</td>
+      <td>2010 Winter</td>
+      <td>Vancouver</td>
+      <td>4402</td>
+      <td>4402</td>
+      <td>4402</td>
+      <td>4402</td>
+      <td>4402</td>
+      <td>4402</td>
+      <td>4402</td>
+      <td>4400</td>
+      <td>4378</td>
+      <td>4402</td>
+      <td>4402</td>
+      <td>4402</td>
+      <td>4402</td>
+      <td>4402</td>
+      <td>520</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>49</td>
+      <td>2012</td>
+      <td>2012 Summer</td>
+      <td>London</td>
+      <td>12920</td>
+      <td>12920</td>
+      <td>12920</td>
+      <td>12920</td>
+      <td>12920</td>
+      <td>12920</td>
+      <td>12920</td>
+      <td>12752</td>
+      <td>12560</td>
+      <td>12920</td>
+      <td>12920</td>
+      <td>12920</td>
+      <td>12920</td>
+      <td>12920</td>
+      <td>1941</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>50</td>
+      <td>2014</td>
+      <td>2014 Winter</td>
+      <td>Sochi</td>
+      <td>4891</td>
+      <td>4891</td>
+      <td>4891</td>
+      <td>4891</td>
+      <td>4891</td>
+      <td>4891</td>
+      <td>4891</td>
+      <td>4871</td>
+      <td>4673</td>
+      <td>4891</td>
+      <td>4891</td>
+      <td>4891</td>
+      <td>4891</td>
+      <td>4891</td>
+      <td>597</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>51</td>
+      <td>2016</td>
+      <td>2016 Summer</td>
+      <td>Rio de Janeiro</td>
+      <td>13688</td>
+      <td>13688</td>
+      <td>13688</td>
+      <td>13688</td>
+      <td>13688</td>
+      <td>13688</td>
+      <td>13688</td>
+      <td>13512</td>
+      <td>13465</td>
+      <td>13688</td>
+      <td>13688</td>
+      <td>13688</td>
+      <td>13688</td>
+      <td>13688</td>
+      <td>2023</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="create-some-smaller-athlete-tables" class="level2">
+<h2 class="anchored" data-anchor-id="create-some-smaller-athlete-tables">Create some smaller athlete tables</h2>
+<p>Finally the main athletes <code>df</code> file can be split the up by sex and season, since the id’s for different fields have been added</p>
+<ul>
+<li>We don’t really need sex and Season so we can drop these</li>
+<li>We can also reorder the index (not the athlete ID)</li>
+<li>If Medals = NaN this probably means they didn’t get one. So we can replace medals with Gold, Silver and Bronze (one-hot encoding)</li>
+<li>Instead of Games, Year, City lets replace with a uniques INT id. And put that data in another dataframe for cities</li>
+</ul>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># split and Reset index, so it increases 1,2,3,4,etc</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>df_M_S <span class="op">=</span> df[(df.Sex<span class="op">==</span><span class="st">'M'</span>) <span class="op">&amp;</span> (df.Season<span class="op">==</span><span class="st">'Summer'</span>)]</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>df_M_S.reset_index(inplace <span class="op">=</span> <span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>df_F_S <span class="op">=</span> df[(df.Sex<span class="op">==</span><span class="st">'F'</span>) <span class="op">&amp;</span> (df.Season<span class="op">==</span><span class="st">'Summer'</span>)]</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>df_F_S.reset_index(inplace <span class="op">=</span> <span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>df_M_W <span class="op">=</span> df[(df.Sex<span class="op">==</span><span class="st">'M'</span>) <span class="op">&amp;</span> (df.Season<span class="op">==</span><span class="st">'Winter'</span>)]</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>df_M_W.reset_index(inplace <span class="op">=</span> <span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>df_F_W <span class="op">=</span> df[(df.Sex<span class="op">==</span><span class="st">'F'</span>) <span class="op">&amp;</span> (df.Season<span class="op">==</span><span class="st">'Winter'</span>)]</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>df_F_W.reset_index(inplace <span class="op">=</span> <span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="100">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the data</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>df_M_W.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="100">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_athlete_ID</th>
+      <th>event_athlete_ID</th>
+      <th>event_id</th>
+      <th>games_id</th>
+      <th>athlete_ID</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Games</th>
+      <th>Year</th>
+      <th>Season</th>
+      <th>City</th>
+      <th>Sport</th>
+      <th>Event</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>672</td>
+      <td>672</td>
+      <td>13</td>
+      <td>7</td>
+      <td>391</td>
+      <td>Clarence John Abel</td>
+      <td>M</td>
+      <td>23.0</td>
+      <td>185.0</td>
+      <td>102.0</td>
+      <td>United States</td>
+      <td>USA</td>
+      <td>1924 Winter</td>
+      <td>1924</td>
+      <td>Winter</td>
+      <td>Chamonix</td>
+      <td>Ice Hockey</td>
+      <td>Ice Hockey Men's Ice Hockey</td>
+      <td>Silver</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1791</td>
+      <td>1791</td>
+      <td>205</td>
+      <td>7</td>
+      <td>992</td>
+      <td>Josef Adolf</td>
+      <td>M</td>
+      <td>25.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Czechoslovakia</td>
+      <td>BOH</td>
+      <td>1924 Winter</td>
+      <td>1924</td>
+      <td>Winter</td>
+      <td>Chamonix</td>
+      <td>Nordic Combined</td>
+      <td>Nordic Combined Men's Individual</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1951</td>
+      <td>1951</td>
+      <td>300</td>
+      <td>7</td>
+      <td>1077</td>
+      <td>Xavier Affentranger</td>
+      <td>M</td>
+      <td>26.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Switzerland</td>
+      <td>SUI</td>
+      <td>1924 Winter</td>
+      <td>1924</td>
+      <td>Winter</td>
+      <td>Chamonix</td>
+      <td>Ski Jumping</td>
+      <td>Ski Jumping Men's Normal Hill, Individual</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1952</td>
+      <td>1952</td>
+      <td>385</td>
+      <td>7</td>
+      <td>1077</td>
+      <td>Xavier Affentranger</td>
+      <td>M</td>
+      <td>26.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Switzerland</td>
+      <td>SUI</td>
+      <td>1924 Winter</td>
+      <td>1924</td>
+      <td>Winter</td>
+      <td>Chamonix</td>
+      <td>Cross Country Skiing</td>
+      <td>Cross Country Skiing Men's 18 kilometres</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1953</td>
+      <td>1953</td>
+      <td>205</td>
+      <td>7</td>
+      <td>1077</td>
+      <td>Xavier Affentranger</td>
+      <td>M</td>
+      <td>26.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Switzerland</td>
+      <td>SUI</td>
+      <td>1924 Winter</td>
+      <td>1924</td>
+      <td>Winter</td>
+      <td>Chamonix</td>
+      <td>Nordic Combined</td>
+      <td>Nordic Combined Men's Individual</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2397</td>
+      <td>2397</td>
+      <td>305</td>
+      <td>7</td>
+      <td>1341</td>
+      <td>Johan Petter hln (Andersson-)</td>
+      <td>M</td>
+      <td>44.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Sweden</td>
+      <td>SWE</td>
+      <td>1924 Winter</td>
+      <td>1924</td>
+      <td>Winter</td>
+      <td>Chamonix</td>
+      <td>Curling</td>
+      <td>Curling Men's Curling</td>
+      <td>Silver</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>4040</td>
+      <td>4040</td>
+      <td>300</td>
+      <td>7</td>
+      <td>2329</td>
+      <td>Louis Albert</td>
+      <td>M</td>
+      <td>25.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>France</td>
+      <td>FRA</td>
+      <td>1924 Winter</td>
+      <td>1924</td>
+      <td>Winter</td>
+      <td>Chamonix</td>
+      <td>Ski Jumping</td>
+      <td>Ski Jumping Men's Normal Hill, Individual</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>4249</td>
+      <td>4249</td>
+      <td>472</td>
+      <td>7</td>
+      <td>2431</td>
+      <td>Henri Eugne Aldebert</td>
+      <td>M</td>
+      <td>43.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>France-1</td>
+      <td>FRA</td>
+      <td>1924 Winter</td>
+      <td>1924</td>
+      <td>Winter</td>
+      <td>Chamonix</td>
+      <td>Bobsleigh</td>
+      <td>Bobsleigh Men's Four/Five</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>5103</td>
+      <td>5103</td>
+      <td>13</td>
+      <td>7</td>
+      <td>2902</td>
+      <td>Karl Ruben Allinger</td>
+      <td>M</td>
+      <td>32.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Sweden</td>
+      <td>SWE</td>
+      <td>1924 Winter</td>
+      <td>1924</td>
+      <td>Winter</td>
+      <td>Chamonix</td>
+      <td>Ice Hockey</td>
+      <td>Ice Hockey Men's Ice Hockey</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>5174</td>
+      <td>5174</td>
+      <td>7</td>
+      <td>7</td>
+      <td>2939</td>
+      <td>Ernst Alm</td>
+      <td>M</td>
+      <td>23.0</td>
+      <td>174.0</td>
+      <td>NaN</td>
+      <td>Sweden</td>
+      <td>SWE</td>
+      <td>1924 Winter</td>
+      <td>1924</td>
+      <td>Winter</td>
+      <td>Chamonix</td>
+      <td>Cross Country Skiing</td>
+      <td>Cross Country Skiing Men's 50 kilometres</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- ### Create the athletes table -->
+<!-- ### Drop some columns
+
+We still have the main df when we want to create the country and the games tables later -->
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df_M_S <span class="op">=</span> df_M_S.drop(columns<span class="op">=</span>[<span class="st">'Name'</span>,<span class="st">'Sex'</span>,<span class="st">'Season'</span>,<span class="st">'City'</span>,<span class="st">'Games'</span>,<span class="st">'Sport'</span>,<span class="st">'Event'</span>])</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>df_F_S <span class="op">=</span> df_F_S.drop(columns<span class="op">=</span>[<span class="st">'Name'</span>,<span class="st">'Sex'</span>,<span class="st">'Season'</span>,<span class="st">'City'</span>,<span class="st">'Games'</span>,<span class="st">'Sport'</span>,<span class="st">'Event'</span>])</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>df_M_W <span class="op">=</span> df_M_W.drop(columns<span class="op">=</span>[<span class="st">'Name'</span>,<span class="st">'Sex'</span>,<span class="st">'Season'</span>,<span class="st">'City'</span>,<span class="st">'Games'</span>,<span class="st">'Sport'</span>,<span class="st">'Event'</span>])</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>df_F_W <span class="op">=</span> df_F_W.drop(columns<span class="op">=</span>[<span class="st">'Name'</span>,<span class="st">'Sex'</span>,<span class="st">'Season'</span>,<span class="st">'City'</span>,<span class="st">'Games'</span>,<span class="st">'Sport'</span>,<span class="st">'Event'</span>])</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>df_F_W.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="102">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_athlete_ID</th>
+      <th>event_athlete_ID</th>
+      <th>event_id</th>
+      <th>games_id</th>
+      <th>athlete_ID</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Year</th>
+      <th>Medal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>30620</td>
+      <td>30620</td>
+      <td>268</td>
+      <td>7</td>
+      <td>15776</td>
+      <td>22.0</td>
+      <td>165.0</td>
+      <td>NaN</td>
+      <td>France</td>
+      <td>FRA</td>
+      <td>1924</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>30621</td>
+      <td>30621</td>
+      <td>242</td>
+      <td>7</td>
+      <td>15776</td>
+      <td>22.0</td>
+      <td>165.0</td>
+      <td>NaN</td>
+      <td>France-1</td>
+      <td>FRA</td>
+      <td>1924</td>
+      <td>Bronze</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>63714</td>
+      <td>63714</td>
+      <td>242</td>
+      <td>7</td>
+      <td>32641</td>
+      <td>25.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Austria</td>
+      <td>AUT</td>
+      <td>1924</td>
+      <td>Gold</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>94058</td>
+      <td>94058</td>
+      <td>268</td>
+      <td>7</td>
+      <td>47618</td>
+      <td>11.0</td>
+      <td>155.0</td>
+      <td>45.0</td>
+      <td>Norway</td>
+      <td>NOR</td>
+      <td>1924</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>94533</td>
+      <td>94533</td>
+      <td>242</td>
+      <td>7</td>
+      <td>47845</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Belgium</td>
+      <td>BEL</td>
+      <td>1924</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="seperate-out-medals" class="level3">
+<h3 class="anchored" data-anchor-id="seperate-out-medals">Seperate out medals</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df_F_W <span class="op">=</span> pd.get_dummies(df_F_W,columns<span class="op">=</span>[<span class="st">'Medal'</span>])</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>df_M_W <span class="op">=</span> pd.get_dummies(df_M_W,columns<span class="op">=</span>[<span class="st">'Medal'</span>])</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>df_F_S <span class="op">=</span> pd.get_dummies(df_F_S,columns<span class="op">=</span>[<span class="st">'Medal'</span>])</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>df_M_S <span class="op">=</span> pd.get_dummies(df_M_S,columns<span class="op">=</span>[<span class="st">'Medal'</span>])</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>df_M_S.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="103">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>event_athlete_ID</th>
+      <th>event_athlete_ID</th>
+      <th>event_id</th>
+      <th>games_id</th>
+      <th>athlete_ID</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Team</th>
+      <th>NOC</th>
+      <th>Year</th>
+      <th>Medal_Bronze</th>
+      <th>Medal_Gold</th>
+      <th>Medal_Silver</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3079</td>
+      <td>3079</td>
+      <td>191</td>
+      <td>0</td>
+      <td>1724</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Greece</td>
+      <td>CRT</td>
+      <td>1896</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3080</td>
+      <td>3080</td>
+      <td>92</td>
+      <td>0</td>
+      <td>1724</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Greece-3</td>
+      <td>CRT</td>
+      <td>1896</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3081</td>
+      <td>3081</td>
+      <td>191</td>
+      <td>0</td>
+      <td>1725</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Greece</td>
+      <td>CRT</td>
+      <td>1896</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3082</td>
+      <td>3082</td>
+      <td>92</td>
+      <td>0</td>
+      <td>1725</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Greece-3</td>
+      <td>CRT</td>
+      <td>1896</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7348</td>
+      <td>7348</td>
+      <td>100</td>
+      <td>0</td>
+      <td>4113</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Greece</td>
+      <td>CRT</td>
+      <td>1896</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="save-it" class="level2">
+<h2 class="anchored" data-anchor-id="save-it">Save it</h2>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="105">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df_F_S.to_csv(<span class="st">'athlete_F_S'</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df_F_W.to_csv(<span class="st">'athlete_F_W'</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>df_M_S.to_csv(<span class="st">'athlete_M_S'</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>df_M_W.to_csv(<span class="st">'athlete_M_W'</span>)</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>df_all_athletes.to_csv(<span class="st">'all_athletes'</span>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>df_country.to_csv(<span class="st">'country'</span>)</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>df_event.to_csv(<span class="st">'event'</span>)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>df_games.to_csv(<span class="st">'games'</span>)</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>df_population.to_csv(<span class="st">'population'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

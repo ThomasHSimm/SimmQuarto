@@ -1,0 +1,1771 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.258">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ThomasHSimm – data-science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//posts/Picture3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ThomasHSimm</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ThomasHSimm"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ThomasHSimm"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><img src="../posts/header2.png" height="200"></p>
+
+
+
+<section id="data-science" class="level1">
+<h1>Data Science</h1>
+<blockquote class="blockquote">
+<p>Online courses I’ve completed</p>
+</blockquote>
+<ul>
+<li>toc: false</li>
+<li>badges: true</li>
+<li>author: Thomas H. Simm</li>
+<li>categories: [coursera, mooc, data science, AI, Thomas Simm]</li>
+</ul>
+<p><img src="ghtop_images/header2.png" class="img-fluid"></p>
+</section>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<section id="general-data-science" class="level2">
+<h2 class="anchored" data-anchor-id="general-data-science">General Data Science</h2>
+<ul>
+<li><a href="#IBM_Data"> IBM Data Science Professional Certificate</a></li>
+<li><a href="#Google_Data"> Google Data Analytics Professional Certificate</a></li>
+<li><a href="#Google_Data2"> Google IT Automation with Python Professional Certificate</a></li>
+<li><a href="#Google_SQL"> Learn SQL Basics for Data Science Specialization</a></li>
+<li><a href="#LearnPy"> learnpython.org Python Development Course</a></li>
+<li><a href="#ExcelVBA"> Excel/VBA for Creative Problem Solving</a></li>
+<li><a href="#AWS1">AWS Cloud Technical Essentials</a></li>
+</ul>
+</section>
+<section id="machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
+<ul>
+<li><a href="#fastAI"> Fast AI</a></li>
+<li><a href="#IBM_AI">IBM AI Engineering Professional Certificate</a></li>
+<li><a href="#ML_Stan"> Machine Learning Stanford</a></li>
+<li><a href="#DeepLearn"> Deep Learning Specialization</a></li>
+<li><a href="#Tensorflow"> TensorFlow Developer Professional Certificate</a></li>
+<li><a href="#Tensorflow2"> TensorFlow: Advanced Techniques Specialization</a></li>
+<li><a href="#Tensorflow2B"> TensorFlow 2 for Deep Learning Specialization</a></li>
+</ul>
+<h1>
+General Data Science
+</h1>
+<h2 id="IBM_Data" class="anchored">
+IBM Data Science Professional Certificate
+</h2>
+<p>https://www.coursera.org/professional-certificates/ibm-data-science</p>
+<section id="about-this-professional-certificate" class="level4">
+<h4 class="anchored" data-anchor-id="about-this-professional-certificate">About this Professional Certificate</h4>
+<p>590,718 recent views</p>
+<p>Data science is one of the hottest professions of the decade, and the demand for data scientists who can analyze data and communicate results to inform data driven decisions has never been greater. This Professional Certificate from IBM will help anyone interested in pursuing a career in data science or machine learning develop career-relevant skills and experience.</p>
+<p>It’s a myth that to become a data scientist you need a Ph.D.&nbsp;Anyone with a passion for learning can take this Professional Certificate – no prior knowledge of computer science or programming languages required – and develop the skills, tools, and portfolio to have a competitive edge in the job market as an entry level data scientist.</p>
+<p>The program consists of 9 online courses that will provide you with the latest job-ready tools and skills, including open source tools and libraries, Python, databases, SQL, data visualization, data analysis, statistical analysis, predictive modeling, and machine learning algorithms. You’ll learn data science through hands-on practice in the IBM Cloud using real data science tools and real-world data sets.</p>
+<p>Upon successfully completing these courses, you will have built a portfolio of data science projects to provide you with the confidence to plunge into an exciting profession in data science.</p>
+<p>In addition to earning a Professional Certificate from Coursera, you’ll also receive a digital badge from IBM recognizing your proficiency in data science.</p>
+</section>
+<section id="applied-learning-project" class="level4">
+<h4 class="anchored">Applied Learning Project</h4>
+<p>This Professional Certificate has a strong emphasis on applied learning. Except for the first course, all other courses include a series of hands-on labs in the IBM Cloud that will give you practical skills with applicability to real jobs, including:</p>
+<p>Tools: Jupyter / JupyterLab, GitHub, R Studio, and Watson Studio</p>
+<p>Libraries: Pandas, NumPy, Matplotlib, Seaborn, Folium, ipython-sql, Scikit-learn, ScipPy, etc.</p>
+<p>Projects: random album generator, predict housing prices, best classifier model, Predicting successful rocket landing, dashboa rd and interactive map <img src="ghtop_images/IBM_Data.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#IBMds = pd.DataFrame(columns=columns)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>dat <span class="op">=</span> [[<span class="st">'What is Data Science?'</span>,<span class="dv">9</span>,<span class="dv">6</span>],</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Tools for Data Science'</span>,<span class="dv">17</span>,<span class="dv">6</span>],</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Data Science Methodology'</span>,<span class="dv">8</span>,<span class="dv">6</span>],</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Python for Data Science, AI &amp; Development'</span>,<span class="dv">17</span>,<span class="dv">6</span>],</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Python Project for Data Science'</span>,<span class="dv">6</span>,<span class="dv">6</span>],</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Databases and SQL for Data Science with Python'</span>,<span class="dv">18</span>,<span class="dv">6</span>],</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Data Analysis with Python'</span>,<span class="dv">20</span>,<span class="dv">6</span>],</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Data Visualization with Python'</span>,<span class="dv">13</span>,<span class="dv">6</span>],</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Machine Learning with Python'</span>,<span class="dv">21</span>,<span class="dv">6</span>],</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Applied Data Science Capstone'</span>,<span class="dv">47</span>,<span class="dv">6</span>]]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'IBM Data- Overview'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),ss[<span class="st">'Rating (0-10)'</span>].mean()]],columns<span class="op">=</span>columns)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>ss.head(<span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>IBM Data- Overview</td>
+      <td>176</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>What is Data Science?</td>
+      <td>9</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tools for Data Science</td>
+      <td>17</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Data Science Methodology</td>
+      <td>8</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Python for Data Science, AI &amp; Development</td>
+      <td>17</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Python Project for Data Science</td>
+      <td>6</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Databases and SQL for Data Science with Python</td>
+      <td>18</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Data Analysis with Python</td>
+      <td>20</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Data Visualization with Python</td>
+      <td>13</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Machine Learning with Python</td>
+      <td>21</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Applied Data Science Capstone</td>
+      <td>47</td>
+      <td>6.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="Google_Data" class="anchored" data-anchor-id="applied-learning-project">
+Google Data Analytics Professional Certificate
+</h2>
+<p>https://www.coursera.org/professional-certificates/google-data-analytics</p>
+</section>
+<section id="about-this-professional-certificate-1" class="level4">
+<h4 class="anchored" data-anchor-id="about-this-professional-certificate-1">About this Professional Certificate</h4>
+<p>2,827,984 recent views</p>
+<p>Prepare for a new career in the high-growth field of data analytics, no experience or degree required. Get professional training designed by Google and have the opportunity to connect with top employers. There are 380,000 U.S. job openings in data analytics with a $74,000 median entry-level salary.¹</p>
+<p>Data analytics is the collection, transformation, and organization of data in order to draw conclusions, make predictions, and drive informed decision making.</p>
+<p>Over 8 courses, gain in-demand skills that prepare you for an entry-level job. You’ll learn from Google employees whose foundations in data analytics served as launchpads for their own careers. At under 10 hours per week, you can complete the certificate in less than 6 months.</p>
+<p>You’ll prepare yourself for jobs that include junior or associate data analyst, database administrator, and more. Upon completion of the certificate, you can directly apply for jobs with Google and over 150 U.S. employers, including Walmart, Best Buy, Astreya.</p>
+<p>75% of Google Career Certificate Graduates in the United States report an improvement in their career trajectory (e.g.&nbsp;new job or career, promotion or raise) within 6 months of certificate completion²</p>
+<p>¹US Burning Glass Labor Insight Report salary data (median with 0-5 years experience) and job opening data. Data for job roles relevant to featured programs (4/01/2021 - 3/31/22).</p>
+<p>²Based on program graduate survey responses, United States 2021</p>
+</section>
+<section id="applied-learning-project-1" class="level4">
+<h4 class="anchored">Applied Learning Project</h4>
+<p>This program includes over 180 hours of instruction and hundreds of practice-based assessments, which will help you simulate real-world data analytics scenarios that are critical for success in the workplace. The content is highly interactive and exclusively developed by Google employees with decades of experience in data analytics. Through a mix of videos, assessments, and hands-on labs, you’ll get introduced to analysis tools and platforms and key analytical skills required for an entry-level job.</p>
+<p>Skills you’ll gain will include: Data cleaning, problem solving, critical thinking, data ethics, and data visualization</p>
+<p>Platforms and tools you will learn include: Presentations, Spreadsheets, SQL, Tableau and R Programming</p>
+<p>In addition to expert training and hands-on projects, you’ll complete a case study that you can share with potential employers to showcase your new skill set. Learn concrete skills that top employers are hiring for right now.</p>
+<p><img src="ghtop_images/googleCert.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Googleds <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>columns)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dat <span class="op">=</span> [[<span class="st">'Foundations: Data, Data, Everywhere'</span>,<span class="dv">20</span>,<span class="dv">3</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Ask Questions to Make Data-Driven Decisions'</span>,<span class="dv">18</span>,<span class="dv">3</span>],</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Prepare Data for Exploration'</span>,<span class="dv">22</span>,<span class="dv">3</span>],</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Process Data from Dirty to Clean'</span>,<span class="dv">22</span>,<span class="dv">3</span>],</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Analyze Data to Answer Questions'</span>,<span class="dv">25</span>,<span class="dv">3</span>],</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Share Data Through the Art of Visualization'</span>, <span class="dv">23</span>,<span class="dv">3</span>],</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    [ <span class="st">'Data Analysis with R Programming'</span>,<span class="dv">38</span>,<span class="dv">3</span>],</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    [ <span class="st">'Google Data Analytics Capstone: Complete a Case Study'</span>,<span class="dv">10</span>,<span class="dv">3</span>] ]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'Google Data- Overview'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),ss[<span class="st">'Rating (0-10)'</span>].mean()]],columns<span class="op">=</span>columns)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>ss.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Google Data- Overview</td>
+      <td>178</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Foundations: Data, Data, Everywhere</td>
+      <td>20</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Ask Questions to Make Data-Driven Decisions</td>
+      <td>18</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Prepare Data for Exploration</td>
+      <td>22</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Process Data from Dirty to Clean</td>
+      <td>22</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Analyze Data to Answer Questions</td>
+      <td>25</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Share Data Through the Art of Visualization</td>
+      <td>23</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Data Analysis with R Programming</td>
+      <td>38</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Google Data Analytics Capstone: Complete a Cas...</td>
+      <td>10</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="Google_Data2" class="anchored" data-anchor-id="applied-learning-project-1">
+Google IT Automation with Python Professional Certificate
+</h2>
+<p>https://www.coursera.org/professional-certificates/google-it-automation</p>
+</section>
+<section id="about-this-professional-certificate-2" class="level4">
+<h4 class="anchored" data-anchor-id="about-this-professional-certificate-2">About this Professional Certificate</h4>
+<p>838,400 recent views</p>
+<p>This beginner-level, six-course certificate, developed by Google, is designed to provide IT professionals with in-demand skills – including Python, Git, and IT automation – that can help you advance your career.</p>
+<p>Knowing how to write code to solve problems and automate solutions is a crucial skill for anybody in IT. Python, in particular, is now the most in-demand programming language by employers.</p>
+<p>This program builds on your IT foundations to help you take your career to the next level. It’s designed to teach you how to program with Python and how to use Python to automate common system administration tasks. You’ll also learn to use Git and GitHub, troubleshoot and debug complex problems, and apply automation at scale by using configuration management and the Cloud.</p>
+<p>This certificate can be completed in about 6 months and is designed to prepare you for a variety of roles in IT, like more advanced IT Support Specialist or Junior Systems Administrator positions. Upon completion, you can share your information with potential employers, like Walmart, Sprint, Hulu, Bank of America, Google (of course!), and more.</p>
+<p>We recommend that you have Python installed on your machine. For some courses, you’ll need a computer where you can install Git or ask your administrator to install it for you.</p>
+</section>
+<section id="applied-learning-project-2" class="level4">
+<h4 class="anchored">Applied Learning Project</h4>
+<p>Learn how to program with Python with no previous knowledge of coding required and you’ll use Python to automate common system administration tasks</p>
+<p>Learn to use Git and GitHub, to troubleshoot and debug complex problems</p>
+<p>Apply automation at scale by using configuration management and the Cloud</p>
+<p>Practice your technical skills with hands-on projects including a capstone project where you’ll use your new knowledge to solve a real-world IT problem</p>
+<p><img src="ghtop_images/googlePython.png" class="img-fluid"> <img src="ghtop_images/pythonOS.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>,<span class="st">'Percentage completed'</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>IBMds <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>columns)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>dat<span class="op">=</span>[[<span class="st">'Crash Course on Python'</span>,<span class="dv">32</span>,<span class="dv">8</span>,<span class="dv">100</span>],</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Using Python to Interact with the Operating System'</span>,<span class="dv">31</span>,<span class="dv">6</span>,<span class="dv">100</span>],</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Introduction to Git and GitHub'</span>,<span class="dv">19</span>,<span class="dv">8</span>,<span class="dv">100</span>],</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Troubleshooting and Debugging Technique'</span>,<span class="dv">19</span>, np.NaN  ,<span class="dv">0</span>],</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Configuration Management and the Cloud'</span>,<span class="dv">18</span>, np.NaN,<span class="dv">0</span>],</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Automating Real-World Tasks with Python'</span>,<span class="dv">13</span>, np.NaN ,<span class="dv">0</span>]]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>lendat<span class="op">=</span>np.shape(dat)[<span class="dv">0</span>]</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>pctot<span class="op">=</span><span class="bu">int</span>(np.<span class="bu">sum</span>(ss[<span class="st">'Percentage completed'</span>] <span class="op">*</span> ss[<span class="st">'Expected Time (h)'</span>]<span class="op">/</span>(ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>())))</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'Google Python- Overview'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),(ss[<span class="st">'Rating (0-10)'</span>].mean(skipna<span class="op">=</span><span class="va">True</span>)),pctot]],columns<span class="op">=</span>columns)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>ss.head(<span class="dv">10</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+      <th>Percentage completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Google Python- Overview</td>
+      <td>132</td>
+      <td>7.333333</td>
+      <td>62</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Crash Course on Python</td>
+      <td>32</td>
+      <td>8.000000</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Using Python to Interact with the Operating Sy...</td>
+      <td>31</td>
+      <td>6.000000</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Introduction to Git and GitHub</td>
+      <td>19</td>
+      <td>8.000000</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Troubleshooting and Debugging Technique</td>
+      <td>19</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Configuration Management and the Cloud</td>
+      <td>18</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Automating Real-World Tasks with Python</td>
+      <td>13</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="Google_SQL" class="anchored" data-anchor-id="applied-learning-project-2">
+Learn SQL Basics for Data Science Specialization
+</h2>
+<p>https://www.coursera.org/specializations/learn-sql-basics-data-science</p>
+</section>
+<section id="about-this-specialization" class="level3">
+<h3 class="anchored">About this Specialization</h3>
+<p>159,302 recent views</p>
+<p>This Specialization is intended for a learner with no previous coding experience seeking to develop SQL query fluency. Through four progressively more difficult SQL projects with data science applications, you will cover topics such as SQL basics, data wrangling, SQL analysis, AB testing, distributed computing using Apache Spark, Delta Lake and more. These topics will prepare you to apply SQL creatively to analyze and explore data; demonstrate efficiency in writing queries; create data analysis datasets; conduct feature engineering, use SQL with other data analysis and machine learning toolsets; and use SQL with unstructured data sets.</p>
+<p><img src="ghtop_images/SQLcert.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>,<span class="st">'Percentage completed'</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>IBMds <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>columns)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>dat<span class="op">=</span>[[<span class="st">'SQL for Data Science'</span>,<span class="dv">14</span>,<span class="dv">8</span>,<span class="dv">100</span>],</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Data Wrangling, Analysis and AB Testing with SQL'</span>,<span class="dv">16</span>,<span class="dv">8</span>,<span class="dv">100</span>],</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Distributed Computing with Spark SQL'</span>,<span class="dv">14</span>,<span class="dv">8</span>,<span class="dv">100</span>],</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>[<span class="st">'SQL for Data Science Capstone Project'</span>,<span class="dv">35</span>, <span class="dv">8</span>  ,<span class="dv">100</span>]]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>lendat<span class="op">=</span>np.shape(dat)[<span class="dv">0</span>]</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>pctot<span class="op">=</span><span class="bu">int</span>(np.<span class="bu">sum</span>(ss[<span class="st">'Percentage completed'</span>] <span class="op">*</span> ss[<span class="st">'Expected Time (h)'</span>]<span class="op">/</span>(ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>())))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'SQL Course- Overview'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),(ss[<span class="st">'Rating (0-10)'</span>].mean(skipna<span class="op">=</span><span class="va">True</span>)),pctot]],columns<span class="op">=</span>columns)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>ss.head(<span class="dv">10</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+      <th>Percentage completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SQL Course- Overview</td>
+      <td>79</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SQL for Data Science</td>
+      <td>14</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Data Wrangling, Analysis and AB Testing with SQL</td>
+      <td>16</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Distributed Computing with Spark SQL</td>
+      <td>14</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SQL for Data Science Capstone Project</td>
+      <td>35</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="LearnPy" class="anchored" data-anchor-id="about-this-specialization">
+learnpython.org Python Development Course
+</h2>
+<p>https://learnpython.org/</p>
+<p><img src="ghtop_images/learnPy.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Rating (0-10)'</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dat<span class="op">=</span>[[<span class="st">'Variables and Types'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Lists'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Basic Operators'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Strings'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Conditions'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Loops'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Functions'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Classes and Objects'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Dictionaries'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Modules and Packages'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>[<span class="st">'List Comprehensions'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Regular Expressions'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Exception Handling'</span>,<span class="dv">7</span>],</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Sets'</span>,<span class="dv">7</span>]]</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>lendat<span class="op">=</span>np.shape(dat)[<span class="dv">0</span>]</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>ss.head(lendat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Rating (0-10)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Variables and Types</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Lists</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Basic Operators</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Strings</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Conditions</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Loops</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Functions</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Classes and Objects</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Dictionaries</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Modules and Packages</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>List Comprehensions</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Regular Expressions</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Exception Handling</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Sets</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="ExcelVBA" class="anchored">
+Excel/VBA for Creative Problem Solving
+</h2>
+<p>https://www.coursera.org/specializations/excel-vba-creative-problem-solving</p>
+<section id="about-this-specialization-1" class="level4">
+<h4 class="anchored">About this Specialization</h4>
+<p>13,746 recent views</p>
+<p>This Specialization is for learners wishing to dramatically change the way that they use Excel spreadsheets by unleashing the power to automate and optimize spreadsheets using Visual Basic for Applications (VBA). The first two courses will teach learners the basics of VBA through the use of dozens of educational screencasts and a series of quizzes and in-application programming assignments. Finally, in Part 3 of the course, learners will complete 3 “real world” and somewhat open ended projects, which are graded through peer review.</p>
+<p><img src="ghtop_images/vba.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>,<span class="st">'Percentage completed'</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>IBMds <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>columns)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>dat<span class="op">=</span>[[<span class="st">'Part 1'</span>,<span class="dv">18</span>,<span class="dv">7</span>,<span class="dv">100</span>],</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Part 2'</span>,<span class="dv">20</span>,<span class="dv">7</span>,<span class="dv">100</span>],</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Part 3'</span>,<span class="dv">16</span>,np.NaN,<span class="dv">0</span>]]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>lendat<span class="op">=</span>np.shape(dat)[<span class="dv">0</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>pctot<span class="op">=</span><span class="bu">int</span>(np.<span class="bu">sum</span>(ss[<span class="st">'Percentage completed'</span>] <span class="op">*</span> ss[<span class="st">'Expected Time (h)'</span>]<span class="op">/</span>(ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>())))</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'Excel/VBA Course- Overview'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),(ss[<span class="st">'Rating (0-10)'</span>].mean(skipna<span class="op">=</span><span class="va">True</span>)),pctot]],columns<span class="op">=</span>columns)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>ss.head(<span class="dv">10</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+      <th>Percentage completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Excel/VBA Course- Overview</td>
+      <td>54</td>
+      <td>7.0</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Part 1</td>
+      <td>18</td>
+      <td>7.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Part 2</td>
+      <td>20</td>
+      <td>7.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Part 3</td>
+      <td>16</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="AWS1" class="anchored" data-anchor-id="about-this-specialization-1">
+AWS Cloud Technical Essentials
+</h2>
+<p><img src="ghtop_images/aws.png" class="img-fluid"></p>
+</section>
+<section id="about-this-course" class="level4">
+<h4 class="anchored">About this course</h4>
+<p>Are you in a technical role and want to learn the fundamentals of AWS? Do you aspire to have a job or career as a cloud developer, architect, or in an operations role? If so, AWS Cloud Technical Essentials is an ideal way to start. This course was designed for those at the beginning of their cloud-learning journey - no prior knowledge of cloud computing or AWS products and services required!</p>
+<p>Throughout the course, students will build highly available, scalable, and cost effective application step-by-step. Upon course completion, you will be able to make an informed decision about when and how to apply core AWS services for compute, storage, and database to different use cases. You’ll also learn about cloud security with a review of AWS’ shared responsibility model and an introduction to AWS Identity and Access Management (IAM). And, you’ll know how AWS services can be used to monitor and optimize infrastructure in the cloud.</p>
+<p>AWS Cloud Technical Essentials is a fundamental-level course and will build your competence, confidence, and credibility with practical cloud skills that help you innovate and advance your professional future. Enroll in AWS Cloud Technical Essentials and start learning the technical fundamentals of AWS today!</p>
+<p>Note: This course was designed for learners with a technical background. If you are new to the cloud or come from a business background, we recommend completing AWS Cloud Practitioner Essentials (https://www.coursera.org/learn/aws-cloud-practitioner-essentials) before enrolling in this course.</p>
+<h1>
+Machine Learning
+</h1>
+<h2 id="fastAI" class="anchored" data-anchor-id="about-this-course">
+Fast AI
+</h2>
+<p>https://www.fast.ai/</p>
+</section>
+<section id="practical-deep-learning" class="level4">
+<h4 class="anchored">Practical Deep Learning</h4>
+<p>A free course designed for people with some coding experience, who want to learn how to apply deep learning and machine learning to practical problems.</p>
+<p>This free course is designed for people (and bunnies!) with some coding experience who want to learn how to apply deep learning and machine learning to practical problems.</p>
+<p>Deep learning can do all kinds of amazing things. For instance, all illustrations throughout this website are made with deep learning, using DALL-E 2.</p>
+<p>Practical Deep Learning for Coders 2022, recorded at the University of Queensland, covers topics such as how to:</p>
+<ul>
+<li>Build and train deep learning models for computer vision, natural language processing, tabular analysis, and collaborative filtering problems</li>
+<li>Create random forests and regression models</li>
+<li>Deploy models</li>
+<li>Use PyTorch, the world’s fastest growing deep learning software, plus popular libraries like fastai and Hugging Face</li>
+</ul>
+<p>There are 9 lessons, and each lesson is around 90 minutes long. The course is based on our 5-star rated book, which is freely available online.</p>
+<p>You don’t need any special hardware or software — we’ll show you how to use free resources for both building and deploying models. You don’t need any university math either — we’ll teach you the calculus and linear algebra you need during the course.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>,<span class="st">'Percentage completed'</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>dat<span class="op">=</span>[[<span class="st">'Week 1'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Week 2'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Week 3'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Week 4'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Week 5'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Week 6'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Week 7'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Week 8'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Week 9'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Week 10'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Week 11'</span>,<span class="dv">12</span>,<span class="dv">9</span>,<span class="dv">100</span>]]</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>lendat<span class="op">=</span>np.shape(dat)[<span class="dv">0</span>]</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>pctot<span class="op">=</span><span class="bu">int</span>(np.<span class="bu">sum</span>(ss[<span class="st">'Percentage completed'</span>] <span class="op">*</span> ss[<span class="st">'Expected Time (h)'</span>]<span class="op">/</span>(ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>())))</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'Fast AI- Overview'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),(ss[<span class="st">'Rating (0-10)'</span>].mean(skipna<span class="op">=</span><span class="va">True</span>)),pctot]],columns<span class="op">=</span>columns)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>ss.head(lendat)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+      <th>Percentage completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Fast AI- Overview</td>
+      <td>132</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Week 1</td>
+      <td>12</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Week 2</td>
+      <td>12</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Week 3</td>
+      <td>12</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Week 4</td>
+      <td>12</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Week 5</td>
+      <td>12</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Week 6</td>
+      <td>12</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Week 7</td>
+      <td>12</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Week 8</td>
+      <td>12</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Week 9</td>
+      <td>12</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Week 10</td>
+      <td>12</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="IBM_AI" class="anchored" data-anchor-id="practical-deep-learning">
+IBM AI Engineering Professional Certificate
+</h2>
+<p>https://www.coursera.org/professional-certificates/ai-engineer</p>
+</section>
+<section id="about-this-professional-certificate-3" class="level4">
+<h4 class="anchored" data-anchor-id="about-this-professional-certificate-3">About this Professional Certificate</h4>
+<p>43,794 recent views</p>
+<p>Artificial intelligence (AI) is revolutionizing entire industries, changing the way companies across sectors leverage data to make decisions. To stay competitive, organizations need qualified AI engineers who use cutting-edge methods like machine learning algorithms and deep learning neural networks to provide data driven actionable intelligence for their businesses. This 6-course Professional Certificate is designed to equip you with the tools you need to succeed in your career as an AI or ML engineer.</p>
+<p>You’ll master fundamental concepts of machine learning and deep learning, including supervised and unsupervised learning, using programming languages like Python. You’ll apply popular machine learning and deep learning libraries such as SciPy, ScikitLearn, Keras, PyTorch, and Tensorflow to industry problems involving object recognition, computer vision, image and video processing, text analytics, natural language processing (NLP), recommender systems, and other types of classifiers.</p>
+<p>Through hands-on projects, you’ll gain essential data science skills scaling machine learning algorithms on big data using Apache Spark. You’ll build, train, and deploy different types of deep architectures, including convolutional neural networks, recurrent networks, and autoencoders.</p>
+<p>In addition to earning a Professional Certificate from Coursera, you will also receive a digital badge from IBM recognizing your proficiency in AI engineering.</p>
+</section>
+<section id="applied-learning-project-3" class="level4">
+<h4 class="anchored">Applied Learning Project</h4>
+<p>Throughout the program, you will build a portfolio of projects demonstrating your mastery of course topics. The hands-on projects will give you a practical working knowledge of Machine Learning libraries and Deep Learning frameworks such as SciPy, ScikitLearn, Keras, PyTorch, and Tensorflow. You will also complete an in-depth Capstone Project, where you’ll apply your AI and Neural Network skills to a real-world challenge and demonstrate your ability to communicate project outcomes.</p>
+<p><img src="ghtop_images/IBM_AI.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>IBMds <span class="op">=</span> pd.DataFrame(columns<span class="op">=</span>columns)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>dat <span class="op">=</span> [[<span class="st">'Machine Learning with Python'</span>,<span class="dv">21</span>,<span class="dv">6</span>],</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Introduction to Deep Learning &amp; Neural Networks with Keras'</span>,<span class="dv">8</span>,<span class="dv">6</span>],</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Introduction to Computer Vision and Image Processing'</span>,<span class="dv">21</span>,<span class="dv">6</span>],</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Deep Neural Networks with PyTorch'</span>,<span class="dv">31</span>,<span class="dv">6</span>],</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'Building Deep Learning Models with TensorFlow'</span>,<span class="dv">13</span>,<span class="dv">6</span>],</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    [<span class="st">'AI Capstone Project with Deep Learning'</span>, <span class="dv">16</span>,<span class="dv">6</span>]]</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'IBM AI Engineering- Overview'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),ss[<span class="st">'Rating (0-10)'</span>].mean()]],columns<span class="op">=</span>columns)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>ss.head(<span class="dv">10</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>IBM AI Engineering- Overview</td>
+      <td>110</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Machine Learning with Python</td>
+      <td>21</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Introduction to Deep Learning &amp; Neural Network...</td>
+      <td>8</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Introduction to Computer Vision and Image Proc...</td>
+      <td>21</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Deep Neural Networks with PyTorch</td>
+      <td>31</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Building Deep Learning Models with TensorFlow</td>
+      <td>13</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>AI Capstone Project with Deep Learning</td>
+      <td>16</td>
+      <td>6.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="ML_Stan" class="anchored" data-anchor-id="applied-learning-project-3">
+Machine Learning Stanford
+</h2>
+<p>https://www.coursera.org/specializations/machine-learning-introduction</p>
+</section>
+<section id="about-this-specialization-2" class="level4">
+<h4 class="anchored" data-anchor-id="about-this-specialization-2">About this Specialization</h4>
+<p>574,468 recent views</p>
+<p>The Machine Learning Specialization is a foundational online program created in collaboration between DeepLearning.AI and Stanford Online. This beginner-friendly program will teach you the fundamentals of machine learning and how to use these techniques to build real-world AI applications.</p>
+<p>This Specialization is taught by Andrew Ng, an AI visionary who has led critical research at Stanford University and groundbreaking work at Google Brain, Baidu, and Landing.AI to advance the AI field.</p>
+<p>This 3-course Specialization is an updated version of Andrew’s pioneering Machine Learning course, rated 4.9 out of 5 and taken by over 4.8 million learners since it launched in 2012.</p>
+<p>It provides a broad introduction to modern machine learning, including supervised learning (multiple linear regression, logistic regression, neural networks, and decision trees), unsupervised learning (clustering, dimensionality reduction, recommender systems), and some of the best practices used in Silicon Valley for artificial intelligence and machine learning innovation (evaluating and tuning models, taking a data-centric approach to improving performance, and more.)</p>
+<p>By the end of this Specialization, you will have mastered key concepts and gained the practical know-how to quickly and powerfully apply machine learning to challenging real-world problems. If you’re looking to break into AI or build a career in machine learning, the new Machine Learning Specialization is the best place to start.</p>
+</section>
+<section id="applied-learning-project-4" class="level4">
+<h4 class="anchored">Applied Learning Project</h4>
+<p>By the end of this Specialization, you will be ready to:</p>
+<p>• Build machine learning models in Python using popular machine learning libraries NumPy and scikit-learn.</p>
+<p>• Build and train supervised machine learning models for prediction and binary classification tasks, including linear regression and logistic regression.</p>
+<p>• Build and train a neural network with TensorFlow to perform multi-class classification.</p>
+<p>• Apply best practices for machine learning development so that your models generalize to data and tasks in the real world.</p>
+<p>• Build and use decision trees and tree ensemble methods, including random forests and boosted trees.</p>
+<p>• Use unsupervised learning techniques for unsupervised learning: including clustering and anomaly detection.</p>
+<p>• Build recommender systems with a collaborative filtering approach and a content-based deep learning method.</p>
+<p>• Build a deep reinforcement learning model.</p>
+<p><img src="ghtop_images/Stanford_ML.png" class="img-fluid"></p>
+<h2 id="DeepLearn" class="anchored" data-anchor-id="applied-learning-project-4">
+Deep Learning Specialization
+</h2>
+<p>https://www.coursera.org/specializations/deep-learning</p>
+</section>
+<section id="about-this-specialization-3" class="level4">
+<h4 class="anchored">About this Specialization</h4>
+<p>379,682 recent views</p>
+<p>The Deep Learning Specialization is a foundational program that will help you understand the capabilities, challenges, and consequences of deep learning and prepare you to participate in the development of leading-edge AI technology.</p>
+<p>In this Specialization, you will build and train neural network architectures such as Convolutional Neural Networks, Recurrent Neural Networks, LSTMs, Transformers, and learn how to make them better with strategies such as Dropout, BatchNorm, Xavier/He initialization, and more. Get ready to master theoretical concepts and their industry applications using Python and TensorFlow and tackle real-world cases such as speech recognition, music synthesis, chatbots, machine translation, natural language processing, and more.</p>
+<p>AI is transforming many industries. The Deep Learning Specialization provides a pathway for you to take the definitive step in the world of AI by helping you gain the knowledge and skills to level up your career. Along the way, you will also get career advice from deep learning experts from industry and academia. Applied Learning Project</p>
+<p>By the end you’ll be able to</p>
+<p>• Build and train deep neural networks, implement vectorized neural networks, identify architecture parameters, and apply DL to your applications</p>
+<p>• Use best practices to train and develop test sets and analyze bias/variance for building DL applications, use standard NN techniques, apply optimization algorithms, and implement a neural network in TensorFlow</p>
+<p>• Use strategies for reducing errors in ML systems, understand complex ML settings, and apply end-to-end, transfer, and multi-task learning</p>
+<p>• Build a Convolutional Neural Network, apply it to visual detection and recognition tasks, use neural style transfer to generate art, and apply these algorithms to image, video, and other 2D/3D data</p>
+<p>• Build and train Recurrent Neural Networks and its variants (GRUs, LSTMs), apply RNNs to character-level language modeling, work with NLP and Word Embeddings, and use HuggingFace tokenizers and transformers to perform Named Entity Recognition and Question Answering</p>
+<p><img src="ghtop_images/deepAI.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>,<span class="st">'Percentage completed'</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>dat<span class="op">=</span>[[<span class="st">'Neural Networks and Deep Learning'</span>,<span class="dv">23</span>,<span class="dv">8</span>,<span class="dv">100</span>],</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization'</span>,<span class="dv">22</span>,<span class="dv">8</span>,<span class="dv">100</span>],</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Structuring Machine Learning Projects'</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">100</span>],</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Convolutional Neural Networks'</span>,<span class="dv">35</span>, <span class="dv">8</span>  ,<span class="dv">100</span>],</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Sequence Models'</span>,<span class="dv">36</span>, <span class="dv">8</span>,<span class="dv">20</span>]]</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>lendat<span class="op">=</span>np.shape(dat)[<span class="dv">0</span>]</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>pctot<span class="op">=</span><span class="bu">int</span>(np.<span class="bu">sum</span>(ss[<span class="st">'Percentage completed'</span>] <span class="op">*</span> ss[<span class="st">'Expected Time (h)'</span>]<span class="op">/</span>(ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>())))</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'Deep Learning- Overview'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),(ss[<span class="st">'Rating (0-10)'</span>].mean(skipna<span class="op">=</span><span class="va">True</span>)),pctot]],columns<span class="op">=</span>columns)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>ss.head(<span class="dv">10</span>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+      <th>Percentage completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Deep Learning- Overview</td>
+      <td>122</td>
+      <td>8.0</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Neural Networks and Deep Learning</td>
+      <td>23</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Improving Deep Neural Networks: Hyperparameter...</td>
+      <td>22</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Structuring Machine Learning Projects</td>
+      <td>6</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Convolutional Neural Networks</td>
+      <td>35</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Sequence Models</td>
+      <td>36</td>
+      <td>8.0</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="Tensorflow" class="anchored" data-anchor-id="about-this-specialization-3">
+TensorFlow Developer Professional Certificate
+</h2>
+<p>https://www.coursera.org/professional-certificates/tensorflow-in-practice</p>
+</section>
+<section id="about-this-specialization-4" class="level4">
+<h4 class="anchored" data-anchor-id="about-this-specialization-4">About this Specialization</h4>
+<p>TensorFlow is one of the most in-demand and popular open-source deep learning frameworks available today. The DeepLearning.AI TensorFlow Developer Professional Certificate program teaches you applied machine learning skills with TensorFlow so you can build and train powerful models.</p>
+<p>In this hands-on, four-course Professional Certificate program, you’ll learn the necessary tools to build scalable AI-powered applications with TensorFlow. After finishing this program, you’ll be able to apply your new TensorFlow skills to a wide range of problems and projects. This program can help you prepare for the Google TensorFlow Certificate exam and bring you one step closer to achieving the Google TensorFlow Certificate.</p>
+<p>Ready to deploy your models to the world? Learn how to go live with your models with the TensorFlow: Data and Deployment Specialization.</p>
+<p>Looking to customize and build powerful real-world models for complex scenarios? Check out the TensorFlow: Advanced Techniques Specialization.</p>
+</section>
+<section id="applied-learning-project-5" class="level4">
+<h4 class="anchored">Applied Learning Project</h4>
+<p>In the DeepLearning.AI TensorFlow Developer Professional Certificate program, you’ll get hands-on experience through 16 Python programming assignments. By the end of this program, you will be ready to:</p>
+<ul>
+<li><p>Build and train neural networks using TensorFlow</p></li>
+<li><p>Improve your network’s performance using convolutions as you train it to identify real-world images</p></li>
+<li><p>Teach machines to understand, analyze, and respond to human speech with natural language processing systems</p></li>
+<li><p>Process text, represent sentences as vectors, and train a model to create original poetry!</p></li>
+</ul>
+<p><img src="ghtop_images/tf_cert.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>,<span class="st">'Percentage completed'</span>]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>dat<span class="op">=</span>[[<span class="st">'Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning'</span>,<span class="dv">18</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Convolutional Neural Networks in TensorFlow'</span>,<span class="dv">18</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Natural Language Processing in TensorFlow'</span>,<span class="dv">25</span>,<span class="dv">8</span>,<span class="dv">100</span>],</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Sequences, Time Series and Prediction'</span>,<span class="dv">24</span>, <span class="dv">8</span>  ,<span class="dv">100</span>]]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>lendat<span class="op">=</span>np.shape(dat)[<span class="dv">0</span>]</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>pctot<span class="op">=</span><span class="bu">int</span>(np.<span class="bu">sum</span>(ss[<span class="st">'Percentage completed'</span>] <span class="op">*</span> ss[<span class="st">'Expected Time (h)'</span>]<span class="op">/</span>(ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>())))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'Tensorflow Developer- Overview'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),(ss[<span class="st">'Rating (0-10)'</span>].mean(skipna<span class="op">=</span><span class="va">True</span>)),pctot]],columns<span class="op">=</span>columns)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>ss.head(<span class="dv">10</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+      <th>Percentage completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Tensorflow Developer- Overview</td>
+      <td>85</td>
+      <td>8.5</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Introduction to TensorFlow for Artificial Inte...</td>
+      <td>18</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Convolutional Neural Networks in TensorFlow</td>
+      <td>18</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Natural Language Processing in TensorFlow</td>
+      <td>25</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Sequences, Time Series and Prediction</td>
+      <td>24</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="Tensorflow2" class="anchored" data-anchor-id="applied-learning-project-5">
+TensorFlow: Advanced Techniques Specialization
+</h2>
+<p>https://www.coursera.org/professional-certificates/tensorflow-in-practice</p>
+</section>
+<section id="about-this-specialization-5" class="level4">
+<h4 class="anchored" data-anchor-id="about-this-specialization-5">About this Specialization</h4>
+<p>Expand your knowledge of the Functional API and build exotic non-sequential model types. Learn how to optimize training in different environments with multiple processors and chip types and get introduced to advanced computer vision scenarios such as object detection, image segmentation, and interpreting convolutions. Explore generative deep learning including the ways AIs can create new content from Style Transfer to Auto Encoding, VAEs, and GANs.</p>
+</section>
+<section id="applied-learning-project-6" class="level4">
+<h4 class="anchored">Applied Learning Project</h4>
+<p>In this Specialization, you will gain practical knowledge of and hands-on training in advanced TensorFlow techniques such as style transfer, object detection, and generative machine learning.</p>
+<p>Course 1: Understand the underlying basis of the Functional API and build exotic non-sequential model types, custom loss functions, and layers.</p>
+<p>Course 2: Learn how optimization works and how to use GradientTape and Autograph. Optimize training in different environments with multiple processors and chip types.</p>
+<p>Course 3: Practice object detection, image segmentation, and visual interpretation of convolutions.</p>
+<p>Course 4: Explore generative deep learning and how AIs can create new content, from Style Transfer through Auto Encoding and VAEs to Generative Adversarial Networks.</p>
+<p><img src="ghtop_images/deepAI_tf2A.png" class="img-fluid"> <img src="ghtop_images/deepAI_tf2B.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>,<span class="st">'Percentage completed'</span>]</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>dat<span class="op">=</span>[[<span class="st">'Custom Models, Layers, and Loss Functions with TensorFlow'</span>,<span class="dv">37</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Custom and Distributed Training with TensorFlow'</span>,<span class="dv">29</span>,<span class="dv">9</span>,<span class="dv">100</span>],</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Advanced Computer Vision with TensorFlow'</span>,<span class="dv">29</span>, <span class="dv">8</span>,<span class="dv">25</span>],</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Generative Deep Learning with TensorFlow'</span>,<span class="dv">27</span>, <span class="dv">0</span>  ,<span class="dv">0</span>]]</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>lendat<span class="op">=</span>np.shape(dat)[<span class="dv">0</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>pctot<span class="op">=</span><span class="bu">int</span>(np.<span class="bu">sum</span>(ss[<span class="st">'Percentage completed'</span>] <span class="op">*</span> ss[<span class="st">'Expected Time (h)'</span>]<span class="op">/</span>(ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>())))</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'TensorFlow: Advanced Techniques Specialization- Overview'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),(ss[<span class="st">'Rating (0-10)'</span>].mean(skipna<span class="op">=</span><span class="va">True</span>)),pctot]],columns<span class="op">=</span>columns)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>ss.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+      <th>Percentage completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TensorFlow: Advanced Techniques Specialization...</td>
+      <td>122</td>
+      <td>6.5</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Custom Models, Layers, and Loss Functions with...</td>
+      <td>37</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Custom and Distributed Training with TensorFlow</td>
+      <td>29</td>
+      <td>9.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Advanced Computer Vision with TensorFlow</td>
+      <td>29</td>
+      <td>8.0</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Generative Deep Learning with TensorFlow</td>
+      <td>27</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<h2 id="Tensorflow2B" class="anchored" data-anchor-id="applied-learning-project-6">
+TensorFlow 2 for Deep Learning Specialization
+</h2>
+<p>https://www.coursera.org/specializations/tensorflow2-deeplearning</p>
+</section>
+<section id="about-this-specialization-6" class="level4">
+<h4 class="anchored" data-anchor-id="about-this-specialization-6">About this Specialization</h4>
+<p>This Specialization is intended for machine learning researchers and practitioners who are seeking to develop practical skills in the popular deep learning framework TensorFlow.</p>
+<p>The first course of this Specialization will guide you through the fundamental concepts required to successfully build, train, evaluate and make predictions from deep learning models, validating your models and including regularisation, implementing callbacks, and saving and loading models.</p>
+<p>The second course will deepen your knowledge and skills with TensorFlow, in order to develop fully customised deep learning models and workflows for any application. You will use lower level APIs in TensorFlow to develop complex model architectures, fully customised layers, and a flexible data workflow. You will also expand your knowledge of the TensorFlow APIs to include sequence models.</p>
+<p>The final course specialises in the increasingly important probabilistic approach to deep learning. You will learn how to develop probabilistic models with TensorFlow, making particular use of the TensorFlow Probability library, which is designed to make it easy to combine probabilistic models with deep learning. As such, this course can also be viewed as an introduction to the TensorFlow Probability library.</p>
+<p>Prerequisite knowledge for this Specialization is python 3, general machine learning and deep learning concepts, and a solid foundation in probability and statistics (especially for course 3)..</p>
+</section>
+<section id="applied-learning-project-7" class="level4">
+<h4 class="anchored" data-anchor-id="applied-learning-project-7">Applied Learning Project</h4>
+<p>Within the Capstone projects and programming assignments of this Specialization, you will acquire practical skills in developing deep learning models for a range of applications such as image classification, language translation, and text and image generation.</p>
+<p><img src="ghtop_images/imp_tf_cert.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">'Course Title'</span>,<span class="st">'Expected Time (h)'</span>,<span class="st">'Rating (0-10)'</span>,<span class="st">'Percentage completed'</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>dat<span class="op">=</span>[[<span class="st">'Getting started with TensorFlow 2'</span>,<span class="dv">26</span>,<span class="dv">8</span>,<span class="dv">100</span>],</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Customising your models with TensorFlow 2'</span>,<span class="dv">27</span>,<span class="dv">7</span>,<span class="dv">75</span>],</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>[<span class="st">'Probabilistic Deep Learning with TensorFlow 2'</span>,<span class="dv">53</span>, <span class="dv">0</span>,<span class="dv">0</span>]]</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>lendat<span class="op">=</span>np.shape(dat)[<span class="dv">0</span>]</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>ss <span class="op">=</span> pd.DataFrame(data <span class="op">=</span> dat,columns<span class="op">=</span>columns)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>pctot<span class="op">=</span><span class="bu">int</span>(np.<span class="bu">sum</span>(ss[<span class="st">'Percentage completed'</span>] <span class="op">*</span> ss[<span class="st">'Expected Time (h)'</span>]<span class="op">/</span>(ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>())))</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>ssTot<span class="op">=</span>pd.DataFrame(data <span class="op">=</span> [[<span class="st">'TensorFlow 2 for Deep Learning Specialization'</span>,ss[<span class="st">'Expected Time (h)'</span>].<span class="bu">sum</span>(),(ss[<span class="st">'Rating (0-10)'</span>].mean(skipna<span class="op">=</span><span class="va">True</span>)),pctot]],columns<span class="op">=</span>columns)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>ss<span class="op">=</span>ssTot.append(ss)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>ss.reset_index(inplace<span class="op">=</span><span class="va">True</span>,drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>ss.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Course Title</th>
+      <th>Expected Time (h)</th>
+      <th>Rating (0-10)</th>
+      <th>Percentage completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TensorFlow 2 for Deep Learning Specialization</td>
+      <td>106</td>
+      <td>5.0</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Getting started with TensorFlow 2</td>
+      <td>26</td>
+      <td>8.0</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Customising your models with TensorFlow 2</td>
+      <td>27</td>
+      <td>7.0</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Probabilistic Deep Learning with TensorFlow 2</td>
+      <td>53</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

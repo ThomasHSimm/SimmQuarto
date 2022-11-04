@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.258">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ThomasHSimm – tensorflow</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//posts/Picture3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ThomasHSimm</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ThomasHSimm"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ThomasHSimm"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><img src="../posts/header2.png" height="200"></p>
+
+
+
+<section id="tensorflow-cheat-sheet" class="level1">
+<h1>TensorFlow cheat sheet</h1>
+<blockquote class="blockquote">
+<p>Some tips for tensorflow and keras</p>
+</blockquote>
+<ul>
+<li>toc: false</li>
+<li>badges: true</li>
+<li>comments: true</li>
+<li>categories: [tensorflow]</li>
+</ul>
+<p><img src="ghtop_images/header2.png" class="img-fluid"></p>
+</section>
+<section id="contents" class="level1">
+<h1>Contents</h1>
+<ol type="1">
+<li><a href="https://thomashsimm.com/tensorflow/2022/09/28/Tensorflow.html#Overview">Overview</a></li>
+<li><a href="https://thomashsimm.com/tensorflow/2022/09/28/Tensorflow.html#General-TensorFlow-Procedure">General TensorFlow Procedure</a></li>
+<li>Lower-Level API
+<ul>
+<li><a href="https://thomashsimm.com/tensorflow/2022/09/28/Tensorflow.html#Functional-API">Functional API</a></li>
+<li><a href="https://thomashsimm.com/tensorflow/low-level/2022/10/10/Tensorflow-CustomLayersModels.html">Custom Layers, Models and Optimization</a></li>
+</ul></li>
+<li><a href="https://thomashsimm.com/tensorflow/2022/10/07/Tensorflow-2.html">Datasets, Tensors, Gradient Tapes and Advanced Optimization</a></li>
+<li><a href="https://thomashsimm.com/tensorflow/images/2022/10/10/Tensorflow-Images.html">Images</a></li>
+<li><a href="https://thomashsimm.com/tensorflow;%20nlp/2022/10/10/Tensorflow-NLP.html">NLP</a></li>
+</ol>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#hide</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.preprocessing.text <span class="im">import</span> Tokenizer</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.preprocessing.sequence <span class="im">import</span> pad_sequences</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<blockquote class="blockquote">
+<p>This cheat-sheet is spilt over multiple pages and as I am still learning the material (October 2022) the nature and content will change when I get the time.</p>
+</blockquote>
+<p>TensorFlow is from <a href="https://en.wikipedia.org/wiki/TensorFlow">Wikipedia</a>: <em>a free and open-source software library for machine learning and artificial intelligence. It can be used across a range of tasks but has a particular focus on training and inference of deep neural networks.</em></p>
+<p>What I really like in tensorflow (v2) is the levels of knowledge/control you can have to use it from <em>ultra-easy</em> to <em>wtf</em>. The incorporation of keras is a big part of it, as it is the easiest to use NN library. But to get more control is not that much harder.</p>
+</section>
+<section id="useful-links-details" class="level1">
+<h1>Useful Links / Details</h1>
+<section id="general" class="level2">
+<h2 class="anchored" data-anchor-id="general">General</h2>
+<p>Library websites:</p>
+<p>https://keras.io/</p>
+<p>https://www.tensorflow.org/</p>
+</section>
+<section id="courses" class="level2">
+<h2 class="anchored" data-anchor-id="courses">Courses</h2>
+<p>I have tried both of the following courses: DeepLearning.AI TensorFlow Developer Professional Certificate and TensorFlow 2 for Deep Learning Specialization.</p>
+<ul>
+<li><p><a href="https://www.coursera.org/professional-certificates/tensorflow-in-practice">DeepLearning.AI TensorFlow Developer Professional Certificate</a></p></li>
+<li><p><a href="https://www.coursera.org/specializations/tensorflow2-deeplearning">TensorFlow 2 for Deep Learning Specialization</a></p></li>
+</ul>
+<p>The Tensorflow2 course is a bit longer and goes into more depth, although there are additional extended courses for the deeplearning one. The deeplearning one can be done within the current 7 days trail period of coursera. The Tensorflow2 course is tricky to do in this timeframe. This is due to more material, the harder coursework, and waiting for capstone projects to be marked.</p>
+<p>In the end I only did the first course of Tensorflow2 as I found the tests had material that wasn’t explained within the course and I found the lectures lacking in detail and the instructors became increasingly boring. I gave up after getting to the capstone in course 2 (of 3) when they asked a question about an NLP network that was never explained anywhere. However, the coursework is a good challenge, so it may be worth doing the course for this alone and learning from other sources in addition to this one.</p>
+<p>I prefered the DeepLearning courses as they were more in depth and didn’t assume as much prior knowledge, and the presentation was better. I am currently working through the follow-up course <a href="https://www.coursera.org/specializations/tensorflow-advanced-techniques">TensorFlow: Advanced Techniques Specialization</a> and given time will do the NLP and MLOps courses.</p>
+<p><strong>Some Others:</strong></p>
+<p>One by Udacity <a href="https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187">Intro to TensorFlow for Deep Learning</a> is being offered for free and looks okay too.</p>
+<p>TensorFlow example tutorials written as Jupyter notebooks and run directly in Google Colab—a hosted notebook environment that requires no setup. Click the Run in Google Colab button. Part of the <a href="https://www.tensorflow.org/tutorials">TensorFlow resources</a>.</p>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<ul>
+<li><p><a href="https://www.tensorflow.org/resources/learn-ml">TensorFlow’s website recommendations</a></p></li>
+<li><p><a href="https://fchollet.com/">François Chollet</a></p>
+<ul>
+<li>His book <a href="https://www.manning.com/books/deep-learning-with-python-second-edition">Deep Learning with Python, Second Edition</a> can be read online.</li>
+</ul></li>
+<li><p><a href="https://www.deeplearningbook.org/">Deep learning book by Ian Goodfellow and Yoshua Bengio and Aaron Courville</a></p>
+<ul>
+<li>available free online</li>
+</ul></li>
+<li><p><a href="https://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/">Probabilistic Programming &amp; Bayesian Methods for Hackers</a></p>
+<ul>
+<li>available online</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="general-tensorflow-procedure" class="level1">
+<h1>General TensorFlow Procedure</h1>
+<ul>
+<li>preprocessing the data</li>
+<li>create model
+<ul>
+<li>e.g.&nbsp;<code>model = tf.keras.Sequential([ ....])</code></li>
+</ul></li>
+<li>compile the model
+<ul>
+<li>e.g.&nbsp;<code>model.compile(optimizer='adam',loss='mae')</code></li>
+</ul></li>
+<li>fit the model
+<ul>
+<li>e.g.&nbsp;<code>history = model.fit(xdata, ydata)</code></li>
+</ul></li>
+</ul>
+<section id="model-creations" class="level2">
+<h2 class="anchored" data-anchor-id="model-creations">Model creations</h2>
+<p>The easiest way to create a model in Keras is through <code>keras.Sequential</code>, which creates a neural network as a stack of layers.</p>
+<p>So in the examplel below - the 1st layer has <code>units</code> = 4 and <code>input_shape</code>=2 with a relu activation function - the 2nd layer has <code>units</code> = 3 with a relu activation function - the 3rd layer has <code>units</code> = 1</p>
+<p>The 3rd layer is the output layer. Since there is no activation function this would be a regression problem to predict one value.</p>
+<p><img src="https://i.imgur.com/Y5iwFQZ.png" class="img-fluid"></p>
+<p>For non sequential models or with multiple inputs/outputs see <a href="https://thomashsimm.com/tensorflow/2022/09/28/Tensorflow.html#Functional-API">functional API</a></p>
+<section id="tabular-data" class="level3">
+<h3 class="anchored" data-anchor-id="tabular-data">Tabular Data</h3>
+<p>https://www.kaggle.com/code/thomassimm/premier-league-predictions-using-tensorflow</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> tf.keras.Sequential([</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.Dense(<span class="dv">512</span><span class="op">//</span><span class="dv">8</span>,activation<span class="op">=</span><span class="st">'relu'</span>,input_shape<span class="op">=</span>[input_shape]),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.Dense(<span class="dv">512</span><span class="op">//</span><span class="dv">8</span>,activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.Dense(<span class="dv">1</span>,activation<span class="op">=</span><span class="st">'sigmoid'</span>)        </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="image-data" class="level3">
+<h3 class="anchored" data-anchor-id="image-data">Image Data</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> tf.keras.models.Sequential([ </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>          tf.keras.layers.Convolution2D( <span class="dv">64</span>,(<span class="dv">3</span>,<span class="dv">3</span>),activation<span class="op">=</span><span class="st">'relu'</span>,input_shape<span class="op">=</span>(<span class="dv">28</span>,<span class="dv">28</span>,<span class="dv">1</span>) ),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>          tf.keras.layers.MaxPool2D(<span class="dv">2</span>,<span class="dv">2</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>          tf.keras.layers.Flatten(),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>          tf.keras.layers.Dense(<span class="dv">256</span><span class="op">//</span><span class="dv">2</span>,activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>          tf.keras.layers.Dense(<span class="dv">1</span>,activation<span class="op">=</span><span class="st">'sigmoid'</span>) ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="language-data" class="level3">
+<h3 class="anchored" data-anchor-id="language-data">Language Data</h3>
+<p>The standard language model starts with an embedding layer, this then needs to be flattened to a vector, then we can add a dense layer before an output layer.</p>
+<p>The <a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Embedding"><code>Embedding</code></a> layer creates a vector-space for the text data. So for example, the words beautiful and ugly may be in opposite directions. And words such as cat and kitten may be close together in vector space.</p>
+<p><code>GlobalAveragePooling1D</code>can be replaced by <code>Flatten()</code></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> tf.keras.Sequential([ </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.Embedding(num_words,embedding_dim,input_length<span class="op">=</span>maxlen),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.GlobalAveragePooling1D(),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.Dense(<span class="dv">24</span>,activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.Dense(<span class="dv">5</span>,<span class="st">'softmax'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The model above does not take account for the order of words,</p>
+<p>If we want to do this we can insert an additional layer after the embedding layer. For example, by using the LSTM model as below</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model_lstm<span class="op">=</span> tf.keras.Sequential([</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Embedding(VOCAB_SIZE,EMBEDDING_DIM,input_length<span class="op">=</span>MAXLEN),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(<span class="dv">32</span>)),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">24</span>,activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(NUM_CLASSES,activation<span class="op">=</span><span class="st">'softmax'</span>)   </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can even insert a conolution layer after the embedding instead</p>
+<p><code>tf.keras.layers.Conv1D(128,5,activation='relu')</code></p>
+<p>For two consecutive layers of RNNs use <code>return_sequences=True</code></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(lstm1_dim, return_sequences<span class="op">=</span><span class="va">True</span>)),</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tf.keras.layers.Bidirectional(tf.keras.layers.LSTM(lstm2_dim)),</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="compile-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="compile-the-model">Compile the model</h2>
+<p>To compile the model, need to define the following:</p>
+<ul>
+<li>the optimizer to use, i.e.&nbsp;how to update the parameters to improve model during fitting</li>
+<li>the loss, i.e.&nbsp;what defines the goodness of the fit</li>
+<li>any metrics to record</li>
+</ul>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> keras.optimizers.Adam(learning_rate<span class="op">=</span><span class="fl">0.0001</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>opt,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    loss<span class="op">=</span><span class="st">'binary_crossentropy'</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    metrics<span class="op">=</span>[<span class="st">'binary_accuracy'</span>],</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="evaluate-predict-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="evaluate-predict-the-model"><code>Evaluate</code> / <code>Predict</code> the model</h2>
+<p><code>test_loss, test_accuracy = model.evaluate(scaled_test_images,</code></p>
+<p><code>tf.keras.utils.to_categorical(test_labels),</code></p>
+<p><code>verbose=0)</code></p>
+<p>and more or less outputs depending on metrics used</p>
+<p><code>pred = model.predict(X_sample)</code></p>
+</section>
+<section id="saving-and-loading" class="level2">
+<h2 class="anchored" data-anchor-id="saving-and-loading">Saving and Loading</h2>
+<section id="saving-loading-weights" class="level3">
+<h3 class="anchored" data-anchor-id="saving-loading-weights">Saving / Loading weights</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>model_weights_file<span class="op">=</span><span class="st">'my_file'</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>model.save_weights(model_weights_file)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>model.load_weights(model_weights_file)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># All the model</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>model.save(<span class="st">'saved_model/my_model'</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>new_model <span class="op">=</span> tf.keras.models.load_model(<span class="st">'saved_model/my_model'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="callbacks" class="level2">
+<h2 class="anchored" data-anchor-id="callbacks">Callbacks</h2>
+<p>within <code>model.fit(....)</code></p>
+<p><code>callbacks=[callback_function]</code></p>
+<p>https://www.tensorflow.org/api_docs/python/tf/keras/callbacks</p>
+<ul>
+<li><code>EarlyStopping</code>
+<ul>
+<li>to stop the model early if some conditions are met</li>
+</ul></li>
+<li><code>ModelCheckpoint</code>
+<ul>
+<li>save the model/model weights (https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/ModelCheckpoint)</li>
+<li>main data stored similar to ‘.data-00000-of-00001’</li>
+<li>https://www.tensorflow.org/tutorials/keras/save_and_load#what_are_these_files</li>
+<li>Can give file names with variables using {}</li>
+</ul></li>
+<li><code>val_loss</code></li>
+<li><code>val_accuracy</code></li>
+<li><code>batch</code></li>
+<li><code>epoch</code></li>
+</ul>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>early_stopping <span class="op">=</span> tf.keras.callbacks.EarlyStopping(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    min_delta<span class="op">=</span><span class="fl">0.0001</span>, <span class="co"># minimium amount of change to count as an improvement</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    patience<span class="op">=</span><span class="dv">20</span>, <span class="co"># how many epochs to wait before stopping</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    restore_best_weights<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    monitor<span class="op">=</span><span class="st">'val_binary_accuracy'</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>filepath <span class="op">=</span> os.path.join(cwd,<span class="st">'checkpoints_every_epoch/checkpoint.</span><span class="sc">{epoch}</span><span class="st">.</span><span class="sc">{batch}</span><span class="st">'</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>checkpoint <span class="op">=</span> tf.keras.callbacks.ModelCheckpoint(</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        save_weights_only<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        save_best_only<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        filepath<span class="op">=</span>filepath,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="overfitting-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="overfitting-strategies">Overfitting strategies</h2>
+<section id="dropout" class="level3">
+<h3 class="anchored" data-anchor-id="dropout">Dropout</h3>
+<p>The idea behind dropout is to randomly drop out some fraction of a layer’s input units every step of training, making it much harder for the network to learn those spurious patterns in the training data that leads to overfitting.</p>
+<p>Instead, it has to search for broad, general patterns, whose weight patterns tend to be more robust.</p>
+<p>You could also think about dropout as creating a kind of ensemble of networks like with RandomForests.</p>
+<p>Example useage, apply 30% dropout to the next layer</p>
+<p><code>layers.Dropout(rate=0.3),</code></p>
+<p><code>layers.Dense(16)</code></p>
+<p>Example taken from kaggle https://www.kaggle.com/code/ryanholbrook/dropout-and-batch-normalization</p>
+<p><img src="https://i.imgur.com/a86utxY.gif" class="img-fluid"></p>
+</section>
+<section id="batch-normalization" class="level3">
+<h3 class="anchored" data-anchor-id="batch-normalization">Batch Normalization</h3>
+<p>Normalization is important in neural networks, it can really significantly improve the results of the values of the input and output are between 0 and 1.</p>
+<p>In contrast, it is not important in other models such as random forests. Hence, the input data is often normalised such as <code>train_datagen = ImageDataGenerator(rescale=1./255.)</code> in image models.</p>
+<p>So if it is good to normalize the input data it can also be good to normalize the layers of the network. This can be done with a <code>BatchNormalization</code> layer.A batch normalization layer looks at each batch as it comes in, first normalizing the batch with its own mean and standard deviation, and then also putting the data on a new scale with two trainable rescaling parameters. Batchnorm, in effect, performs a kind of coordinated rescaling of its inputs.</p>
+<p>As stated in https://www.kaggle.com/code/ryanholbrook/dropout-and-batch-normalization batchnorm: - batchnorm is most often added as an aid to the optimization process - but it can sometimes also help prediction performance - Models with batchnorm tend to need fewer epochs to complete training. - And can fix various problems that can cause the training to get “stuck”. - it can be used at almost any point in a network.</p>
+<p><code>layers.Dense(16, activation='relu'),</code></p>
+<p><code>layers.BatchNormalization(),</code></p>
+<p>… or between a layer and its activation function:</p>
+<p><code>layers.Dense(16),</code></p>
+<p><code>layers.BatchNormalization(),</code></p>
+<p><code>layers.Activation('relu'),</code></p>
+<p>… Or if you add it as the first layer of your network it can act as a kind of adaptive preprocessor like Sci-Kit Learn’s StandardScaler.</p>
+</section>
+</section>
+</section>
+<section id="functional-api" class="level1">
+<h1>Functional API</h1>
+<p>The same thing can be achived in a different way using the functional API.</p>
+<p>Here an input is defined and then passed to the hidden layers, which in turn pass themself to the next layer</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> Input, Dense, Flatten</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">input</span> <span class="op">=</span> Input(shape<span class="op">=</span>(<span class="dv">28</span>,<span class="dv">28</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Flatten()(<span class="bu">input</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Dense(<span class="dv">18</span>, activation<span class="op">=</span><span class="st">'relu'</span>)(x)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> Dense(<span class="dv">10</span>,activation<span class="op">=</span><span class="st">'softmax'</span>)(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The model can then be defined from these variable like this</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.models <span class="im">import</span> Model</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>func_model <span class="op">=</span> Model(inputs <span class="op">=</span> <span class="bu">input</span>, outputs <span class="op">=</span> predictions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="multiple-inputs-and-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-inputs-and-outputs">Multiple inputs and outputs</h2>
+<p>3 inputs and 2 outputs. Simple model</p>
+<p>Inputs: - <code>temp_train</code> - <code>nocc_train</code> - <code>lumbp_train</code></p>
+<p>Outputs: - <code>out1_train</code> - <code>out2_train</code></p>
+<p>Things to note: - <code>inputs</code> in the model is a list of the <code>Input()</code> parts - <code>concatentate</code> is used with the input list to provide input to the next layers of the model - <code>outputs</code> in the model is a list of the output layers - When compiling use dictionary to set loss and metrics to each output - or lists <code>['binary_crossentropy','binary_crossentropy']</code> - When fitting, for the inputs/outputs either: - provide a list of the inputs <code>[temp_train,nocc_train, lumbp_train]</code> - give as a dict <code>{'layer_name':variable_name}</code></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Functional: multiple inputs</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># N.B. lowercase 'c' concatenate</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.layers <span class="im">import</span> Input, Dense, concatenate</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>input_shape<span class="op">=</span>(<span class="dv">1</span>,)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># get individual inputs</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>inputs_temp <span class="op">=</span> Input(shape<span class="op">=</span>input_shape,name<span class="op">=</span><span class="st">'temp'</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>inputs_nocc <span class="op">=</span> Input(shape<span class="op">=</span>input_shape,name<span class="op">=</span><span class="st">'nocc'</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>inputs_lumbp <span class="op">=</span> Input(shape<span class="op">=</span>input_shape,name<span class="op">=</span><span class="st">'lumbp'</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># combine them</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>input_list <span class="op">=</span> [inputs_temp,inputs_nocc,inputs_lumbp]</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>input_layer <span class="op">=</span>concatenate(input_list)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co"># add inputs to the model for two outputs</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>output_pred1  <span class="op">=</span> Dense(<span class="dv">2</span>,activation<span class="op">=</span><span class="st">'sigmoid'</span>,name<span class="op">=</span><span class="st">'out_1'</span>)(input_layer)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>output_pred2 <span class="op">=</span> Dense(<span class="dv">2</span>,activation<span class="op">=</span><span class="st">'sigmoid'</span>,name<span class="op">=</span><span class="st">'out_2'</span>)(input_layer)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co"># output layer</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>output_list <span class="op">=</span> [output_pred1, output_pred2]</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co"># create the model object</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> tf.keras.Model(inputs<span class="op">=</span>input_list, outputs<span class="op">=</span>output_list )</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co"># show the model</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>model.summary()</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Compile</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>        optimizer<span class="op">=</span><span class="st">'SGD'</span>,</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        loss<span class="op">=</span>{<span class="st">'out_1'</span>:<span class="st">'binary_crossentropy'</span>,</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>              <span class="st">'out_2'</span>:<span class="st">'binary_crossentropy'</span>},</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        metrics<span class="op">=</span>{<span class="st">'out_1'</span>:[<span class="st">'accuracy'</span>],</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'out_2'</span>:[<span class="st">'accuracy'</span>]},</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>        loss_weights<span class="op">=</span>[<span class="dv">1</span>,<span class="fl">0.2</span>]</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>tf.keras.utils.plot_model(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define training inputs and outputs</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>inputs_train <span class="op">=</span> {<span class="st">'temp'</span>: temp_train, <span class="st">'nocc'</span>: nocc_train, <span class="st">'lumbp'</span>: lumbp_train}</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>outputs_train <span class="op">=</span> {<span class="st">'out_1'</span>: out1_train, <span class="st">'out_2'</span>: out2_train}</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>model.fit(inputs_train,outputs_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="transfer-learning" class="level1">
+<h1>Transfer Learning</h1>
+<p>Models that can be used found here https://www.tensorflow.org/api_docs/python/tf/keras/applications</p>
+<blockquote class="blockquote">
+<p>Keras Applications are premade architectures with pre-trained weights.</p>
+</blockquote>
+<section id="inception-images" class="level2">
+<h2 class="anchored" data-anchor-id="inception-images">Inception (images)</h2>
+<ol type="1">
+<li>Load the model pre-trained weights</li>
+<li>Import the model architecture</li>
+<li>Give the model the input shape for data</li>
+<li>Load the weights into the model</li>
+<li>Freeze all the layers</li>
+<li>Pick out the front part of the model, as the layers to the end are more specialized</li>
+<li>Add extra layers to the model that can be fitted to</li>
+</ol>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1- Download the inception v3 weights</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget <span class="op">--</span>no<span class="op">-</span>check<span class="op">-</span>certificate <span class="op">\</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    https:<span class="op">//</span>storage.googleapis.com<span class="op">/</span>mledu<span class="op">-</span>datasets<span class="op">/</span>inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5 <span class="op">\</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span>O <span class="op">/</span>tmp<span class="op">/</span>inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2- Import the inception model  </span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras.applications.inception_v3 <span class="im">import</span> InceptionV3</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an instance of the inception model from the local pre-trained weights</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>local_weights_file <span class="op">=</span> <span class="st">'/tmp/inception_v3_weights_tf_dim_ordering_tf_kernels_notop.h5'</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 3- create the model and load in the weights</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>pre_trained_model <span class="op">=</span> InceptionV3(input_shape <span class="op">=</span> (<span class="dv">150</span>, <span class="dv">150</span>, <span class="dv">3</span>),</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>                                  include_top <span class="op">=</span> <span class="va">False</span>, </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>                                  weights <span class="op">=</span> <span class="va">None</span>) </span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4- load weights into the model</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>pre_trained_model.load_weights(local_weights_file)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 5- Make all the layers in the pre-trained model non-trainable</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layers <span class="kw">in</span> pre_trained_model.layers:</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    layers.trainable <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 6- Pick out part of the model</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>last_desired_layer <span class="op">=</span> pre_trained_model.get_layer(<span class="st">'mixed7'</span>)    </span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>last_output <span class="op">=</span> last_desired_layer.output</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 7- Add extra layers to the model</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Flatten the output layer to 1 dimension</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> layers.Flatten()(last_output)  </span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a fully connected layer with 1024 hidden units and ReLU activation</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> layers.Dense(<span class="dv">1024</span>,activation<span class="op">=</span><span class="st">'relu'</span>)(x)</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a dropout rate of 0.2</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> layers.Dropout(<span class="fl">0.2</span>)(x)  </span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a final sigmoid layer for classification</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> layers.Dense(<span class="dv">1</span>,activation<span class="op">=</span><span class="st">'sigmoid'</span>)(x) </span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the complete model by using the Model class</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Model(inputs<span class="op">=</span>pre_trained_model.<span class="bu">input</span>, outputs<span class="op">=</span>x)</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Compile the model</span></span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(optimizer <span class="op">=</span> RMSprop(learning_rate<span class="op">=</span><span class="fl">0.0001</span>), </span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>            loss <span class="op">=</span> <span class="st">'binary_crossentropy'</span>,</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>            metrics <span class="op">=</span> [<span class="st">'accuracy'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="other" class="level1">
+<h1>Other</h1>
+<section id="summary-info-of-model" class="level2">
+<h2 class="anchored" data-anchor-id="summary-info-of-model">Summary / info of model</h2>
+<p><code>model.summary()</code></p>
+<p>Get summary of the model</p>
+</section>
+<section id="class-or-function---metrics-and-losses" class="level2">
+<h2 class="anchored" data-anchor-id="class-or-function---metrics-and-losses">Class or Function - Metrics and Losses</h2>
+<p>In general, classes use camel formatting <code>CategoricalAccuracy</code> whereas function use underscores and lower case <code>categorical_accuracy</code> and sometimes initials <code>MAE</code></p>
+<ul>
+<li>https://www.tensorflow.org/api_docs/python/tf/keras/losses</li>
+<li>https://www.tensorflow.org/api_docs/python/tf/keras/metrics</li>
+</ul>
+</section>
+<section id="low-level-handling-of-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="low-level-handling-of-metrics">Low level handling of metrics</h2>
+<ul>
+<li><code>metric.update_state()</code> to accumulate metric stats after each batch</li>
+<li><code>metric.result</code> get current value of metric to display</li>
+<li><code>metric.reset_state()</code> to reset metric value typically at the end of epoch</li>
+</ul>
+</section>
+<section id="categorical-binary-versus-multiple" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-binary-versus-multiple">Categorical: Binary versus Multiple</h2>
+<p>For categorical data there is a slight difference between if there are only 2 categories or more.</p>
+<p>Going from binary to multiple: - We need to change activation in model from sigmoid to softmax in final Dense layer - Change loss function from <code>binary_crossentropy</code> to <code>categorical_crossentropy</code> in compile - Making data one-hot encoded, i.e.&nbsp;columns for each outcome - Or use <code>SparseCategoricalCrossentropy</code></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model_binary <span class="op">=</span> tf.keras.Sequential([</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.Dense(<span class="dv">512</span><span class="op">//</span><span class="dv">8</span>,activation<span class="op">=</span><span class="st">'relu'</span>,input_shape<span class="op">=</span>[input_shape]),</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.Dense(<span class="dv">1</span>,activation<span class="op">=</span><span class="st">'sigmoid'</span>)        </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>model_multi <span class="op">=</span> tf.keras.Sequential([</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.Dense(<span class="dv">512</span><span class="op">//</span><span class="dv">8</span>,activation<span class="op">=</span><span class="st">'relu'</span>,input_shape<span class="op">=</span>[input_shape]),</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        tf.keras.layers.Dense(<span class="dv">4</span>,activation<span class="op">=</span><span class="st">'softmax'</span>)        </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>model_binary.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">'binary_crossentropy'</span>,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                  optimizer<span class="op">=</span><span class="st">'adam'</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                  metrics<span class="op">=</span>[<span class="st">'accuracy'</span>])</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>model_multi.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">'categorical_crossentropy'</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>                  optimizer<span class="op">=</span><span class="st">'adam'</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>                  metrics<span class="op">=</span>[<span class="st">'accuracy'</span>])</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># One-hot encoding method</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>y_binary <span class="op">=</span>[<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>y_multi<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>y_multi<span class="op">=</span>tf.keras.utils.to_categorical(y_multi)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>y_multi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>array([[0., 1., 0., 0., 0., 0., 0.],
+       [0., 0., 1., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 1., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 1.],
+       [0., 1., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 1., 0., 0., 0.],
+       [0., 0., 0., 0., 1., 0., 0.],
+       [0., 0., 1., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 1., 0., 0.],
+       [0., 0., 1., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 1., 0.],
+       [0., 0., 1., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 1., 0., 0.],
+       [0., 0., 1., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0., 0., 0.]], dtype=float32)</code></pre>
+</div>
+</div>
+<p>Alternatively, with output data like [0, 1, 4, 0, 2, 3, 3, 0, …]</p>
+<p>use: - <code>SparseCategoricalCrossentropy(from_logits=True)</code></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                 loss<span class="op">=</span>tf.keras.losses.SparseCategoricalCrossentropy(),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                 optimizer<span class="op">=</span><span class="st">'adam'</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                 metrics<span class="op">=</span>[<span class="st">'accuracy'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="learning-rate" class="level2">
+<h2 class="anchored" data-anchor-id="learning-rate">Learning rate</h2>
+<p>Find the best learning rate by using <a href="https://thomashsimm.com/tensorflow/2022/09/28/Tensorflow.html#Callbacks"><code>callbacks</code></a></p>
+<p>The learning rate to use on the data below would be where the loss is low (y-axis) but not too close to where it increases or is unstable.</p>
+<p>So for this on the downward part of the curve between 10E-6 and 10E-5</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the learning rate scheduler</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>lr_schedule <span class="op">=</span> tf.keras.callbacks.LearningRateScheduler(</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> epoch: <span class="fl">1e-8</span> <span class="op">*</span> <span class="dv">10</span><span class="op">**</span>(epoch <span class="op">/</span> <span class="dv">20</span>) )</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the training parameters</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>model_tune.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">"mse"</span>, optimizer<span class="op">=</span>optimizer)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># train the model</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> model_tune.fit(dataset, epochs<span class="op">=</span><span class="dv">100</span>, callbacks<span class="op">=</span>[lr_schedule])</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># plot the results</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the learning rate array</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>lrs <span class="op">=</span> <span class="fl">1e-8</span> <span class="op">*</span> (<span class="dv">10</span> <span class="op">**</span> (np.arange(<span class="dv">100</span>) <span class="op">/</span> <span class="dv">20</span>))</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the loss in log scale</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>plt.semilogx(lrs, history.history[<span class="st">"loss"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="ghtop_images/learningrate_search.png" class="img-fluid"></p>
+</section>
+<section id="lambda-functions" class="level2">
+<h2 class="anchored" data-anchor-id="lambda-functions"><code>lambda</code> functions</h2>
+<p>https://www.tensorflow.org/api_docs/python/tf/keras/layers/Lambda</p>
+<p><code>tf.keras.layers.Lambda(     function, output_shape=None, mask=None, arguments=None, **kwargs )</code></p>
+<p>Add a function that works on the data within the model</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># expand the dimensions</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tf.keras.layers.Lambda(<span class="kw">lambda</span> x: tf.expand_dims(x, axis<span class="op">=-</span><span class="dv">1</span>),</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                      input_shape<span class="op">=</span>[window_size])</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># make the output larger (can be useful if predicting to large values, but previous layer have activation function so values are close to 1)</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>tf.keras.layers.Lambda(<span class="kw">lambda</span> x: x <span class="op">*</span> <span class="fl">100.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="force-cpugpu" class="level2">
+<h2 class="anchored" data-anchor-id="force-cpugpu">Force CPU/GPU</h2>
+<p>https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check available CPU/GPU devices</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tf.config.list_physical_devices(<span class="st">'CPU'</span>))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tf.config.list_physical_devices(<span class="st">'GPU'</span>))</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> tf.device(<span class="st">"CPU:0"</span>):</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    model.fit(....)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> tf.device(<span class="st">"GPU:0"</span>):</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    model.fit(....)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="page-2" class="level1">
+<h1><a href="https://thomashsimm.com/tensorflow/2022/10/07/Tensorflow-2.html">Page 2</a></h1>
+</section>
+<section id="datasets-tensors-optimization" class="level1">
+<h1><a href="https://thomashsimm.com/tensorflow/2022/10/07/Tensorflow-2.html">Datasets, Tensors, Optimization</a></h1>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

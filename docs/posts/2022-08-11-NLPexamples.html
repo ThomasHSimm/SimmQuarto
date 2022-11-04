@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.258">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ThomasHSimm – nlpexamples</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//posts/Picture3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ThomasHSimm</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ThomasHSimm"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ThomasHSimm"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><img src="../posts/header2.png" height="200"></p>
+
+
+
+<section id="nlp-examples" class="level1">
+<h1>NLP examples</h1>
+<blockquote class="blockquote">
+<p>Using Python and different NLP techniques to predict disatser tweets</p>
+</blockquote>
+<ul>
+<li>toc: true</li>
+<li>badges: true</li>
+<li>comments: true</li>
+<li>categories: [NLP, fastai, zero-shot, scikit learn, bag of words, Python, kaggle]</li>
+</ul>
+<p><img src="ghtop_images/header2.png" class="img-fluid"></p>
+<section id="competition-description" class="level2">
+<h2 class="anchored" data-anchor-id="competition-description"><a href="https://www.kaggle.com/competitions/nlp-getting-started">Competition Description</a></h2>
+<p>Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e.&nbsp;disaster relief organizations and news agencies).</p>
+<p>But, it’s not always clear whether a person’s words are actually announcing a disaster.</p>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
+<p>You’ll need train.csv, test.csv and sample_submission.csv. What should I expect the data format to be?</p>
+<p>Each sample in the train and test set has the following information:</p>
+<ul>
+<li>The text of a tweet</li>
+<li>A keyword from that tweet (although this may be blank!)</li>
+<li>The location the tweet was sent from (may also be blank)</li>
+</ul>
+<p>What am I predicting?</p>
+<p>You are predicting whether a given tweet is about a real disaster or not. If so, predict a 1. If not, predict a 0. Files</p>
+<ul>
+<li><code>train.csv</code> - the training set</li>
+<li><code>test.csv</code> - the test set</li>
+<li><code>sample_submission.csv</code> - a sample submission file in the correct format</li>
+</ul>
+<p>Columns</p>
+<ul>
+<li><code>id</code> - a unique identifier for each tweet</li>
+<li><code>text</code> - the text of the tweet</li>
+<li><code>location</code> - the location the tweet was sent from (may be blank)</li>
+<li><code>keyword</code> - a particular keyword from the tweet (may be blank)</li>
+<li><code>target</code> - in train.csv only, this denotes whether a tweet is about a real disaster (1) or not (0)</li>
+</ul>
+</section>
+</section>
+<section id="analysis-methods-used" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-methods-used">Analysis methods used</h2>
+<p>Code used for the threee methods: - https://www.kaggle.com/code/thomassimm/nlp-disaster-tweets-one-shot - https://www.kaggle.com/code/thomassimm/nlp-disaster-scikit - https://www.kaggle.com/code/thomassimm/nlp-disaster-nn</p>
+<section id="one-shot" class="level3">
+<h3 class="anchored" data-anchor-id="one-shot"><a href="https://www.kaggle.com/code/thomassimm/nlp-disaster-tweets-one-shot">one-shot</a></h3>
+<p>For the <a href="https://joeddav.github.io/blog/2020/05/29/ZSL.html">zero shot</a> learning method, the main advantage is no labelled data is needed nor any prior training. But the accuracy will be reduced without any training.</p>
+<pre><code>What is zero-shot learning?
+
+Traditionally, zero-shot learning (ZSL) most often referred to a fairly specific type of task: learn a classifier on one set of labels and then evaluate on a different set of labels that the classifier has never seen before. Recently, especially in NLP, it's been used much more broadly to mean get a model to do something that it wasn't explicitly trained to do. A well-known example of this is in the GPT-2 paper where the authors evaluate a language model on downstream tasks like machine translation without fine-tuning on these tasks directly.
+https://joeddav.github.io/blog/2020/05/29/ZSL.html</code></pre>
+<p>The code used here is as follows:</p>
+<p><code>from transformers import pipeline</code></p>
+<p><code>classifier = pipeline("zero-shot-classification", device=0)</code></p>
+<p>And can then be called as follows, where string is what we are classifying (ie. the tweet) and label what we are looking to classify it as (here we use disaster):</p>
+<p><code>classout=classifier( TEXT, LABEL, multi_class=True)</code></p>
+<blockquote class="blockquote">
+<p>The accuracy is ~60%. But remember no training is done.</p>
+</blockquote>
+</section>
+<section id="bag-of-words-sci-kit-learn" class="level3">
+<h3 class="anchored" data-anchor-id="bag-of-words-sci-kit-learn"><a href="https://www.kaggle.com/code/thomassimm/nlp-disaster-scikit">Bag of words sci-kit learn</a></h3>
+<p>This method uses scikit-learn to classify the tweets by using a <em>Bag of Words</em> approach. This example uses a Tf-idf-weighted document-term sparse matrix to encode the features and demonstrates various classifiers that can efficiently handle sparse matrices.</p>
+<p>Methodology taken from <a href="https://scikit-learn.org/stable/auto_examples/text/plot_document_classification_20newsgroups.html#sphx-glr-auto-examples-text-plot-document-classification-20newsgroups-py">here</a></p>
+<table class="table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 12%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>fit_time</th>
+<th>score_time</th>
+<th>test_accuracy</th>
+<th>train_accuracy</th>
+<th>test_f1</th>
+<th>train_f1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Logistic Regression</td>
+<td>2.349514</td>
+<td>0.006580</td>
+<td>0.739398</td>
+<td>0.977276</td>
+<td>0.639793</td>
+<td>0.973091</td>
+</tr>
+<tr class="even">
+<td>Ridge Classifier</td>
+<td>0.079390</td>
+<td>0.003698</td>
+<td>0.736246</td>
+<td>0.979509</td>
+<td>0.631187</td>
+<td>0.975799</td>
+</tr>
+<tr class="odd">
+<td>kNN</td>
+<td>0.004747</td>
+<td>0.636052</td>
+<td>0.720220</td>
+<td>0.775220</td>
+<td>0.601846</td>
+<td>0.692391</td>
+</tr>
+<tr class="even">
+<td>Random Forest</td>
+<td>50.920274</td>
+<td>0.207107</td>
+<td>0.691847</td>
+<td>0.988999</td>
+<td>0.500637</td>
+<td>0.987122</td>
+</tr>
+<tr class="odd">
+<td>Linear SVC</td>
+<td>0.093184</td>
+<td>0.004035</td>
+<td>0.733750</td>
+<td>0.900926</td>
+<td>0.605876</td>
+<td>0.872385</td>
+</tr>
+<tr class="even">
+<td>log-loss SGD</td>
+<td>0.002576</td>
+<td>0.000000</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td>NearestCentroid</td>
+<td>0.008251</td>
+<td>0.005659</td>
+<td>0.664523</td>
+<td>0.772659</td>
+<td>0.658099</td>
+<td>0.751426</td>
+</tr>
+<tr class="even">
+<td>Complement naive Bayes</td>
+<td>0.008391</td>
+<td>0.003308</td>
+<td>0.690007</td>
+<td>0.979115</td>
+<td>0.676552</td>
+<td>0.975514</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="blockquote">
+<p>Results give ~80% on results file</p>
+</blockquote>
+</section>
+<section id="nn-with-fastai" class="level3">
+<h3 class="anchored" data-anchor-id="nn-with-fastai"><a href="https://www.kaggle.com/code/thomassimm/nlp-disaster-nn">NN with fastai</a></h3>
+<p>The method used here is to do a two step process both of which use a RNN neural network with AWD-LSTM architecture:</p>
+<ul>
+<li>creating a language model for the data</li>
+<li>using this language model with labelled data to classify different texts</li>
+</ul>
+<p>This method is shown here using <a href="https://github.com/fastai/fastbook/blob/master/10_nlp.ipynb">fastai</a> for sentiment analysis (i.e.&nbsp;are reviews positive or negative) of IMDB data.</p>
+<p>The basics of the code for the classifier part are:</p>
+<p>create a data loader:</p>
+<p><code>dls = TextDataLoaders.from_df(df, text_col='text', label_col='target',                                valid_col='is_valid')</code></p>
+<p>create a learner, using text_classifier and AWD_LSTM</p>
+<p><code>learn = text_classifier_learner(dls, AWD_LSTM, drop_mult=0.5)</code></p>
+<p><code>learn.metrics = [FBeta(beta=1),accuracy]</code></p>
+<p>And finally add the language model learnt on the tweets in the 1st step</p>
+<p><code>learn = learn.load_encoder('finetuned3')</code></p>
+<p>Then learn by:</p>
+<p><code>learn.fit_one_cycle(2, 1e-2)</code></p>
+<p>What surprised me was how low the final accuracy was given the complexity of the model and the time taken (over 8 mins). Maybe some work needs to be done to look at how I implemented this or try other RNN methods?</p>
+<blockquote class="blockquote">
+<p>Results give about 77% accuracy on results file</p>
+</blockquote>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

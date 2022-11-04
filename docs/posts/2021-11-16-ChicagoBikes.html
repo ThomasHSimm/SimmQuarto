@@ -1,0 +1,2302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.258">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ThomasHSimm – chicagobikes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//posts/Picture3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ThomasHSimm</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ThomasHSimm"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ThomasHSimm"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><img src="../posts/header2.png" height="200"></p>
+
+
+
+<section id="how-does-a-bike-share-navigate-speedy-success" class="level1">
+<h1>How Does a Bike-Share Navigate Speedy Success</h1>
+<p><img src="ghtop_images/header2.png" class="img-fluid"></p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Some quick analysis on Cycle bike-share data from Chicago</p>
+<p><i>Welcome to the Cyclistic bike-share analysis case study! In this case study, you will perform many real-world tasks of a junior data analyst. You will work for a fictional company, Cyclistic, and meet different characters and team members. In order to answer the key business questions, you will follow the steps of the data analysis process: ask, prepare, process, analyze, share, and act. Along the way, the Case Study Roadmap tables — including guiding questions and key tasks — will help you stay on the right path. By the end of this lesson, you will have a portfolio-ready case study. Download the packet and reference the details of this case study anytime. Then, when you begin your job hunt, your case study will be a tangible way to demonstrate your knowledge and skills to potential employers.</i></p>
+<section id="some-imports" class="level3">
+<h3 class="anchored" data-anchor-id="some-imports">Some imports</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># from datetime import datetime, timezone</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#get the current working directory</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>owd<span class="op">=</span>os.getcwd()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="a-function-to-extract-web-zip-files-and-save-to-dat-folder" class="level2">
+<h2 class="anchored" data-anchor-id="a-function-to-extract-web-zip-files-and-save-to-dat-folder">A function to extract web zip files and save to /dat folder</h2>
+<section id="well-just-look-at-q1-for-2020-data" class="level3">
+<h3 class="anchored" data-anchor-id="well-just-look-at-q1-for-2020-data">We’ll just look at Q1 for 2020 data</h3>
+<p>The data for 2020 is split into Q1 and the rest is for each month. So we need to download and convert each to a data frame and then combine them together</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extractStuff(url):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> requests, zipfile, io</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> os</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    owd<span class="op">=</span>os.getcwd()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> requests.get(url)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    z <span class="op">=</span> zipfile.ZipFile(io.BytesIO(r.content))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    z.extractall(owd<span class="op">+</span><span class="st">"/dat/"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>URL<span class="op">=</span><span class="st">"https://divvy-tripdata.s3.amazonaws.com/"</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>noma <span class="op">=</span>[[<span class="st">'202004-divvy-tripdata'</span>],</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>[<span class="st">'202005-divvy-tripdata'</span>],</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>[<span class="st">'202006-divvy-tripdata'</span>],</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>[<span class="st">'202007-divvy-tripdata'</span>],</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>[<span class="st">'202008-divvy-tripdata'</span>],</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>[<span class="st">'202009-divvy-tripdata'</span>],</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>[<span class="st">'202010-divvy-tripdata'</span>],</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>[<span class="st">'202011-divvy-tripdata'</span>],</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>[<span class="st">'202012-divvy-tripdata'</span>]]</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> nom <span class="kw">in</span> noma:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    extractStuff(URL<span class="op">+</span> nom[<span class="dv">0</span>]<span class="op">+</span><span class="st">".zip"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="load-files-put-in-pandas-data-frame-and-have-a-look" class="level3">
+<h3 class="anchored" data-anchor-id="load-files-put-in-pandas-data-frame-and-have-a-look">Load files, put in pandas data frame and have a look</h3>
+<section id="lets-load-each-csv-and-combine-them" class="level4">
+<h4 class="anchored" data-anchor-id="lets-load-each-csv-and-combine-them">Lets load each csv and combine them</h4>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,nom <span class="kw">in</span> <span class="bu">enumerate</span>(noma):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i<span class="op">&gt;</span><span class="dv">0</span>:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        df<span class="op">=</span>pd.read_csv(owd<span class="op">+</span><span class="st">"/dat/"</span><span class="op">+</span>nom[<span class="dv">0</span>]<span class="op">+</span><span class="st">'.csv'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        dfAll<span class="op">=</span>pd.concat([df,dfAll])    </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'1 '</span>,nom[<span class="dv">0</span>])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        dfAll<span class="op">=</span>pd.read_csv(owd<span class="op">+</span><span class="st">"/dat/"</span><span class="op">+</span>nom[<span class="dv">0</span>]<span class="op">+</span><span class="st">'.csv'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'2'</span>,nom[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2 202004-divvy-tripdata
+1  202005-divvy-tripdata
+1  202006-divvy-tripdata
+1  202007-divvy-tripdata
+1  202008-divvy-tripdata
+1  202009-divvy-tripdata
+1  202010-divvy-tripdata
+1  202011-divvy-tripdata
+1  202012-divvy-tripdata</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="how-many-nan-stations" class="level3">
+<h3 class="anchored" data-anchor-id="how-many-nan-stations">How many NaN stations?</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The percentage start stations NaN = </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="dv">100</span><span class="op">*</span>np.shape(dfAll[dfAll[<span class="st">'start_station_id'</span>].isna()])[<span class="dv">0</span>] <span class="op">/</span> np.shape(dfAll)[<span class="dv">0</span>]) )<span class="co">#95 282 3 114 796</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The percentage end stations NaN = </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="dv">100</span><span class="op">*</span>np.shape(dfAll[dfAll[<span class="st">'end_station_id'</span>].isna()])[<span class="dv">0</span>] <span class="op">/</span> np.shape(dfAll)[<span class="dv">0</span>]) )<span class="co">#95 282 3 114 796</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>bothNa<span class="op">=</span>dfAll[dfAll[<span class="st">'start_station_id'</span>].isna() <span class="op">|</span> dfAll[<span class="st">'end_station_id'</span>].isna()] </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The percentage start stations NaN = </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="dv">100</span><span class="op">*</span>np.shape(bothNa)[<span class="dv">0</span>] <span class="op">/</span> np.shape(dfAll)[<span class="dv">0</span>]) )<span class="co">#95 282 3 114 796</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The percentage start stations NaN = 3.059012532441932
+The percentage end stations NaN = 3.5745840177013197
+The percentage start stations NaN = 4.889597906251324</code></pre>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>dfUse<span class="op">=</span>copy.copy(dfAll[dfAll[<span class="st">'start_station_id'</span>].notnull() <span class="op">&amp;</span> dfAll[<span class="st">'end_station_id'</span>].notnull()])</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>dfUse.describe(include<span class="op">=</span><span class="st">'all'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ride_id</th>
+      <th>rideable_type</th>
+      <th>started_at</th>
+      <th>ended_at</th>
+      <th>start_station_name</th>
+      <th>start_station_id</th>
+      <th>end_station_name</th>
+      <th>end_station_id</th>
+      <th>start_lat</th>
+      <th>start_lng</th>
+      <th>end_lat</th>
+      <th>end_lng</th>
+      <th>member_casual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2962495</td>
+      <td>2962495</td>
+      <td>2962495</td>
+      <td>2962495</td>
+      <td>2962495</td>
+      <td>2962495.0</td>
+      <td>2962495</td>
+      <td>2962495.0</td>
+      <td>2.962495e+06</td>
+      <td>2.962495e+06</td>
+      <td>2.962495e+06</td>
+      <td>2.962495e+06</td>
+      <td>2962495</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>2962287</td>
+      <td>3</td>
+      <td>2568216</td>
+      <td>2556286</td>
+      <td>689</td>
+      <td>1301.0</td>
+      <td>690</td>
+      <td>1304.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>0A2B0949201A9D0C</td>
+      <td>docked_bike</td>
+      <td>2020-09-07 15:19:26</td>
+      <td>2020-10-14 07:23:00</td>
+      <td>Streeter Dr &amp; Grand Ave</td>
+      <td>35.0</td>
+      <td>Streeter Dr &amp; Grand Ave</td>
+      <td>35.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>2</td>
+      <td>2535257</td>
+      <td>12</td>
+      <td>13</td>
+      <td>32629</td>
+      <td>32192.0</td>
+      <td>34905</td>
+      <td>34467.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1710201</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.190534e+01</td>
+      <td>-8.764452e+01</td>
+      <td>4.190559e+01</td>
+      <td>-8.764481e+01</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.157203e-02</td>
+      <td>2.446731e-02</td>
+      <td>4.169299e-02</td>
+      <td>2.460637e-02</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.164850e+01</td>
+      <td>-8.777470e+01</td>
+      <td>4.164850e+01</td>
+      <td>-8.777470e+01</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.188316e+01</td>
+      <td>-8.765840e+01</td>
+      <td>4.188338e+01</td>
+      <td>-8.765862e+01</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.190096e+01</td>
+      <td>-8.764117e+01</td>
+      <td>4.190096e+01</td>
+      <td>-8.764182e+01</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.193120e+01</td>
+      <td>-8.762773e+01</td>
+      <td>4.193125e+01</td>
+      <td>-8.762775e+01</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.206490e+01</td>
+      <td>-8.752823e+01</td>
+      <td>4.206501e+01</td>
+      <td>-8.752823e+01</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="now-we-need-to-convert-the-dates-from-object-i.e.-string-to-date-format" class="level3">
+<h3 class="anchored" data-anchor-id="now-we-need-to-convert-the-dates-from-object-i.e.-string-to-date-format">Now we need to convert the dates from object (i.e.&nbsp;string) to date format</h3>
+<section id="next-add-a-new-column-as-time-for-hire-in-hours" class="level4">
+<h4 class="anchored" data-anchor-id="next-add-a-new-column-as-time-for-hire-in-hours">next add a new column as time for hire in hours</h4>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dfUse.loc[:,<span class="st">'started_at'</span>]<span class="op">=</span>pd.to_datetime(dfUse[<span class="st">'started_at'</span>],infer_datetime_format<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dfUse.loc[:,<span class="st">'ended_at'</span>]<span class="op">=</span>pd.to_datetime(dfUse[<span class="st">'ended_at'</span>],infer_datetime_format<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>delta<span class="op">=</span>dfUse.iloc[:,<span class="dv">3</span>]<span class="op">-</span>dfUse.iloc[:,<span class="dv">2</span>]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>dd<span class="op">=</span>delta.dt.total_seconds()<span class="op">/</span>(<span class="dv">60</span><span class="op">*</span><span class="dv">60</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>dfUse.insert(<span class="dv">2</span>,<span class="st">"hire_time_h"</span>,dd)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>dfUse.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ride_id</th>
+      <th>rideable_type</th>
+      <th>hire_time_h</th>
+      <th>started_at</th>
+      <th>ended_at</th>
+      <th>start_station_name</th>
+      <th>start_station_id</th>
+      <th>end_station_name</th>
+      <th>end_station_id</th>
+      <th>start_lat</th>
+      <th>start_lng</th>
+      <th>end_lat</th>
+      <th>end_lng</th>
+      <th>member_casual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>70B6A9A437D4C30D</td>
+      <td>classic_bike</td>
+      <td>0.176944</td>
+      <td>2020-12-27 12:44:29</td>
+      <td>2020-12-27 12:55:06</td>
+      <td>Aberdeen St &amp; Jackson Blvd</td>
+      <td>13157</td>
+      <td>Desplaines St &amp; Kinzie St</td>
+      <td>TA1306000003</td>
+      <td>41.877726</td>
+      <td>-87.654787</td>
+      <td>41.888716</td>
+      <td>-87.644448</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>15F369FDAED4E8E3</td>
+      <td>electric_bike</td>
+      <td>0.130556</td>
+      <td>2020-12-18 13:53:56</td>
+      <td>2020-12-18 14:01:46</td>
+      <td>Larrabee St &amp; Armitage Ave</td>
+      <td>TA1309000006</td>
+      <td>Wells St &amp; Walton St</td>
+      <td>TA1306000011</td>
+      <td>41.918112</td>
+      <td>-87.643799</td>
+      <td>41.900129</td>
+      <td>-87.634448</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>0CFD61DFE00E6043</td>
+      <td>electric_bike</td>
+      <td>0.030000</td>
+      <td>2020-12-28 17:10:25</td>
+      <td>2020-12-28 17:12:13</td>
+      <td>Kingsbury St &amp; Kinzie St</td>
+      <td>KA1503000043</td>
+      <td>Desplaines St &amp; Kinzie St</td>
+      <td>TA1306000003</td>
+      <td>41.889193</td>
+      <td>-87.638576</td>
+      <td>41.889099</td>
+      <td>-87.642479</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>244CB936487039B7</td>
+      <td>docked_bike</td>
+      <td>1.013056</td>
+      <td>2020-12-10 13:36:16</td>
+      <td>2020-12-10 14:37:03</td>
+      <td>Clark St &amp; Leland Ave</td>
+      <td>TA1309000014</td>
+      <td>Clark St &amp; Leland Ave</td>
+      <td>TA1309000014</td>
+      <td>41.967096</td>
+      <td>-87.667429</td>
+      <td>41.967096</td>
+      <td>-87.667429</td>
+      <td>casual</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>B7AD5038F79637F9</td>
+      <td>classic_bike</td>
+      <td>0.101111</td>
+      <td>2020-12-20 13:09:04</td>
+      <td>2020-12-20 13:15:08</td>
+      <td>Dearborn St &amp; Monroe St</td>
+      <td>TA1305000006</td>
+      <td>Kingsbury St &amp; Kinzie St</td>
+      <td>KA1503000043</td>
+      <td>41.881320</td>
+      <td>-87.629521</td>
+      <td>41.889177</td>
+      <td>-87.638506</td>
+      <td>member</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="maybe-we-want-the-day-of-the-week" class="level4">
+<h4 class="anchored" data-anchor-id="maybe-we-want-the-day-of-the-week">Maybe we want the day of the week?</h4>
+<p>The day of the week with Monday=0, Sunday=6.</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dfUse.insert(<span class="dv">3</span>,<span class="st">'day_week'</span>,dfUse.loc[:,<span class="st">'started_at'</span>].dt.dayofweek)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>dfUse.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ride_id</th>
+      <th>rideable_type</th>
+      <th>hire_time_h</th>
+      <th>day_week</th>
+      <th>started_at</th>
+      <th>ended_at</th>
+      <th>start_station_name</th>
+      <th>start_station_id</th>
+      <th>end_station_name</th>
+      <th>end_station_id</th>
+      <th>start_lat</th>
+      <th>start_lng</th>
+      <th>end_lat</th>
+      <th>end_lng</th>
+      <th>member_casual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>70B6A9A437D4C30D</td>
+      <td>classic_bike</td>
+      <td>0.176944</td>
+      <td>6</td>
+      <td>2020-12-27 12:44:29</td>
+      <td>2020-12-27 12:55:06</td>
+      <td>Aberdeen St &amp; Jackson Blvd</td>
+      <td>13157</td>
+      <td>Desplaines St &amp; Kinzie St</td>
+      <td>TA1306000003</td>
+      <td>41.877726</td>
+      <td>-87.654787</td>
+      <td>41.888716</td>
+      <td>-87.644448</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>15F369FDAED4E8E3</td>
+      <td>electric_bike</td>
+      <td>0.130556</td>
+      <td>4</td>
+      <td>2020-12-18 13:53:56</td>
+      <td>2020-12-18 14:01:46</td>
+      <td>Larrabee St &amp; Armitage Ave</td>
+      <td>TA1309000006</td>
+      <td>Wells St &amp; Walton St</td>
+      <td>TA1306000011</td>
+      <td>41.918112</td>
+      <td>-87.643799</td>
+      <td>41.900129</td>
+      <td>-87.634448</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>0CFD61DFE00E6043</td>
+      <td>electric_bike</td>
+      <td>0.030000</td>
+      <td>0</td>
+      <td>2020-12-28 17:10:25</td>
+      <td>2020-12-28 17:12:13</td>
+      <td>Kingsbury St &amp; Kinzie St</td>
+      <td>KA1503000043</td>
+      <td>Desplaines St &amp; Kinzie St</td>
+      <td>TA1306000003</td>
+      <td>41.889193</td>
+      <td>-87.638576</td>
+      <td>41.889099</td>
+      <td>-87.642479</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>244CB936487039B7</td>
+      <td>docked_bike</td>
+      <td>1.013056</td>
+      <td>3</td>
+      <td>2020-12-10 13:36:16</td>
+      <td>2020-12-10 14:37:03</td>
+      <td>Clark St &amp; Leland Ave</td>
+      <td>TA1309000014</td>
+      <td>Clark St &amp; Leland Ave</td>
+      <td>TA1309000014</td>
+      <td>41.967096</td>
+      <td>-87.667429</td>
+      <td>41.967096</td>
+      <td>-87.667429</td>
+      <td>casual</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>B7AD5038F79637F9</td>
+      <td>classic_bike</td>
+      <td>0.101111</td>
+      <td>6</td>
+      <td>2020-12-20 13:09:04</td>
+      <td>2020-12-20 13:15:08</td>
+      <td>Dearborn St &amp; Monroe St</td>
+      <td>TA1305000006</td>
+      <td>Kingsbury St &amp; Kinzie St</td>
+      <td>KA1503000043</td>
+      <td>41.881320</td>
+      <td>-87.629521</td>
+      <td>41.889177</td>
+      <td>-87.638506</td>
+      <td>member</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="lets-also-get-the-time-on-its-own" class="level3">
+<h3 class="anchored" data-anchor-id="lets-also-get-the-time-on-its-own">Lets also get the time on its own</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dfUse.insert(<span class="dv">4</span>,<span class="st">'time_day'</span>,dfUse.loc[:,<span class="st">'started_at'</span>].dt.hour <span class="op">+</span> dfUse.loc[:,<span class="st">'started_at'</span>].dt.minute<span class="op">/</span><span class="dv">60</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dfUse.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="68">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ride_id</th>
+      <th>rideable_type</th>
+      <th>hire_time_h</th>
+      <th>day_week</th>
+      <th>time_day</th>
+      <th>started_at</th>
+      <th>ended_at</th>
+      <th>start_station_name</th>
+      <th>start_station_id</th>
+      <th>end_station_name</th>
+      <th>end_station_id</th>
+      <th>start_lat</th>
+      <th>distance</th>
+      <th>start_lng</th>
+      <th>end_lat</th>
+      <th>end_lng</th>
+      <th>member_casual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>70B6A9A437D4C30D</td>
+      <td>classic_bike</td>
+      <td>0.176944</td>
+      <td>6</td>
+      <td>12.733333</td>
+      <td>2020-12-27 12:44:29</td>
+      <td>2020-12-27 12:55:06</td>
+      <td>Aberdeen St &amp; Jackson Blvd</td>
+      <td>13157</td>
+      <td>Desplaines St &amp; Kinzie St</td>
+      <td>TA1306000003</td>
+      <td>41.877726</td>
+      <td>1.491984</td>
+      <td>-87.654787</td>
+      <td>41.888716</td>
+      <td>-87.644448</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>15F369FDAED4E8E3</td>
+      <td>electric_bike</td>
+      <td>0.130556</td>
+      <td>4</td>
+      <td>13.883333</td>
+      <td>2020-12-18 13:53:56</td>
+      <td>2020-12-18 14:01:46</td>
+      <td>Larrabee St &amp; Armitage Ave</td>
+      <td>TA1309000006</td>
+      <td>Wells St &amp; Walton St</td>
+      <td>TA1306000011</td>
+      <td>41.918112</td>
+      <td>2.144117</td>
+      <td>-87.643799</td>
+      <td>41.900129</td>
+      <td>-87.634448</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>0CFD61DFE00E6043</td>
+      <td>electric_bike</td>
+      <td>0.030000</td>
+      <td>0</td>
+      <td>17.166667</td>
+      <td>2020-12-28 17:10:25</td>
+      <td>2020-12-28 17:12:13</td>
+      <td>Kingsbury St &amp; Kinzie St</td>
+      <td>KA1503000043</td>
+      <td>Desplaines St &amp; Kinzie St</td>
+      <td>TA1306000003</td>
+      <td>41.889193</td>
+      <td>0.323238</td>
+      <td>-87.638576</td>
+      <td>41.889099</td>
+      <td>-87.642479</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>244CB936487039B7</td>
+      <td>docked_bike</td>
+      <td>1.013056</td>
+      <td>3</td>
+      <td>13.600000</td>
+      <td>2020-12-10 13:36:16</td>
+      <td>2020-12-10 14:37:03</td>
+      <td>Clark St &amp; Leland Ave</td>
+      <td>TA1309000014</td>
+      <td>Clark St &amp; Leland Ave</td>
+      <td>TA1309000014</td>
+      <td>41.967096</td>
+      <td>0.000000</td>
+      <td>-87.667429</td>
+      <td>41.967096</td>
+      <td>-87.667429</td>
+      <td>casual</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>B7AD5038F79637F9</td>
+      <td>classic_bike</td>
+      <td>0.101111</td>
+      <td>6</td>
+      <td>13.150000</td>
+      <td>2020-12-20 13:09:04</td>
+      <td>2020-12-20 13:15:08</td>
+      <td>Dearborn St &amp; Monroe St</td>
+      <td>TA1305000006</td>
+      <td>Kingsbury St &amp; Kinzie St</td>
+      <td>KA1503000043</td>
+      <td>41.881320</td>
+      <td>1.147392</td>
+      <td>-87.629521</td>
+      <td>41.889177</td>
+      <td>-87.638506</td>
+      <td>member</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="and-the-distance-travelled" class="level3">
+<h3 class="anchored" data-anchor-id="and-the-distance-travelled">And the distance travelled</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> distanceLatLong(lat1,lon1,lat2,lon2):</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> deg2rad(deg):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> deg <span class="op">*</span> np.pi<span class="op">/</span><span class="dv">180</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    R <span class="op">=</span> <span class="dv">6371</span><span class="op">;</span> <span class="co"># Radius of the earth in km</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    dLat <span class="op">=</span> deg2rad(lat2<span class="op">-</span>lat1)  <span class="co"># deg2rad below</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    dLon <span class="op">=</span> deg2rad(lon2<span class="op">-</span>lon1)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> np.sin(dLat<span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> np.sin(dLat<span class="op">/</span><span class="dv">2</span>) <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    np.cos(deg2rad(lat1)) <span class="op">*</span> np.cos(deg2rad(lat2)) <span class="op">*</span> <span class="op">\</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    np.sin(dLon<span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> np.sin(dLon<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.arctan2(np.sqrt(a), np.sqrt(<span class="dv">1</span><span class="op">-</span>a))</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> R <span class="op">*</span> c <span class="co">## Distance in km</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>d<span class="op">=</span>distanceLatLong(dfUse[<span class="st">"start_lat"</span>].values,dfUse[<span class="st">"start_lng"</span>].values,dfUse[<span class="st">"end_lat"</span>].values,dfUse[<span class="st">"end_lng"</span>].values)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>dfUse.insert(<span class="dv">11</span>,<span class="st">'distance'</span>,d)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>dfUse.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="67">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>hire_time_h</th>
+      <th>day_week</th>
+      <th>start_lat</th>
+      <th>distance</th>
+      <th>start_lng</th>
+      <th>end_lat</th>
+      <th>end_lng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2.962495e+06</td>
+      <td>2.962495e+06</td>
+      <td>2.962495e+06</td>
+      <td>2.962495e+06</td>
+      <td>2.962495e+06</td>
+      <td>2.962495e+06</td>
+      <td>2.962495e+06</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>4.291666e-01</td>
+      <td>3.262215e+00</td>
+      <td>4.190534e+01</td>
+      <td>2.240406e+00</td>
+      <td>-8.764452e+01</td>
+      <td>4.190559e+01</td>
+      <td>-8.764481e+01</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>6.640800e+00</td>
+      <td>1.973614e+00</td>
+      <td>4.157203e-02</td>
+      <td>2.029178e+00</td>
+      <td>2.446731e-02</td>
+      <td>4.169299e-02</td>
+      <td>2.460637e-02</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-4.841661e+02</td>
+      <td>0.000000e+00</td>
+      <td>4.164850e+01</td>
+      <td>0.000000e+00</td>
+      <td>-8.777470e+01</td>
+      <td>4.164850e+01</td>
+      <td>-8.777470e+01</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1.377778e-01</td>
+      <td>2.000000e+00</td>
+      <td>4.188316e+01</td>
+      <td>8.598642e-01</td>
+      <td>-8.765840e+01</td>
+      <td>4.188338e+01</td>
+      <td>-8.765862e+01</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.525000e-01</td>
+      <td>3.000000e+00</td>
+      <td>4.190096e+01</td>
+      <td>1.713410e+00</td>
+      <td>-8.764117e+01</td>
+      <td>4.190096e+01</td>
+      <td>-8.764182e+01</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.577778e-01</td>
+      <td>5.000000e+00</td>
+      <td>4.193120e+01</td>
+      <td>3.098683e+00</td>
+      <td>-8.762773e+01</td>
+      <td>4.193125e+01</td>
+      <td>-8.762775e+01</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>9.786672e+02</td>
+      <td>6.000000e+00</td>
+      <td>4.206490e+01</td>
+      <td>4.837080e+01</td>
+      <td>-8.752823e+01</td>
+      <td>4.206501e+01</td>
+      <td>-8.752823e+01</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="some-issues-arose-above" class="level3">
+<h3 class="anchored" data-anchor-id="some-issues-arose-above">Some issues arose above</h3>
+<ul>
+<li>hire_time_h max and min values</li>
+</ul>
+<p>Looks like the error is there from the start, so lets delete them</p>
+<p>do the same for long times</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dfUse<span class="op">=</span>dfUse[dfUse.hire_time_h<span class="op">&gt;=</span><span class="dv">0</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>dfUse<span class="op">=</span>dfUse[dfUse.hire_time_h<span class="op">&lt;</span><span class="dv">24</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="lets-drop-some-columns-for-space" class="level3">
+<h3 class="anchored" data-anchor-id="lets-drop-some-columns-for-space">Lets drop some columns for space</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dfUse.drop(columns<span class="op">=</span>[<span class="st">"ride_id"</span>, <span class="st">"started_at"</span>,<span class="st">"ended_at"</span>,<span class="st">"start_station_name"</span>,<span class="st">"end_station_name"</span>],inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#,"start_station_id","end_station_id"]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="save" class="level3">
+<h3 class="anchored" data-anchor-id="save">save</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>dfUse.to_csv(<span class="st">'/data/df_2020.csv'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>copy.copy(dfUse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'/data/df_2020.csv'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\44781\anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3165: DtypeWarning: Columns (5,6) have mixed types.Specify dtype option on import or set low_memory=False.
+  has_raised = await self.run_ast_nodes(code_ast.body, cell_name,</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>rideable_type</th>
+      <th>hire_time_h</th>
+      <th>day_week</th>
+      <th>time_day</th>
+      <th>start_station_id</th>
+      <th>end_station_id</th>
+      <th>start_lat</th>
+      <th>distance</th>
+      <th>start_lng</th>
+      <th>end_lat</th>
+      <th>end_lng</th>
+      <th>member_casual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>classic_bike</td>
+      <td>0.176944</td>
+      <td>6</td>
+      <td>12.733333</td>
+      <td>13157</td>
+      <td>TA1306000003</td>
+      <td>41.877726</td>
+      <td>1.491984</td>
+      <td>-87.654787</td>
+      <td>41.888716</td>
+      <td>-87.644448</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>39</td>
+      <td>electric_bike</td>
+      <td>0.130556</td>
+      <td>4</td>
+      <td>13.883333</td>
+      <td>TA1309000006</td>
+      <td>TA1306000011</td>
+      <td>41.918112</td>
+      <td>2.144117</td>
+      <td>-87.643799</td>
+      <td>41.900129</td>
+      <td>-87.634448</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>50</td>
+      <td>electric_bike</td>
+      <td>0.030000</td>
+      <td>0</td>
+      <td>17.166667</td>
+      <td>KA1503000043</td>
+      <td>TA1306000003</td>
+      <td>41.889193</td>
+      <td>0.323238</td>
+      <td>-87.638576</td>
+      <td>41.889099</td>
+      <td>-87.642479</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>87</td>
+      <td>docked_bike</td>
+      <td>1.013056</td>
+      <td>3</td>
+      <td>13.600000</td>
+      <td>TA1309000014</td>
+      <td>TA1309000014</td>
+      <td>41.967096</td>
+      <td>0.000000</td>
+      <td>-87.667429</td>
+      <td>41.967096</td>
+      <td>-87.667429</td>
+      <td>casual</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>88</td>
+      <td>classic_bike</td>
+      <td>0.101111</td>
+      <td>6</td>
+      <td>13.150000</td>
+      <td>TA1305000006</td>
+      <td>KA1503000043</td>
+      <td>41.881320</td>
+      <td>1.147392</td>
+      <td>-87.629521</td>
+      <td>41.889177</td>
+      <td>-87.638506</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2949984</th>
+      <td>84771</td>
+      <td>docked_bike</td>
+      <td>0.215278</td>
+      <td>3</td>
+      <td>16.166667</td>
+      <td>140.0</td>
+      <td>140.0</td>
+      <td>41.899000</td>
+      <td>0.000000</td>
+      <td>-87.629900</td>
+      <td>41.899000</td>
+      <td>-87.629900</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>2949985</th>
+      <td>84772</td>
+      <td>docked_bike</td>
+      <td>0.319167</td>
+      <td>3</td>
+      <td>17.933333</td>
+      <td>322.0</td>
+      <td>351.0</td>
+      <td>41.799600</td>
+      <td>1.056377</td>
+      <td>-87.594700</td>
+      <td>41.803000</td>
+      <td>-87.606600</td>
+      <td>casual</td>
+    </tr>
+    <tr>
+      <th>2949986</th>
+      <td>84773</td>
+      <td>docked_bike</td>
+      <td>1.886111</td>
+      <td>4</td>
+      <td>19.950000</td>
+      <td>236.0</td>
+      <td>182.0</td>
+      <td>41.907600</td>
+      <td>0.604983</td>
+      <td>-87.638600</td>
+      <td>41.903200</td>
+      <td>-87.634300</td>
+      <td>casual</td>
+    </tr>
+    <tr>
+      <th>2949987</th>
+      <td>84774</td>
+      <td>docked_bike</td>
+      <td>0.708611</td>
+      <td>3</td>
+      <td>17.983333</td>
+      <td>310.0</td>
+      <td>310.0</td>
+      <td>41.920100</td>
+      <td>0.000000</td>
+      <td>-87.677900</td>
+      <td>41.920100</td>
+      <td>-87.677900</td>
+      <td>casual</td>
+    </tr>
+    <tr>
+      <th>2949988</th>
+      <td>84775</td>
+      <td>docked_bike</td>
+      <td>0.100000</td>
+      <td>5</td>
+      <td>1.516667</td>
+      <td>138.0</td>
+      <td>138.0</td>
+      <td>41.904600</td>
+      <td>0.000000</td>
+      <td>-87.640600</td>
+      <td>41.904600</td>
+      <td>-87.640600</td>
+      <td>casual</td>
+    </tr>
+  </tbody>
+</table>
+<p>2949989 rows × 13 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="put-frequency-location-onto-a-map" class="level3">
+<h3 class="anchored" data-anchor-id="put-frequency-location-onto-a-map">Put frequency location onto a map</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> folium <span class="im">import</span> plugins</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> folium.plugins <span class="im">import</span> HeatMap</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>lat<span class="op">=</span>df[<span class="st">'start_lat'</span>].values</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>lon<span class="op">=</span>df[<span class="st">'start_lng'</span>].values</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>latlon <span class="op">=</span> [lat, lon]</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>maps <span class="op">=</span> folium.Map(location<span class="op">=</span>[lat[<span class="dv">0</span>],lon[<span class="dv">0</span>]],</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>                    zoom_start <span class="op">=</span> <span class="dv">11</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>latlon<span class="op">=</span>np.transpose(latlon)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot it on the map</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>HeatMap(latlon).add_to(maps)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the map</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>maps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="ghtop_images/ChiHeat.png" class="img-fluid"></p>
+<p>Bit of a mess, grouping by region may be better</p>
+</section>
+</section>
+<section id="plot-some-choroplots" class="level2">
+<h2 class="anchored" data-anchor-id="plot-some-choroplots">Plot some choroplots</h2>
+<p>open and modify the geojson file- seems to make life easier later</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fname<span class="op">=</span><span class="st">'Chicago.geojson'</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>chicago <span class="op">=</span> gpd.read_file(fname)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># neighborhoods aren't unique so lets use the index and call it ID</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>chicago.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>chicago.rename(columns<span class="op">=</span>{<span class="st">'index'</span>:<span class="st">'ID'</span>},inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>chicago.drop(columns<span class="op">=</span>[<span class="st">'sec_neigh'</span>,<span class="st">'shape_area'</span>,<span class="st">'shape_len'</span>],inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>chicago.to_file(<span class="st">"Chi_.json"</span>, driver<span class="op">=</span><span class="st">"GeoJSON"</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>chicago.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>pri_neigh</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Grand Boulevard</td>
+      <td>MULTIPOLYGON (((-87.60671 41.81681, -87.60670 ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Printers Row</td>
+      <td>MULTIPOLYGON (((-87.62761 41.87437, -87.62760 ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>United Center</td>
+      <td>MULTIPOLYGON (((-87.66707 41.88885, -87.66707 ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Sheffield &amp; DePaul</td>
+      <td>MULTIPOLYGON (((-87.65833 41.92166, -87.65835 ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Humboldt Park</td>
+      <td>MULTIPOLYGON (((-87.74060 41.88782, -87.74060 ...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="now-we-want-to-convert-each-station-to-a-region-within-the-json-file" class="level3">
+<h3 class="anchored" data-anchor-id="now-we-want-to-convert-each-station-to-a-region-within-the-json-file">Now we want to convert each station to a region within the json file</h3>
+<section id="first-lets-create-a-variable-for-each-station-with-location-and-station_id" class="level4">
+<h4 class="anchored" data-anchor-id="first-lets-create-a-variable-for-each-station-with-location-and-station_id">First let’s create a variable for each station, with location and station_id</h4>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use mean here just in case some slight differences- big ones lets hope not!</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>dfStat<span class="op">=</span>df.groupby(by<span class="op">=</span>[<span class="st">'start_station_id'</span>]).mean()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>dfStat<span class="op">=</span>dfStat.drop(columns<span class="op">=</span>[<span class="st">'Unnamed: 0'</span>,<span class="st">'hire_time_h'</span>,<span class="st">'day_week'</span>,<span class="st">'time_day'</span>,<span class="st">'distance'</span>,<span class="st">'end_lat'</span>,<span class="st">'end_lng'</span>])</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>dfStat.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>dfStat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>start_station_id</th>
+      <th>start_lat</th>
+      <th>start_lng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.0</td>
+      <td>41.876505</td>
+      <td>-87.620535</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.0</td>
+      <td>41.867228</td>
+      <td>-87.615357</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.0</td>
+      <td>41.856268</td>
+      <td>-87.613345</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.0</td>
+      <td>41.874050</td>
+      <td>-87.627709</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6.0</td>
+      <td>41.886974</td>
+      <td>-87.612813</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1877</th>
+      <td>TA1309000066</td>
+      <td>41.969101</td>
+      <td>-87.674234</td>
+    </tr>
+    <tr>
+      <th>1878</th>
+      <td>TA1309000067</td>
+      <td>41.803034</td>
+      <td>-87.606613</td>
+    </tr>
+    <tr>
+      <th>1879</th>
+      <td>WL-008</td>
+      <td>41.867122</td>
+      <td>-87.641071</td>
+    </tr>
+    <tr>
+      <th>1880</th>
+      <td>WL-011</td>
+      <td>41.880395</td>
+      <td>-87.642727</td>
+    </tr>
+    <tr>
+      <th>1881</th>
+      <td>WL-012</td>
+      <td>41.883364</td>
+      <td>-87.641203</td>
+    </tr>
+  </tbody>
+</table>
+<p>1882 rows × 3 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="now-for-each-station-we-want-a-json-area-code" class="level4">
+<h4 class="anchored" data-anchor-id="now-for-each-station-we-want-a-json-area-code">Now for each station we want a JSON-area code</h4>
+<p>This is <em>slightly</em> convoluted - scroll through each station - for each station find if it’s inside a Chigao_JSON region - if not we assign if a value 1000 - for those with no region find the nearest station that has a JSON-region (done in tab after this)</p>
+<p>whatChoro = json ID whatwhat = station ID</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> shape, Point</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>whatChoro<span class="op">=</span>[]</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>whatwhat<span class="op">=</span>[]</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># check each polygon to see if it contains the point</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>i<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># scroll through each station</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> istat <span class="kw">in</span> <span class="bu">range</span>(np.shape(dfStat)[<span class="dv">0</span>]):</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    i<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#create a point for the station</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    point<span class="op">=</span>Point(dfStat.loc[istat,<span class="st">'start_lng'</span>],dfStat.loc[istat,<span class="st">'start_lat'</span>])</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">#scroll through each geometery</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> feature <span class="kw">in</span> chicago.ID:</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>        polygon <span class="op">=</span> shape(chicago.loc[i,<span class="st">'geometry'</span>])</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> polygon.contains(point):</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>            <span class="co">#this gives the json region ID</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>            whatChoro.append(chicago.loc[i,<span class="st">'ID'</span>])</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>            <span class="co">#this give the station id</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>            whatwhat.append(dfStat.loc[istat,<span class="st">'start_station_id'</span>])</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span> </span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">#if we don't get a match!!</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> feature<span class="op">==</span>chicago[<span class="st">'ID'</span>].iloc[<span class="op">-</span><span class="dv">1</span>]:</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>            <span class="im">import</span> copy</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>            <span class="co"># find distances lat2/lng2 this location</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>            <span class="co"># lat1/lng1 all locations</span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>            lat1_<span class="op">=</span>copy.copy(dfStat[<span class="st">'start_lat'</span>])</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>            lon1_<span class="op">=</span>copy.copy(dfStat[<span class="st">'start_lng'</span>])</span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>            lat2_<span class="op">=</span>dfStat.loc[istat,<span class="st">'start_lat'</span>]</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>            lon2_<span class="op">=</span>dfStat.loc[istat,<span class="st">'start_lng'</span>]</span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>            <span class="co">#this gives the json region ID</span></span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>            whatChoro.append(<span class="dv">1000</span>)</span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>            <span class="co">#this give the station id</span></span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>            whatwhat.append(dfStat.loc[istat,<span class="st">'start_station_id'</span>])</span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>        i<span class="op">=</span>i<span class="op">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="this-does-the-cleaning-up-if-they-dont-have-a-json-id" class="level4">
+<h4 class="anchored" data-anchor-id="this-does-the-cleaning-up-if-they-dont-have-a-json-id">This does the cleaning up if they don’t have a json id</h4>
+<p>This will handle when we don’t get a match—&gt; a reuse of the distance function with slight mods</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> distanceLatLong_v2(lat1_,lon1_,lat2_,lon2_):</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> math</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> deg2rad(deg):</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> deg <span class="op">*</span> np.pi<span class="op">/</span><span class="dv">180</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> inner(lat1,lon1,lat2,lon2):</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>        R <span class="op">=</span> <span class="dv">6371</span><span class="op">;</span> <span class="co"># Radius of the earth in km</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>        dLat <span class="op">=</span> deg2rad(lat2<span class="op">-</span>lat1)  <span class="co"># deg2rad below</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>        dLon <span class="op">=</span> deg2rad(lon2<span class="op">-</span>lon1)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> np.sin(dLat<span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> np.sin(dLat<span class="op">/</span><span class="dv">2</span>) <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        np.cos(deg2rad(lat1)) <span class="op">*</span> np.cos(deg2rad(lat2)) <span class="op">*</span> <span class="op">\</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        np.sin(dLon<span class="op">/</span><span class="dv">2</span>) <span class="op">*</span> np.sin(dLon<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        c <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> math.atan2(np.sqrt(a), np.sqrt(<span class="dv">1</span><span class="op">-</span>a))</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> R <span class="op">*</span> c <span class="co">## Distance in km</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> d<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>            d<span class="op">=</span><span class="dv">1000</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> d</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> np.shape(lat1_)[<span class="dv">0</span>]<span class="op">&gt;</span><span class="dv">1</span>:</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>        d<span class="op">=</span>[]</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(np.shape(lat1_)[<span class="dv">0</span>]):</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>            d.append(inner(lat1_[i],lon1_[i],lat2_,lon2_))</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>        d<span class="op">=</span>inner(lat1_,lon1_,lat2_,lon2_)   </span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>this scrolls through ones we didn’t match and finds nearest JSON-id we did match</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(np.shape(dfStat)[<span class="dv">0</span>]):</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> whatChoro[i]<span class="op">==</span><span class="dv">1000</span>:</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>             </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">#find distances lat2/lng2 this location</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># lat1/lng1 all locations</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>        lat1_<span class="op">=</span>copy.copy(dfStat[<span class="st">'start_lat'</span>])</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>        lon1_<span class="op">=</span>copy.copy(dfStat[<span class="st">'start_lng'</span>])</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>        lat2_<span class="op">=</span>dfStat.loc[i,<span class="st">'start_lat'</span>]</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>        lon2_<span class="op">=</span>dfStat.loc[i,<span class="st">'start_lng'</span>]</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>        ind<span class="op">=</span>[idx <span class="cf">for</span> idx, element <span class="kw">in</span> <span class="bu">enumerate</span>(whatChoro) <span class="cf">if</span> element<span class="op">==</span><span class="dv">1000</span>]</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>        lat1_[ind]<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>        lon1_[ind]<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>        d<span class="op">=</span>distanceLatLong_v2(lat1_,lon1_,lat2_,lon2_)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>        indamin<span class="op">=</span>d.index(<span class="bu">min</span>(d))</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co">#         whatwhat[i]=whatwhat[indamin]</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>        whatChoro[i]<span class="op">=</span>whatChoro[indamin]</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(i,indamin,whatChoro[i],whatChoro[indamin],<span class="bu">min</span>(d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>554 474 48 48 3.218616605981318
+555 474 48 48 1.5436541433245226
+556 474 48 48 0.7244340745224377
+557 554 48 48 1.618989106320433
+558 557 48 48 0.9589393666816851
+559 558 48 48 1.703490590200107
+560 559 48 48 1.0394756465095663
+561 554 48 48 0.5321339843549502
+562 561 48 48 0.8611490298165934
+563 561 48 48 0.4535879672825213
+570 554 48 48 0.7620712283526319
+603 562 48 48 0.7657516801324228
+604 1355 55 55 0.9398603094768803
+605 559 48 48 1.3757808765327746
+1441 554 48 48 0.0009191040374285816
+1442 1441 48 48 0.003706303019684898
+1443 555 48 48 0.006456249041029345
+1444 556 48 48 4.9908562509422157e-05
+1445 1444 48 48 0.002230404415936471
+1446 557 48 48 0.0012372240336437155
+1447 1446 48 48 0.003412919018808641
+1450 558 48 48 0.005285184511373336
+1451 1450 48 48 0.011408782497315317
+1452 559 48 48 0.027327480291422585
+1453 560 48 48 0.0012042612006966005
+1454 561 48 48 0.0010429138707679156
+1455 562 48 48 0.0017205826064828574
+1456 1455 48 48 0.0034819520850311483
+1457 563 48 48 0.0025804458419044335
+1458 563 48 48 0.009202498604403178
+1470 570 48 48 0.004764480272445732
+1513 603 48 48 0.0008354495738933785
+1514 603 48 48 0.0011940325501674988
+1515 604 55 55 0.006060872681823562
+1516 1515 55 55 0.012603279140811706
+1517 605 48 48 0.009833621616663023
+1582 555 48 48 0.0011726503764087032
+1583 559 48 48 0.0038048094986119284
+1584 1453 48 48 0.0005568291527966493
+1585 561 48 48 0.0005786222457187065
+1586 1447 48 48 0.5069880704727254
+1587 605 48 48 0.0032438412454957833</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="now-we-can-insert-a-new-column-in-df-with-the-json-id" class="level3">
+<h3 class="anchored" data-anchor-id="now-we-can-insert-a-new-column-in-df-with-the-json-id">Now we can insert a new column in df with the json ID</h3>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>chicID<span class="op">=</span>[]</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> stat <span class="kw">in</span> df[<span class="st">'start_station_id'</span>]:</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     chicID.append(stat)</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    ind<span class="op">=</span>[idx <span class="cf">for</span> idx, element <span class="kw">in</span> <span class="bu">enumerate</span>(whatwhat) <span class="cf">if</span> element<span class="op">==</span>stat]</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        chicID.append(whatChoro[ind[<span class="dv">0</span>]])</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df.insert(<span class="dv">0</span>,<span class="st">'ID'</span>,chicID)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Unnamed: 0</th>
+      <th>rideable_type</th>
+      <th>hire_time_h</th>
+      <th>day_week</th>
+      <th>time_day</th>
+      <th>start_station_id</th>
+      <th>end_station_id</th>
+      <th>start_lat</th>
+      <th>distance</th>
+      <th>start_lng</th>
+      <th>end_lat</th>
+      <th>end_lng</th>
+      <th>member_casual</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40</td>
+      <td>0</td>
+      <td>classic_bike</td>
+      <td>0.176944</td>
+      <td>6</td>
+      <td>12.733333</td>
+      <td>13157</td>
+      <td>TA1306000003</td>
+      <td>41.877726</td>
+      <td>1.491984</td>
+      <td>-87.654787</td>
+      <td>41.888716</td>
+      <td>-87.644448</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>92</td>
+      <td>39</td>
+      <td>electric_bike</td>
+      <td>0.130556</td>
+      <td>4</td>
+      <td>13.883333</td>
+      <td>TA1309000006</td>
+      <td>TA1306000011</td>
+      <td>41.918112</td>
+      <td>2.144117</td>
+      <td>-87.643799</td>
+      <td>41.900129</td>
+      <td>-87.634448</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>97</td>
+      <td>50</td>
+      <td>electric_bike</td>
+      <td>0.030000</td>
+      <td>0</td>
+      <td>17.166667</td>
+      <td>KA1503000043</td>
+      <td>TA1306000003</td>
+      <td>41.889193</td>
+      <td>0.323238</td>
+      <td>-87.638576</td>
+      <td>41.889099</td>
+      <td>-87.642479</td>
+      <td>member</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>56</td>
+      <td>87</td>
+      <td>docked_bike</td>
+      <td>1.013056</td>
+      <td>3</td>
+      <td>13.600000</td>
+      <td>TA1309000014</td>
+      <td>TA1309000014</td>
+      <td>41.967096</td>
+      <td>0.000000</td>
+      <td>-87.667429</td>
+      <td>41.967096</td>
+      <td>-87.667429</td>
+      <td>casual</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>26</td>
+      <td>88</td>
+      <td>classic_bike</td>
+      <td>0.101111</td>
+      <td>6</td>
+      <td>13.150000</td>
+      <td>TA1305000006</td>
+      <td>KA1503000043</td>
+      <td>41.881320</td>
+      <td>1.147392</td>
+      <td>-87.629521</td>
+      <td>41.889177</td>
+      <td>-87.638506</td>
+      <td>member</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="and-represent-each-json-region-by-how-many-times-theyre-used" class="level3">
+<h3 class="anchored" data-anchor-id="and-represent-each-json-region-by-how-many-times-theyre-used">And represent each JSON region by how many times they’re used</h3>
+<p>We’ll take the count and divide it by the total- and because of the distribution we’ll also take the log- basically hires are highly focussed on a few regions with many having low %</p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dfG<span class="op">=</span>df.groupby(<span class="st">'ID'</span>).count()</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>dfG.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>dfG<span class="op">=</span>dfG[[<span class="st">'ID'</span>,<span class="st">'rideable_type'</span>]]</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>dfG.rename(columns<span class="op">=</span>{<span class="st">'rideable_type'</span>:<span class="st">'Frequency'</span>})</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>dfG.rideable_type<span class="op">=</span>np.log(dfG.rideable_type<span class="op">/</span><span class="bu">sum</span>(dfG.rideable_type))</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>dfG.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>rideable_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-5.835124</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>-5.124845</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>-6.001956</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>-3.718336</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>-4.965188</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'/data/dfChoro_2020.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'/data/dfChoro_2020.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\44781\anaconda3\lib\site-packages\IPython\core\interactiveshell.py:3165: DtypeWarning: Columns (7,8) have mixed types.Specify dtype option on import or set low_memory=False.
+  has_raised = await self.run_ast_nodes(code_ast.body, cell_name,</code></pre>
+</div>
+</div>
+</section>
+<section id="now-the-plotting" class="level3">
+<h3 class="anchored" data-anchor-id="now-the-plotting">Now the plotting</h3>
+<p>We first read in the json file, add the df with our frequency values to it then we can plot the data</p>
+</section>
+<section id="lets-put-this-in-a-function-to-look-at-differences" class="level3">
+<h3 class="anchored" data-anchor-id="lets-put-this-in-a-function-to-look-at-differences">Lets put this in a function to look at differences</h3>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bigChoro(dfIN,colname,choi):</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> folium </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    LEGNOM<span class="op">=</span>colname</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> choi<span class="op">==</span><span class="st">'count'</span>:</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>        dfG<span class="op">=</span>dfIN.groupby(<span class="st">'ID'</span>).count()</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>        dfG[colname]<span class="op">=</span>dfG[colname]<span class="op">/</span>(<span class="dv">100</span><span class="op">*</span><span class="dv">274</span><span class="op">/</span><span class="dv">7</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>        myscale <span class="op">=</span> (dfG[colname].quantile((<span class="dv">0</span>,<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="fl">0.9</span>,<span class="fl">0.95</span>,<span class="fl">.97</span>,<span class="dv">1</span>))).tolist()</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co">#         np.linspace(dfG[colname].min(),dfG[colname].max(),10)</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        LEGNOM<span class="op">=</span><span class="st">'Number of journeys 100s per week'</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> choi<span class="op">==</span><span class="st">'mean'</span>:</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        dfG<span class="op">=</span>dfIN.groupby(<span class="st">'ID'</span>).mean()</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        myscale <span class="op">=</span> np.linspace(dfG[colname].<span class="bu">min</span>(),dfG[colname].<span class="bu">max</span>(),<span class="dv">10</span>)</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> choi<span class="op">==</span><span class="st">'sum'</span>:</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>        dfG<span class="op">=</span>dfIN.groupby(<span class="st">'ID'</span>).<span class="bu">sum</span>()</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>        myscale <span class="op">=</span> np.linspace(dfG[colname].<span class="bu">min</span>(),dfG[colname].<span class="bu">max</span>(),<span class="dv">10</span>)</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> choi<span class="op">==</span><span class="st">'dayofweek'</span>:</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        dfIN<span class="op">=</span>dfIN[[<span class="st">'ID'</span>,colname]]</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>        dfG<span class="op">=</span>dfIN.groupby([<span class="st">'ID'</span>]).agg(<span class="kw">lambda</span> x:x.value_counts().index[<span class="dv">0</span>])</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>        dfG[dfG[colname]<span class="op">&gt;</span><span class="dv">4</span>]<span class="op">=</span><span class="dv">5</span><span class="op">-</span>dfG[dfG[colname]<span class="op">&gt;</span><span class="dv">4</span>]</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>        myscale <span class="op">=</span> np.array([<span class="op">-</span><span class="fl">2.</span>,<span class="fl">0.</span>,<span class="fl">1.</span>,<span class="fl">2.</span>,<span class="fl">3.</span>,<span class="fl">4.</span>])</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>        LEGNOM<span class="op">=</span><span class="st">'Day of week (-2 to -1 weekend, 0-4 Monday to Friday)'</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> choi<span class="op">==</span><span class="st">'mode'</span>:</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>        dfIN<span class="op">=</span>dfIN[[<span class="st">'ID'</span>,colname]]</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>        dfIN[colname].astype(<span class="st">'int32'</span>)</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>        dfG<span class="op">=</span>dfIN.groupby([<span class="st">'ID'</span>]).agg(<span class="kw">lambda</span> x:x.value_counts().index[<span class="dv">0</span>])</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>        myscale <span class="op">=</span> np.linspace(dfG[colname].<span class="bu">min</span>(),dfG[colname].<span class="bu">max</span>(),<span class="dv">10</span>)</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>    dfG.reset_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>    dfG<span class="op">=</span>dfG[[<span class="st">'ID'</span>,colname]]</span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>    nil<span class="op">=</span>gpd.read_file(<span class="st">"Chi_.json"</span>)</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>    nil<span class="op">=</span>nil[[<span class="st">'ID'</span>,<span class="st">'geometry'</span>]]</span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># merge data frames</span></span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>    nilpop<span class="op">=</span>nil.merge(dfG,on<span class="op">=</span><span class="st">"ID"</span>)</span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">#initial map</span></span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> folium.Map(location<span class="op">=</span>[<span class="fl">41.884</span>,<span class="op">-</span><span class="fl">87.6247</span>], zoom_start<span class="op">=</span><span class="dv">10</span>,<span class="op">\</span></span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a>       control_scale<span class="op">=</span><span class="va">True</span>,tiles<span class="op">=</span><span class="st">"Stamen Toner"</span>)<span class="co">#,tiles = t_list[1])</span></span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>    folium.TileLayer(<span class="st">'CartoDB positron'</span>,name<span class="op">=</span><span class="st">"Light Map"</span>,control<span class="op">=</span><span class="va">False</span>).add_to(m)</span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (dfG['rideable_type'].quantile((0,.02,0.1,.25,0.5,0.75,0.9,0.95,0.98,1))).tolist()</span></span>
+<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a>    choropleth <span class="op">=</span>folium.Choropleth(</span>
+<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a>        geo_data<span class="op">=</span><span class="st">"Chi_.json"</span>, </span>
+<span id="cb32-49"><a href="#cb32-49" aria-hidden="true" tabindex="-1"></a>        data<span class="op">=</span>nilpop,</span>
+<span id="cb32-50"><a href="#cb32-50" aria-hidden="true" tabindex="-1"></a>        threshold_scale<span class="op">=</span>myscale,</span>
+<span id="cb32-51"><a href="#cb32-51" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span>[<span class="st">'ID'</span>,colname],</span>
+<span id="cb32-52"><a href="#cb32-52" aria-hidden="true" tabindex="-1"></a>        name<span class="op">=</span><span class="st">'choropleth'</span>,</span>
+<span id="cb32-53"><a href="#cb32-53" aria-hidden="true" tabindex="-1"></a>        fill_color<span class="op">=</span><span class="st">'BuPu'</span>,<span class="co">#PuBuGn YlGn PuBuGn YlGnBu RdYlBu</span></span>
+<span id="cb32-54"><a href="#cb32-54" aria-hidden="true" tabindex="-1"></a>        key_on<span class="op">=</span> <span class="st">"feature.properties.ID"</span>,</span>
+<span id="cb32-55"><a href="#cb32-55" aria-hidden="true" tabindex="-1"></a>        fill_opacity<span class="op">=</span><span class="fl">0.7</span>,</span>
+<span id="cb32-56"><a href="#cb32-56" aria-hidden="true" tabindex="-1"></a>        line_opacity<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb32-57"><a href="#cb32-57" aria-hidden="true" tabindex="-1"></a>        nan_fill_color<span class="op">=</span><span class="st">'gray'</span>,</span>
+<span id="cb32-58"><a href="#cb32-58" aria-hidden="true" tabindex="-1"></a>        legend_name<span class="op">=</span>LEGNOM, </span>
+<span id="cb32-59"><a href="#cb32-59" aria-hidden="true" tabindex="-1"></a>        nan_fill_opacity <span class="op">=</span><span class="fl">.5</span>,</span>
+<span id="cb32-60"><a href="#cb32-60" aria-hidden="true" tabindex="-1"></a>        ).add_to(m)</span>
+<span id="cb32-61"><a href="#cb32-61" aria-hidden="true" tabindex="-1"></a>    folium.LayerControl().add_to(m)</span>
+<span id="cb32-62"><a href="#cb32-62" aria-hidden="true" tabindex="-1"></a>    choropleth.geojson.add_child(</span>
+<span id="cb32-63"><a href="#cb32-63" aria-hidden="true" tabindex="-1"></a>        folium.features.GeoJsonTooltip([<span class="st">'pri_neigh'</span>],labels<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb32-64"><a href="#cb32-64" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb32-65"><a href="#cb32-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>dfIN.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>Index(['ID', 'Unnamed: 0', 'rideable_type', 'hire_time_h', 'day_week',
+       'time_day', 'start_station_id', 'end_station_id', 'start_lat',
+       'distance', 'start_lng', 'end_lat', 'end_lng', 'member_casual'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>colname<span class="op">=</span><span class="st">'distance'</span><span class="co">#end_station_id</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>dfIN<span class="op">=</span> df[df.member_casual<span class="op">==</span><span class="st">'member'</span>]</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>m<span class="op">=</span>bigChoro(dfIN,colname,<span class="st">'mean'</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="ghtop_images/ChiDist.png" class="img-fluid"></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>colname<span class="op">=</span><span class="st">'day_week'</span><span class="co">#end_station_id</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>dfIN<span class="op">=</span> df[df.member_casual<span class="op">==</span><span class="st">'member'</span>]</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>m<span class="op">=</span>bigChoro(dfIN,colname,<span class="st">'dayofweek'</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="ghtop_images/ChiDay.png" class="img-fluid"></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>colname<span class="op">=</span><span class="st">'time_day'</span><span class="co">#end_station_id</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>dfIN<span class="op">=</span> df[df.member_casual<span class="op">==</span><span class="st">'member'</span>]</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>m<span class="op">=</span>bigChoro(dfIN,colname,<span class="st">'mode'</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="ghtop_images/ChiDayTime.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>colname<span class="op">=</span><span class="st">'time_day'</span><span class="co">#end_station_id</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>dfIN<span class="op">=</span> df[df.member_casual<span class="op">==</span><span class="st">'member'</span>]</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>m<span class="op">=</span>bigChoro(dfIN,colname,<span class="st">'count'</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="ghtop_images/ChiCountMember.png" class="img-fluid"></p>
+<div class="cell" data-run_control="{&quot;frozen&quot;:true}" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>colname<span class="op">=</span><span class="st">'time_day'</span><span class="co">#end_station_id</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>dfIN<span class="op">=</span> df[df.member_casual<span class="op">==</span><span class="st">'casual'</span>]</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>m<span class="op">=</span>bigChoro(dfIN,colname,<span class="st">'count'</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="ghtop_images/ChiCountCasual.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">7</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>np.array([<span class="op">-</span><span class="fl">2.</span>,<span class="fl">0.</span>,<span class="fl">1.</span>,<span class="fl">2.</span>,<span class="fl">3.</span>,<span class="fl">4.</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>array([-2.,  0.,  1.,  2.,  3.,  4.])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>sns.despine(f)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a nested boxplot to show bills by day and time</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>sns.histplot(df,hue<span class="op">=</span><span class="st">"member_casual"</span>, x<span class="op">=</span><span class="st">"time_day"</span>,</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>            multiple<span class="op">=</span><span class="st">"stack"</span>,</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">"dark:b_r"</span>,</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>            edgecolor<span class="op">=</span><span class="st">".3"</span>,</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>            linewidth<span class="op">=</span><span class="fl">.5</span>,)</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>sns.despine(offset<span class="op">=</span><span class="dv">10</span>, trim<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2021-11-16-ChicagoBikes_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="123">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.ticker <span class="im">import</span> PercentFormatter</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>df_<span class="op">=</span>df[df.hire_time_h<span class="op">&lt;</span><span class="dv">5</span>]</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>df_<span class="op">=</span>df_[df_.hire_time_h<span class="op">&gt;</span><span class="dv">0</span>]</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>)</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>binwidth <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>f, ax1 <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>sns.despine(f)</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>df2_<span class="op">=</span>df_[df_.member_casual<span class="op">==</span><span class="st">'member'</span>]</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a nested boxplot to show bills by day and time</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>sns.histplot(df2_, x<span class="op">=</span><span class="st">"hire_time_h"</span>,</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>            multiple<span class="op">=</span><span class="st">"stack"</span>,</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>            palette<span class="op">=</span><span class="st">"light:m_r"</span>,</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>            edgecolor<span class="op">=</span><span class="st">".3"</span>,</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>            linewidth<span class="op">=</span><span class="fl">.5</span>,</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>            stat<span class="op">=</span><span class="st">'probability'</span>,</span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>            log_scale<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>            ax<span class="op">=</span>ax1,</span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>            label<span class="op">=</span><span class="st">'member'</span>)</span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>ax2<span class="op">=</span>ax1.twinx()</span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a>df2_<span class="op">=</span>df_[df_.member_casual<span class="op">==</span><span class="st">'casual'</span>]</span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a nested boxplot to show bills by day and time</span></span>
+<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a>sns.histplot(df2_, x<span class="op">=</span><span class="st">"hire_time_h"</span>,</span>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a>             element<span class="op">=</span><span class="st">"step"</span>,fill<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb44-28"><a href="#cb44-28" aria-hidden="true" tabindex="-1"></a>             color<span class="op">=</span><span class="st">'red'</span>,</span>
+<span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a>            linewidth<span class="op">=</span><span class="fl">.8</span>,</span>
+<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a>            stat<span class="op">=</span><span class="st">'probability'</span>,</span>
+<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a>            log_scale<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a>            ax<span class="op">=</span>ax2,</span>
+<span id="cb44-33"><a href="#cb44-33" aria-hidden="true" tabindex="-1"></a>            label<span class="op">=</span><span class="st">'casual'</span>)</span>
+<span id="cb44-34"><a href="#cb44-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-35"><a href="#cb44-35" aria-hidden="true" tabindex="-1"></a>ax1.legend(loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb44-36"><a href="#cb44-36" aria-hidden="true" tabindex="-1"></a>ax2.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span>
+<span id="cb44-37"><a href="#cb44-37" aria-hidden="true" tabindex="-1"></a>sns.despine(offset<span class="op">=</span><span class="dv">10</span>, trim<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb44-38"><a href="#cb44-38" aria-hidden="true" tabindex="-1"></a><span class="co"># ax.legend('Member','Casual')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2021-11-16-ChicagoBikes_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"ticks"</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>f, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>sns.despine(f)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>df_<span class="op">=</span>df[ df[<span class="st">"distance"</span>]<span class="op">&gt;</span><span class="fl">0.1</span> ]</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>df_<span class="op">=</span> df_[df_[<span class="st">"distance"</span>]<span class="op">&lt;</span><span class="dv">20</span>]</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>df_<span class="op">=</span>df_[df_.member_casual<span class="op">==</span><span class="st">'member'</span>]</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a nested boxplot to show bills by day and time</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>df_, x<span class="op">=</span><span class="st">"distance"</span>,</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>            edgecolor<span class="op">=</span><span class="st">".3"</span>,</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>            linewidth<span class="op">=</span><span class="fl">.5</span>,</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>            stat<span class="op">=</span><span class="st">'probability'</span>,</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>             label<span class="op">=</span><span class="st">'member'</span>)</span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>sns.despine(offset<span class="op">=</span><span class="dv">10</span>, trim<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>df_<span class="op">=</span>df[df[<span class="st">"distance"</span>]<span class="op">&gt;</span><span class="fl">0.1</span>]</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>df_<span class="op">=</span> df_[df_[<span class="st">"distance"</span>]<span class="op">&lt;</span><span class="dv">20</span>]</span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>df_<span class="op">=</span>df_[df_.member_casual<span class="op">==</span><span class="st">'casual'</span>]</span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>df_, x<span class="op">=</span><span class="st">"distance"</span>,</span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>            linewidth<span class="op">=</span><span class="fl">.8</span>,</span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">'r'</span>,</span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>            stat<span class="op">=</span><span class="st">'probability'</span>,</span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>             label<span class="op">=</span><span class="st">'casual'</span>,</span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a>            fill<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a>            element<span class="op">=</span><span class="st">'step'</span>)</span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper right'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="142">
+<pre><code>&lt;matplotlib.legend.Legend at 0x2f212cc0be0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2021-11-16-ChicagoBikes_files/figure-html/cell-39-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="125">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f, ax = plt.subplots(figsize=(7, 5))</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw a nested boxplot to show bills by day and time</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>ax<span class="op">=</span>sns.histplot(df,hue<span class="op">=</span><span class="st">"member_casual"</span>, </span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>             x<span class="op">=</span><span class="st">"day_week"</span>,palette<span class="op">=</span><span class="st">"dark:b_r"</span>,</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>             multiple<span class="op">=</span><span class="st">"dodge"</span>,</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>             bins<span class="op">=</span>[<span class="dv">0</span> ,<span class="dv">1</span> ,<span class="dv">2</span> ,<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>,<span class="dv">7</span>],</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>             shrink<span class="op">=</span><span class="fl">.9</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>sns.despine(offset<span class="op">=</span><span class="dv">20</span>, trim<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>aa<span class="op">=</span>np.array([<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])<span class="op">+</span><span class="fl">.5</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(aa)</span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>ax.set_xlim([<span class="dv">0</span>, <span class="fl">7.5</span>])</span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>lab<span class="op">=</span>[<span class="st">'Monday'</span>,<span class="st">'Tuesday'</span>,<span class="st">'Wednesday'</span>,<span class="st">'Thursday'</span>,<span class="st">'Friday'</span>,<span class="st">'Saturday'</span>,<span class="st">'Sunday'</span>]</span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels(lab,rotation<span class="op">=</span><span class="st">'vertical'</span>)</span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Day of the week'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="125">
+<pre><code>Text(0.5, 0, 'Day of the week')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2021-11-16-ChicagoBikes_files/figure-html/cell-40-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="so-after-a-quick-look-at-the-data-maybe-some-plots-need-mods-some-clear-trends" class="level3">
+<h3 class="anchored" data-anchor-id="so-after-a-quick-look-at-the-data-maybe-some-plots-need-mods-some-clear-trends">So after a quick look at the data (*maybe some plots need mods) some clear trends:</h3>
+<ul>
+<li>Casuals use bikes more on weekends, members more on weekdays</li>
+<li>Members tend to use bikes in commuting times 7-9 am and 4-7 pm. Whereas casuals more spread but focussed later</li>
+<li>Casuals tend to use the bikes for longer and travel further from initial location</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

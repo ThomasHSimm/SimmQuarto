@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.258">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ThomasHSimm – statistics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//posts/Picture3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ThomasHSimm</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ThomasHSimm"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ThomasHSimm"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><img src="../posts/header2.png" height="200"></p>
+
+
+
+<section id="ab-testing" class="level2">
+<h2 class="anchored" data-anchor-id="ab-testing">AB Testing</h2>
+<p>A test is performed on a number of items. We’ll look at how the test influences the orders made of that item.</p>
+<ul>
+<li>Find orders within 6 months after test started</li>
+<li></li>
+</ul>
+<div class="cell" data-execution_count="274">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandasql <span class="im">import</span> sqldf </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'./data/abtesting.csv'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="274">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>item_id</th>
+      <th>test_assignment</th>
+      <th>test_number</th>
+      <th>test_start_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2512.0</td>
+      <td>1.0</td>
+      <td>item_test_1</td>
+      <td>2013-01-05 00:00:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>482.0</td>
+      <td>0.0</td>
+      <td>item_test_1</td>
+      <td>2013-01-05 00:00:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2446.0</td>
+      <td>0.0</td>
+      <td>item_test_1</td>
+      <td>2013-01-05 00:00:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1312.0</td>
+      <td>0.0</td>
+      <td>item_test_1</td>
+      <td>2013-01-05 00:00:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3556.0</td>
+      <td>1.0</td>
+      <td>item_test_1</td>
+      <td>2013-01-05 00:00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.describe(include<span class="op">=</span><span class="st">'all'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="52">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>item_id</th>
+      <th>test_assignment</th>
+      <th>test_number</th>
+      <th>test_start_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>6594.000000</td>
+      <td>6594.000000</td>
+      <td>6594</td>
+      <td>6594</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>item_test_3</td>
+      <td>2016-01-07 00:00:00</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2198</td>
+      <td>2198</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1991.293904</td>
+      <td>0.496967</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>1163.787869</td>
+      <td>0.500029</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>981.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2008.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2995.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3997.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>orders <span class="op">=</span> pd.read_csv(<span class="st">'./data/ab_orders.csv'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>orders.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>invoice_id</th>
+      <th>line_item_id</th>
+      <th>user_id</th>
+      <th>item_id</th>
+      <th>item_name</th>
+      <th>item_category</th>
+      <th>price</th>
+      <th>created_at</th>
+      <th>paid_at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>192320.0</td>
+      <td>83118.0</td>
+      <td>178481.0</td>
+      <td>3526.0</td>
+      <td>digital apparatus</td>
+      <td>apparatus</td>
+      <td>330.0</td>
+      <td>2017-06-28 21:14:25</td>
+      <td>2017-06-27 21:19:39</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>192320.0</td>
+      <td>207309.0</td>
+      <td>178481.0</td>
+      <td>1514.0</td>
+      <td>miniature apparatus cleaner</td>
+      <td>apparatus</td>
+      <td>99.0</td>
+      <td>2017-06-28 21:14:25</td>
+      <td>2017-06-27 21:19:39</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>192320.0</td>
+      <td>392027.0</td>
+      <td>178481.0</td>
+      <td>3712.0</td>
+      <td>miniature apparatus cleaner</td>
+      <td>apparatus</td>
+      <td>99.0</td>
+      <td>2017-06-28 21:14:25</td>
+      <td>2017-06-27 21:19:39</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>80902.0</td>
+      <td>243831.0</td>
+      <td>154133.0</td>
+      <td>3586.0</td>
+      <td>reflective instrument</td>
+      <td>instrument</td>
+      <td>57.2</td>
+      <td>2016-10-09 06:57:30</td>
+      <td>2016-10-07 10:08:10</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80902.0</td>
+      <td>399806.0</td>
+      <td>154133.0</td>
+      <td>1061.0</td>
+      <td>extra-strength instrument charger</td>
+      <td>instrument</td>
+      <td>17.6</td>
+      <td>2016-10-09 06:57:30</td>
+      <td>2016-10-07 10:08:10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> sqldf(<span class="st">"</span><span class="ch">\</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">            SELECT                                                                                                            </span><span class="ch">\</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">                orders.item_id, test.test_start_date, orders.created_at, test.test_assignment,                                                     </span><span class="ch">\</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">                (strftime('</span><span class="sc">%s</span><span class="st">',orders.created_at) - strftime('</span><span class="sc">%s</span><span class="st">',test.test_start_date) )/(3600*24) as days                </span><span class="ch">\</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="st">            FROM df AS test                                                                                                   </span><span class="ch">\</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">            LEFT JOIN                                                                                                         </span><span class="ch">\</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">                orders AS orders                                                                                              </span><span class="ch">\</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">            ON                                                                                                                </span><span class="ch">\</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">                orders.item_id = test.item_id                                                                                 </span><span class="ch">\</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">            WHERE                                                                                                             </span><span class="ch">\</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">                test.test_number = 'item_test_3'                                                                              </span><span class="ch">\</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">            ORDER BY orders.item_id                                                                                             </span><span class="ch">\</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">           "</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>d1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="149">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>item_id</th>
+      <th>test_start_date</th>
+      <th>created_at</th>
+      <th>test_assignment</th>
+      <th>days</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>2016-01-07 00:00:00</td>
+      <td>2014-03-21 06:08:48</td>
+      <td>1.0</td>
+      <td>-656</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>2016-01-07 00:00:00</td>
+      <td>2014-04-08 09:43:38</td>
+      <td>1.0</td>
+      <td>-638</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>2016-01-07 00:00:00</td>
+      <td>2015-01-21 15:51:14</td>
+      <td>1.0</td>
+      <td>-350</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>2016-01-07 00:00:00</td>
+      <td>2015-03-04 18:06:07</td>
+      <td>1.0</td>
+      <td>-308</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>2016-01-07 00:00:00</td>
+      <td>2015-04-08 00:42:57</td>
+      <td>1.0</td>
+      <td>-273</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>47397</th>
+      <td>3997.0</td>
+      <td>2016-01-07 00:00:00</td>
+      <td>2018-01-29 10:07:14</td>
+      <td>1.0</td>
+      <td>753</td>
+    </tr>
+    <tr>
+      <th>47398</th>
+      <td>3997.0</td>
+      <td>2016-01-07 00:00:00</td>
+      <td>2018-03-31 23:12:01</td>
+      <td>1.0</td>
+      <td>814</td>
+    </tr>
+    <tr>
+      <th>47399</th>
+      <td>3997.0</td>
+      <td>2016-01-07 00:00:00</td>
+      <td>2018-05-02 06:47:29</td>
+      <td>1.0</td>
+      <td>846</td>
+    </tr>
+    <tr>
+      <th>47400</th>
+      <td>3997.0</td>
+      <td>2016-01-07 00:00:00</td>
+      <td>2018-05-20 08:30:34</td>
+      <td>1.0</td>
+      <td>864</td>
+    </tr>
+    <tr>
+      <th>47401</th>
+      <td>3997.0</td>
+      <td>2016-01-07 00:00:00</td>
+      <td>2018-05-24 04:40:57</td>
+      <td>1.0</td>
+      <td>868</td>
+    </tr>
+  </tbody>
+</table>
+<p>47402 rows × 5 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d2 <span class="op">=</span> sqldf(<span class="st">"</span><span class="ch">\</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="st">            SELECT                                       </span><span class="ch">\</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">               item_id, test_assignment,                 </span><span class="ch">\</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">               MAX(CASE                                  </span><span class="ch">\</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">                   WHEN days&gt;0 AND days&lt;=30              </span><span class="ch">\</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">                   THEN 1                                </span><span class="ch">\</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">                   ELSE 0 END) AS order_test             </span><span class="ch">\</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="st">             FROM                                        </span><span class="ch">\</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="st">                d1                                       </span><span class="ch">\</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="st">            GROUP BY                                     </span><span class="ch">\</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="st">                item_id, test_assignment                 </span><span class="ch">\</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="st">                "</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>d2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="150">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>item_id</th>
+      <th>test_assignment</th>
+      <th>order_test</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2193</th>
+      <td>3992.0</td>
+      <td>1.0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2194</th>
+      <td>3993.0</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2195</th>
+      <td>3994.0</td>
+      <td>1.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2196</th>
+      <td>3996.0</td>
+      <td>0.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2197</th>
+      <td>3997.0</td>
+      <td>1.0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>2198 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="190">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> chi2_contingency, chi2 </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>acceptance_criteria <span class="op">=</span> <span class="fl">0.05</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>observed_values  <span class="op">=</span> pd.crosstab(d2.test_assignment,d2.order_test).values</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>makesame <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> makesame<span class="op">==</span><span class="dv">1</span>:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    observed_values[<span class="dv">1</span>]<span class="op">=</span>observed_values[<span class="dv">0</span>]<span class="op">*</span><span class="dv">2</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>ov<span class="op">=</span>pd.DataFrame(observed_values)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>ov[<span class="st">'tots'</span>]<span class="op">=</span>ov.iloc[:,<span class="dv">0</span>]<span class="op">+</span>ov.iloc[:,<span class="dv">1</span>]</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>ov[<span class="st">'success_rate'</span>]<span class="op">=</span><span class="dv">100</span><span class="op">*</span>ov.iloc[:,<span class="dv">1</span>]<span class="op">/</span>ov.iloc[:,<span class="dv">2</span>]</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>ov</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="190">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>tots</th>
+      <th>success_rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>715</td>
+      <td>360</td>
+      <td>1075</td>
+      <td>33.488372</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1430</td>
+      <td>720</td>
+      <td>2150</td>
+      <td>33.488372</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="193">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#hide</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>chi2_statistic, p_value, dof, expected_values <span class="op">=</span> chi2_contingency(observed_values, correction <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The chi2_statistic is </span><span class="sc">{</span>chi2_statistic<span class="sc">:.2f}</span><span class="ss">, and the p value is  </span><span class="sc">{</span>p_value<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># find the critical value for our test</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>critical_value <span class="op">=</span> chi2.ppf(<span class="dv">1</span> <span class="op">-</span> acceptance_criteria, dof)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(critical_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The chi2_statistic is 0.00, and the p value is  1.00
+3.841458820694124</code></pre>
+</div>
+</div>
+<ul>
+<li>count = Successes if Null Hypothesis is True. (P * nobs)</li>
+<li>nobs = The number of trails/sample</li>
+<li>value = Observed Proportion</li>
+<li>alternative = Type of test(2-tailed or 1-tailed)</li>
+</ul>
+<div class="cell" data-execution_count="192">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest, proportion_confint</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>z_stat, pval<span class="op">=</span> proportions_ztest(count<span class="op">=</span>ov.iloc[:,<span class="dv">1</span>],nobs<span class="op">=</span>ov[<span class="st">'tots'</span>].values, alternative<span class="op">=</span><span class="st">'two-sided'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"z test stat = </span><span class="sc">{</span>z_stat<span class="sc">:.2f}</span><span class="ss"> and p-value = </span><span class="sc">{</span>pval<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>z test stat = 0.00 and p-value = 1.00</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="168">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(lower_con, lower_treat), (upper_con, upper_treat) <span class="op">=</span> proportion_confint(ov.iloc[:,<span class="dv">1</span>],nobs<span class="op">=</span>ov[<span class="st">'tots'</span>].values,alpha<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'conf ind 95% for control group: [</span><span class="sc">{</span>lower_con<span class="sc">:.3f}</span><span class="ss">, </span><span class="sc">{</span>upper_con<span class="sc">:.3f}</span><span class="ss">]'</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'conf ind 95% for treatment group: [</span><span class="sc">{</span>lower_treat<span class="sc">:.3f}</span><span class="ss">, </span><span class="sc">{</span>upper_treat<span class="sc">:.3f}</span><span class="ss">]'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>conf ind 95% for control group: [0.307, 0.363]
+conf ind 95% for treatment group: [0.279, 0.333]</code></pre>
+</div>
+</div>
+<ul>
+<li>When your p-value is less than or equal to your significance level, you reject the null hypothesis. The data favors the alternative hypothesis. Congratulations! Your results are statistically significant.</li>
+<li>When your p-value is greater than your significance level, you fail to reject the null hypothesis. Your results are not significant. You’ll learn more about interpreting this outcome later in this post.</li>
+</ul>
+<p>Failed to reject the null hypothesis (that changes are due to chance alone), since p-value is over 0.05</p>
+</section>
+<section id="laws-of-probability" class="level2">
+<h2 class="anchored" data-anchor-id="laws-of-probability">Laws of Probability</h2>
+<p>In the next few sections, we’ll derive three relationships between conjunction and conditional probability:</p>
+<ul>
+<li><p>Theorem 1: Using a conjunction to compute a conditional probability.</p></li>
+<li><p>Theorem 2: Using a conditional probability to compute a conjunction.</p></li>
+<li><p>Theorem 3: Using <code>conditional(A, B)</code> to compute <code>conditional(B, A)</code>.</p></li>
+</ul>
+<p>Theorem 3 is also known as Bayes’s Theorem.</p>
+<p>I’ll write these theorems using mathematical notation for probability:</p>
+<ul>
+<li><p><span class="math inline">\(P(A)\)</span> is the probability of proposition <span class="math inline">\(A\)</span>.</p></li>
+<li><p><span class="math inline">\(P(A~\mathrm{and}~B)\)</span> is the probability of the conjunction of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, that is, the probability that both are true.</p></li>
+<li><p><span class="math inline">\(P(A | B)\)</span> is the conditional probability of <span class="math inline">\(A\)</span> given that <span class="math inline">\(B\)</span> is true. The vertical line between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is pronounced “given”.</p></li>
+</ul>
+<p>With that, we are ready for Theorem 1.</p>
+<div class="cell" data-execution_count="194">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#hide</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data file</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os.path <span class="im">import</span> basename, exists</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> download(url):</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> basename(url)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> exists(filename):</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="im">from</span> urllib.request <span class="im">import</span> urlretrieve</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>        local, _ <span class="op">=</span> urlretrieve(url, filename)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'Downloaded '</span> <span class="op">+</span> local)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>download(<span class="st">'https://github.com/AllenDowney/BiteSizeBayes/raw/master/gss_bayes.csv'</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>gss <span class="op">=</span> pd.read_csv(<span class="st">'gss_bayes.csv'</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloaded gss_bayes.csv</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="201">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>gss.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="201">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>year</th>
+      <th>age</th>
+      <th>sex</th>
+      <th>polviews</th>
+      <th>partyid</th>
+      <th>indus10</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>49290.000000</td>
+      <td>49290.000000</td>
+      <td>49290.000000</td>
+      <td>49290.000000</td>
+      <td>49290.000000</td>
+      <td>49290.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1995.364050</td>
+      <td>46.143132</td>
+      <td>1.537858</td>
+      <td>4.105052</td>
+      <td>2.753905</td>
+      <td>5993.666504</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>12.336592</td>
+      <td>17.111420</td>
+      <td>0.498570</td>
+      <td>1.377160</td>
+      <td>2.048108</td>
+      <td>2796.295069</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1974.000000</td>
+      <td>18.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>170.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1985.000000</td>
+      <td>32.000000</td>
+      <td>1.000000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>3890.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1996.000000</td>
+      <td>44.000000</td>
+      <td>2.000000</td>
+      <td>4.000000</td>
+      <td>3.000000</td>
+      <td>6990.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2006.000000</td>
+      <td>59.000000</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>8190.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2016.000000</td>
+      <td>89.000000</td>
+      <td>2.000000</td>
+      <td>7.000000</td>
+      <td>7.000000</td>
+      <td>9870.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="251">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>male <span class="op">=</span> gss.sex<span class="op">==</span><span class="dv">1</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>banker <span class="op">=</span> gss.indus10<span class="op">==</span><span class="dv">6870</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>year1990 <span class="op">=</span> gss.year<span class="op">&lt;</span><span class="dv">1990</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Percentage male = </span><span class="sc">{</span>male<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Percentage banker = </span><span class="sc">{</span>banker<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Percentage year1990 = </span><span class="sc">{</span>year1990<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"first few rows of male = </span><span class="sc">{</span>male<span class="sc">.</span>head()<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Percentage male = 0.462
+Percentage banker = 0.015
+Percentage year1990 = 0.362
+
+first few rows of male = caseid
+1     True
+2     True
+5    False
+6     True
+7     True
+Name: sex, dtype: bool</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="255">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> <span class="kw">lambda</span> x : x.mean()</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Conjunction: Probability person is male &amp; year1990 = </span><span class="sc">{</span>prob(male <span class="op">&amp;</span> year1990)<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>prob_cond <span class="op">=</span> <span class="kw">lambda</span> x,given : prob(x[given])</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Conditional: Given person is a banker what is the probability they are female?</span><span class="ch">\</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ss">      </span><span class="ch">\n</span><span class="sc">{</span>prob_cond(<span class="op">~</span>male,banker)<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Conditional: Given person is female what is the probability they are a banker?</span><span class="ch">\</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="ss">      </span><span class="ch">\n</span><span class="sc">{</span>prob_cond(banker, <span class="op">~</span>male)<span class="sc">:.2f}</span><span class="ss">'</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'N.B. x[given] is a list of x where given==True, i.e. has the length of given.sum()'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Conjunction: Probability person is male &amp; year1990 = 0.17
+
+Conditional: Given person is a banker what is the probability they are female?      
+0.77
+Conditional: Given person is female what is the probability they are a banker?      
+0.02
+
+N.B. x[given] is a list of x where given==True, i.e. has the length of given.sum()</code></pre>
+</div>
+</div>
+<section id="theorem-1" class="level3">
+<h3 class="anchored" data-anchor-id="theorem-1">Theorem 1</h3>
+<p><span class="math display">\[P(A|B) = \frac{P(A~\mathrm{and}~B)}{P(B)}\]</span></p>
+<p>The conditional probability of 𝐴 given that 𝐵 is true <span class="math inline">\(P(A|B)\)</span> equals the probaility of A and B occuring divided by probability of B occuring.</p>
+<div class="cell" data-execution_count="259">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'A = female, B= banker'</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(B) = </span><span class="sc">{</span>prob(banker)<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(A &amp; B) = </span><span class="sc">{</span>prob( <span class="op">~</span>male <span class="op">&amp;</span> banker)<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(A | B) = </span><span class="sc">{</span>prob_cond(<span class="op">~</span>male, banker)<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(A &amp; B)/P(B) = </span><span class="sc">{</span>prob( <span class="op">~</span>male <span class="op">&amp;</span> banker)<span class="op">/</span>prob(banker)<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>A = female, B= banker
+P(B) = 0.015
+P(A &amp; B) = 0.011
+P(A | B) = 0.771
+P(A &amp; B)/P(B) = 0.771</code></pre>
+</div>
+</div>
+</section>
+<section id="theorem-2" class="level3">
+<h3 class="anchored" data-anchor-id="theorem-2">Theorem 2</h3>
+<p>If we start with Theorem 1 and multiply both sides by <span class="math inline">\(P(B)\)</span>, we get Theorem 2.</p>
+<p><span class="math display">\[P(A~\mathrm{and}~B) = P(B) ~ P(A|B)\]</span></p>
+<p>This formula suggests a second way to compute a conjunction: instead of using the <code>&amp;</code> operator, we can compute the product of two probabilities.</p>
+<div class="cell" data-execution_count="262">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(B)*P(A|B) = </span><span class="sc">{</span>prob(banker)<span class="op">*</span>prob_cond(<span class="op">~</span>male,banker)<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(A &amp; B) = </span><span class="sc">{</span>prob( <span class="op">~</span>male <span class="op">&amp;</span> banker)<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>P(B)*P(A|B) = 0.011
+P(A &amp; B) = 0.011</code></pre>
+</div>
+</div>
+</section>
+<section id="theorem-3" class="level3">
+<h3 class="anchored" data-anchor-id="theorem-3">Theorem 3</h3>
+<p>We have established that conjunction is commutative. In math notation, that means:</p>
+<p><span class="math display">\[P(A~\mathrm{and}~B) = P(B~\mathrm{and}~A)\]</span></p>
+<p>If we apply Theorem 2 to both sides, we have</p>
+<p><span class="math display">\[P(B) P(A|B) = P(A) P(B|A)\]</span></p>
+<p>Here’s one way to interpret that: if you want to check <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, you can do it in either order:</p>
+<ol type="1">
+<li><p>You can check <span class="math inline">\(B\)</span> first, then <span class="math inline">\(A\)</span> conditioned on <span class="math inline">\(B\)</span>, or</p></li>
+<li><p>You can check <span class="math inline">\(A\)</span> first, then <span class="math inline">\(B\)</span> conditioned on <span class="math inline">\(A\)</span>.</p></li>
+</ol>
+<p>If we divide through by <span class="math inline">\(P(B)\)</span>, we get Theorem 3:</p>
+<p><span class="math display">\[P(A|B) = \frac{P(A) P(B|A)}{P(B)}\]</span></p>
+<p>And that, my friends, is Bayes’s Theorem.</p>
+<div class="cell" data-execution_count="264">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(A)*P(B|A)/P(B) = </span><span class="sc">{</span>prob(<span class="op">~</span>male)<span class="op">*</span>prob_cond(banker, <span class="op">~</span>male)<span class="op">/</span>prob(banker)<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(A | B) = </span><span class="sc">{</span>prob_cond( <span class="op">~</span>male , banker)<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>P(A)*P(B|A)/P(B) = 0.771
+P(A | B) = 0.771</code></pre>
+</div>
+</div>
+</section>
+<section id="the-law-of-total-probability" class="level3">
+<h3 class="anchored" data-anchor-id="the-law-of-total-probability">The Law of Total Probability</h3>
+<p>In addition to these three theorems, there’s one more thing we’ll need to do Bayesian statistics: the law of total probability. Here’s one form of the law, expressed in mathematical notation:</p>
+<p><span class="math display">\[P(A) = P(B_1 \mathrm{and} A) + P(B_2 \mathrm{and} A)\]</span></p>
+<p>In words, the total probability of <span class="math inline">\(A\)</span> is the sum of two possibilities: either <span class="math inline">\(B_1\)</span> and <span class="math inline">\(A\)</span> are true or <span class="math inline">\(B_2\)</span> and <span class="math inline">\(A\)</span> are true. But this law applies only if <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> are:</p>
+<ul>
+<li><p>Mutually exclusive, which means that only one of them can be true, and</p></li>
+<li><p>Collectively exhaustive, which means that one of them must be true.</p></li>
+</ul>
+<div class="cell" data-execution_count="265">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(B) = </span><span class="sc">{</span>prob(banker)<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(A1 &amp; B) + P(A2 &amp; B) = </span><span class="sc">{</span>prob(<span class="op">~</span>male <span class="op">&amp;</span> banker) <span class="op">+</span> prob(male <span class="op">&amp;</span> banker)<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>P(B) = 0.015
+P(A1 &amp; B) + P(A2 &amp; B) = 0.015</code></pre>
+</div>
+</div>
+</section>
+<section id="the-apple-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-apple-problem">The Apple Problem</h3>
+<p>We’ll start with a thinly disguised version of an <a href="https://en.wikipedia.org/wiki/Urn_problem">urn problem</a>:</p>
+<blockquote class="blockquote">
+<p>Suppose there are two bowls of apples.</p>
+<ul>
+<li><p>Bowl 1 contains 30 red apples and 10 green apples.</p></li>
+<li><p>Bowl 2 contains 20 red apples and 20 green apples.</p></li>
+</ul>
+<p>Now suppose you choose one of the bowls at random and, without looking, choose an apple at random. If the apple is red, what is the probability that it came from Bowl 1?</p>
+</blockquote>
+<p><span class="math display">\[P(A|B) = \frac{P(A) P(B|A)}{P(B)}\]</span></p>
+<div class="cell" data-execution_count="286">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'P(A) = probability apple is red, P(B) = probability bowl is bowl 1'</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'We want prob bowl 1 given apple is red or P(B|A)'</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>PA<span class="op">=</span>(<span class="dv">30</span><span class="op">+</span><span class="dv">20</span>)<span class="op">/</span>(<span class="dv">30</span><span class="op">+</span><span class="dv">20</span><span class="op">+</span><span class="dv">10</span><span class="op">+</span><span class="dv">20</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(A)=</span><span class="sc">{</span>PA<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>PB<span class="op">=</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(B)=</span><span class="sc">{</span>PB<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>PAgivenB<span class="op">=</span>(<span class="dv">30</span>)<span class="op">/</span>(<span class="dv">30</span><span class="op">+</span><span class="dv">10</span>)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(A|B)=</span><span class="sc">{</span>PAgivenB<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'P(B|A)=</span><span class="sc">{</span>PB<span class="op">*</span>PAgivenB<span class="op">/</span>PA<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>P(A) = probability apple is red, P(B) = probability bowl is bowl 1
+We want prob bowl 1 given apple is red or P(B|A)
+P(A)=0.625
+P(B)=0.500
+P(A|B)=0.750
+P(B|A)=0.600</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

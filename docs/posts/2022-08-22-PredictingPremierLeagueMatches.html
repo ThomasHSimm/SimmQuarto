@@ -1,0 +1,5285 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.258">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ThomasHSimm – predictingpremierleaguematches</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//posts/Picture3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ThomasHSimm</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ThomasHSimm"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ThomasHSimm"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><img src="../posts/header2.png" height="200"></p>
+
+
+
+<section id="predicting-premier-league-matches" class="level1">
+<h1>Predicting Premier League Matches</h1>
+<blockquote class="blockquote">
+<p>Using Neural Networks and gradient boosting to predict Football matches</p>
+</blockquote>
+<ul>
+<li>toc: true</li>
+<li>badges: true</li>
+<li>comments: true</li>
+<li>categories: [neural networks,XGBoost, Football, Premier League,Python]</li>
+</ul>
+<p><img src="ghtop_images/header2.png" class="img-fluid"></p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>Predicting results of <a href="https://en.wikipedia.org/wiki/Premier_League">English Premier League</a> using random forests for the 2017 to 2021 seasons. I will predict whether a result is a win, loss or draw, and then simplify as a binary question- is it a win?</p>
+<p>From an article about pundit versus gambling company <a href="https://www.pinnacle.com/en/betting-articles/Soccer/Mark-Lawrenson-vs-Pinnacle-Sports/VGJ296E4BSYNURUB">Pinnacle vs.&nbsp;Mark Lawrenson</a> we have a benchmark to aim for from the 2012 season: - Mark Lawrenson = 52.6% accuracy - Pinnacle traders = 55.3% accuracy - Random guess = 33.3% accuracy</p>
+</section>
+<section id="method" class="level3">
+<h3 class="anchored" data-anchor-id="method">Method</h3>
+<p>In this data there are various parameters that can be used. The most important step is to not use data about a current match as a predictor, but for a prediction to be based on stats from previous matches. (A couple of slight exceptions to this are below like who is playing who and where)</p>
+<p>The predictors used here include: - date of match - home or away - stats from previous matches - results - goals scored/conceded - possession/expected goals etc - who is playing who</p>
+<p>Some details on the machine learning:</p>
+<ul>
+<li>Notebook on <a href="https://www.kaggle.com/code/thomassimm/predicting-premier-league-matches">kaggle is here</a></li>
+<li>Several models were used:
+<ul>
+<li>A Random Forest <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">model</a></li>
+<li>Gradient boosting models <a href="https://xgboost.readthedocs.io/en/stable/python/python_api.html">XGBoost</a></li>
+<li>Ridge <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClassifier.html#sklearn.linear_model.RidgeClassifier">model</a></li>
+<li>Neural networks</li>
+</ul></li>
+<li>Regression and classification models were used</li>
+<li>Data is trained on years 2017 to 2020 with season 2021 used as validation
+<ul>
+<li>20% validation / 80% training</li>
+</ul></li>
+<li>Some data cleaning methods were performed and shown in the code</li>
+</ul>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+<ul>
+<li><p>Model accuracy = 52% (+-1%)</p>
+<ul>
+<li>So the model is comparable with the results of Mark Lawrenson</li>
+</ul></li>
+<li><p>The model is okay as it matches the accuracy from an expert pundit. But it does underperform gambing predictions.</p></li>
+<li><p>Draws are under-represented by the model</p>
+<ul>
+<li>draws predicted was increased by adjusting the input parameter <code>class_weight</code> but the issue was only reduced</li>
+</ul></li>
+<li><p>Changing input parameters was done in a semi-manual manner, obtaining the best input parameters was not easy</p></li>
+<li><p>The more parameters the better,</p>
+<ul>
+<li>but the increase from just using a basic four parameter fit to one with 300+ columns is relatively small (a difference of ~1-2% (based on values 50-65%))</li>
+</ul></li>
+<li><p>By searching for the best hyper parameters the results of a random forest (RF) model were increased from 49% accuracy to 52%</p></li>
+<li><p>RF, XG boost and grad boost methods all performed similar</p>
+<ul>
+<li>Ridge model was the worst performing</li>
+<li>Neural networks with fastai tabular data also performed poorly. <a href="https://www.kaggle.com/code/thomassimm/epl-nn">NN analysis of EPL</a></li>
+</ul></li>
+<li><p>Similar results were obtained by using classification and regression methods</p>
+<ul>
+<li>Regression on the net score performed the best</li>
+<li>Regression methods performed worse on predicting draws though</li>
+</ul></li>
+<li><p>Ensembling (combining results from different methods by adding them) can increase the overall results. The accuracy would need to be comparable and the results different enough for their to be a benefit</p></li>
+</ul>
+<p>A summary of the results is shown below</p>
+<table class="table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 30%">
+<col style="width: 23%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Accuracy W/L/D</th>
+<th>Accuracy Win</th>
+<th>Classification/Regression</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.489</td>
+<td>0.669</td>
+<td>Classification</td>
+<td>RF with all parameters</td>
+</tr>
+<tr class="even">
+<td>0.479</td>
+<td>0.661</td>
+<td>Classification</td>
+<td>RF with 43 parameters from feature imp</td>
+</tr>
+<tr class="odd">
+<td>0.487</td>
+<td>0.666</td>
+<td>Classification</td>
+<td>RF as above with basic features</td>
+</tr>
+<tr class="even">
+<td>0.484</td>
+<td>0.656</td>
+<td>Classification</td>
+<td>RF with 4 basic features</td>
+</tr>
+<tr class="odd">
+<td>0.479</td>
+<td>-</td>
+<td>Classification</td>
+<td>RF with 4 basic ones + balanced</td>
+</tr>
+<tr class="even">
+<td>0.485</td>
+<td>0.656</td>
+<td>Classification</td>
+<td>RF with 23 correlation parameters plus basic</td>
+</tr>
+<tr class="odd">
+<td>0.451</td>
+<td>0.678</td>
+<td>Regression</td>
+<td>RF with all parameters on net score</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>0.657</td>
+<td>Regression</td>
+<td>XGB with all parameters on net score</td>
+</tr>
+<tr class="odd">
+<td>-</td>
+<td>0.639</td>
+<td>Regression</td>
+<td>Ridge with all parameters on net score</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>0.666</td>
+<td>Regression</td>
+<td>Grad boost with all parameters on net score</td>
+</tr>
+<tr class="odd">
+<td>0.427</td>
+<td>0.670</td>
+<td>Regression</td>
+<td>RF with all parameters on GF/GA</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>0.670</td>
+<td>Regression</td>
+<td>XGB with all parameters on GF/GA score</td>
+</tr>
+<tr class="odd">
+<td>-</td>
+<td>0.665</td>
+<td>Regression</td>
+<td>RF+XGB+Grad boost on netscore</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>0.678</td>
+<td>Regression</td>
+<td>RF on netscore + RF on GF/GA</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="this-notebook" class="level1">
+<h1>This notebook</h1>
+<p>In this notebook I’ll look at gradient boosting and neural networks. And then combine the results using Ensembling. i.e.&nbsp;the results of two different models predictions should be better than each individual one.</p>
+<p>The binary version and more details on the models is found <a href="https://www.kaggle.com/code/thomassimm/premier-league-predictions-using-tensorflow">here</a></p>
+<section id="code--prepare-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="code--prepare-the-data">Code- Prepare the data</h3>
+<p>Data is prepared in a separate page- <a href="https://thomashsimm.com/pandas/football/premier%20league/python/2022/08/11/PredictingPremierLeagueMatches-PrepareTheData.html#Save-the-data">Predicting Premier League Matches- Prepare the data</a></p>
+</section>
+<section id="load-data-and-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="load-data-and-libraries">Load data and libraries</h2>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#collapse-hide</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_absolute_error</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, OneHotEncoder</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.compose <span class="im">import</span> make_column_transformer</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow <span class="im">import</span> keras</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tensorflow.keras <span class="im">import</span> layers, callbacks</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># from sklearn.tree import DecisionTreeClassifier</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># from dtreeviz.trees import *</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># from pandas.api.types import is_string_dtype, is_numeric_dtype, is_categorical_dtype</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># from fastai.tabular.all import *</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># from sklearn.experimental import enable_halving_search_cv  # noqa</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># from sklearn.model_selection import HalvingRandomSearchCV</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># from sklearn.metrics import precision_score</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> xgboost <span class="im">import</span> XGBClassifier</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>cwd<span class="op">=</span>os.getcwd()</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>folda<span class="op">=</span>cwd<span class="op">+</span><span class="st">"/data/epl/"</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>dira <span class="op">=</span> os.listdir(folda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#collapse-output</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dfAll<span class="op">=</span>pd.read_csv(folda<span class="op">+</span><span class="st">'epl2017-2021_wivnetscoreAndGFGA_both-HA_modPC.csv'</span>,index_col<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dfAll<span class="op">=</span>dfAll.iloc[<span class="dv">20</span>:,:]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>dfAll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>round</th>
+      <th>day</th>
+      <th>venue_x</th>
+      <th>result_x</th>
+      <th>gf_x</th>
+      <th>ga_x</th>
+      <th>opponent_x</th>
+      <th>shooting_gls_x</th>
+      <th>shooting_sh__x</th>
+      <th>shooting_sot_x</th>
+      <th>...</th>
+      <th>misc_int__y</th>
+      <th>misc_tklw__y</th>
+      <th>misc_pkwon_y</th>
+      <th>misc_pkcon_y</th>
+      <th>misc_og_y</th>
+      <th>misc_recov_y</th>
+      <th>misc_won_y</th>
+      <th>misc_lost_y</th>
+      <th>misc_won%_y</th>
+      <th>team_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>44</th>
+      <td>3</td>
+      <td>27</td>
+      <td>Home</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>Everton</td>
+      <td>2.000000</td>
+      <td>14.500000</td>
+      <td>4.000000</td>
+      <td>...</td>
+      <td>13.000000</td>
+      <td>12.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>94.500000</td>
+      <td>19.500000</td>
+      <td>27.000000</td>
+      <td>41.150000</td>
+      <td>Everton</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>3</td>
+      <td>27</td>
+      <td>Away</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>Liverpool</td>
+      <td>2.000000</td>
+      <td>23.000000</td>
+      <td>8.500000</td>
+      <td>...</td>
+      <td>16.000000</td>
+      <td>12.000000</td>
+      <td>0.500000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>114.000000</td>
+      <td>28.500000</td>
+      <td>20.500000</td>
+      <td>57.450000</td>
+      <td>Liverpool</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>3</td>
+      <td>27</td>
+      <td>Away</td>
+      <td>0.000000</td>
+      <td>1.500000</td>
+      <td>1.500000</td>
+      <td>Tottenham Hotspur</td>
+      <td>1.500000</td>
+      <td>15.000000</td>
+      <td>3.000000</td>
+      <td>...</td>
+      <td>8.500000</td>
+      <td>9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>91.000000</td>
+      <td>21.000000</td>
+      <td>22.500000</td>
+      <td>48.600000</td>
+      <td>Tottenham Hotspur</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>3</td>
+      <td>27</td>
+      <td>Away</td>
+      <td>0.500000</td>
+      <td>1.000000</td>
+      <td>0.500000</td>
+      <td>Chelsea</td>
+      <td>1.000000</td>
+      <td>8.000000</td>
+      <td>3.000000</td>
+      <td>...</td>
+      <td>7.000000</td>
+      <td>14.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.500000</td>
+      <td>92.000000</td>
+      <td>23.500000</td>
+      <td>26.000000</td>
+      <td>47.850000</td>
+      <td>Chelsea</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>3</td>
+      <td>26</td>
+      <td>Away</td>
+      <td>0.500000</td>
+      <td>2.500000</td>
+      <td>2.000000</td>
+      <td>Manchester United</td>
+      <td>2.500000</td>
+      <td>10.000000</td>
+      <td>3.500000</td>
+      <td>...</td>
+      <td>16.000000</td>
+      <td>10.500000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>91.000000</td>
+      <td>21.500000</td>
+      <td>19.500000</td>
+      <td>50.300000</td>
+      <td>Manchester United</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3795</th>
+      <td>38</td>
+      <td>22</td>
+      <td>Away</td>
+      <td>0.333333</td>
+      <td>1.666667</td>
+      <td>1.333333</td>
+      <td>Arsenal</td>
+      <td>1.666667</td>
+      <td>9.333333</td>
+      <td>4.000000</td>
+      <td>...</td>
+      <td>10.000000</td>
+      <td>9.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.333333</td>
+      <td>74.333333</td>
+      <td>14.666667</td>
+      <td>16.666667</td>
+      <td>46.466667</td>
+      <td>Arsenal</td>
+    </tr>
+    <tr>
+      <th>3796</th>
+      <td>38</td>
+      <td>22</td>
+      <td>Away</td>
+      <td>-1.666667</td>
+      <td>0.666667</td>
+      <td>2.333333</td>
+      <td>Brentford</td>
+      <td>0.666667</td>
+      <td>9.666667</td>
+      <td>2.333333</td>
+      <td>...</td>
+      <td>11.666667</td>
+      <td>6.666667</td>
+      <td>0.000000</td>
+      <td>0.666667</td>
+      <td>0.000000</td>
+      <td>80.333333</td>
+      <td>15.333333</td>
+      <td>15.666667</td>
+      <td>48.333333</td>
+      <td>Brentford</td>
+    </tr>
+    <tr>
+      <th>3797</th>
+      <td>38</td>
+      <td>22</td>
+      <td>Home</td>
+      <td>-0.666667</td>
+      <td>1.000000</td>
+      <td>1.666667</td>
+      <td>Newcastle United</td>
+      <td>1.000000</td>
+      <td>13.000000</td>
+      <td>4.333333</td>
+      <td>...</td>
+      <td>14.666667</td>
+      <td>13.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>64.333333</td>
+      <td>20.000000</td>
+      <td>19.000000</td>
+      <td>48.766667</td>
+      <td>Newcastle United</td>
+    </tr>
+    <tr>
+      <th>3798</th>
+      <td>38</td>
+      <td>22</td>
+      <td>Away</td>
+      <td>-2.000000</td>
+      <td>0.666667</td>
+      <td>2.666667</td>
+      <td>Chelsea</td>
+      <td>0.333333</td>
+      <td>10.666667</td>
+      <td>2.666667</td>
+      <td>...</td>
+      <td>11.666667</td>
+      <td>11.666667</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>88.000000</td>
+      <td>17.666667</td>
+      <td>13.666667</td>
+      <td>57.066667</td>
+      <td>Chelsea</td>
+    </tr>
+    <tr>
+      <th>3799</th>
+      <td>38</td>
+      <td>22</td>
+      <td>Home</td>
+      <td>-2.000000</td>
+      <td>0.333333</td>
+      <td>2.333333</td>
+      <td>Tottenham Hotspur</td>
+      <td>0.333333</td>
+      <td>9.666667</td>
+      <td>2.333333</td>
+      <td>...</td>
+      <td>12.000000</td>
+      <td>9.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>81.666667</td>
+      <td>23.666667</td>
+      <td>17.000000</td>
+      <td>57.633333</td>
+      <td>Tottenham Hotspur</td>
+    </tr>
+  </tbody>
+</table>
+<p>3740 rows × 333 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#collapse-output</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pd.option_context(<span class="st">"display.max_columns"</span>, <span class="va">None</span>):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    display(dfAll.describe(include<span class="op">=</span><span class="st">'all'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>round</th>
+      <th>day</th>
+      <th>venue_x</th>
+      <th>result_x</th>
+      <th>gf_x</th>
+      <th>ga_x</th>
+      <th>opponent_x</th>
+      <th>shooting_gls_x</th>
+      <th>shooting_sh__x</th>
+      <th>shooting_sot_x</th>
+      <th>shooting_sot%_x</th>
+      <th>shooting_g/sh_x</th>
+      <th>shooting_g/sot_x</th>
+      <th>shooting_PC_dist_x</th>
+      <th>shooting_fk__x</th>
+      <th>shooting_pk_x</th>
+      <th>shooting_pkatt__x</th>
+      <th>shooting_xg_x</th>
+      <th>shooting_npxg_x</th>
+      <th>shooting_npxg/sh_x</th>
+      <th>shooting_g-xg_x</th>
+      <th>shooting_np:g-xg_x</th>
+      <th>keeper_sota_x</th>
+      <th>keeper_saves_x</th>
+      <th>keeper_save%_x</th>
+      <th>keeper_cs_x</th>
+      <th>keeper_psxg_x</th>
+      <th>keeper_psxg+/-_x</th>
+      <th>keeper_pkatt__x</th>
+      <th>keeper_pka_x</th>
+      <th>keeper_pksv_x</th>
+      <th>keeper_pkm_x</th>
+      <th>keeper_cmp__x</th>
+      <th>keeper_att__x</th>
+      <th>keeper_cmp%__x</th>
+      <th>keeper_att_.1_x</th>
+      <th>keeper_thr_x</th>
+      <th>keeper_launch%_x</th>
+      <th>keeper_avglen_x</th>
+      <th>keeper_att_.2_x</th>
+      <th>keeper_launch%.1_x</th>
+      <th>keeper_avglen.1_x</th>
+      <th>keeper_opp_x</th>
+      <th>keeper_stp_x</th>
+      <th>keeper_stp%_x</th>
+      <th>keeper_#opa_x</th>
+      <th>keeper_avgdist_x</th>
+      <th>passing_pass_complete_x</th>
+      <th>passing_cmp%__x</th>
+      <th>passing_PC_totdist__x</th>
+      <th>passing_PC_prgdist__x</th>
+      <th>passing_PC_cmp_.1_x</th>
+      <th>passing_cmp%_.1_x</th>
+      <th>passing_PC_cmp_.2_x</th>
+      <th>passing_cmp%_.2_x</th>
+      <th>passing_PC_cmp_.3_x</th>
+      <th>passing_cmp%_.3_x</th>
+      <th>passing_ast_x</th>
+      <th>passing_xa_x</th>
+      <th>passing_kp_x</th>
+      <th>passing_PC_1/3__x</th>
+      <th>passing_PC_ppa_x</th>
+      <th>passing_PC_crspa_x</th>
+      <th>passing_PC_prog__x</th>
+      <th>passing_PC_types_live__x</th>
+      <th>passing_PC_types_dead_x</th>
+      <th>passing_PC_types_fk__x</th>
+      <th>passing_PC_types_tb_x</th>
+      <th>passing_PC_types_press__x</th>
+      <th>passing_PC_types_sw_x</th>
+      <th>passing_PC_types_crs__x</th>
+      <th>passing_PC_types_ck_x</th>
+      <th>passing_PC_types_in_x</th>
+      <th>passing_PC_types_out_x</th>
+      <th>passing_PC_types_str_x</th>
+      <th>passing_PC_types_ground_x</th>
+      <th>passing_PC_types_low_x</th>
+      <th>passing_PC_types_high_x</th>
+      <th>passing_PC_types_left_x</th>
+      <th>passing_PC_types_right_x</th>
+      <th>passing_PC_types_head_x</th>
+      <th>passing_PC_types_ti_x</th>
+      <th>passing_PC_types_other_x</th>
+      <th>passing_PC_types_cmp__x</th>
+      <th>passing_PC_types_off__x</th>
+      <th>passing_PC_types_out.1_x</th>
+      <th>passing_PC_types_int__x</th>
+      <th>passing_PC_types_blocks__x</th>
+      <th>shotcreate_sca_x</th>
+      <th>shotcreate_passlive_x</th>
+      <th>shotcreate_passdead_x</th>
+      <th>shotcreate_drib_x</th>
+      <th>shotcreate_sh_gca_x</th>
+      <th>shotcreate_fld_gca_x</th>
+      <th>shotcreate_def_x</th>
+      <th>shotcreate_gca_x</th>
+      <th>shotcreate_passlive.1_x</th>
+      <th>shotcreate_passdead.1_x</th>
+      <th>shotcreate_drib.1_x</th>
+      <th>shotcreate_sh_gca.1_x</th>
+      <th>shotcreate_fld_gca.1_x</th>
+      <th>shotcreate_def.1_x</th>
+      <th>tackle_tkl_x</th>
+      <th>tackle_PC_tklw_defense_x</th>
+      <th>tackle_PC_def 3rd_defense_x</th>
+      <th>tackle_PC_mid 3rd_defense_x</th>
+      <th>tackle_PC_att 3rd_defense_x</th>
+      <th>tackle_PC_tkl_dribble_x</th>
+      <th>tackle_dribble%_x</th>
+      <th>tackle_dribllepast_x</th>
+      <th>tackle_press_defense_x</th>
+      <th>tackle_%_x</th>
+      <th>tackle_PC_press_def3rd_x</th>
+      <th>tackle_PC_press_mid3rd_x</th>
+      <th>tackle_PC_press_att3rd_x</th>
+      <th>tackle_blocks_defense_x</th>
+      <th>tackle_PC_sh_defense_x</th>
+      <th>tackle_PC_shsv_x</th>
+      <th>tackle_PC_pass_x</th>
+      <th>tackle_int_defense_x</th>
+      <th>tackle_clr_x</th>
+      <th>tackle_err_x</th>
+      <th>possession_poss_x</th>
+      <th>possession_touches_x</th>
+      <th>possession_PC_def pen_x</th>
+      <th>possession_PC_def 3rd__x</th>
+      <th>possession_PC_mid 3rd__x</th>
+      <th>possession_PC_att 3rd__x</th>
+      <th>possession_PC_att pen_x</th>
+      <th>possession_PC_live__x</th>
+      <th>possession_dribblesucc__x</th>
+      <th>possession_dribbleatt__x</th>
+      <th>possession_dribblesucc%_x</th>
+      <th>possession_dribblepast_x</th>
+      <th>possession_megs_x</th>
+      <th>possession_carries_x</th>
+      <th>possession_totdist__x</th>
+      <th>possession_PC_prgdist__x</th>
+      <th>possession_PC_prog__x</th>
+      <th>possession_PC_1/3__x</th>
+      <th>possession_PC_cpa_x</th>
+      <th>possession_PC_mis_x</th>
+      <th>possession_PC_dis_x</th>
+      <th>possession_targ_x</th>
+      <th>possession_rec_x</th>
+      <th>possession_rec%_x</th>
+      <th>possession_prog_.1_x</th>
+      <th>misc_crdy_x</th>
+      <th>misc_crdr_x</th>
+      <th>misc_2crdy_x</th>
+      <th>misc_fls_x</th>
+      <th>misc_fld__x</th>
+      <th>misc_off__x</th>
+      <th>misc_crs__x</th>
+      <th>misc_int__x</th>
+      <th>misc_tklw__x</th>
+      <th>misc_pkwon_x</th>
+      <th>misc_pkcon_x</th>
+      <th>misc_og_x</th>
+      <th>misc_recov_x</th>
+      <th>misc_won_x</th>
+      <th>misc_lost_x</th>
+      <th>misc_won%_x</th>
+      <th>team_x</th>
+      <th>season</th>
+      <th>month</th>
+      <th>year</th>
+      <th>weekday</th>
+      <th>Win_x</th>
+      <th>NetScore_x</th>
+      <th>GoalsFor_x</th>
+      <th>GoalsAgainst_x</th>
+      <th>result_y</th>
+      <th>gf_y</th>
+      <th>ga_y</th>
+      <th>opponent_y</th>
+      <th>shooting_gls_y</th>
+      <th>shooting_sh__y</th>
+      <th>shooting_sot_y</th>
+      <th>shooting_sot%_y</th>
+      <th>shooting_g/sh_y</th>
+      <th>shooting_g/sot_y</th>
+      <th>shooting_PC_dist_y</th>
+      <th>shooting_fk__y</th>
+      <th>shooting_pk_y</th>
+      <th>shooting_pkatt__y</th>
+      <th>shooting_yg_y</th>
+      <th>shooting_npxg_y</th>
+      <th>shooting_npxg/sh_y</th>
+      <th>shooting_g-xg_y</th>
+      <th>shooting_np:g-xg_y</th>
+      <th>keeper_sota_y</th>
+      <th>keeper_saves_y</th>
+      <th>keeper_save%_y</th>
+      <th>keeper_cs_y</th>
+      <th>keeper_psxg_y</th>
+      <th>keeper_psxg+/-_y</th>
+      <th>keeper_pkatt__y</th>
+      <th>keeper_pka_y</th>
+      <th>keeper_pksv_y</th>
+      <th>keeper_pkm_y</th>
+      <th>keeper_cmp__y</th>
+      <th>keeper_att__y</th>
+      <th>keeper_cmp%__y</th>
+      <th>keeper_att_.1_y</th>
+      <th>keeper_thr_y</th>
+      <th>keeper_launch%_y</th>
+      <th>keeper_avglen_y</th>
+      <th>keeper_att_.2_y</th>
+      <th>keeper_launch%.1_y</th>
+      <th>keeper_avglen.1_y</th>
+      <th>keeper_opp_y</th>
+      <th>keeper_stp_y</th>
+      <th>keeper_stp%_y</th>
+      <th>keeper_#opa_y</th>
+      <th>keeper_avgdist_y</th>
+      <th>passing_pass_complete_y</th>
+      <th>passing_cmp%__y</th>
+      <th>passing_PC_totdist__y</th>
+      <th>passing_PC_prgdist__y</th>
+      <th>passing_PC_cmp_.1_y</th>
+      <th>passing_cmp%_.1_y</th>
+      <th>passing_PC_cmp_.2_y</th>
+      <th>passing_cmp%_.2_y</th>
+      <th>passing_PC_cmp_.3_y</th>
+      <th>passing_cmp%_.3_y</th>
+      <th>passing_ast_y</th>
+      <th>passing_ya_y</th>
+      <th>passing_kp_y</th>
+      <th>passing_PC_1/3__y</th>
+      <th>passing_PC_ppa_y</th>
+      <th>passing_PC_crspa_y</th>
+      <th>passing_PC_prog__y</th>
+      <th>passing_PC_types_live__y</th>
+      <th>passing_PC_types_dead_y</th>
+      <th>passing_PC_types_fk__y</th>
+      <th>passing_PC_types_tb_y</th>
+      <th>passing_PC_types_press__y</th>
+      <th>passing_PC_types_sw_y</th>
+      <th>passing_PC_types_crs__y</th>
+      <th>passing_PC_types_ck_y</th>
+      <th>passing_PC_types_in_y</th>
+      <th>passing_PC_types_out_y</th>
+      <th>passing_PC_types_str_y</th>
+      <th>passing_PC_types_ground_y</th>
+      <th>passing_PC_types_low_y</th>
+      <th>passing_PC_types_high_y</th>
+      <th>passing_PC_types_left_y</th>
+      <th>passing_PC_types_right_y</th>
+      <th>passing_PC_types_head_y</th>
+      <th>passing_PC_types_ti_y</th>
+      <th>passing_PC_types_other_y</th>
+      <th>passing_PC_types_cmp__y</th>
+      <th>passing_PC_types_off__y</th>
+      <th>passing_PC_types_out.1_y</th>
+      <th>passing_PC_types_int__y</th>
+      <th>passing_PC_types_blocks__y</th>
+      <th>shotcreate_sca_y</th>
+      <th>shotcreate_passlive_y</th>
+      <th>shotcreate_passdead_y</th>
+      <th>shotcreate_drib_y</th>
+      <th>shotcreate_sh_gca_y</th>
+      <th>shotcreate_fld_gca_y</th>
+      <th>shotcreate_def_y</th>
+      <th>shotcreate_gca_y</th>
+      <th>shotcreate_passlive.1_y</th>
+      <th>shotcreate_passdead.1_y</th>
+      <th>shotcreate_drib.1_y</th>
+      <th>shotcreate_sh_gca.1_y</th>
+      <th>shotcreate_fld_gca.1_y</th>
+      <th>shotcreate_def.1_y</th>
+      <th>tackle_tkl_y</th>
+      <th>tackle_PC_tklw_defense_y</th>
+      <th>tackle_PC_def 3rd_defense_y</th>
+      <th>tackle_PC_mid 3rd_defense_y</th>
+      <th>tackle_PC_att 3rd_defense_y</th>
+      <th>tackle_PC_tkl_dribble_y</th>
+      <th>tackle_dribble%_y</th>
+      <th>tackle_dribllepast_y</th>
+      <th>tackle_press_defense_y</th>
+      <th>tackle_%_y</th>
+      <th>tackle_PC_press_def3rd_y</th>
+      <th>tackle_PC_press_mid3rd_y</th>
+      <th>tackle_PC_press_att3rd_y</th>
+      <th>tackle_blocks_defense_y</th>
+      <th>tackle_PC_sh_defense_y</th>
+      <th>tackle_PC_shsv_y</th>
+      <th>tackle_PC_pass_y</th>
+      <th>tackle_int_defense_y</th>
+      <th>tackle_clr_y</th>
+      <th>tackle_err_y</th>
+      <th>possession_poss_y</th>
+      <th>possession_touches_y</th>
+      <th>possession_PC_def pen_y</th>
+      <th>possession_PC_def 3rd__y</th>
+      <th>possession_PC_mid 3rd__y</th>
+      <th>possession_PC_att 3rd__y</th>
+      <th>possession_PC_att pen_y</th>
+      <th>possession_PC_live__y</th>
+      <th>possession_dribblesucc__y</th>
+      <th>possession_dribbleatt__y</th>
+      <th>possession_dribblesucc%_y</th>
+      <th>possession_dribblepast_y</th>
+      <th>possession_megs_y</th>
+      <th>possession_carries_y</th>
+      <th>possession_totdist__y</th>
+      <th>possession_PC_prgdist__y</th>
+      <th>possession_PC_prog__y</th>
+      <th>possession_PC_1/3__y</th>
+      <th>possession_PC_cpa_y</th>
+      <th>possession_PC_mis_y</th>
+      <th>possession_PC_dis_y</th>
+      <th>possession_targ_y</th>
+      <th>possession_rec_y</th>
+      <th>possession_rec%_y</th>
+      <th>possession_prog_.1_y</th>
+      <th>misc_crdy_y</th>
+      <th>misc_crdr_y</th>
+      <th>misc_2crdy_y</th>
+      <th>misc_fls_y</th>
+      <th>misc_fld__y</th>
+      <th>misc_off__y</th>
+      <th>misc_crs__y</th>
+      <th>misc_int__y</th>
+      <th>misc_tklw__y</th>
+      <th>misc_pkwon_y</th>
+      <th>misc_pkcon_y</th>
+      <th>misc_og_y</th>
+      <th>misc_recov_y</th>
+      <th>misc_won_y</th>
+      <th>misc_lost_y</th>
+      <th>misc_won%_y</th>
+      <th>team_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740.000000</td>
+      <td>3740</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>28</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>28</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>28</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Away</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Newcastle United</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Burnley</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>L</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Burnley</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Newcastle United</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1871</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>188</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>188</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1444</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>188</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>188</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>19.789305</td>
+      <td>15.910160</td>
+      <td>NaN</td>
+      <td>-0.003342</td>
+      <td>1.367870</td>
+      <td>1.371212</td>
+      <td>NaN</td>
+      <td>1.324242</td>
+      <td>12.318806</td>
+      <td>4.082620</td>
+      <td>33.666230</td>
+      <td>0.103205</td>
+      <td>0.295620</td>
+      <td>151.814870</td>
+      <td>0.457487</td>
+      <td>0.104055</td>
+      <td>0.131684</td>
+      <td>1.320134</td>
+      <td>1.220357</td>
+      <td>0.100935</td>
+      <td>0.004109</td>
+      <td>-0.000169</td>
+      <td>4.084715</td>
+      <td>2.817513</td>
+      <td>68.905134</td>
+      <td>0.285829</td>
+      <td>1.332852</td>
+      <td>0.005624</td>
+      <td>0.134447</td>
+      <td>0.104768</td>
+      <td>0.022103</td>
+      <td>0.007576</td>
+      <td>6.711765</td>
+      <td>17.383601</td>
+      <td>41.413993</td>
+      <td>24.147148</td>
+      <td>4.075178</td>
+      <td>51.061034</td>
+      <td>42.502959</td>
+      <td>7.459848</td>
+      <td>66.906448</td>
+      <td>52.437215</td>
+      <td>8.755080</td>
+      <td>0.661631</td>
+      <td>7.543382</td>
+      <td>0.649643</td>
+      <td>14.412273</td>
+      <td>390.931194</td>
+      <td>77.247553</td>
+      <td>1979.363069</td>
+      <td>687.824335</td>
+      <td>40.897515</td>
+      <td>86.660709</td>
+      <td>41.792130</td>
+      <td>83.940147</td>
+      <td>15.411750</td>
+      <td>57.009621</td>
+      <td>0.942959</td>
+      <td>0.897821</td>
+      <td>8.928030</td>
+      <td>7.547074</td>
+      <td>2.120160</td>
+      <td>0.545131</td>
+      <td>8.387274</td>
+      <td>89.802235</td>
+      <td>10.197765</td>
+      <td>2.484955</td>
+      <td>0.183265</td>
+      <td>15.459547</td>
+      <td>2.967840</td>
+      <td>2.486263</td>
+      <td>1.061565</td>
+      <td>0.467084</td>
+      <td>0.350791</td>
+      <td>0.082297</td>
+      <td>63.555635</td>
+      <td>14.102166</td>
+      <td>22.342199</td>
+      <td>27.469285</td>
+      <td>59.267074</td>
+      <td>4.388067</td>
+      <td>4.484950</td>
+      <td>1.347329</td>
+      <td>77.794521</td>
+      <td>0.354085</td>
+      <td>1.919054</td>
+      <td>2.424604</td>
+      <td>2.519446</td>
+      <td>19.230080</td>
+      <td>13.878342</td>
+      <td>1.687032</td>
+      <td>1.185428</td>
+      <td>0.992647</td>
+      <td>1.057353</td>
+      <td>0.429278</td>
+      <td>2.148217</td>
+      <td>1.469563</td>
+      <td>0.141355</td>
+      <td>0.147816</td>
+      <td>0.180793</td>
+      <td>0.159358</td>
+      <td>0.049332</td>
+      <td>17.782130</td>
+      <td>60.717652</td>
+      <td>50.005406</td>
+      <td>37.636636</td>
+      <td>12.357958</td>
+      <td>33.790802</td>
+      <td>36.547767</td>
+      <td>10.469430</td>
+      <td>150.873797</td>
+      <td>29.555771</td>
+      <td>34.517406</td>
+      <td>43.220499</td>
+      <td>22.262095</td>
+      <td>15.869519</td>
+      <td>23.681976</td>
+      <td>0.506995</td>
+      <td>76.318024</td>
+      <td>12.285829</td>
+      <td>25.121970</td>
+      <td>0.274911</td>
+      <td>49.998217</td>
+      <td>615.295811</td>
+      <td>11.131009</td>
+      <td>33.164347</td>
+      <td>46.679487</td>
+      <td>26.100825</td>
+      <td>3.856162</td>
+      <td>92.155582</td>
+      <td>9.629144</td>
+      <td>16.482531</td>
+      <td>58.265330</td>
+      <td>10.457442</td>
+      <td>0.714572</td>
+      <td>383.570811</td>
+      <td>1960.431774</td>
+      <td>53.252857</td>
+      <td>10.944362</td>
+      <td>3.339541</td>
+      <td>1.091207</td>
+      <td>3.437701</td>
+      <td>3.274796</td>
+      <td>465.705749</td>
+      <td>390.931194</td>
+      <td>82.527647</td>
+      <td>34.576738</td>
+      <td>1.634715</td>
+      <td>0.058289</td>
+      <td>0.023886</td>
+      <td>12.389394</td>
+      <td>11.971569</td>
+      <td>1.868182</td>
+      <td>12.004590</td>
+      <td>12.285829</td>
+      <td>10.759091</td>
+      <td>0.110116</td>
+      <td>0.128832</td>
+      <td>0.044251</td>
+      <td>90.116667</td>
+      <td>19.210250</td>
+      <td>19.209581</td>
+      <td>49.993079</td>
+      <td>NaN</td>
+      <td>2019.023529</td>
+      <td>6.763636</td>
+      <td>2019.533690</td>
+      <td>4.360963</td>
+      <td>NaN</td>
+      <td>-0.001872</td>
+      <td>1.371390</td>
+      <td>1.373262</td>
+      <td>-0.001471</td>
+      <td>1.368672</td>
+      <td>1.370143</td>
+      <td>NaN</td>
+      <td>1.324777</td>
+      <td>12.322950</td>
+      <td>4.084759</td>
+      <td>33.665749</td>
+      <td>0.103174</td>
+      <td>0.295648</td>
+      <td>151.783431</td>
+      <td>0.457888</td>
+      <td>0.104189</td>
+      <td>0.131818</td>
+      <td>1.320963</td>
+      <td>1.221092</td>
+      <td>0.100949</td>
+      <td>0.003815</td>
+      <td>-0.000504</td>
+      <td>4.081640</td>
+      <td>2.815374</td>
+      <td>68.919652</td>
+      <td>0.286364</td>
+      <td>1.331836</td>
+      <td>0.005677</td>
+      <td>0.134447</td>
+      <td>0.104768</td>
+      <td>0.022103</td>
+      <td>0.007576</td>
+      <td>6.709358</td>
+      <td>17.376381</td>
+      <td>41.415183</td>
+      <td>24.147549</td>
+      <td>4.076114</td>
+      <td>51.039416</td>
+      <td>42.493012</td>
+      <td>7.457843</td>
+      <td>66.902732</td>
+      <td>52.430985</td>
+      <td>8.752540</td>
+      <td>0.662701</td>
+      <td>7.562781</td>
+      <td>0.649777</td>
+      <td>14.412968</td>
+      <td>391.065285</td>
+      <td>77.252794</td>
+      <td>1979.240478</td>
+      <td>687.729735</td>
+      <td>40.898842</td>
+      <td>86.663770</td>
+      <td>41.792418</td>
+      <td>83.941805</td>
+      <td>15.409745</td>
+      <td>57.018378</td>
+      <td>0.943093</td>
+      <td>0.898075</td>
+      <td>8.930303</td>
+      <td>7.547489</td>
+      <td>2.119949</td>
+      <td>0.544611</td>
+      <td>8.387497</td>
+      <td>89.804963</td>
+      <td>10.195037</td>
+      <td>2.483827</td>
+      <td>0.183429</td>
+      <td>15.457410</td>
+      <td>2.966877</td>
+      <td>2.485392</td>
+      <td>1.061554</td>
+      <td>0.466670</td>
+      <td>0.351048</td>
+      <td>0.082452</td>
+      <td>63.562637</td>
+      <td>14.102245</td>
+      <td>22.335118</td>
+      <td>27.463310</td>
+      <td>59.275168</td>
+      <td>4.386860</td>
+      <td>4.484425</td>
+      <td>1.347030</td>
+      <td>77.799389</td>
+      <td>0.353852</td>
+      <td>1.918207</td>
+      <td>2.423601</td>
+      <td>2.519481</td>
+      <td>19.238102</td>
+      <td>13.884492</td>
+      <td>1.687299</td>
+      <td>1.185963</td>
+      <td>0.993182</td>
+      <td>1.058021</td>
+      <td>0.429144</td>
+      <td>2.149020</td>
+      <td>1.470766</td>
+      <td>0.141087</td>
+      <td>0.147683</td>
+      <td>0.180526</td>
+      <td>0.159759</td>
+      <td>0.049198</td>
+      <td>17.784135</td>
+      <td>60.719894</td>
+      <td>50.000323</td>
+      <td>37.647136</td>
+      <td>12.352541</td>
+      <td>33.783894</td>
+      <td>36.543182</td>
+      <td>10.470232</td>
+      <td>150.897059</td>
+      <td>29.560998</td>
+      <td>34.512083</td>
+      <td>43.224267</td>
+      <td>22.263651</td>
+      <td>15.867112</td>
+      <td>23.665236</td>
+      <td>0.506995</td>
+      <td>76.334764</td>
+      <td>12.288636</td>
+      <td>25.107932</td>
+      <td>0.274777</td>
+      <td>50.007442</td>
+      <td>615.434180</td>
+      <td>11.127372</td>
+      <td>33.157686</td>
+      <td>46.683163</td>
+      <td>26.103830</td>
+      <td>3.856597</td>
+      <td>92.157298</td>
+      <td>9.633021</td>
+      <td>16.488681</td>
+      <td>58.268097</td>
+      <td>10.461988</td>
+      <td>0.714840</td>
+      <td>383.703164</td>
+      <td>1960.965196</td>
+      <td>53.255401</td>
+      <td>10.945468</td>
+      <td>3.339802</td>
+      <td>1.091572</td>
+      <td>3.436512</td>
+      <td>3.274502</td>
+      <td>465.841176</td>
+      <td>391.065285</td>
+      <td>82.532513</td>
+      <td>34.589305</td>
+      <td>1.635918</td>
+      <td>0.058422</td>
+      <td>0.024020</td>
+      <td>12.391800</td>
+      <td>11.971836</td>
+      <td>1.866979</td>
+      <td>12.004055</td>
+      <td>12.288636</td>
+      <td>10.760561</td>
+      <td>0.110250</td>
+      <td>0.128832</td>
+      <td>0.044251</td>
+      <td>90.128164</td>
+      <td>19.211854</td>
+      <td>19.208779</td>
+      <td>49.995499</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>10.812190</td>
+      <td>9.082985</td>
+      <td>NaN</td>
+      <td>1.260926</td>
+      <td>0.808001</td>
+      <td>0.774004</td>
+      <td>NaN</td>
+      <td>0.794644</td>
+      <td>3.597818</td>
+      <td>1.608375</td>
+      <td>9.614793</td>
+      <td>0.063311</td>
+      <td>0.160978</td>
+      <td>54.846307</td>
+      <td>0.401409</td>
+      <td>0.189608</td>
+      <td>0.213964</td>
+      <td>0.539431</td>
+      <td>0.499269</td>
+      <td>0.028063</td>
+      <td>0.548592</td>
+      <td>0.545514</td>
+      <td>1.536609</td>
+      <td>1.192484</td>
+      <td>17.268237</td>
+      <td>0.271639</td>
+      <td>0.620853</td>
+      <td>0.426968</td>
+      <td>0.218550</td>
+      <td>0.189411</td>
+      <td>0.089500</td>
+      <td>0.052022</td>
+      <td>2.673514</td>
+      <td>6.831725</td>
+      <td>11.779479</td>
+      <td>5.578168</td>
+      <td>1.668569</td>
+      <td>20.032654</td>
+      <td>9.608195</td>
+      <td>2.134183</td>
+      <td>24.745854</td>
+      <td>13.899819</td>
+      <td>2.799294</td>
+      <td>0.530528</td>
+      <td>6.377266</td>
+      <td>0.567336</td>
+      <td>3.132228</td>
+      <td>119.477131</td>
+      <td>6.127586</td>
+      <td>108.661242</td>
+      <td>122.423021</td>
+      <td>3.621674</td>
+      <td>3.653049</td>
+      <td>3.620413</td>
+      <td>5.360235</td>
+      <td>2.776097</td>
+      <td>8.948543</td>
+      <td>0.660216</td>
+      <td>0.400746</td>
+      <td>2.878542</td>
+      <td>1.266651</td>
+      <td>0.599713</td>
+      <td>0.297163</td>
+      <td>1.457260</td>
+      <td>2.574413</td>
+      <td>2.574413</td>
+      <td>0.758481</td>
+      <td>0.151459</td>
+      <td>3.983513</td>
+      <td>0.780574</td>
+      <td>0.691667</td>
+      <td>0.342776</td>
+      <td>0.294596</td>
+      <td>0.231719</td>
+      <td>0.116260</td>
+      <td>9.270781</td>
+      <td>2.990125</td>
+      <td>7.202335</td>
+      <td>6.437151</td>
+      <td>7.071222</td>
+      <td>1.538933</td>
+      <td>1.257358</td>
+      <td>0.410721</td>
+      <td>6.000126</td>
+      <td>0.218160</td>
+      <td>0.703913</td>
+      <td>0.971685</td>
+      <td>0.625166</td>
+      <td>6.158332</td>
+      <td>5.057429</td>
+      <td>0.842449</td>
+      <td>0.768469</td>
+      <td>0.696029</td>
+      <td>0.600697</td>
+      <td>0.406695</td>
+      <td>1.383549</td>
+      <td>1.122031</td>
+      <td>0.214337</td>
+      <td>0.251428</td>
+      <td>0.253063</td>
+      <td>0.238379</td>
+      <td>0.133121</td>
+      <td>3.479814</td>
+      <td>7.282239</td>
+      <td>9.782546</td>
+      <td>7.986327</td>
+      <td>5.688972</td>
+      <td>8.586122</td>
+      <td>8.484729</td>
+      <td>2.904268</td>
+      <td>27.877080</td>
+      <td>3.933526</td>
+      <td>6.492833</td>
+      <td>3.781661</td>
+      <td>5.400574</td>
+      <td>3.425881</td>
+      <td>8.158337</td>
+      <td>1.101893</td>
+      <td>8.158337</td>
+      <td>4.887549</td>
+      <td>7.802474</td>
+      <td>0.332278</td>
+      <td>9.573898</td>
+      <td>112.341294</td>
+      <td>3.073200</td>
+      <td>5.869180</td>
+      <td>4.246802</td>
+      <td>4.196696</td>
+      <td>0.939337</td>
+      <td>1.639189</td>
+      <td>2.899335</td>
+      <td>4.097558</td>
+      <td>8.885281</td>
+      <td>3.039749</td>
+      <td>0.565743</td>
+      <td>109.013451</td>
+      <td>560.207630</td>
+      <td>3.728944</td>
+      <td>1.931172</td>
+      <td>0.714923</td>
+      <td>0.444086</td>
+      <td>1.165160</td>
+      <td>1.051011</td>
+      <td>119.023950</td>
+      <td>119.477131</td>
+      <td>5.138379</td>
+      <td>10.830988</td>
+      <td>0.746549</td>
+      <td>0.138407</td>
+      <td>0.089291</td>
+      <td>2.524250</td>
+      <td>2.591855</td>
+      <td>0.956812</td>
+      <td>3.444791</td>
+      <td>4.887549</td>
+      <td>2.295753</td>
+      <td>0.195497</td>
+      <td>0.211274</td>
+      <td>0.118976</td>
+      <td>11.267654</td>
+      <td>5.659847</td>
+      <td>5.813950</td>
+      <td>6.294121</td>
+      <td>NaN</td>
+      <td>1.407382</td>
+      <td>3.969227</td>
+      <td>1.520015</td>
+      <td>1.798241</td>
+      <td>NaN</td>
+      <td>1.947079</td>
+      <td>1.269421</td>
+      <td>1.269820</td>
+      <td>1.262519</td>
+      <td>0.808628</td>
+      <td>0.774343</td>
+      <td>NaN</td>
+      <td>0.795351</td>
+      <td>3.597067</td>
+      <td>1.608762</td>
+      <td>9.614106</td>
+      <td>0.063220</td>
+      <td>0.160880</td>
+      <td>54.850292</td>
+      <td>0.401701</td>
+      <td>0.189711</td>
+      <td>0.214038</td>
+      <td>0.540175</td>
+      <td>0.499985</td>
+      <td>0.028062</td>
+      <td>0.548811</td>
+      <td>0.545793</td>
+      <td>1.537276</td>
+      <td>1.192771</td>
+      <td>17.264720</td>
+      <td>0.271814</td>
+      <td>0.621129</td>
+      <td>0.426749</td>
+      <td>0.218550</td>
+      <td>0.189411</td>
+      <td>0.089500</td>
+      <td>0.052022</td>
+      <td>2.672028</td>
+      <td>6.828191</td>
+      <td>11.780052</td>
+      <td>5.577480</td>
+      <td>1.669308</td>
+      <td>20.034401</td>
+      <td>9.606079</td>
+      <td>2.134818</td>
+      <td>24.737701</td>
+      <td>13.894690</td>
+      <td>2.800754</td>
+      <td>0.530705</td>
+      <td>6.392757</td>
+      <td>0.567242</td>
+      <td>3.129257</td>
+      <td>119.515735</td>
+      <td>6.128051</td>
+      <td>108.609872</td>
+      <td>122.401336</td>
+      <td>3.621302</td>
+      <td>3.653428</td>
+      <td>3.620178</td>
+      <td>5.359233</td>
+      <td>2.775348</td>
+      <td>8.950187</td>
+      <td>0.660886</td>
+      <td>0.400693</td>
+      <td>2.874659</td>
+      <td>1.266934</td>
+      <td>0.599507</td>
+      <td>0.297272</td>
+      <td>1.457096</td>
+      <td>2.574378</td>
+      <td>2.574378</td>
+      <td>0.758191</td>
+      <td>0.151427</td>
+      <td>3.984765</td>
+      <td>0.780327</td>
+      <td>0.691138</td>
+      <td>0.342928</td>
+      <td>0.294658</td>
+      <td>0.231838</td>
+      <td>0.116712</td>
+      <td>9.267060</td>
+      <td>2.989201</td>
+      <td>7.200972</td>
+      <td>6.427083</td>
+      <td>7.065863</td>
+      <td>1.538999</td>
+      <td>1.256937</td>
+      <td>0.410498</td>
+      <td>6.000922</td>
+      <td>0.218247</td>
+      <td>0.704214</td>
+      <td>0.971906</td>
+      <td>0.625276</td>
+      <td>6.153878</td>
+      <td>5.053910</td>
+      <td>0.842469</td>
+      <td>0.768861</td>
+      <td>0.697474</td>
+      <td>0.601022</td>
+      <td>0.406260</td>
+      <td>1.385009</td>
+      <td>1.123701</td>
+      <td>0.213889</td>
+      <td>0.251374</td>
+      <td>0.252460</td>
+      <td>0.238531</td>
+      <td>0.132919</td>
+      <td>3.477123</td>
+      <td>7.276880</td>
+      <td>9.780540</td>
+      <td>7.986417</td>
+      <td>5.689568</td>
+      <td>8.581289</td>
+      <td>8.469441</td>
+      <td>2.904276</td>
+      <td>27.861281</td>
+      <td>3.935946</td>
+      <td>6.495629</td>
+      <td>3.784094</td>
+      <td>5.401501</td>
+      <td>3.426921</td>
+      <td>8.160210</td>
+      <td>1.101893</td>
+      <td>8.160210</td>
+      <td>4.886419</td>
+      <td>7.791726</td>
+      <td>0.332288</td>
+      <td>9.576615</td>
+      <td>112.388551</td>
+      <td>3.076070</td>
+      <td>5.875037</td>
+      <td>4.250795</td>
+      <td>4.198132</td>
+      <td>0.939326</td>
+      <td>1.639047</td>
+      <td>2.902260</td>
+      <td>4.103303</td>
+      <td>8.886728</td>
+      <td>3.042843</td>
+      <td>0.565759</td>
+      <td>109.038437</td>
+      <td>560.266760</td>
+      <td>3.730208</td>
+      <td>1.932012</td>
+      <td>0.714515</td>
+      <td>0.443880</td>
+      <td>1.164719</td>
+      <td>1.050918</td>
+      <td>119.069075</td>
+      <td>119.515735</td>
+      <td>5.138246</td>
+      <td>10.836724</td>
+      <td>0.746286</td>
+      <td>0.138592</td>
+      <td>0.089629</td>
+      <td>2.523003</td>
+      <td>2.591213</td>
+      <td>0.956610</td>
+      <td>3.445064</td>
+      <td>4.886419</td>
+      <td>2.293386</td>
+      <td>0.195592</td>
+      <td>0.211274</td>
+      <td>0.118976</td>
+      <td>11.274286</td>
+      <td>5.658357</td>
+      <td>5.813577</td>
+      <td>6.295669</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>-5.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>3.333333</td>
+      <td>0.333333</td>
+      <td>2.766667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>55.061728</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.200000</td>
+      <td>0.166667</td>
+      <td>0.033333</td>
+      <td>-1.966667</td>
+      <td>-1.700000</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>-25.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-1.833333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.666667</td>
+      <td>2.333333</td>
+      <td>9.333333</td>
+      <td>10.000000</td>
+      <td>0.000000</td>
+      <td>7.933333</td>
+      <td>22.033333</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>10.733333</td>
+      <td>1.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>157.000000</td>
+      <td>58.200000</td>
+      <td>1690.290290</td>
+      <td>421.044850</td>
+      <td>28.197674</td>
+      <td>68.133333</td>
+      <td>31.100478</td>
+      <td>63.566667</td>
+      <td>8.301527</td>
+      <td>32.133333</td>
+      <td>0.000000</td>
+      <td>0.100000</td>
+      <td>1.666667</td>
+      <td>3.724138</td>
+      <td>0.126263</td>
+      <td>0.000000</td>
+      <td>3.750000</td>
+      <td>78.957169</td>
+      <td>3.957997</td>
+      <td>0.732601</td>
+      <td>0.000000</td>
+      <td>5.770965</td>
+      <td>1.133948</td>
+      <td>0.632911</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>32.774674</td>
+      <td>6.373355</td>
+      <td>6.699548</td>
+      <td>12.052117</td>
+      <td>37.898687</td>
+      <td>1.231423</td>
+      <td>1.332795</td>
+      <td>0.264901</td>
+      <td>58.153846</td>
+      <td>0.000000</td>
+      <td>0.455581</td>
+      <td>0.293255</td>
+      <td>0.691017</td>
+      <td>4.666667</td>
+      <td>2.500000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>7.333333</td>
+      <td>36.170213</td>
+      <td>11.627907</td>
+      <td>12.500000</td>
+      <td>0.000000</td>
+      <td>8.333333</td>
+      <td>9.166667</td>
+      <td>2.000000</td>
+      <td>66.000000</td>
+      <td>13.700000</td>
+      <td>13.606911</td>
+      <td>29.111842</td>
+      <td>8.041237</td>
+      <td>6.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>45.161290</td>
+      <td>1.333333</td>
+      <td>6.333333</td>
+      <td>0.000000</td>
+      <td>24.666667</td>
+      <td>361.666667</td>
+      <td>3.639121</td>
+      <td>14.908854</td>
+      <td>33.405172</td>
+      <td>10.754098</td>
+      <td>1.246334</td>
+      <td>85.822785</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>22.333333</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>157.000000</td>
+      <td>778.000000</td>
+      <td>41.276202</td>
+      <td>5.420561</td>
+      <td>1.097695</td>
+      <td>0.000000</td>
+      <td>0.894188</td>
+      <td>0.889193</td>
+      <td>219.333333</td>
+      <td>157.000000</td>
+      <td>61.866667</td>
+      <td>10.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.333333</td>
+      <td>3.666667</td>
+      <td>0.000000</td>
+      <td>3.000000</td>
+      <td>1.333333</td>
+      <td>4.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>50.333333</td>
+      <td>4.000000</td>
+      <td>5.666667</td>
+      <td>22.200000</td>
+      <td>NaN</td>
+      <td>2017.000000</td>
+      <td>1.000000</td>
+      <td>2017.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>-9.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-5.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>3.333333</td>
+      <td>0.333333</td>
+      <td>2.766667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>55.061728</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.200000</td>
+      <td>0.166667</td>
+      <td>0.033333</td>
+      <td>-1.966667</td>
+      <td>-1.700000</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>-25.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-1.833333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.666667</td>
+      <td>2.333333</td>
+      <td>9.333333</td>
+      <td>10.000000</td>
+      <td>0.000000</td>
+      <td>7.933333</td>
+      <td>22.033333</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>10.733333</td>
+      <td>1.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.000000</td>
+      <td>157.000000</td>
+      <td>58.200000</td>
+      <td>1690.290290</td>
+      <td>421.044850</td>
+      <td>28.197674</td>
+      <td>68.133333</td>
+      <td>31.100478</td>
+      <td>63.566667</td>
+      <td>8.301527</td>
+      <td>32.133333</td>
+      <td>0.000000</td>
+      <td>0.100000</td>
+      <td>1.666667</td>
+      <td>3.724138</td>
+      <td>0.126263</td>
+      <td>0.000000</td>
+      <td>3.750000</td>
+      <td>78.957169</td>
+      <td>3.957997</td>
+      <td>0.732601</td>
+      <td>0.000000</td>
+      <td>5.770965</td>
+      <td>1.133948</td>
+      <td>0.632911</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>32.774674</td>
+      <td>6.373355</td>
+      <td>6.699548</td>
+      <td>12.052117</td>
+      <td>37.898687</td>
+      <td>1.231423</td>
+      <td>1.332795</td>
+      <td>0.264901</td>
+      <td>58.153846</td>
+      <td>0.000000</td>
+      <td>0.455581</td>
+      <td>0.293255</td>
+      <td>0.691017</td>
+      <td>4.666667</td>
+      <td>2.500000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>7.333333</td>
+      <td>36.170213</td>
+      <td>11.627907</td>
+      <td>12.500000</td>
+      <td>0.000000</td>
+      <td>8.333333</td>
+      <td>9.166667</td>
+      <td>2.000000</td>
+      <td>66.000000</td>
+      <td>13.700000</td>
+      <td>13.606911</td>
+      <td>29.111842</td>
+      <td>8.041237</td>
+      <td>6.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>45.161290</td>
+      <td>1.333333</td>
+      <td>6.333333</td>
+      <td>0.000000</td>
+      <td>24.666667</td>
+      <td>361.666667</td>
+      <td>3.639121</td>
+      <td>14.908854</td>
+      <td>33.405172</td>
+      <td>10.754098</td>
+      <td>1.246334</td>
+      <td>85.822785</td>
+      <td>2.000000</td>
+      <td>5.000000</td>
+      <td>22.333333</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+      <td>157.000000</td>
+      <td>778.000000</td>
+      <td>41.276202</td>
+      <td>5.420561</td>
+      <td>1.097695</td>
+      <td>0.000000</td>
+      <td>0.894188</td>
+      <td>0.889193</td>
+      <td>219.333333</td>
+      <td>157.000000</td>
+      <td>61.866667</td>
+      <td>10.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.333333</td>
+      <td>3.666667</td>
+      <td>0.000000</td>
+      <td>3.000000</td>
+      <td>1.333333</td>
+      <td>4.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>50.333333</td>
+      <td>4.000000</td>
+      <td>5.666667</td>
+      <td>22.200000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>10.000000</td>
+      <td>8.000000</td>
+      <td>NaN</td>
+      <td>-1.000000</td>
+      <td>0.666667</td>
+      <td>0.666667</td>
+      <td>NaN</td>
+      <td>0.666667</td>
+      <td>9.666667</td>
+      <td>3.000000</td>
+      <td>27.200000</td>
+      <td>0.060000</td>
+      <td>0.176667</td>
+      <td>114.758929</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.933333</td>
+      <td>0.866667</td>
+      <td>0.080000</td>
+      <td>-0.366667</td>
+      <td>-0.366667</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>58.333333</td>
+      <td>0.000000</td>
+      <td>0.866667</td>
+      <td>-0.266667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.666667</td>
+      <td>12.000000</td>
+      <td>33.258333</td>
+      <td>20.333333</td>
+      <td>3.000000</td>
+      <td>34.625000</td>
+      <td>34.666667</td>
+      <td>6.000000</td>
+      <td>48.000000</td>
+      <td>41.300000</td>
+      <td>6.666667</td>
+      <td>0.333333</td>
+      <td>3.033333</td>
+      <td>0.333333</td>
+      <td>12.233333</td>
+      <td>302.000000</td>
+      <td>73.000000</td>
+      <td>1904.671024</td>
+      <td>597.184442</td>
+      <td>38.330073</td>
+      <td>84.366667</td>
+      <td>39.180032</td>
+      <td>80.466667</td>
+      <td>13.442505</td>
+      <td>50.300000</td>
+      <td>0.333333</td>
+      <td>0.600000</td>
+      <td>7.000000</td>
+      <td>6.676949</td>
+      <td>1.706103</td>
+      <td>0.329083</td>
+      <td>7.358874</td>
+      <td>88.052077</td>
+      <td>8.321893</td>
+      <td>1.936060</td>
+      <td>0.073233</td>
+      <td>12.539702</td>
+      <td>2.435745</td>
+      <td>1.990478</td>
+      <td>0.825466</td>
+      <td>0.251375</td>
+      <td>0.176815</td>
+      <td>0.000000</td>
+      <td>57.131288</td>
+      <td>12.020757</td>
+      <td>16.761444</td>
+      <td>22.619711</td>
+      <td>54.337558</td>
+      <td>3.223610</td>
+      <td>3.572207</td>
+      <td>1.058524</td>
+      <td>73.703910</td>
+      <td>0.198840</td>
+      <td>1.395349</td>
+      <td>1.681482</td>
+      <td>2.083333</td>
+      <td>15.000000</td>
+      <td>10.333333</td>
+      <td>1.000000</td>
+      <td>0.666667</td>
+      <td>0.333333</td>
+      <td>0.666667</td>
+      <td>0.000000</td>
+      <td>1.333333</td>
+      <td>0.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>15.333333</td>
+      <td>55.769231</td>
+      <td>43.181818</td>
+      <td>32.142857</td>
+      <td>8.333333</td>
+      <td>27.906977</td>
+      <td>30.633333</td>
+      <td>8.333333</td>
+      <td>131.000000</td>
+      <td>26.925000</td>
+      <td>30.194872</td>
+      <td>40.625000</td>
+      <td>18.408045</td>
+      <td>13.333333</td>
+      <td>17.987179</td>
+      <td>0.000000</td>
+      <td>70.833333</td>
+      <td>8.333333</td>
+      <td>19.666667</td>
+      <td>0.000000</td>
+      <td>43.000000</td>
+      <td>532.666667</td>
+      <td>8.961050</td>
+      <td>29.345463</td>
+      <td>43.868450</td>
+      <td>23.254724</td>
+      <td>3.223858</td>
+      <td>91.025962</td>
+      <td>7.333333</td>
+      <td>13.666667</td>
+      <td>52.566667</td>
+      <td>8.333333</td>
+      <td>0.333333</td>
+      <td>302.333333</td>
+      <td>1531.333333</td>
+      <td>50.769548</td>
+      <td>9.595724</td>
+      <td>2.845528</td>
+      <td>0.782841</td>
+      <td>2.597991</td>
+      <td>2.543108</td>
+      <td>377.333333</td>
+      <td>302.000000</td>
+      <td>79.166667</td>
+      <td>26.666667</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>10.666667</td>
+      <td>10.333333</td>
+      <td>1.250000</td>
+      <td>9.666667</td>
+      <td>8.333333</td>
+      <td>9.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>82.333333</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>45.933333</td>
+      <td>NaN</td>
+      <td>2018.000000</td>
+      <td>3.000000</td>
+      <td>2018.000000</td>
+      <td>4.000000</td>
+      <td>NaN</td>
+      <td>-1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-1.000000</td>
+      <td>0.666667</td>
+      <td>0.666667</td>
+      <td>NaN</td>
+      <td>0.666667</td>
+      <td>9.666667</td>
+      <td>3.000000</td>
+      <td>27.200000</td>
+      <td>0.060000</td>
+      <td>0.176667</td>
+      <td>114.708333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.933333</td>
+      <td>0.866667</td>
+      <td>0.080000</td>
+      <td>-0.366667</td>
+      <td>-0.366667</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>58.333333</td>
+      <td>0.000000</td>
+      <td>0.866667</td>
+      <td>-0.266667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>4.666667</td>
+      <td>12.000000</td>
+      <td>33.233333</td>
+      <td>20.333333</td>
+      <td>3.000000</td>
+      <td>34.625000</td>
+      <td>34.666667</td>
+      <td>6.000000</td>
+      <td>48.000000</td>
+      <td>41.300000</td>
+      <td>6.666667</td>
+      <td>0.333333</td>
+      <td>3.033333</td>
+      <td>0.333333</td>
+      <td>12.233333</td>
+      <td>302.000000</td>
+      <td>73.000000</td>
+      <td>1904.671024</td>
+      <td>597.103658</td>
+      <td>38.327718</td>
+      <td>84.366667</td>
+      <td>39.180032</td>
+      <td>80.466667</td>
+      <td>13.441365</td>
+      <td>50.325000</td>
+      <td>0.333333</td>
+      <td>0.600000</td>
+      <td>7.000000</td>
+      <td>6.676949</td>
+      <td>1.706103</td>
+      <td>0.328192</td>
+      <td>7.358874</td>
+      <td>88.054636</td>
+      <td>8.307964</td>
+      <td>1.935807</td>
+      <td>0.073300</td>
+      <td>12.535171</td>
+      <td>2.435630</td>
+      <td>1.990167</td>
+      <td>0.824997</td>
+      <td>0.250117</td>
+      <td>0.176815</td>
+      <td>0.000000</td>
+      <td>57.140011</td>
+      <td>12.020757</td>
+      <td>16.756203</td>
+      <td>22.619711</td>
+      <td>54.346396</td>
+      <td>3.221214</td>
+      <td>3.573929</td>
+      <td>1.058127</td>
+      <td>73.710308</td>
+      <td>0.198282</td>
+      <td>1.394568</td>
+      <td>1.681230</td>
+      <td>2.083333</td>
+      <td>15.000000</td>
+      <td>10.333333</td>
+      <td>1.000000</td>
+      <td>0.666667</td>
+      <td>0.333333</td>
+      <td>0.666667</td>
+      <td>0.000000</td>
+      <td>1.333333</td>
+      <td>0.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>15.333333</td>
+      <td>55.769231</td>
+      <td>43.181818</td>
+      <td>32.142857</td>
+      <td>8.333333</td>
+      <td>27.906977</td>
+      <td>30.633333</td>
+      <td>8.333333</td>
+      <td>131.000000</td>
+      <td>26.933333</td>
+      <td>30.183981</td>
+      <td>40.625000</td>
+      <td>18.408045</td>
+      <td>13.333333</td>
+      <td>17.948718</td>
+      <td>0.000000</td>
+      <td>70.909091</td>
+      <td>8.333333</td>
+      <td>19.666667</td>
+      <td>0.000000</td>
+      <td>43.000000</td>
+      <td>532.916667</td>
+      <td>8.957279</td>
+      <td>29.333138</td>
+      <td>43.868450</td>
+      <td>23.260019</td>
+      <td>3.225334</td>
+      <td>91.027006</td>
+      <td>7.333333</td>
+      <td>13.666667</td>
+      <td>52.566667</td>
+      <td>8.333333</td>
+      <td>0.333333</td>
+      <td>302.333333</td>
+      <td>1531.583333</td>
+      <td>50.772488</td>
+      <td>9.595724</td>
+      <td>2.845528</td>
+      <td>0.783429</td>
+      <td>2.597186</td>
+      <td>2.543108</td>
+      <td>377.333333</td>
+      <td>302.000000</td>
+      <td>79.166667</td>
+      <td>26.666667</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>10.666667</td>
+      <td>10.333333</td>
+      <td>1.000000</td>
+      <td>9.666667</td>
+      <td>8.333333</td>
+      <td>9.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>82.333333</td>
+      <td>15.000000</td>
+      <td>15.000000</td>
+      <td>45.933333</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>20.000000</td>
+      <td>16.000000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>1.333333</td>
+      <td>1.333333</td>
+      <td>NaN</td>
+      <td>1.333333</td>
+      <td>12.000000</td>
+      <td>4.000000</td>
+      <td>33.266667</td>
+      <td>0.096667</td>
+      <td>0.276667</td>
+      <td>141.126984</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.233333</td>
+      <td>1.133333</td>
+      <td>0.096667</td>
+      <td>-0.033333</td>
+      <td>-0.033333</td>
+      <td>4.000000</td>
+      <td>2.666667</td>
+      <td>70.000000</td>
+      <td>0.333333</td>
+      <td>1.266667</td>
+      <td>0.033333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>6.333333</td>
+      <td>17.666667</td>
+      <td>40.133333</td>
+      <td>23.666667</td>
+      <td>4.000000</td>
+      <td>51.233333</td>
+      <td>41.983333</td>
+      <td>7.333333</td>
+      <td>70.883333</td>
+      <td>53.866667</td>
+      <td>8.666667</td>
+      <td>0.666667</td>
+      <td>6.533333</td>
+      <td>0.666667</td>
+      <td>14.200000</td>
+      <td>369.666667</td>
+      <td>77.533333</td>
+      <td>1973.385792</td>
+      <td>674.276172</td>
+      <td>40.893394</td>
+      <td>87.033333</td>
+      <td>41.918119</td>
+      <td>84.733333</td>
+      <td>15.218688</td>
+      <td>56.616667</td>
+      <td>1.000000</td>
+      <td>0.833333</td>
+      <td>8.666667</td>
+      <td>7.505258</td>
+      <td>2.080172</td>
+      <td>0.499085</td>
+      <td>8.344460</td>
+      <td>89.793788</td>
+      <td>10.206212</td>
+      <td>2.440634</td>
+      <td>0.155159</td>
+      <td>15.109299</td>
+      <td>2.891967</td>
+      <td>2.444716</td>
+      <td>1.030131</td>
+      <td>0.415153</td>
+      <td>0.326624</td>
+      <td>0.052673</td>
+      <td>64.038769</td>
+      <td>13.965784</td>
+      <td>21.682644</td>
+      <td>27.017143</td>
+      <td>59.389146</td>
+      <td>4.180029</td>
+      <td>4.393993</td>
+      <td>1.312780</td>
+      <td>78.137796</td>
+      <td>0.312337</td>
+      <td>1.835510</td>
+      <td>2.419147</td>
+      <td>2.476006</td>
+      <td>18.666667</td>
+      <td>13.000000</td>
+      <td>1.666667</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.333333</td>
+      <td>2.000000</td>
+      <td>1.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>17.666667</td>
+      <td>60.606061</td>
+      <td>50.000000</td>
+      <td>37.500000</td>
+      <td>11.764706</td>
+      <td>33.333333</td>
+      <td>36.333333</td>
+      <td>10.333333</td>
+      <td>148.666667</td>
+      <td>29.500000</td>
+      <td>34.422759</td>
+      <td>43.166562</td>
+      <td>21.661238</td>
+      <td>16.000000</td>
+      <td>23.076923</td>
+      <td>0.000000</td>
+      <td>76.923077</td>
+      <td>12.333333</td>
+      <td>24.333333</td>
+      <td>0.333333</td>
+      <td>49.333333</td>
+      <td>598.000000</td>
+      <td>10.956981</td>
+      <td>33.231956</td>
+      <td>46.543912</td>
+      <td>25.917296</td>
+      <td>3.799952</td>
+      <td>92.101589</td>
+      <td>9.333333</td>
+      <td>16.333333</td>
+      <td>58.266667</td>
+      <td>10.333333</td>
+      <td>0.666667</td>
+      <td>365.000000</td>
+      <td>1888.333333</td>
+      <td>53.271144</td>
+      <td>10.804122</td>
+      <td>3.312019</td>
+      <td>1.046910</td>
+      <td>3.311880</td>
+      <td>3.151388</td>
+      <td>447.000000</td>
+      <td>369.666667</td>
+      <td>82.966667</td>
+      <td>33.000000</td>
+      <td>1.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>12.333333</td>
+      <td>12.000000</td>
+      <td>1.666667</td>
+      <td>11.666667</td>
+      <td>12.333333</td>
+      <td>10.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>89.666667</td>
+      <td>18.666667</td>
+      <td>18.666667</td>
+      <td>49.866667</td>
+      <td>NaN</td>
+      <td>2019.000000</td>
+      <td>7.000000</td>
+      <td>2020.000000</td>
+      <td>5.000000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.333333</td>
+      <td>1.333333</td>
+      <td>NaN</td>
+      <td>1.333333</td>
+      <td>12.000000</td>
+      <td>4.000000</td>
+      <td>33.266667</td>
+      <td>0.096667</td>
+      <td>0.276667</td>
+      <td>141.096096</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.233333</td>
+      <td>1.133333</td>
+      <td>0.096667</td>
+      <td>-0.033333</td>
+      <td>-0.033333</td>
+      <td>4.000000</td>
+      <td>2.666667</td>
+      <td>70.000000</td>
+      <td>0.333333</td>
+      <td>1.266667</td>
+      <td>0.033333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>6.333333</td>
+      <td>17.500000</td>
+      <td>40.133333</td>
+      <td>23.666667</td>
+      <td>4.000000</td>
+      <td>51.216667</td>
+      <td>41.966667</td>
+      <td>7.333333</td>
+      <td>70.833333</td>
+      <td>53.866667</td>
+      <td>8.666667</td>
+      <td>0.666667</td>
+      <td>6.533333</td>
+      <td>0.666667</td>
+      <td>14.200000</td>
+      <td>369.666667</td>
+      <td>77.533333</td>
+      <td>1973.299213</td>
+      <td>674.203472</td>
+      <td>40.902674</td>
+      <td>87.033333</td>
+      <td>41.918119</td>
+      <td>84.733333</td>
+      <td>15.216435</td>
+      <td>56.633333</td>
+      <td>1.000000</td>
+      <td>0.833333</td>
+      <td>8.666667</td>
+      <td>7.505258</td>
+      <td>2.080172</td>
+      <td>0.499002</td>
+      <td>8.344641</td>
+      <td>89.807127</td>
+      <td>10.192873</td>
+      <td>2.438150</td>
+      <td>0.155280</td>
+      <td>15.107914</td>
+      <td>2.891076</td>
+      <td>2.442379</td>
+      <td>1.030131</td>
+      <td>0.414938</td>
+      <td>0.326731</td>
+      <td>0.052673</td>
+      <td>64.054440</td>
+      <td>13.965784</td>
+      <td>21.676691</td>
+      <td>27.017143</td>
+      <td>59.397669</td>
+      <td>4.179519</td>
+      <td>4.393352</td>
+      <td>1.312062</td>
+      <td>78.145767</td>
+      <td>0.312215</td>
+      <td>1.833579</td>
+      <td>2.418674</td>
+      <td>2.476006</td>
+      <td>18.666667</td>
+      <td>13.000000</td>
+      <td>1.666667</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.333333</td>
+      <td>2.000000</td>
+      <td>1.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>17.666667</td>
+      <td>60.606061</td>
+      <td>50.000000</td>
+      <td>37.500000</td>
+      <td>11.764706</td>
+      <td>33.333333</td>
+      <td>36.333333</td>
+      <td>10.333333</td>
+      <td>148.666667</td>
+      <td>29.500000</td>
+      <td>34.416938</td>
+      <td>43.190925</td>
+      <td>21.661853</td>
+      <td>16.000000</td>
+      <td>23.076923</td>
+      <td>0.000000</td>
+      <td>76.923077</td>
+      <td>12.333333</td>
+      <td>24.333333</td>
+      <td>0.333333</td>
+      <td>49.333333</td>
+      <td>598.166667</td>
+      <td>10.955386</td>
+      <td>33.229361</td>
+      <td>46.543912</td>
+      <td>25.917765</td>
+      <td>3.800716</td>
+      <td>92.104505</td>
+      <td>9.333333</td>
+      <td>16.333333</td>
+      <td>58.266667</td>
+      <td>10.333333</td>
+      <td>0.666667</td>
+      <td>365.000000</td>
+      <td>1889.166667</td>
+      <td>53.272788</td>
+      <td>10.807099</td>
+      <td>3.312348</td>
+      <td>1.047120</td>
+      <td>3.311526</td>
+      <td>3.150893</td>
+      <td>447.000000</td>
+      <td>369.666667</td>
+      <td>82.966667</td>
+      <td>33.000000</td>
+      <td>1.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>12.333333</td>
+      <td>12.000000</td>
+      <td>1.666667</td>
+      <td>11.666667</td>
+      <td>12.333333</td>
+      <td>10.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>89.666667</td>
+      <td>18.666667</td>
+      <td>18.666667</td>
+      <td>49.866667</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>29.000000</td>
+      <td>23.000000</td>
+      <td>NaN</td>
+      <td>0.666667</td>
+      <td>1.666667</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>1.666667</td>
+      <td>14.333333</td>
+      <td>5.000000</td>
+      <td>39.833333</td>
+      <td>0.136667</td>
+      <td>0.400000</td>
+      <td>174.814815</td>
+      <td>0.666667</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>1.633333</td>
+      <td>1.500000</td>
+      <td>0.116667</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>5.000000</td>
+      <td>3.666667</td>
+      <td>80.600000</td>
+      <td>0.333333</td>
+      <td>1.733333</td>
+      <td>0.300000</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>8.666667</td>
+      <td>22.333333</td>
+      <td>48.008333</td>
+      <td>27.333333</td>
+      <td>5.000000</td>
+      <td>66.608333</td>
+      <td>49.875000</td>
+      <td>9.000000</td>
+      <td>88.900000</td>
+      <td>63.800000</td>
+      <td>10.666667</td>
+      <td>1.000000</td>
+      <td>11.100000</td>
+      <td>1.000000</td>
+      <td>16.233333</td>
+      <td>462.666667</td>
+      <td>81.866667</td>
+      <td>2046.497928</td>
+      <td>761.944411</td>
+      <td>43.321740</td>
+      <td>89.300000</td>
+      <td>44.501404</td>
+      <td>88.008333</td>
+      <td>17.192269</td>
+      <td>63.400000</td>
+      <td>1.333333</td>
+      <td>1.133333</td>
+      <td>10.666667</td>
+      <td>8.377245</td>
+      <td>2.488849</td>
+      <td>0.704380</td>
+      <td>9.353610</td>
+      <td>91.678107</td>
+      <td>11.947923</td>
+      <td>2.967121</td>
+      <td>0.259875</td>
+      <td>18.066159</td>
+      <td>3.434564</td>
+      <td>2.904000</td>
+      <td>1.275412</td>
+      <td>0.628931</td>
+      <td>0.495488</td>
+      <td>0.121175</td>
+      <td>70.360031</td>
+      <td>16.085472</td>
+      <td>27.074844</td>
+      <td>31.353094</td>
+      <td>64.326950</td>
+      <td>5.348022</td>
+      <td>5.296737</td>
+      <td>1.594533</td>
+      <td>82.279813</td>
+      <td>0.464769</td>
+      <td>2.369317</td>
+      <td>3.088833</td>
+      <td>2.916504</td>
+      <td>23.000000</td>
+      <td>17.000000</td>
+      <td>2.333333</td>
+      <td>1.666667</td>
+      <td>1.333333</td>
+      <td>1.333333</td>
+      <td>0.666667</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>20.000000</td>
+      <td>65.724070</td>
+      <td>56.818182</td>
+      <td>43.083554</td>
+      <td>15.733083</td>
+      <td>39.404609</td>
+      <td>42.108333</td>
+      <td>12.333333</td>
+      <td>168.083333</td>
+      <td>32.166667</td>
+      <td>38.637570</td>
+      <td>45.792658</td>
+      <td>25.485027</td>
+      <td>18.000000</td>
+      <td>29.166667</td>
+      <td>0.000000</td>
+      <td>82.012821</td>
+      <td>15.666667</td>
+      <td>29.666667</td>
+      <td>0.333333</td>
+      <td>56.666667</td>
+      <td>684.416667</td>
+      <td>13.116066</td>
+      <td>37.014643</td>
+      <td>49.525891</td>
+      <td>28.669936</td>
+      <td>4.423012</td>
+      <td>93.340426</td>
+      <td>11.333333</td>
+      <td>19.000000</td>
+      <td>64.233333</td>
+      <td>12.333333</td>
+      <td>1.000000</td>
+      <td>450.541667</td>
+      <td>2321.083333</td>
+      <td>55.817291</td>
+      <td>12.157871</td>
+      <td>3.783117</td>
+      <td>1.351732</td>
+      <td>4.127864</td>
+      <td>3.906409</td>
+      <td>537.666667</td>
+      <td>462.666667</td>
+      <td>86.300000</td>
+      <td>40.666667</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>14.000000</td>
+      <td>13.666667</td>
+      <td>2.333333</td>
+      <td>14.000000</td>
+      <td>15.666667</td>
+      <td>12.333333</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>97.666667</td>
+      <td>22.666667</td>
+      <td>23.000000</td>
+      <td>54.000000</td>
+      <td>NaN</td>
+      <td>2020.000000</td>
+      <td>11.000000</td>
+      <td>2021.000000</td>
+      <td>6.000000</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>0.666667</td>
+      <td>1.666667</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>1.666667</td>
+      <td>14.333333</td>
+      <td>5.000000</td>
+      <td>39.833333</td>
+      <td>0.136667</td>
+      <td>0.400000</td>
+      <td>174.685847</td>
+      <td>0.666667</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>1.633333</td>
+      <td>1.500000</td>
+      <td>0.116667</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>5.000000</td>
+      <td>3.666667</td>
+      <td>80.600000</td>
+      <td>0.333333</td>
+      <td>1.733333</td>
+      <td>0.300000</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>8.666667</td>
+      <td>22.333333</td>
+      <td>48.008333</td>
+      <td>27.333333</td>
+      <td>5.000000</td>
+      <td>66.600000</td>
+      <td>49.866667</td>
+      <td>9.000000</td>
+      <td>88.900000</td>
+      <td>63.800000</td>
+      <td>10.666667</td>
+      <td>1.000000</td>
+      <td>11.100000</td>
+      <td>1.000000</td>
+      <td>16.233333</td>
+      <td>463.000000</td>
+      <td>81.875000</td>
+      <td>2046.262466</td>
+      <td>761.837938</td>
+      <td>43.322443</td>
+      <td>89.300000</td>
+      <td>44.500754</td>
+      <td>88.008333</td>
+      <td>17.189260</td>
+      <td>63.400000</td>
+      <td>1.333333</td>
+      <td>1.133333</td>
+      <td>10.666667</td>
+      <td>8.378284</td>
+      <td>2.488688</td>
+      <td>0.704225</td>
+      <td>9.352675</td>
+      <td>91.692036</td>
+      <td>11.945364</td>
+      <td>2.965807</td>
+      <td>0.259898</td>
+      <td>18.066159</td>
+      <td>3.433541</td>
+      <td>2.902260</td>
+      <td>1.275691</td>
+      <td>0.628931</td>
+      <td>0.496003</td>
+      <td>0.121230</td>
+      <td>70.360031</td>
+      <td>16.080614</td>
+      <td>27.056263</td>
+      <td>31.353094</td>
+      <td>64.338108</td>
+      <td>5.347347</td>
+      <td>5.295715</td>
+      <td>1.594285</td>
+      <td>82.292768</td>
+      <td>0.464563</td>
+      <td>2.369200</td>
+      <td>3.087634</td>
+      <td>2.916504</td>
+      <td>23.000000</td>
+      <td>17.000000</td>
+      <td>2.333333</td>
+      <td>1.666667</td>
+      <td>1.333333</td>
+      <td>1.333333</td>
+      <td>0.666667</td>
+      <td>3.000000</td>
+      <td>2.000000</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>20.000000</td>
+      <td>65.714286</td>
+      <td>56.756757</td>
+      <td>43.103448</td>
+      <td>15.733083</td>
+      <td>39.393939</td>
+      <td>42.100000</td>
+      <td>12.333333</td>
+      <td>168.083333</td>
+      <td>32.166667</td>
+      <td>38.637570</td>
+      <td>45.795794</td>
+      <td>25.485027</td>
+      <td>18.000000</td>
+      <td>29.090909</td>
+      <td>0.000000</td>
+      <td>82.051282</td>
+      <td>15.666667</td>
+      <td>29.666667</td>
+      <td>0.333333</td>
+      <td>56.666667</td>
+      <td>684.750000</td>
+      <td>13.116066</td>
+      <td>37.014643</td>
+      <td>49.526726</td>
+      <td>28.669936</td>
+      <td>4.423812</td>
+      <td>93.342347</td>
+      <td>11.333333</td>
+      <td>19.000000</td>
+      <td>64.233333</td>
+      <td>12.333333</td>
+      <td>1.000000</td>
+      <td>450.666667</td>
+      <td>2322.416667</td>
+      <td>55.825288</td>
+      <td>12.158055</td>
+      <td>3.783784</td>
+      <td>1.351732</td>
+      <td>4.125392</td>
+      <td>3.905096</td>
+      <td>538.000000</td>
+      <td>463.000000</td>
+      <td>86.300000</td>
+      <td>40.666667</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>14.000000</td>
+      <td>13.666667</td>
+      <td>2.333333</td>
+      <td>14.000000</td>
+      <td>15.666667</td>
+      <td>12.333333</td>
+      <td>0.333333</td>
+      <td>0.333333</td>
+      <td>0.000000</td>
+      <td>97.666667</td>
+      <td>22.666667</td>
+      <td>23.000000</td>
+      <td>54.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>38.000000</td>
+      <td>31.000000</td>
+      <td>NaN</td>
+      <td>5.333333</td>
+      <td>5.666667</td>
+      <td>5.666667</td>
+      <td>NaN</td>
+      <td>5.666667</td>
+      <td>27.666667</td>
+      <td>11.666667</td>
+      <td>75.000000</td>
+      <td>0.500000</td>
+      <td>1.000000</td>
+      <td>708.000000</td>
+      <td>2.333333</td>
+      <td>1.666667</td>
+      <td>1.666667</td>
+      <td>3.833333</td>
+      <td>3.733333</td>
+      <td>0.240000</td>
+      <td>2.400000</td>
+      <td>2.400000</td>
+      <td>13.000000</td>
+      <td>8.000000</td>
+      <td>100.000000</td>
+      <td>1.333333</td>
+      <td>3.933333</td>
+      <td>1.600000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>0.666667</td>
+      <td>17.666667</td>
+      <td>42.000000</td>
+      <td>95.233333</td>
+      <td>50.333333</td>
+      <td>10.666667</td>
+      <td>100.000000</td>
+      <td>71.666667</td>
+      <td>18.666667</td>
+      <td>100.000000</td>
+      <td>85.850000</td>
+      <td>21.333333</td>
+      <td>3.666667</td>
+      <td>44.766667</td>
+      <td>3.666667</td>
+      <td>40.666667</td>
+      <td>846.333333</td>
+      <td>91.066667</td>
+      <td>2398.063380</td>
+      <td>1296.830986</td>
+      <td>54.207263</td>
+      <td>95.100000</td>
+      <td>52.490660</td>
+      <td>94.633333</td>
+      <td>25.879917</td>
+      <td>83.633333</td>
+      <td>5.000000</td>
+      <td>2.833333</td>
+      <td>21.666667</td>
+      <td>13.935970</td>
+      <td>4.793757</td>
+      <td>2.348066</td>
+      <td>14.285714</td>
+      <td>96.042003</td>
+      <td>21.042831</td>
+      <td>5.673759</td>
+      <td>1.083032</td>
+      <td>30.942092</td>
+      <td>6.671900</td>
+      <td>5.632716</td>
+      <td>2.524698</td>
+      <td>2.195390</td>
+      <td>1.541002</td>
+      <td>0.920680</td>
+      <td>84.874640</td>
+      <td>26.916376</td>
+      <td>47.310513</td>
+      <td>49.404117</td>
+      <td>78.316327</td>
+      <td>11.080836</td>
+      <td>10.986965</td>
+      <td>3.247863</td>
+      <td>91.125642</td>
+      <td>2.006689</td>
+      <td>5.189189</td>
+      <td>6.269113</td>
+      <td>4.973822</td>
+      <td>46.333333</td>
+      <td>38.000000</td>
+      <td>5.333333</td>
+      <td>5.666667</td>
+      <td>5.666667</td>
+      <td>3.666667</td>
+      <td>2.333333</td>
+      <td>10.666667</td>
+      <td>8.666667</td>
+      <td>1.333333</td>
+      <td>2.000000</td>
+      <td>1.333333</td>
+      <td>1.666667</td>
+      <td>1.000000</td>
+      <td>32.000000</td>
+      <td>91.666667</td>
+      <td>79.487179</td>
+      <td>62.790698</td>
+      <td>42.857143</td>
+      <td>71.428571</td>
+      <td>66.266667</td>
+      <td>25.333333</td>
+      <td>268.333333</td>
+      <td>45.566667</td>
+      <td>58.685446</td>
+      <td>56.675063</td>
+      <td>48.812095</td>
+      <td>30.666667</td>
+      <td>54.838710</td>
+      <td>7.894737</td>
+      <td>100.000000</td>
+      <td>31.666667</td>
+      <td>62.666667</td>
+      <td>2.666667</td>
+      <td>78.333333</td>
+      <td>1024.000000</td>
+      <td>25.899281</td>
+      <td>55.932203</td>
+      <td>63.639323</td>
+      <td>44.711111</td>
+      <td>8.444444</td>
+      <td>96.594982</td>
+      <td>24.333333</td>
+      <td>36.333333</td>
+      <td>87.166667</td>
+      <td>25.666667</td>
+      <td>4.666667</td>
+      <td>746.333333</td>
+      <td>4209.000000</td>
+      <td>64.982456</td>
+      <td>18.909306</td>
+      <td>6.168549</td>
+      <td>3.206651</td>
+      <td>9.473684</td>
+      <td>9.362280</td>
+      <td>914.666667</td>
+      <td>846.333333</td>
+      <td>94.300000</td>
+      <td>78.333333</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>0.666667</td>
+      <td>22.333333</td>
+      <td>22.000000</td>
+      <td>7.000000</td>
+      <td>26.666667</td>
+      <td>31.666667</td>
+      <td>19.666667</td>
+      <td>1.666667</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>126.666667</td>
+      <td>50.333333</td>
+      <td>45.333333</td>
+      <td>75.766667</td>
+      <td>NaN</td>
+      <td>2021.000000</td>
+      <td>12.000000</td>
+      <td>2022.000000</td>
+      <td>6.000000</td>
+      <td>NaN</td>
+      <td>9.000000</td>
+      <td>9.000000</td>
+      <td>9.000000</td>
+      <td>5.333333</td>
+      <td>5.666667</td>
+      <td>5.666667</td>
+      <td>NaN</td>
+      <td>5.666667</td>
+      <td>27.666667</td>
+      <td>11.666667</td>
+      <td>75.000000</td>
+      <td>0.500000</td>
+      <td>1.000000</td>
+      <td>708.000000</td>
+      <td>2.333333</td>
+      <td>1.666667</td>
+      <td>1.666667</td>
+      <td>3.833333</td>
+      <td>3.733333</td>
+      <td>0.240000</td>
+      <td>2.400000</td>
+      <td>2.400000</td>
+      <td>13.000000</td>
+      <td>8.000000</td>
+      <td>100.000000</td>
+      <td>1.333333</td>
+      <td>3.933333</td>
+      <td>1.600000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>0.666667</td>
+      <td>17.666667</td>
+      <td>42.000000</td>
+      <td>95.233333</td>
+      <td>50.333333</td>
+      <td>10.666667</td>
+      <td>100.000000</td>
+      <td>71.666667</td>
+      <td>18.666667</td>
+      <td>100.000000</td>
+      <td>85.850000</td>
+      <td>21.333333</td>
+      <td>3.666667</td>
+      <td>44.766667</td>
+      <td>3.666667</td>
+      <td>40.666667</td>
+      <td>846.333333</td>
+      <td>91.066667</td>
+      <td>2398.063380</td>
+      <td>1296.830986</td>
+      <td>54.207263</td>
+      <td>95.100000</td>
+      <td>52.490660</td>
+      <td>94.633333</td>
+      <td>25.879917</td>
+      <td>83.633333</td>
+      <td>5.000000</td>
+      <td>2.833333</td>
+      <td>21.666667</td>
+      <td>13.935970</td>
+      <td>4.793757</td>
+      <td>2.348066</td>
+      <td>14.285714</td>
+      <td>96.042003</td>
+      <td>21.042831</td>
+      <td>5.673759</td>
+      <td>1.083032</td>
+      <td>30.942092</td>
+      <td>6.671900</td>
+      <td>5.632716</td>
+      <td>2.524698</td>
+      <td>2.195390</td>
+      <td>1.541002</td>
+      <td>0.920680</td>
+      <td>84.874640</td>
+      <td>26.916376</td>
+      <td>47.310513</td>
+      <td>49.404117</td>
+      <td>78.316327</td>
+      <td>11.080836</td>
+      <td>10.986965</td>
+      <td>3.247863</td>
+      <td>91.125642</td>
+      <td>2.006689</td>
+      <td>5.189189</td>
+      <td>6.269113</td>
+      <td>4.973822</td>
+      <td>46.333333</td>
+      <td>38.000000</td>
+      <td>5.333333</td>
+      <td>5.666667</td>
+      <td>5.666667</td>
+      <td>3.666667</td>
+      <td>2.333333</td>
+      <td>10.666667</td>
+      <td>8.666667</td>
+      <td>1.333333</td>
+      <td>2.000000</td>
+      <td>1.333333</td>
+      <td>1.666667</td>
+      <td>1.000000</td>
+      <td>32.000000</td>
+      <td>91.666667</td>
+      <td>79.487179</td>
+      <td>62.790698</td>
+      <td>42.857143</td>
+      <td>71.428571</td>
+      <td>66.266667</td>
+      <td>25.333333</td>
+      <td>268.333333</td>
+      <td>45.566667</td>
+      <td>58.685446</td>
+      <td>56.675063</td>
+      <td>48.812095</td>
+      <td>30.666667</td>
+      <td>54.838710</td>
+      <td>7.894737</td>
+      <td>100.000000</td>
+      <td>31.666667</td>
+      <td>62.666667</td>
+      <td>2.666667</td>
+      <td>78.333333</td>
+      <td>1024.000000</td>
+      <td>25.899281</td>
+      <td>55.932203</td>
+      <td>63.639323</td>
+      <td>44.711111</td>
+      <td>8.444444</td>
+      <td>96.594982</td>
+      <td>24.333333</td>
+      <td>36.333333</td>
+      <td>87.166667</td>
+      <td>25.666667</td>
+      <td>4.666667</td>
+      <td>746.333333</td>
+      <td>4209.000000</td>
+      <td>64.982456</td>
+      <td>18.909306</td>
+      <td>6.168549</td>
+      <td>3.206651</td>
+      <td>9.473684</td>
+      <td>9.362280</td>
+      <td>914.666667</td>
+      <td>846.333333</td>
+      <td>94.300000</td>
+      <td>78.333333</td>
+      <td>5.000000</td>
+      <td>1.000000</td>
+      <td>0.666667</td>
+      <td>22.333333</td>
+      <td>22.000000</td>
+      <td>7.000000</td>
+      <td>26.666667</td>
+      <td>31.666667</td>
+      <td>19.666667</td>
+      <td>1.666667</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>126.666667</td>
+      <td>50.333333</td>
+      <td>45.333333</td>
+      <td>75.766667</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="prepare-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-the-data">Prepare the data</h2>
+<p>Basically just make numerical data normalised, categorical data encoded and split into train and validation sets</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#toggle-hide</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> do_pre_proc(dfAll,target <span class="op">=</span> <span class="st">'NetScore_x'</span>):</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    dfAll<span class="op">=</span>dfAll.iloc[<span class="dv">20</span>:,:]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> target <span class="op">==</span> <span class="st">'NetScore_x'</span>:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        dfAll<span class="op">=</span>dfAll.drop(columns<span class="op">=</span>[<span class="st">'Win_x'</span>,<span class="st">'opponent_y'</span>,<span class="st">'team_y'</span>,<span class="st">'GoalsAgainst_x'</span>,<span class="st">'GoalsFor_x'</span>])</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> target<span class="op">==</span><span class="st">'Win_x'</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        dfAll<span class="op">=</span>dfAll.drop(columns<span class="op">=</span>[<span class="st">'NetScore_x'</span>,<span class="st">'opponent_y'</span>,<span class="st">'team_y'</span>,<span class="st">'GoalsAgainst_x'</span>,<span class="st">'GoalsFor_x'</span>])</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        dfAll[target]<span class="op">=</span>dfAll[target].<span class="bu">map</span>({<span class="st">'W'</span>:<span class="dv">2</span>,<span class="st">'D'</span>:<span class="dv">1</span>,<span class="st">'L'</span>:<span class="dv">0</span>})</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">'error'</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    dfAll<span class="op">=</span>dfAll[[c <span class="cf">for</span> c <span class="kw">in</span> dfAll <span class="cf">if</span> c<span class="op">!=</span>target]<span class="op">+</span>[target]]</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    features_cat<span class="op">=</span>[x <span class="cf">for</span> x <span class="kw">in</span> dfAll <span class="cf">if</span> dfAll[x].dtype<span class="op">==</span><span class="st">'O'</span>]</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    features_num <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> dfAll.columns <span class="cf">if</span> x <span class="op">!=</span> target <span class="kw">and</span> dfAll[x].dtype<span class="op">!=</span><span class="st">'O'</span> ]</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    preprocessor <span class="op">=</span> make_column_transformer(</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    (StandardScaler(), features_num),</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    (OneHotEncoder(), features_cat),</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    dfAll<span class="op">=</span>dfAll.fillna(<span class="dv">0</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    cond <span class="op">=</span> dfAll.season<span class="op">&lt;</span><span class="dv">2021</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    predictors <span class="op">=</span> [x <span class="cf">for</span> x <span class="kw">in</span> dfAll.columns <span class="cf">if</span> x <span class="op">!=</span> target ]</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    X<span class="op">=</span>dfAll.copy()</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>X.pop(target)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> preprocessor.fit_transform(X)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    X_train<span class="op">=</span>X[cond]</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    X_valid<span class="op">=</span>X[<span class="op">~</span>cond]</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    y_train <span class="op">=</span> y[cond]</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    y_valid <span class="op">=</span> y[<span class="op">~</span>cond]</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X_train, X_valid, y_train, y_valid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X_train, X_valid, y_train, y_valid <span class="op">=</span> do_pre_proc(dfAll,<span class="st">'Win_x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="xgboost" class="level2">
+<h2 class="anchored" data-anchor-id="xgboost">XGBoost</h2>
+<p><a href="https://www.kaggle.com/code/alexisbcook/xgboost">Gradient Boosting</a></p>
+<p>Gradient boosting is a method that goes through cycles to iteratively add models into an ensemble.</p>
+<p>It begins by initializing the ensemble with a single model, whose predictions can be pretty naive. (Even if its predictions are wildly inaccurate, subsequent additions to the ensemble will address those errors.)</p>
+<p>Then, we start the cycle:</p>
+<ul>
+<li>First, we use the current ensemble to generate predictions for each observation in the dataset. To make a prediction, we add the predictions from all models in the ensemble.</li>
+<li>These predictions are used to calculate a loss function (like mean squared error, for instance).</li>
+<li>Then, we use the loss function to fit a new model that will be added to the ensemble. Specifically, we determine model parameters so that adding this new model to the ensemble will reduce the loss. (Side note: The “gradient” in “gradient boosting” refers to the fact that we’ll use gradient descent on the loss function to determine the parameters in this new model.)</li>
+<li>Finally, we add the new model to ensemble, and …</li>
+<li>… repeat!</li>
+</ul>
+<p>GBoost stands for extreme gradient boosting, which is an implementation of gradient boosting with several additional features focused on performance and speed</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>model_rf <span class="op">=</span> RandomForestClassifier()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model_rf.fit(X_train,y_train)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>accuracy_score(y_train,model_rf.predict(X_train)),accuracy_score(y_valid,model_rf.predict(X_valid))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>(1.0, 0.49868073878627966)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>model_XGB <span class="op">=</span> XGBClassifier()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model_XGB.fit(X_train,y_train)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>accuracy_score(y_train,model_XGB.predict(X_train)),accuracy_score(y_valid,model_XGB.predict(X_valid))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>(1.0, 0.5092348284960422)</code></pre>
+</div>
+</div>
+<section id="parameter-tuning" class="level3">
+<h3 class="anchored" data-anchor-id="parameter-tuning">Parameter tuning</h3>
+<p><code>n_estimators</code> specifies how many times to go through the modeling cycle described above. It is equal to the number of models that we include in the ensemble.</p>
+<ul>
+<li>Too low a value causes underfitting, which leads to inaccurate predictions on both training data and test data.</li>
+<li>Too high a value causes overfitting, which causes accurate predictions on training data, but inaccurate predictions on test data (which is what we care about).</li>
+</ul>
+<p>Typical values range from 100-1000</p>
+<p><code>early_stopping_rounds</code> offers a way to automatically find the ideal value for n_estimators. Early stopping causes the model to stop iterating when the validation score stops improving, even if we aren’t at the hard stop for n_estimators. Setting early_stopping_rounds=5 is a reasonable choice. In this case, we stop after 5 straight rounds of deteriorating validation scores.</p>
+<p><code>learning_rate</code></p>
+<p>Instead of getting predictions by simply adding up the predictions from each component model, we can multiply the predictions from each model by a small number (known as the <code>learning rate</code>) before adding them in.</p>
+<p>This means each tree we add to the ensemble helps us less. So, we can set a higher value for <code>n_estimators</code> without overfitting. If we use early stopping, the appropriate number of trees will be determined automatically.</p>
+<p>In general, a small learning rate and large number of estimators will yield more accurate XGBoost models, though it will also take the model longer to train since it does more iterations through the cycle. As default, XGBoost sets learning_rate=0.1</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> do_model(n_estimators,learning_rate):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    model_XGB <span class="op">=</span> XGBClassifier(n_estimators<span class="op">=</span>n_estimators,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>             learning_rate<span class="op">=</span>learning_rate,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>             early_stopping_rounds<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    model_XGB.fit(X_train,y_train,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>             eval_set<span class="op">=</span>[(X_valid, y_valid)],</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>             verbose<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    acc_train<span class="op">=</span>accuracy_score(y_train,model_XGB.predict(X_train))</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    acc_valid<span class="op">=</span>accuracy_score(y_valid,model_XGB.predict(X_valid))</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> acc_train, acc_valid</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>learning_rate<span class="op">=</span><span class="fl">1e-4</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>n_estimators<span class="op">=</span>[<span class="dv">100</span>,<span class="dv">250</span>,<span class="dv">500</span>,<span class="dv">1_000</span>,<span class="dv">1500</span>,<span class="dv">2_500</span>,<span class="dv">5_000</span>,<span class="dv">10_000</span>]</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>score<span class="op">=</span>[]</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> n_estimators:</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    score.append( do_model(n,learning_rate) )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>score<span class="op">=</span>np.array(score)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.plot(n_estimators,score,<span class="st">'o-'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'train'</span>,<span class="st">'validation'</span>])</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>np.<span class="bu">max</span>(score[:,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>0.5290237467018469</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2022-08-22-PredictingPremierLeagueMatches_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>n_estimator<span class="op">=</span>n_estimators[np.argmax(score[:,<span class="dv">1</span>])]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>model_XGB <span class="op">=</span> XGBClassifier(n_estimators<span class="op">=</span>n_estimator,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>             learning_rate<span class="op">=</span>learning_rate,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>             early_stopping_rounds<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>             )</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>model_XGB.fit(X_train,y_train,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>         eval_set<span class="op">=</span>[(X_valid, y_valid)],</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>         verbose<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>pred_XGB<span class="op">=</span>model_XGB.predict(X_valid)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>pred_XGB<span class="op">=</span>[np.argmax(x) <span class="cf">for</span> x <span class="kw">in</span> pred_XGB ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="deep-learning" class="level2">
+<h2 class="anchored" data-anchor-id="deep-learning">Deep Learning</h2>
+<p>This dataset is prone to lots of overfitting (bias) and also has a high ratio of numberof parameters to number of data points.</p>
+<p>To get around the 2 issues: - model has a high dropout rate - a relatively high number of units (i.e.&nbsp;a wide neural network)</p>
+<p>For more information see the <a href="https://www.kaggle.com/code/thomassimm/premier-league-predictions-using-tensorflow">kaggle notebook of keras binary EPL</a> which goes over this in more detail for the binary issue.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>y_valid<span class="op">=</span>pd.get_dummies(y_valid)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>y_train<span class="op">=</span>pd.get_dummies(y_train)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>drop_pc<span class="op">=</span><span class="fl">0.8</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>units<span class="op">=</span><span class="dv">512</span><span class="op">*</span><span class="dv">2</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>keras.Sequential([</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        layers.Dense(units,activation<span class="op">=</span><span class="st">'relu'</span>,input_shape<span class="op">=</span>[np.shape(X_train)[<span class="dv">1</span>]]),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        layers.Dropout(drop_pc),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        layers.Dense(units,activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        layers.Dropout(drop_pc),</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        layers.Dense(units,activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        layers.Dropout(drop_pc),</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        layers.Dense(<span class="dv">3</span>,activation<span class="op">=</span><span class="st">'softmax'</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        ])</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> keras.optimizers.Adam(learning_rate<span class="op">=</span><span class="fl">0.0005</span>)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>opt,</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    loss<span class="op">=</span><span class="st">'categorical_crossentropy'</span>,</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">#loss='binary_crossentropy',#for binary classification 0-1</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    metrics<span class="op">=</span>[<span class="st">'accuracy'</span>],</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>early_stopping <span class="op">=</span> callbacks.EarlyStopping(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    min_delta<span class="op">=</span><span class="fl">0.0001</span>, <span class="co"># minimium amount of change to count as an improvement</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    patience<span class="op">=</span><span class="dv">40</span>, <span class="co"># how many epochs to wait before stopping</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    restore_best_weights<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    monitor<span class="op">=</span><span class="st">'val_accuracy'</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> model.fit(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    X_train, y_train,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    validation_data<span class="op">=</span>(X_valid, y_valid),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    batch_size<span class="op">=</span><span class="bu">len</span>(X_valid),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    epochs<span class="op">=</span><span class="dv">700</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    callbacks<span class="op">=</span>[early_stopping],</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    verbose<span class="op">=</span><span class="dv">0</span>, <span class="co"># hide the output because we have so many epochs</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>history_df <span class="op">=</span> pd.DataFrame(history.history)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>history_df.loc[:, [<span class="st">'loss'</span>, <span class="st">'val_loss'</span>]].plot()</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>history_df.loc[:, [<span class="st">'accuracy'</span>, <span class="st">'val_accuracy'</span>]].plot()</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>((<span class="st">"Best Validation Loss: </span><span class="sc">{:0.4f}</span><span class="st">"</span> <span class="op">+\</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">"</span><span class="ch">\n</span><span class="st">Best Validation Accuracy: </span><span class="sc">{:0.4f}</span><span class="st">"</span>)<span class="op">\</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>      .<span class="bu">format</span>(history_df[<span class="st">'val_loss'</span>].<span class="bu">min</span>(), </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>              history_df[<span class="st">'val_accuracy'</span>].<span class="bu">max</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best Validation Loss: 1.0254
+Best Validation Accuracy: 0.5369</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2022-08-22-PredictingPremierLeagueMatches_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2022-08-22-PredictingPremierLeagueMatches_files/figure-html/cell-16-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>epochs<span class="op">=</span>history_df[<span class="st">'val_accuracy'</span>].argmax()</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>keras.Sequential([</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        layers.Dense(units,activation<span class="op">=</span><span class="st">'relu'</span>,input_shape<span class="op">=</span>[np.shape(X_train)[<span class="dv">1</span>]]),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        layers.Dropout(drop_pc),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        layers.Dense(units,activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        layers.Dropout(drop_pc),</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        layers.Dense(units,activation<span class="op">=</span><span class="st">'relu'</span>),</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        layers.Dropout(drop_pc),</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        layers.Dense(<span class="dv">3</span>,activation<span class="op">=</span><span class="st">'softmax'</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        ])</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> keras.optimizers.Adam(learning_rate<span class="op">=</span><span class="fl">0.0005</span>)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>model.<span class="bu">compile</span>(</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    optimizer<span class="op">=</span>opt,</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    loss<span class="op">=</span><span class="st">'categorical_crossentropy'</span>,</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#loss='binary_crossentropy',#for binary classification 0-1</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    metrics<span class="op">=</span>[<span class="st">'accuracy'</span>],</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> model.fit(</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    X_train, y_train,</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    validation_data<span class="op">=</span>(X_valid, y_valid),</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    batch_size<span class="op">=</span><span class="bu">len</span>(X_valid),</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    epochs<span class="op">=</span>epochs,</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    verbose<span class="op">=</span><span class="dv">0</span>, <span class="co"># hide the output because we have so many epochs</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>preds<span class="op">=</span>model.predict(X_valid).argmax(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>y_valid_<span class="op">=</span>[np.argmax(y_valid.iloc[i,:]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(y_valid))]</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>acc_nn<span class="op">=</span>accuracy_score(y_valid_,preds)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"accuracy of nn model = </span><span class="sc">{</span>acc_nn<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>accuracy of nn model = 0.516</code></pre>
+</div>
+</div>
+</section>
+<section id="ensembling" class="level2">
+<h2 class="anchored" data-anchor-id="ensembling">Ensembling</h2>
+<p>Combine the results of the two models</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>preds_combo<span class="op">=</span>(model.predict(X_valid)<span class="op">+</span> model_XGB.predict_proba(X_valid)).argmax(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>acc_combo<span class="op">=</span>accuracy_score(y_valid_,preds_combo)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"accuracy of combined model = </span><span class="sc">{</span>acc_combo<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>accuracy of combined model = 0.534</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

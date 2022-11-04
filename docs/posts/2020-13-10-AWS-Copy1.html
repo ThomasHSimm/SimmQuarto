@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.258">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>ThomasHSimm – aws-copy1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="..//posts/Picture3.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ThomasHSimm</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ThomasHSimm"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/ThomasHSimm"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p><img src="../posts/header2.png" height="200"></p>
+
+
+
+<section id="aws-cheat-sheet" class="level1">
+<h1>AWS Cheat sheet</h1>
+<blockquote class="blockquote">
+<p>A tutorial of AWS basics</p>
+</blockquote>
+<ul>
+<li>toc: true</li>
+<li>badges: true</li>
+<li>comments: true</li>
+<li>categories: [AWS]</li>
+<li>image: ghtop_images/header2.png</li>
+</ul>
+<p><img src="ghtop_images/header2.png" class="img-fluid"></p>
+<p>#collapse-hide # What is AWS?</p>
+<section id="what-is-the-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-cloud">What is the Cloud?</h2>
+<p>In the past, companies and organizations hosted and maintained hardware such as compute, storage, and networking equipment in their own data centers. They needed to allocate entire infrastructure departments to take care of them, resulting in a costly operation that made some workloads and experimentation impossible.</p>
+<p>As internet usage became more widespread, the demand for compute, storage, and networking equipment increased. For some companies and organizations, the cost of maintaining a large physical presence was unsustainable. To solve this problem, cloud computing was created.</p>
+<p>Cloud computing is the on-demand delivery of IT resources over the internet with pay-as-you-go pricing. You no longer have to manage and maintain your own hardware in your own data centers. Companies like AWS own and maintain these data centers and provide virtualized data center technologies and services to users over the internet.</p>
+<p>To help differentiate between running workloads on-premises versus in the cloud, consider the scenario where your developers need to deploy a new feature on your application. Before they deploy, the team wants to test the feature in a separate quality assurance (QA) environment that has the exact same configurations as production.</p>
+<p>If you run your application on-premises, creating this additional environment requires you to buy and install hardware, connect the necessary cabling, provision power, install operating systems, and more. All of these tasks can be time-consuming and take days to perform. Meanwhile, the new product feature’s time-to-market is increasing and your developers are waiting for this environment.</p>
+<p>If you ran your application in the cloud, you can replicate the entire environment as often as needed in a matter of minutes or even seconds. Instead of physically installing hardware and connecting cabling, you can logically manage your physical infrastructure over the internet.</p>
+<p>Using cloud computing not only saves you time from the set-up perspective, but it also removes the undifferentiated heavy lifting. If you look at any application, you’ll see that some of the aspects of it are very important to your business, like the code. However, there are other aspects that are no different than any other application you might make: for instance the compute the code runs on. By removing repetitive common tasks that don’t differentiate your business, like installing virtual machines, or storing backups, you can focus on what is strategically unique to your business and let AWS handle the tasks that are time consuming and don’t separate you from your competitors.</p>
+<p>So where does AWS fit into all of this? Well AWS simply just provides cloud computing services. Those IT resources mentioned in the cloud computing definition are AWS services in this case. We’ll need to use these AWS services to architect a scalable, highly available, and cost effective infrastructure to host our corporate directory application. This way we can get our corporate directory app out into the world quickly, without having to manage any heavy-duty physical hardware. There are the six main advantages to running your workloads on AWS.</p>
+</section>
+<section id="the-six-benefits-of-cloud-computing" class="level2">
+<h2 class="anchored" data-anchor-id="the-six-benefits-of-cloud-computing">The Six Benefits of Cloud Computing</h2>
+<ol type="1">
+<li><p>Pay as you go. Instead of investing in data centers and hardware before you know how you are going to use them, you pay only when you use computing resources, and pay only for how much you use.</p></li>
+<li><p>Benefit from massive economies of scale. By using cloud computing, you can achieve a lower cost than you can get on your own. Because usage from hundreds of thousands of customers is aggregated in the cloud, AWS can achieve higher economies of scale, which translates into lower pay as-you-go prices.</p></li>
+<li><p>Stop guessing capacity. Eliminate guessing on your infrastructure capacity needs. When you make a capacity decision prior to deploying an application, you often end up either sitting on expensive idle resources or dealing with limited capacity. With cloud computing, these problems go away. You can access as much or as little capacity as you need, and scale up and down as required with only a few minutes notice.</p></li>
+<li><p>Increase speed and agility. IT resources are only a click away, which means that you reduce the time to make those resources available to your developers from weeks to just minutes. This results in a dramatic increase in agility for the organization since the cost and time it takes to experiment and develop is significantly lower.</p></li>
+<li><p>Stop spending money running and maintaining data centers. Focus on projects that differentiate your business, not the infrastructure. Cloud computing lets you focus on your customers, rather than on the heavy lifting of racking, stacking, and powering physical infrastructure. This is often referred to as undifferentiated heavy lifting.</p></li>
+<li><p>Go global in minutes. Easily deploy your application in multiple Regions around the world with just a few clicks. This means you can provide lower latency and a better experience for your customers at a minimal cost.</p></li>
+</ol>
+<ul>
+<li>https://aws.amazon.com/what-is-cloud-computing/</li>
+<li>http://docs.aws.amazon.com/whitepapers/latest/aws-overview/types-of-cloud-computing.html</li>
+<li>https://aws.amazon.com/what-is-aws/</li>
+</ul>
+<p>#collapse-hide ## AWS Global Infrastructure</p>
+<p>Infrastructure, like data centers and networking connectivity, still exists as the foundation of every cloud application. In AWS, this physical infrastructure makes up the AWS Global Infrastructure, in the form of Availability Zones and Regions.</p>
+<p>Regions are geographic locations worldwide where AWS hosts its data centers. AWS Regions are named after the location where they reside. For example, in the United States, there is a Region in Northern Virginia called the Northern Virginia Region and a Region in Oregon called the Oregon Region. There are Regions in Asia Pacific, Canada, Europe, the Middle East, and South America, and AWS continues to expand to meet the needs of its customers.</p>
+<p>Each AWS Region is associated with a geographical name and a Region code.</p>
+<p>for example, - us-east-1: This is the first Region created in the east of the US. The geographical name for this Region is N. Virginia. - ap-northeast-1: The first Region created in the northeast of Asia Pacific. The geographical name for this Region is Tokyo.</p>
+<section id="choose-the-right-aws-region" class="level3">
+<h3 class="anchored" data-anchor-id="choose-the-right-aws-region">Choose the Right AWS Region</h3>
+<p>Consider four main aspects when deciding which AWS Region to host your applications and workloads: latency, price, service availability, and compliance.</p>
+<ol type="1">
+<li><p>Latency. If your application is sensitive to latency, choose a Region that is close to your user base. This helps prevent long wait times for your customers. Synchronous applications such as gaming, telephony, WebSockets, and IoT are significantly affected by higher latency, but even asynchronous workloads, such as ecommerce applications, can suffer from an impact on user connectivity.</p></li>
+<li><p>Price. Due to the local economy and the physical nature of operating data centers, prices may vary from one Region to another. The pricing in a Region can be impacted by internet connectivity, prices of imported pieces of equipment, customs, real estate, and more. Instead of charging a flat rate worldwide, AWS charges based on the financial factors specific to the location.</p></li>
+<li><p>Service availability. Some services may not be available in some Regions. The AWS documentation provides a table containing the Regions and the available services within each one.</p></li>
+<li><p>Data compliance. Enterprise companies often need to comply with regulations that require customer data to be stored in a specific geographic territory. If applicable, you should choose a Region that meets your compliance requirements.</p></li>
+</ol>
+</section>
+</section>
+<section id="availability-zones" class="level2">
+<h2 class="anchored" data-anchor-id="availability-zones">Availability Zones</h2>
+<p>Inside every Region is a cluster of Availability Zones (AZ). An AZ consists of one or more data centers with redundant power, networking, and connectivity. These data centers operate in discrete facilities with undisclosed locations. They are connected using redundant high-speed and low-latency links.</p>
+<blockquote class="blockquote">
+<p>What is low latency link? Low latency describes a computer network that is optimized to process a very high volume of data messages with minimal delay (latency).</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>What does redundant mean in routing? Failover or Redundant routing is a network arrangement with several links and paths between the person who places a call and the call recipient. Should at any time a path or link in the network, the other links will automatically route the incoming call to a predetermined number, device or location.</p>
+</blockquote>
+<p>AZs also have a code name. Since they’re located inside Regions, they can be addressed by appending a letter to the end of the Region code name. For example:</p>
+<ul>
+<li>us-east-1a: an AZ in us-east-1 (Northern Virginia Region)</li>
+<li>sa-east-1b: an AZ in sa-east-1 (São Paulo Region in South America)</li>
+</ul>
+<p>If you see that a resource exists in us-east-1c, you know this resource is located in AZ c of the us-east-1 Region.</p>
+<section id="scope-aws-services" class="level3">
+<h3 class="anchored" data-anchor-id="scope-aws-services">Scope AWS Services</h3>
+<p>Depending on the AWS Service you use, your resources are either deployed at the AZ, Region, or Global level. Each service is different, so you need to understand how the scope of a service may affect your application architecture.</p>
+<p>When you operate a Region-scoped service, you only need to select the Region you want to use. If you are not asked to specify an individual AZ to deploy the service in, this is an indicator that the service operates on a Region-scope level. For region-scoped services, AWS automatically performs actions to increase data durability and availability.</p>
+<p>On the other hand, some services ask you to specify an AZ. With these services, you are often responsible for increasing the data durability and high availability of these resources.</p>
+</section>
+<section id="maintain-resiliency" class="level3">
+<h3 class="anchored" data-anchor-id="maintain-resiliency">Maintain Resiliency</h3>
+<blockquote class="blockquote">
+<p>What is resiliency? The capability to recover when stressed by load (more requests for service), attacks (either accidental through a bug, or deliberate through intention), and failure of any component in the workload’s components.</p>
+</blockquote>
+<p>To keep your application available, you need to maintain high availability and resiliency. A well-known best practice for cloud architecture is to use Region-scoped, managed services. These services come with availability and resiliency built in.</p>
+<p>When that is not possible, make sure the workload is replicated across multiple AZs. At a minimum, you should use two AZs. If one entire AZ fails, your application will have infrastructure up and running in at least a second AZ to take over the traffic.</p>
+<p>#collapse-hide ## Interacting with AWS</p>
+<blockquote class="blockquote">
+<p>API call: Application programming interfaces (APIs) are a way for one program to interact with another. API calls are the medium by which they interact. An API call, or API request, is a message sent to a server asking an API to provide a service or information.</p>
+</blockquote>
+<p>Every action you make in AWS is an API call that is authenticated and authorized. In AWS, you can make API calls to services and resources through the AWS Management Console, the AWS Command Line Interface (CLI), or the AWS Software Development Kits (SDKs).</p>
+</section>
+<section id="the-aws-management-console" class="level3">
+<h3 class="anchored" data-anchor-id="the-aws-management-console">The AWS Management Console</h3>
+<p>One way to manage cloud resources is through the web-based console, where you log in and click on the desired service. This can be the easiest way to create and manage resources when you first begin working with the cloud. Below is a screenshot that shows the landing page when you first log into the AWS Management Console.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/eXIGqVUGSMOyBqlVBujDow_6469eab9060a40dc887f4eda0c5bd1a9_Interacting_1.jpeg?expiry=1665878400000&amp;hmac=E2hedPMm5zGrk2tpduK7kaFQL5cq6N7TAgWDbKTRgII" class="img-fluid"></p>
+<p>The services are placed in categories, such as compute, database, storage and security, identity and compliance.</p>
+<p>On the upper right corner is the Region selector. If you click it and change the Region, you will make requests to the services in the chosen Region. The URL changes, too. Changing the Region directs the browser to make requests to a whole different AWS Region, represented by a different subdomain.</p>
+</section>
+<section id="the-aws-command-line-interface-cli" class="level3">
+<h3 class="anchored" data-anchor-id="the-aws-command-line-interface-cli">The AWS Command Line Interface (CLI)</h3>
+<p>Consider the scenario where you run tens of servers on AWS for your application’s backend. You want to run a report to collect data from all of these servers. You need to do this programmatically every day because the server details may change. Instead of manually logging into the AWS Management Console and copying/pasting information, you can schedule an AWS Command Line Interface (CLI) script with an API call to pull this data for you.</p>
+<p>The AWS CLI is a unified tool to manage AWS services. With just one tool to download and configure, you control multiple AWS services from the command line and automate them with scripts. The AWS CLI is open-source, and there are installers available for Windows, Linux, and Mac OS.</p>
+<p>Here is an example of running an API call against a service using the AWS CLI: aws ec2 describe-instances</p>
+<p>You get this response:</p>
+<p><code>{     "Reservations": [         {             "Groups": [],             "Instances": [                 {                     "AmiLaunchIndex": 0,</code></p>
+<p>and so on.</p>
+</section>
+<section id="aws-software-development-kits-sdks" class="level3">
+<h3 class="anchored" data-anchor-id="aws-software-development-kits-sdks">AWS Software Development Kits (SDKs)</h3>
+<p>API calls to AWS can also be performed by executing code with programming languages. You can do this by using AWS Software Development Kits (SDKs). SDKs are open-source and maintained by AWS for the most popular programming languages, such as C++, Go, Java, JavaScript, .NET, Node.js, PHP, Python, and Ruby.</p>
+<p>Developers commonly use AWS SDKs to integrate their application source code with AWS services. Let’s say the backend of the application runs in Python and every time it receives a cat photo, it uploads that photo to a storage service. This action can be achieved from within the source code by using the AWS SDK for Python.</p>
+<p>Here is an example of code you can implement to work with AWS resources using the Python AWS SDK.</p>
+<p><code>import boto3 ec2 = boto3.client('ec2') response = ec2.describe_instances() print(response)</code></p>
+<p>#collapse-hide ## Security and the AWS Shared Responsibility Model</p>
+<p>When you begin working with the AWS Cloud, managing security and compliance is a shared responsibility between AWS and you. To depict this shared responsibility, AWS created the shared responsibility model. This distinction of responsibility is commonly referred to as security of the cloud, versus security in the cloud.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/k5Oy25lTRheTstuZU5YX1g_9a61050129074ffaaa2790878522d9c5_Shared_Responsibility_Model_V2.59d1eccec334b366627e9295b304202faf7b899b.jpg?expiry=1665878400000&amp;hmac=LcoD9sXImt488VQA2ZjOS4zXy2xGtwTpo6fGzmrIUDg" class="img-fluid"></p>
+</section>
+<section id="what-is-aws-responsible-for" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-aws-responsible-for">What Is AWS Responsible For?</h3>
+<p>AWS is responsible for security of the cloud. This means AWS is required to protect and secure the infrastructure that runs all the services offered in the AWS Cloud. AWS is responsible for:</p>
+<ul>
+<li><p>Protecting and securing AWS Regions, Availability Zones, and data centers, down to the physical security of the buildings</p></li>
+<li><p>Managing the hardware, software, and networking components that run AWS services, such as the physical server, host operating systems, virtualization layers, and AWS networking components</p></li>
+</ul>
+<p>The level of responsibility AWS has depends on the service. AWS classifies services into three different categories. The following table provides information about each, as well as the AWS responsibility.</p>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 65%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>Examples of AWS Services in the Category</th>
+<th>AWS Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Infrastructure services</td>
+<td>Compute services, such as Amazon Elastic Compute Cloud (Amazon EC2)</td>
+<td>AWS manages the underlying infrastructure and foundation services.</td>
+</tr>
+<tr class="even">
+<td>Container services</td>
+<td>Services that require less management from the customer, such as Amazon Relational Database Service (Amazon RDS)</td>
+<td>AWS manages the underlying infrastructure and foundation services, operating system, and application platform.</td>
+</tr>
+<tr class="odd">
+<td>Abstracted services</td>
+<td>Services that require very little management from the customer, such as Amazon Simple Storage Service (Amazon S3)</td>
+<td>AWS operates the infrastructure layer, operating system, and platforms, as well as server-side encryption and data protection.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong> Container services refer to AWS abstracting application containers behind the scenes, not Docker container services. This enables AWS to move the responsibility of managing that platform away from customers.</p>
+</section>
+<section id="what-is-the-customer-responsible-for" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-customer-responsible-for">What Is the Customer Responsible For?</h3>
+<p>You’re responsible for security in the cloud. When using any AWS service, you’re responsible for properly configuring the service and your applications, as well as ensuring your data is secure.</p>
+<p>The level of responsibility you have depends on the AWS service. Some services require you to perform all the necessary security configuration and management tasks, while other more abstracted services require you to only manage the data and control access to your resources. Using the three categories of AWS services, you can determine your level of responsibility for each AWS service you use.</p>
+<table class="table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 27%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Category</th>
+<th>AWS Responsibility</th>
+<th>Customer Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Infrastructure services</td>
+<td>AWS manages the infrastructure and foundation services.</td>
+<td>You control the operating system and application platform, as well as encrypting, protecting, and managing customer data.</td>
+</tr>
+<tr class="even">
+<td>Container services</td>
+<td>AWS manages the infrastructure and foundation services, operating system, and application platform.</td>
+<td>You are responsible for customer data, encrypting that data, and protecting it through network firewalls and backups.</td>
+</tr>
+<tr class="odd">
+<td>Abstracted services</td>
+<td>AWS operates the infrastructure layer, operating system, and platforms, as well as server-side encryption and data protection.</td>
+<td>You are responsible for managing customer data and protecting it through client-side encryption.</td>
+</tr>
+</tbody>
+</table>
+<p>Due to the varying level of effort, it’s important to consider which AWS service you use and review the level of responsibility required to secure the service. It’s also important to review how the shared security model aligns with the security standards in your IT environment, as well as any applicable laws and regulations.</p>
+<p>It’s important to note that you maintain complete control of your data and are responsible for managing the security related to your content. Here are some examples of your responsibilities in context.</p>
+<ul>
+<li>Choosing a Region for AWS resources in accordance with data sovereignty regulations</li>
+<li>Implementing data protection mechanisms, such as encryption and managing backups</li>
+<li>Using access control to limit who has access to your data and AWS resources</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="protect-the-aws-root-user" class="level1">
+<h1>Protect the AWS Root User</h1>
+<section id="whats-the-big-deal-about-auth" class="level2">
+<h2 class="anchored" data-anchor-id="whats-the-big-deal-about-auth">What’s the Big Deal About Auth?</h2>
+<p>When you’re configuring access to any account, two terms come up frequently: - authentication - and authorization.</p>
+<p>Though these terms may seem basic, you need to understand them to properly configure access management on AWS. It’s important to keep this in mind as you progress through the course. Let’s define both terms.</p>
+<section id="understand-authentication" class="level3">
+<h3 class="anchored" data-anchor-id="understand-authentication">Understand Authentication</h3>
+<p>When you create your AWS account, you use a combination of an email address and a password to verify your identity. If the user types in the correct email and password, the system assumes the user is allowed to enter and grants them access. This is the process of authentication.</p>
+<p>Authentication ensures that the user is who they say they are. Usernames and passwords are the most common types of authentication, but you may also work with other forms, such as token-based authentication or biometric data like a fingerprint. Authentication simply answers the question, “Are you who you say you are?”</p>
+</section>
+<section id="understand-authorization" class="level3">
+<h3 class="anchored" data-anchor-id="understand-authorization">Understand Authorization</h3>
+<p>Once you’re inside your AWS account, you might be curious about what actions you can take. This is where authorization comes in. Authorization is the process of giving users permission to access AWS resources and services. Authorization determines whether the user can perform an action—whether it be to read, edit, delete, or create resources.</p>
+<p>Authorization answers the question, “What actions can you perform?”</p>
+</section>
+<section id="what-is-the-aws-root-user" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-aws-root-user">What Is the AWS Root User?</h3>
+<p>When you first create an AWS account, you begin with a single sign-in identity that has complete access to all AWS services and resources in the account. This identity is called the AWS root user and is accessed by signing in with the email address and password that you used to create the account.</p>
+</section>
+<section id="understand-the-aws-root-user-credentials" class="level3">
+<h3 class="anchored" data-anchor-id="understand-the-aws-root-user-credentials">Understand the AWS Root User Credentials</h3>
+<p>The AWS root user has two sets of credentials associated with it. One set of credentials is the email address and password used to create the account. This allows you to access the AWS Management Console. The second set of credentials is called access keys, which allow you to make programmatic requests from the AWS Command Line Interface (AWS CLI) or AWS API.</p>
+<p>Access keys consist of two parts:</p>
+<ul>
+<li>An access key ID, for example, A2lAl5EXAMPLE</li>
+<li>A secret access key, for example, wJalrFE/KbEKxE</li>
+</ul>
+<p>Similar to a username and password combination, you need both the access key ID and secret access key to authenticate your requests via the AWS CLI or AWS API. Access keys should be managed with the same security as an email address and password.</p>
+</section>
+<section id="follow-best-practices-when-working-with-the-aws-root-user" class="level3">
+<h3 class="anchored" data-anchor-id="follow-best-practices-when-working-with-the-aws-root-user">Follow Best Practices When Working with the AWS Root User</h3>
+<p>Keep in mind that the root user has complete access to all AWS services and resources in your account, as well as your billing and personal information. Due to this, securely lock away the credentials associated with the root user and do not use the root user for everyday tasks.</p>
+<p>To ensure the safety of the root user:</p>
+<ul>
+<li>Choose a strong password for the root user.</li>
+<li>Never share your root user password or access keys with anyone.</li>
+<li>Disable or delete the access keys associated with the root user.</li>
+<li>Do not use the root user for administrative tasks or everyday tasks.</li>
+</ul>
+<p>When is it OK to use the AWS root user?</p>
+<p>There are some tasks where it makes sense to use the AWS root user. Check out the links at the end of this section to read about them.</p>
+</section>
+<section id="delete-your-keys-to-stay-safe" class="level3">
+<h3 class="anchored" data-anchor-id="delete-your-keys-to-stay-safe">Delete Your Keys to Stay Safe</h3>
+<p>If you don’t already have an access key for your AWS account root user, don’t create one unless you absolutely need to. If you do have an access key for your AWS account root user and want to delete the keys:</p>
+<ul>
+<li>Go to the My Security Credentials page in the AWS Management Console and sign in with the root user’s email address and password.</li>
+<li>Open the Access keys section.</li>
+<li>Under Actions, click Delete.</li>
+<li>Click Yes.</li>
+</ul>
+</section>
+<section id="the-case-for-multi-factor-authentication" class="level3">
+<h3 class="anchored" data-anchor-id="the-case-for-multi-factor-authentication">The Case for Multi-Factor Authentication</h3>
+<p>When you create an AWS account and first log in to that account, you use single-factor authentication. Single-factor authentication is the simplest and most common form of authentication. It only requires one authentication method. In this case, you use a username and password to authenticate as the AWS root user. Other forms of single-factor authentication include a security pin or a security token.</p>
+<p>However, sometimes a user’s password is easy to guess. For example, your coworker Bob’s password, IloveCats222, might be easy for someone who knows Bob personally to guess, because it’s a combination of information that is easy to remember and describes certain things about Bob (1. Bob loves cats, and 2. Bob’s birthday is February 22).</p>
+<p>If a bad actor guessed or cracked Bob’s password through social engineering, bots, or scripts, Bob might lose control of his account. Unfortunately, this is a common scenario that users of any website often face.</p>
+<p>This is why using MFA has become so important in preventing unwanted account access. MFA requires two or more authentication methods to verify an identity, pulling from three different categories of information.</p>
+<ul>
+<li>Something you know, such as a username and password, or pin number</li>
+<li>Something you have, such as a one-time passcode from a hardware device or mobile app</li>
+<li>Something you are, such as fingerprint or face scanning technology</li>
+</ul>
+<p>Using a combination of this information enables systems to provide a layered approach to account access. Even though the first method of authentication, Bob’s password, was cracked by a malicious user, it’s very unlikely that a second method of authentication, such as a fingerprint, would also be cracked.</p>
+<p>This extra layer of security is needed when protecting your most sacred accounts, which is why it’s important to enable MFA on your AWS root user.</p>
+</section>
+<section id="use-mfa-on-aws" class="level3">
+<h3 class="anchored" data-anchor-id="use-mfa-on-aws">Use MFA on AWS</h3>
+<p>If you enable MFA on your root user, you are required to present a piece of identifying information from both the something you know category and the something you have category. The first piece of identifying information the user enters is an email and password combination. The second piece of information is a temporary numeric code provided by an MFA device.</p>
+<p>Enabling MFA adds an additional layer of security because it requires users to use a supported MFA mechanism in addition to their regular sign-in credentials. It’s best practice to enable MFA on the root user.</p>
+<section id="review-supported-mfa-devices" class="level4">
+<h4 class="anchored" data-anchor-id="review-supported-mfa-devices">Review Supported MFA Devices</h4>
+<p>AWS supports a variety of MFA mechanisms, such as virtual MFA devices, hardware devices, and Universal 2nd Factor (U2F) security keys. For instructions on how to set up each method, check out the Resources section.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="introduction-to-aws-identity-and-access-management" class="level1">
+<h1>Introduction to AWS Identity and Access Management</h1>
+<section id="what-is-iam" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-iam">What Is IAM?</h3>
+<p>IAM is a web service that enables you to manage access to your AWS account and resources. It also provides a centralized view of who and what are allowed inside your AWS account (authentication), and who and what have permissions to use and work with your AWS resources (authorization).</p>
+<p>With IAM, you can share access to an AWS account and resources without having to share your set of access keys or password. You can also provide granular access to those working in your account, so that people and services only have permissions to the resources they need. For example, to provide a user of your AWS account with read-only access to a particular AWS service, you can granularly select which actions and which resources in that service they can access.</p>
+<section id="get-to-know-the-iam-features" class="level4">
+<h4 class="anchored" data-anchor-id="get-to-know-the-iam-features">Get to Know the IAM Features</h4>
+<p>To help control access and manage identities within your AWS account, IAM offers many features to ensure security.</p>
+<ul>
+<li>IAM is global and not specific to any one Region. This means you can see and use your IAM configurations from any Region in the AWS Management Console.</li>
+<li>IAM is integrated with many AWS services by default.</li>
+<li>You can establish password policies in IAM to specify complexity requirements and mandatory rotation periods for users.</li>
+<li>IAM supports MFA (multi factor auth).</li>
+<li>IAM supports identity federation, which allows users who already have passwords elsewhere—for example, in your corporate network or with an internet identity provider—to get temporary access to your AWS account.</li>
+<li>Any AWS customer can use IAM; the service is offered at no additional charge.</li>
+</ul>
+</section>
+</section>
+<section id="what-is-an-iam-user" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-an-iam-user">What Is an IAM User?</h3>
+<p>An IAM user represents a person or service that interacts with AWS. You define the user within your AWS account. And any activity done by that user is billed to your account. Once you create a user, that user can sign in to gain access to the AWS resources inside your account.</p>
+<p>You can also add more users to your account as needed. For example, for your cat photo application, you could create individual users in your AWS account that correspond to the people who are working on your application. Each person should have their own login credentials. Providing users with their own login credentials prevents sharing of credentials.</p>
+</section>
+<section id="iam-user-credentials" class="level3">
+<h3 class="anchored" data-anchor-id="iam-user-credentials">IAM User Credentials</h3>
+<p>An IAM user consists of a name and a set of credentials. When creating a user, you can choose to provide the user:</p>
+<ul>
+<li>Access to the AWS Management Console</li>
+<li>Programmatic access to the AWS Command Line Interface (AWS CLI) and AWS Application Programming Interface (AWS API)</li>
+</ul>
+<p>To access the AWS Management Console, provide the users with a user name and password. For programmatic access, AWS generates a set of access keys that can be used with the AWS CLI and AWS API. IAM user credentials are considered permanent, in that they stay with the user until there’s a forced rotation by admins.</p>
+<p>When you create an IAM user, you have the option to grant permissions directly at the user level.</p>
+<p>This can seem like a good idea if you have only one or a few users. However, as the number of users helping you build your solutions on AWS increases, it becomes more complicated to keep up with permissions. For example, if you have 3,000 users in your AWS account, administering access becomes challenging, and it’s impossible to get a top-level view of who can perform what actions on which resources.</p>
+<p>If only there were a way to group IAM users and attach permissions at the group level instead. Guess what: There is!</p>
+</section>
+<section id="what-is-an-iam-group" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-an-iam-group">What Is an IAM Group?</h3>
+<p>An IAM group is a collection of users. All users in the group inherit the permissions assigned to the group. This makes it easy to give permissions to multiple users at once. It’s a more convenient and scalable way of managing permissions for users in your AWS account. This is why using IAM groups is a best practice.</p>
+<p>If you have an application that you’re trying to build and have multiple users in one account working on the application, you might decide to organize these users by job function. You might want IAM groups organized by developers, security, and admins. You would then place all of your IAM users in the respective group for their job function.</p>
+<p>This provides a better view to see who has what permissions within your organization and an easier way to scale as new people join, leave, and change roles in your organization.</p>
+<p>Consider the following examples.</p>
+<ul>
+<li>A new developer joins your AWS account to help with your application. You simply create a new user and add them to the developer group, without having to think about which permissions they need.</li>
+<li>A developer changes jobs and becomes a security engineer. Instead of editing the user’s permissions directly, you can instead remove them from the old group and add them to the new group that already has the correct level of access.</li>
+</ul>
+<p>Keep in mind the following features of groups.</p>
+<ul>
+<li>Groups can have many users.</li>
+<li>Users can belong to many groups.</li>
+<li>Groups cannot belong to groups.</li>
+</ul>
+<p>The root user can perform all actions on all resources inside an AWS account by default. This is in contrast to creating new IAM users, new groups, or new roles. New IAM identities can perform no actions inside your AWS account by default until you explicitly grant them permission.</p>
+<p>The way you grant permissions in IAM is by using IAM policies.</p>
+</section>
+<section id="what-is-an-iam-policy" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-an-iam-policy">What Is an IAM Policy?</h3>
+<p>To manage access and provide permissions to AWS services and resources, you create IAM policies and attach them to IAM users, groups, and roles. Whenever a user or role makes a request, AWS evaluates the policies associated with them.</p>
+<p>For example, if you have a developer inside the developers group who makes a request to an AWS service, AWS evaluates any policies attached to the developers group and any policies attached to the developer user to determine if the request should be allowed or denied.</p>
+<section id="iam-policy-examples" class="level4">
+<h4 class="anchored" data-anchor-id="iam-policy-examples">IAM Policy Examples</h4>
+<p>Most policies are stored in AWS as JSON documents with several policy elements. Take a look at the following example of what providing admin access through an IAM identity-based policy looks like.</p>
+<p><code>{ "Version": "2012-10-17",     "Statement": [{         "Effect": "Allow",         "Action": "*",         "Resource": "*"      }] }</code></p>
+<p>In this policy, there are four major JSON elements: - Version, - Effect, - Action, - Resource.</p>
+<p>The Version element defines the version of the policy language. It specifies the language syntax rules that are needed by AWS to process a policy. To use all the available policy features, include “Version”: “2012-10-17” before the “Statement” element in all your policies.</p>
+<p>The Effect element specifies whether the statement will allow or deny access. In this policy, the Effect is “Allow”, which means you’re providing access to a particular resource.</p>
+<p>The Action element describes the type of action that should be allowed or denied. In the above policy, the action is “*“. This is called a wildcard, and it is used to symbolize every action inside your AWS account.</p>
+<p>The Resource element specifies the object or objects that the policy statement covers. In the policy example above, the resource is also the wildcard “*“. This represents all resources inside your AWS console.</p>
+<p>Putting all this information together, you have a policy that allows you to perform all actions on all resources inside your AWS account. This is what we refer to as an administrator policy.</p>
+<p>Let’s look at another example of a more granular IAM policy.</p>
+<p><code>{ "Version": "2012-10-17",     "Statement": [{         "Effect": "Allow",         "Action": [             "iam: ChangePassword",             "iam: GetUser"             ]         "Resource": "arn:aws:iam::123456789012:user/${aws:username}"     }] }</code></p>
+<p>After looking at the JSON, you can see that this policy allows the IAM user to change their own IAM password (iam:ChangePassword) and get information about their own user (iam:GetUser).</p>
+<p>It only permits them to access their own credentials because the resource restricts access with the variable substitution <code>${aws:username}</code>.</p>
+</section>
+<section id="understand-policy-structure" class="level4">
+<h4 class="anchored" data-anchor-id="understand-policy-structure">Understand Policy Structure</h4>
+<p>When creating a policy, it is required to have each of the following elements inside a policy statement.</p>
+<table class="table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 33%">
+<col style="width: 24%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Description</th>
+<th>Required</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Effect</td>
+<td>Specifies whether the statement results in an allow or an explicit deny</td>
+<td>✔</td>
+<td>“Effect”: “Deny”</td>
+</tr>
+<tr class="even">
+<td>Action</td>
+<td>Describes the specific actions that will be allowed or denied</td>
+<td>✔</td>
+<td>“Action”: “iam:CreateUser”</td>
+</tr>
+<tr class="odd">
+<td>Resource</td>
+<td>Specifies the object or objects that the statement covers</td>
+<td>✔</td>
+<td>“Resource”: “arn:aws:iam::account-ID-without-hyphens:user/Bob”</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="summary-role-based-access-in-aws" class="level1">
+<h1>Summary Role Based Access in AWS</h1>
+<p>Throughout these last few lessons, there have been sprinklings of IAM best practices. It’s helpful to have a brief summary of some of the most important IAM best practices you need to be familiar with before building out solutions on AWS.</p>
+<ol type="1">
+<li>Lock Down the AWS Root User</li>
+</ol>
+<blockquote class="blockquote">
+<p>The root user is an all-powerful and all-knowing identity within your AWS account. If a malicious user were to gain control of root-user credentials, they would be able to access every resource within your account, including personal and billing information. To lock down the root user:</p>
+</blockquote>
+<ul>
+<li>Don’t share the credentials associated with the root user.</li>
+<li>Consider deleting the root user access keys.</li>
+<li>Enable MFA on the root account.</li>
+</ul>
+<ol start="2" type="1">
+<li>Follow the Principle of Least Privilege</li>
+</ol>
+<blockquote class="blockquote">
+<p>Least privilege is a standard security principle that advises you to grant only the necessary permissions to do a particular job and nothing more. To implement least privilege for access control, start with the minimum set of permissions in an IAM policy and then grant additional permissions as necessary for a user, group, or role.</p>
+</blockquote>
+<ol start="3" type="1">
+<li>Use IAM Appropriately</li>
+</ol>
+<blockquote class="blockquote">
+<p>IAM is used to secure access to your AWS account and resources. It simply provides a way to create and manage users, groups, and roles to access resources within a single AWS account. IAM is not used for website authentication and authorization, such as providing users of a website with sign-in and sign-up functionality. IAM also does not support security controls for protecting operating systems and networks.</p>
+</blockquote>
+<ol start="4" type="1">
+<li>Use IAM Roles When Possible</li>
+</ol>
+<blockquote class="blockquote">
+<p>Maintaining roles is easier than maintaining users. When you assume a role, IAM dynamically provides temporary credentials that expire after a defined period of time, between 15 minutes and 36 hours. Users, on the other hand, have long-term credentials in the form of user name and password combinations or a set of access keys.</p>
+</blockquote>
+<p>User access keys only expire when you or the admin of your account rotates these keys. User login credentials expire if you have applied a password policy to your account that forces users to rotate their passwords.</p>
+<ol start="5" type="1">
+<li>Consider Using an Identity Provider</li>
+</ol>
+<blockquote class="blockquote">
+<p>If you decide to make your cat photo application into a business and begin to have more than a handful of people working on it, consider managing employee identity information through an identity provider (IdP). Using an IdP, whether it be an AWS service such as AWS Single Sign-On (SSO) or a third-party identity provider, provides you a single source of truth for all identities in your organization.</p>
+</blockquote>
+<p>You no longer have to create separate IAM users in AWS. You can instead use IAM roles to provide permissions to identities that are federated from your IdP.</p>
+<p>For example, you have an employee, Martha, that has access to multiple AWS accounts. Instead of creating and managing multiple IAM users named Martha in each of those AWS accounts, you can manage Martha in your company’s IdP. If Martha moves within the company or leaves the company, Martha can be updated in the IdP, rather than in every AWS account you have.</p>
+<ol start="6" type="1">
+<li>Consider AWS SSO</li>
+</ol>
+<blockquote class="blockquote">
+<p>If you have an organization that spans many employees and multiple AWS accounts, you may want your employees to sign in with a single credential. AWS SSO is an IdP that lets your users sign in to a user portal with a single set of credentials. It then provides them access to all their assigned accounts and applications in one central location.</p>
+</blockquote>
+<p>AWS SSO is similar to IAM, in that it offers a directory where you can create users, organize them in groups, and set permissions across those groups, and grant access to AWS resources. However, AWS SSO has some advantages over IAM. For example, if you’re using a third-party IdP, you can sync your users and groups to AWS SSO.</p>
+<p>This removes the burden of having to re-create users that already exist elsewhere, and it enables you to manage those users from your IdP. More importantly, AWS SSO separates the duties between your IdP and AWS, ensuring that your cloud access management is not inside or dependent on your IdP.</p>
+</section>
+<section id="compute-as-a-service-on-aws" class="level1">
+<h1>Compute as a Service on AWS</h1>
+<section id="understanding-servers" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-servers">Understanding Servers</h2>
+<p>The first building block you need to host an application is a server. Servers often times can handle Hypertext Transfer Protocol (HTTP) requests and send responses to clients following the client-server model, though any API based communication also falls under this model. A client being a person or computer that sends a request, and a server handling the requests is a computer, or collection of computers, connected to the internet serving websites to internet users.</p>
+<p>These servers power your application by providing CPU, memory, and networking capacity to process users’ requests and transform them into responses. For context, common HTTP servers include:</p>
+<ul>
+<li>Windows options, such as Internet Information Services (IIS).</li>
+<li>Linux options, such as Apache HTTP Web Server, Nginx, and Apache Tomcat.</li>
+</ul>
+<p>To run an HTTP server on AWS, you need to find a service that provides compute power in the AWS Management Console. You can log into the console and view the complete list of AWS compute services.</p>
+</section>
+<section id="choose-the-right-compute-option" class="level2">
+<h2 class="anchored" data-anchor-id="choose-the-right-compute-option">Choose the Right Compute Option</h2>
+<p>If you’re responsible for setting up servers on AWS to run your infrastructure, you have many compute options. You need to know which service to use for which use case. At a fundamental level, there are three types of compute options: - virtual machines, e.g.&nbsp;EC2 - container services, - serverless.</p>
+<p>If you’re coming to AWS with prior infrastructure knowledge, a virtual machine can often be the easiest compute option in AWS to understand. This is because a virtual machine emulates a physical server and allows you to install an HTTP server to run your applications. To run these virtual machines, you install a hypervisor on a host machine. This hypervisor provisions the resources to create and run your virtual machines.</p>
+<blockquote class="blockquote">
+<p>How does AWS hypervisor work? A hypervisor is a piece of system software that provides virtual machines (VMs), on which users can run their OS and applications. The hypervisor provides isolation between VMs, which run independent of each other, and allows different VMs to run their own OS</p>
+</blockquote>
+<p>In AWS, these virtual machines are called <strong>Amazon Elastic Compute Cloud</strong> or Amazon EC2. Behind the scenes, AWS operates and manages the host machines and the hypervisor layer. AWS also installs the virtual machine operating system, called the guest operating system.</p>
+<p>Some AWS compute services use Amazon EC2 or use virtualization concepts under the hood, therefore it is best to understand this service first before moving on to container services and serverless compute.</p>
+</section>
+</section>
+<section id="introduction-to-amazon-elastic-compute-cloud" class="level1">
+<h1>Introduction to Amazon Elastic Compute Cloud</h1>
+<section id="what-is-amazon-ec2" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-amazon-ec2">What Is Amazon EC2?</h2>
+<p>Amazon EC2 is a web service that provides secure, resizable compute capacity in the cloud. It allows you to provision virtual servers called EC2 instances. Although AWS uses the phrase “web service” to describe it, it doesn’t mean that you are limited to running just web servers on your EC2 instances.</p>
+<p>You can create and manage these instances through the AWS Management Console, the AWS Command Line Interface (CLI), AWS Software Development Kits (SDKs), or through automation tools and infrastructure orchestration services.</p>
+<p>In order to create an EC2 instance, you need to define:</p>
+<ul>
+<li>Hardware specifications, like CPU, memory, network, and storage.</li>
+<li>Logical configurations, like networking location, firewall rules, authentication, and the operating system of your choice.</li>
+</ul>
+<p>When launching an EC2 instance, the first setting you configure is which operating system you want by selecting an Amazon Machine Image (AMI).</p>
+<section id="what-is-an-amazon-machine-image-ami" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-an-amazon-machine-image-ami">What Is an Amazon Machine Image (AMI)?</h3>
+<p>In the traditional infrastructure world, the process of spinning up a server consists of installing an operating system from installation disks, installation drives, or installation wizards over the network. In the AWS Cloud, this operating system installation is no longer your responsibility, and is instead built into the AMI that you choose.</p>
+<p>Not only does an AMI let you configure which operating system you want, you can also select storage mappings, the architecture type (such as 32-bit, 64-bit, or 64-bit ARM), and additional software installed.</p>
+</section>
+<section id="what-is-the-relationship-between-amis-and-ec2-instances" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-relationship-between-amis-and-ec2-instances">What Is the Relationship Between AMIs and EC2 Instances?</h3>
+<p>EC2 instances are live instantiations of what is defined in an AMI, much like a cake is a live instantiation of a cake recipe. If you are familiar with software development, you can also see this kind of relationship between a Class and an Object.</p>
+<p>A Class is something you model and define, while an object is something you interact with. In this case, the AMI is how you model and define your instance, while the EC2 instance is the entity you interact with, where you can install your web server, and serve your content to users.</p>
+<p>When you launch a new instance, AWS allocates a virtual machine that runs on a hypervisor. Then the AMI you selected is copied to the root device volume, which contains the image used to boot the volume. In the end, you get a server you can connect to and install packages and any additional software. In this case, you install a web server along with the properly configured source code of your employee directory app.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/uKHYVtl7R0Sh2FbZe6dESw_e92f04dcceed4d23862545b3ccc4f759_f5b8552a9bc44aebb2f2c3c3a54948cd_b-61-b-3-ee-6-29-e-3-4-edd-8-f-81-3-a-1-aa-8919-c-21.png?expiry=1665878400000&amp;hmac=Ug__zhnH7PXkqi1ZE3yom_n_kGjC3xJvIcnVgpMxP3I" class="img-fluid"></p>
+<p>One advantage of using AMIs is that they are reusable.</p>
+<p>You might choose a Linux-based AMI and configure the HTTP server, application packages, and any additional software you may need to run your application.</p>
+<p>If you wanted to create a second EC2 instance with the same configurations, how can you easily do that? One option is to go through the entire instance creation and configuration process and try to match your settings to the first instance. However, this is time consuming and leaves room for human error.</p>
+<p>The second, better option, is to create an AMI from your running instance and use this AMI to start a new instance. This way, your new instance will have all the same configurations as your current instance, because the configurations set in the AMIs are the same.</p>
+</section>
+<section id="where-can-you-find-amis" class="level3">
+<h3 class="anchored" data-anchor-id="where-can-you-find-amis">Where Can You Find AMIs?</h3>
+<p>You can select an AMI from the following categories.</p>
+<ul>
+<li>Quick Start AMIs that are premade by AWS and allow you to get started quickly.</li>
+<li>AWS Marketplace AMIs that provide popular open source and commercial software from third-party vendors.</li>
+<li>My AMIs that are created from your EC2 instances.</li>
+<li>Community AMIs that are provided by the AWS user community.</li>
+<li>Build your own custom image with EC2 Image Builder.</li>
+</ul>
+<p>Each AMI in the AWS Management Console has an AMI ID, which is prefixed by “ami-”, followed by a random hash of numbers and letters. These IDs are unique to each AWS region.</p>
+</section>
+</section>
+<section id="amazon-ec2-instance-lifecycle" class="level2">
+<h2 class="anchored" data-anchor-id="amazon-ec2-instance-lifecycle">Amazon EC2 Instance Lifecycle</h2>
+<p>Now that you know how to select an operating system for your EC2 instance, it’s time to choose other configurations to create your EC2 instance, such as the instance type, network, and storage.</p>
+<p>For an application like the employee directory application, you need instances with enough capacity to run web servers and process incoming customer requests. Your instance sizing will depend on both the demands of your application and the anticipated size of your user base.</p>
+<p>Forecasting server capacity for an on-premises application requires difficult decisions involving significant up-front capital spending, while changes to the allocation of your cloud-based services can be made with a simple API call.</p>
+<p>Because of AWS’s pay-as-you-go model, you can match your infrastructure capacity to your application’s demand, instead of the other way around.</p>
+<section id="what-makes-up-an-ec2-instance" class="level3">
+<h3 class="anchored" data-anchor-id="what-makes-up-an-ec2-instance">What Makes Up an EC2 Instance?</h3>
+<p>EC2 instances are a combination of virtual processors (vCPUs), memory, network, and in some cases, instance storage and graphics processing units (GPUs). When you create an EC2 instance, you need to choose how much you need of each of these components.</p>
+<p>AWS offers a variety of instances that differ based on performance. Some instances provide you with more capacity and others provide less. To get an overview of the capacity details for a particular instance, you should look at the instance type.</p>
+<p>Instance types consist of a prefix identifying the type of workloads they’re optimized for, followed by a size. For example, the instance type c5.large can be broken down into the following elements.</p>
+<ul>
+<li><p>c5 determines the instance family and generation number. Here, the instance belongs to the fifth generation of instances in an instance family that’s optimized for generic computation.</p></li>
+<li><p>large, which determines the amount of instance capacity.</p></li>
+</ul>
+</section>
+<section id="what-are-instance-families" class="level3">
+<h3 class="anchored" data-anchor-id="what-are-instance-families">What Are Instance Families?</h3>
+<table class="table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 29%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Instance Family</th>
+<th>Description</th>
+<th>Use Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>General purpose</td>
+<td>Provides a balance of compute, memory, and networking resources, and can be used for a variety of workloads.</td>
+<td>Scale-out workloads such as web servers, containerized microservices, caching fleets, distributed data stores, and development environments.</td>
+</tr>
+<tr class="even">
+<td>Compute optimized</td>
+<td>Ideal for compute-bound applications that benefit from high-performance processors.</td>
+<td>High-performance web servers, scientific modeling, batch processing, distributed analytics, high-performance computing (HPC), machine/deep learning, ad serving, highly scalable multiplayer gaming.</td>
+</tr>
+<tr class="odd">
+<td>Memory optimized</td>
+<td>Designed to deliver fast performance for workloads that process large data sets in memory.</td>
+<td>Memory-intensive applications such as high-performance databases, distributed web-scale in-memory caches, mid-size in-memory databases, real-time big-data analytics, and other enterprise applications.</td>
+</tr>
+<tr class="even">
+<td>Accelerated computing</td>
+<td>Use hardware accelerators or co-processors to perform functions such as floating-point number calculations, graphics processing, or data pattern matching more efficiently than is possible with conventional CPUs.</td>
+<td>3D visualizations, graphics-intensive remote workstations, 3D rendering, application streaming, video encoding, and other server-side graphics workloads.</td>
+</tr>
+<tr class="odd">
+<td>Storage optimized</td>
+<td>Designed for workloads that require high, sequential read and write access to large data sets on local storage. They are optimized to deliver tens of thousands of low-latency random I/O operations per second (IOPS) to applications that replicate their data across different instances.</td>
+<td>NoSQL databases, such as Cassandra, MongoDB, and Redis, in-memory databases, scale-out transactional databases, data warehousing, Elasticsearch, and analytics.</td>
+</tr>
+</tbody>
+</table>
+<section id="where-does-your-ec2-instance-live" class="level4">
+<h4 class="anchored" data-anchor-id="where-does-your-ec2-instance-live">Where Does Your EC2 Instance Live?</h4>
+<p>By default, your EC2 instances are placed in a network called the default Amazon Virtual Private Cloud (VPC). This network was created so that you can easily get started with Amazon EC2 without having to learn how to create and configure a VPC.</p>
+<p>Any resource you put inside the default VPC will be public and accessible by the internet, so you shouldn’t place any customer data or private information inside of it.</p>
+<p>Once you get more comfortable with networking on AWS, you should change this default setting to choose your own custom VPCs and restrict access with additional routing and connectivity mechanisms.</p>
+</section>
+<section id="architect-for-high-availability" class="level4">
+<h4 class="anchored" data-anchor-id="architect-for-high-availability">Architect for High Availability</h4>
+<p>Inside this network, your instance resides in an Availability Zone of your choice. AWS services that are scoped at the Availability Zone level must be architected with high availability in mind.</p>
+<p>While EC2 instances are typically reliable, two is better than one, and three is better than two. Specifying the instance size gives you an advantage when designing your architecture because you can use more smaller instances instead of a few larger ones.</p>
+<p>If your frontend only has a single instance and that instance fails, your application goes down. On the other hand, if your workload is distributed across 10 instances and one fails, you lose only 10 percent of your fleet and your application availability is hardly affected.</p>
+<p>When architecting any application for high availability, consider using at least two EC2 instances in two separate Availability Zones.</p>
+</section>
+<section id="explore-the-ec2-instance-lifecycle" class="level4">
+<h4 class="anchored" data-anchor-id="explore-the-ec2-instance-lifecycle">Explore the EC2 Instance Lifecycle</h4>
+<p>An EC2 instance transitions between different states from the moment you create it all the way through to its termination.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vgBOJqw6TMyATiasOizM8g_8d882217f0044106a24b7d6c69549207_image-11-.png?expiry=1665878400000&amp;hmac=rbFIiefynyTQOLU0cf_bjXdpKdO-UnVZI0oMbG4rHWU" class="img-fluid"></p>
+<ol type="1">
+<li><p>When you launch an instance, it enters the pending state (1). When the instance is pending, billing has not started. At this stage, the instance is preparing to enter the running state. Pending is where AWS performs all actions needed to set up an instance, such as copying the AMI content to the root device and allocating the necessary networking components.</p></li>
+<li><p>When your instance is running (2), it’s ready to use. This is also the stage where billing begins. As soon as an instance is running, you are then able to take other actions on the instance, such as reboot, terminate, stop, and stop-hibernate.</p></li>
+<li><p>When you reboot an instance (3), it’s different than performing a stop action and then a start action. Rebooting an instance is equivalent to rebooting an operating system. The instance remains on the same host computer and maintains its public and private IP address, and any data on its instance store.</p></li>
+<li><p>It typically takes a few minutes for the reboot to complete. When you stop and start an instance (4), your instance may be placed on a new underlying physical server. Therefore, you lose any data on the instance store that were on the previous host computer. When you stop an instance, the instance gets a new public IP address but maintains the same private IP address.</p></li>
+<li><p>When you terminate an instance (5), the instance store are erased, and you lose both the public IP address and private IP address of the machine. Termination of an instance means you can no longer access the machine.</p></li>
+</ol>
+</section>
+<section id="what-is-the-difference-between-stop-and-stop-hibernate" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-the-difference-between-stop-and-stop-hibernate">What Is the Difference Between Stop and Stop-Hibernate?</h4>
+<p>When you stop your instance, it enters the stopping state, and then the stopped state. AWS does not charge usage or data transfer fees for your instance after you stop it, but storage for any Amazon EBS volumes is still charged. While your instance is in the stopped state, you can modify some attributes, like the instance type. When you stop your instance, the data stored in memory (RAM) is lost.</p>
+<p>When you stop-hibernate your instance, AWS signals the operating system to perform hibernation (suspend-to-disk), which saves the contents from the instance memory (RAM) to the Amazon EBS root volume.</p>
+<p>Consider a scenario where you build a standard three tier application, where you have web servers, application servers and database servers. Turns out, the application you built becomes extremely popular. To relieve some stress on the database that supports your application, you want to implement a custom backend layer that caches database information in memory (RAM). You decide to run this custom backend caching solution on Amazon EC2.</p>
+<p>In this scenario, the stop-hibernate feature would be instrumental in persisting storage. It would prevent you from having to manually create scripts to save this RAM data before shutting down the server.</p>
+</section>
+</section>
+<section id="what-makes-up-the-pricing" class="level3">
+<h3 class="anchored" data-anchor-id="what-makes-up-the-pricing">What Makes Up the Pricing?</h3>
+<p>To understand EC2 pricing, let’s decouple the instance price from other services attached to it, such as storage and networking costs. In this unit we refer to the instance cost as the cost associated with the instance in terms of specifications and not the total blended cost of running an instance.</p>
+<p>Once an instance is launched in your AWS account, the billing usually accrues on a per-second basis. For simplicity of calculation, prices are stated per-hour. For example, if you have an instance running for 5 minutes and 38 seconds during a given month, you only pay for 338 seconds of utilization at the end of the month.</p>
+<p>One exception to this pricing convention may be third-party AMIs purchased from the AWS Marketplace, which may have a minimum billing of 1 hour. For more details, check out the resources section of this unit.</p>
+<section id="what-are-the-ec2-pricing-options" class="level4">
+<h4 class="anchored" data-anchor-id="what-are-the-ec2-pricing-options">What Are the EC2 Pricing Options?</h4>
+<p>One of the ways to reduce costs with Amazon EC2 is to choose the right pricing option for the way your applications run. There are three main purchasing options for EC2 instances: - on-demand, - reserved, and - spot instances.</p>
+</section>
+<section id="pay-as-you-go-with-on-demand-instances" class="level4">
+<h4 class="anchored" data-anchor-id="pay-as-you-go-with-on-demand-instances">Pay As You Go with On-Demand Instances</h4>
+<p>With On-Demand instances, you pay for compute capacity with no long-term commitments. Billing begins whenever the instance is running, and billing stops when the instance is in a stopped or terminated state. The price per second for a running On-Demand instance is fixed.</p>
+<p>For applications that require servers to be running all the time, you are less likely to benefit from the On-Demand pricing model, simply because there is no situation where you will need to turn servers off. For example, you might want the web server hosting the frontend of your corporate directory application to be running 24/7 so that users can access the website at any time. Even if there are no users connected to your website, you don’t want to shut down the servers supporting the site in case of potential user activity.</p>
+<p>In the case when servers cannot be stopped, consider using a Reserved Instance to save on costs.</p>
+</section>
+<section id="reserve-capacity-with-reserved-instances-ris" class="level4">
+<h4 class="anchored" data-anchor-id="reserve-capacity-with-reserved-instances-ris">Reserve Capacity with Reserved Instances (RIs)</h4>
+<p>RIs provide you with a significant discount compared to On-Demand instance pricing. RIs provide a discounted hourly rate and an optional capacity reservation for EC2 instances. You can choose between three payment options: - All Upfront, - Partial Upfront, or - No Upfront.</p>
+<p>You can select for each of these options either a - 1-year or - 3-year term</p>
+<p>Depending on which option you choose, you are discounted differently.</p>
+<ul>
+<li>All Upfront offers a higher discount than Partial Upfront instances.</li>
+<li>Partial Upfront instances offer a higher discount than No Upfront.</li>
+<li>No Upfront offers a higher discount than On-Demand.</li>
+</ul>
+<p>On-Demand and No Upfront are similar since both do not require any upfront payment. However, there is a major difference. When you choose an On-Demand instance, you stop paying for the instance when you stop or terminate the instance. When you stop an RI, you still pay for it because you committed to a 1-year or 3-year term.</p>
+<p>Reserved Instances are associated with an instance type and an Availability Zone depending on how you reserve it. The discount applied by a Reserved Instance purchase is not directly associated with a specific instance ID, but with an instance type.</p>
+</section>
+<section id="save-on-costs-with-spot-instances" class="level4">
+<h4 class="anchored" data-anchor-id="save-on-costs-with-spot-instances">Save on Costs with Spot Instances</h4>
+<p>Another way of paying for EC2 instances is by using Spot Instances. Amazon EC2 Spot Instances allow you to take advantage of unused EC2 capacity in the AWS Cloud. They are available at up to a 90% discount compared to On-Demand prices.</p>
+<p>With Spot Instances, you set a limit on how much you would like to pay for the instance hour. This is compared against the current Spot price that AWS determines. If the amount you pay is more than the current Spot price and there is capacity, then you will receive an instance. While they are very promising from the billing perspective, there are some architectural considerations you will need to consider in order to use them effectively.</p>
+<p>One consideration is that your spot instance may be interrupted. For example, if AWS determines that capacity is no longer available for a particular spot instance or if the Spot price exceeds how much you are willing to pay, AWS will give you a 2-minute warning before it interrupts your instance. That means any application or workload that runs on a Spot instance must be able to be interrupted.</p>
+<p>Because of this unique consideration, inherently fault-tolerant workloads are typically good candidates to use with Spot instances.</p>
+<p>These include - big data, - containerized workloads, - continuous integration/continuous delivery (CI/CD), - web servers, - high-performance computing (HPC), - image and media rendering, - or other test and development workloads.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="container-services-on-aws" class="level1">
+<h1>Container Services on AWS</h1>
+<p>AWS offers a broad spectrum of compute offerings that give you the flexibility to choose the right tool for the right job. The three main categories of compute are - virtual machines, - containers, and - serverless.</p>
+<p>There is no one-size-fits-all service because it depends on your needs.</p>
+<p>The key is to understand what each option has to offer in order to build a more appropriate cloud architecture for your use case.</p>
+<section id="what-is-a-container" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-container">What Is a Container?</h2>
+<blockquote class="blockquote">
+<p>What is the container in AWS? Containers provide a standard way to package your application’s code, configurations, and dependencies into a single object. Containers share an operating system installed on the server and run as resource-isolated processes, ensuring quick, reliable, and consistent deployments, regardless of environment</p>
+</blockquote>
+<p>Containers can host a variety of different workloads, including - web applications, - lift and shift migrations, - distributed applications, and - streamlining of development, test, and production environments.</p>
+<p>With the evolution of the open source software community, containers evolved. Today, containers are used as a solution to problems of traditional compute, including the issue of getting software to run reliably when it moves from one compute environment to another.</p>
+<p>A container is a standardized unit that packages up your code and all of its dependencies. <strong>This package is designed to run reliably on any platform, because the container creates its own independent environment.</strong> This makes it easy to carry workloads from one place to another, such as from development to production or from on-premises to the cloud.</p>
+</section>
+<section id="what-is-docker" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-docker">What Is Docker?</h2>
+<p>When you hear the word container, you may associate it with Docker. Docker is a popular container runtime that simplifies the management of the entire operating system stack needed for container isolation, including networking and storage. Docker makes it easy to create, package, deploy, and run containers.</p>
+<section id="what-is-the-difference-between-containers-and-vms" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-difference-between-containers-and-vms">What Is the Difference Between Containers and VMs?</h3>
+<p>Containers share the same operating system and kernel as the host they exist on, whereas virtual machines contain their operating system. Since each virtual machine has to maintain a copy of an operating system, there’s a degree of wasted space.</p>
+<p>A container is more lightweight. They spin up quicker, almost instantly. This difference in startup time becomes instrumental when designing applications that need to scale quickly during input/output (I/O) bursts.</p>
+<p>While containers can provide speed, virtual machines offer you the full strength of an operating system and offer more resources, like package installation, a dedicated kernel, and more.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/YmDaQPNCTNug2kDzQvzb8g_a0cec7d6f09746809164174945769eed_image-17-.png?expiry=1665878400000&amp;hmac=gYaifk005vTRmWij1h6IkGg2X7W2dqk_spxmikuNEpA" class="img-fluid"></p>
+</section>
+<section id="orchestrate-containers" class="level3">
+<h3 class="anchored" data-anchor-id="orchestrate-containers">Orchestrate Containers</h3>
+<p>In AWS, containers run on EC2 instances. For example, you may have a large instance and run a few containers on that instance.</p>
+<p>While running one instance is easy to manage, it lacks high availability and scalability. Most companies and organizations run many containers on many EC2 instances across several Availability Zones.</p>
+<p>If you’re trying to manage your compute at a large scale, you need to know:</p>
+<ul>
+<li>How to place your containers on your instances.</li>
+<li>What happens if your container fails.</li>
+<li>What happens if your instance fails.</li>
+<li>How to monitor deployments of your containers.</li>
+</ul>
+<p>This coordination is handled by a container orchestration service. AWS offers two container orchestration services: Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS).</p>
+</section>
+<section id="manage-containers-with-amazon-elastic-container-service-amazon-ecs" class="level3">
+<h3 class="anchored" data-anchor-id="manage-containers-with-amazon-elastic-container-service-amazon-ecs">Manage Containers with Amazon Elastic Container Service (Amazon ECS)</h3>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/paBhwshhRnqgYcLIYfZ6Mw_41443da23de04aafa72b5080aac4d652_image-16-.png?expiry=1665878400000&amp;hmac=UpVuDzdCINSKFG7yAzsu7xpEYxPZlFqETWYy4nkOFz8" class="img-fluid"></p>
+<p><strong>Amazon ECS is an end-to-end container orchestration service</strong> that allows you to quickly spin up new containers and manage them across a cluster of EC2 instances.</p>
+<p>To run and manage your containers, you need to install the Amazon ECS Container Agent on your EC2 instances. This agent is open source and responsible for communicating back to the Amazon ECS service about cluster management details. You can run this agent on both Linux and Windows AMIs. An instance with the container agent installed is often called a container instance.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/iFV63qjSRAWVet6o0vQFXw_279572f8b1ef4ebdb5b6daab85088433_image-15-.png?expiry=1665878400000&amp;hmac=1BxNOFRqG7usxXpaZA_S2kRvMhjsMaVUu9XMNiw9JQY" class="img-fluid"></p>
+<p>Once the Amazon ECS container instances are up and running, you can perform actions that include, but are not limited to, - launching and stopping containers, - getting cluster state, - scaling in and out, - scheduling the placement of containers across your cluster, - assigning permissions, and - meeting availability requirements.</p>
+<p>To prepare your application to run on Amazon ECS, you create a task definition. The task definition is a text file, in JSON format, that describes one or more containers. A task definition is similar to a blueprint that describes the resources you need to run that container, such as CPU, memory, ports, images, storage, and networking information.</p>
+<p>Here is a simple task definition that you can use for your corporate director application. In this example, the runs on the Nginx web server.</p>
+<p><code>{     "family": "webserver",     "containerDefinitions": [ {         "name": "web",         "image": "nginx",         "memory": "100",         "cpu": "99"     } ],     "requiresCompatibilities": [ "FARGATE" ],     "networkMode": "awsvpc",     "memory": "512",     "cpu": "256" }</code></p>
+</section>
+<section id="use-kubernetes-with-amazon-elastic-kubernetes-service-amazon-eks" class="level3">
+<h3 class="anchored" data-anchor-id="use-kubernetes-with-amazon-elastic-kubernetes-service-amazon-eks">Use Kubernetes with Amazon Elastic Kubernetes Service (Amazon EKS)</h3>
+<p>Kubernetes is a portable, extensible, open source platform for managing containerized workloads and services. By bringing software development and operations together by design, Kubernetes created a rapidly growing ecosystem that is very popular and well established in the market.</p>
+<p>If you already use Kubernetes, you can use Amazon EKS to orchestrate these workloads in the AWS Cloud.</p>
+<p>Amazon EKS is conceptually similar to Amazon ECS, but there are some differences.</p>
+<ul>
+<li>An EC2 instance with the ECS Agent installed and configured is called a container instance.
+<ul>
+<li>In Amazon EKS, it is called a worker node.</li>
+</ul></li>
+<li>An ECS Container is called a task.
+<ul>
+<li>In the Amazon EKS ecosystem, it is called a pod.</li>
+</ul></li>
+<li>While Amazon ECS runs on AWS native technology,
+<ul>
+<li>Amazon EKS runs on top of Kubernetes.</li>
+</ul></li>
+</ul>
+<p>If you have containers running on Kubernetes and want an advanced orchestration solution that can provide simplicity, high availability, and fine-grained control over your infrastructure, Amazon EKS is the tool for you.</p>
+</section>
+</section>
+</section>
+<section id="serverless-and-aws-lambda" class="level1">
+<h1>Serverless and AWS Lambda</h1>
+<section id="remove-the-undifferentiated-heavy-lifting" class="level3">
+<h3 class="anchored" data-anchor-id="remove-the-undifferentiated-heavy-lifting">Remove the Undifferentiated Heavy Lifting</h3>
+<p>If you run your code on Amazon EC2, AWS is responsible for the physical hardware and you are responsible for the logical controls, such as guest operating system, security and patching, networking, security, and scaling.</p>
+<p>If you run your code in containers on Amazon ECS and Amazon EKS, AWS is responsible for more of the container management, such as deploying containers across EC2 instances and managing the container cluster. However, when running ECS and EKS on EC2, you are still responsible for maintaining the underlying EC2 instances.</p>
+<p>If you want to deploy your workloads and applications without having to manage any EC2 instances, you can do that on AWS with serverless compute.</p>
+</section>
+<section id="go-serverless" class="level3">
+<h3 class="anchored" data-anchor-id="go-serverless">Go Serverless</h3>
+<blockquote class="blockquote">
+<p>What is serverless in AWS? A serverless architecture is a way to build and run applications and services without having to manage infrastructure. Your application still runs on servers, but all the server management is done by AWS</p>
+</blockquote>
+<p>Every definition of serverless mentions four aspects.</p>
+<ul>
+<li>No servers to provision or manage.</li>
+<li>Scales with usage.</li>
+<li>You never pay for idle resources.</li>
+<li>Availability and fault tolerance are built-in.</li>
+</ul>
+<p>With serverless, spend time on the things that differentiate your application, rather than spending time on ensuring availability, scaling, and managing servers.</p>
+<p>AWS has several serverless compute options, including AWS Fargate and AWS Lambda.</p>
+</section>
+<section id="explore-serverless-containers-with-aws-fargate" class="level3">
+<h3 class="anchored" data-anchor-id="explore-serverless-containers-with-aws-fargate">Explore Serverless Containers with AWS Fargate</h3>
+<p>Amazon ECS and Amazon EKS enable you to run your containers in two modes.</p>
+<ul>
+<li>Amazon EC2 mode</li>
+<li>AWS Fargate mode</li>
+</ul>
+<p>AWS Fargate is a purpose-built serverless compute engine for containers. Fargate scales and manages the infrastructure, allowing developers to work on what they do best: application development.</p>
+<p>It achieves this by allocating the right amount of compute, eliminating the need to choose and handle EC2 Instances and cluster capacity and scaling. Fargate supports both Amazon ECS and Amazon EKS architecture and provides workload isolation and improved security by design.</p>
+<p>AWS Fargate abstracts the EC2 instance so you’re not required to manage it. However, with AWS Fargate, you can use all the same ECS primitives, APIs, and AWS integrations. It natively integrates with AWS Identity and Access Management (IAM) and Amazon Virtual Private Cloud (VPC). Having native integration with Amazon VPC allows you to launch Fargate containers inside your network and control connectivity to your applications.</p>
+</section>
+<section id="run-your-code-on-aws-lambda" class="level3">
+<h3 class="anchored" data-anchor-id="run-your-code-on-aws-lambda">Run Your Code on AWS Lambda</h3>
+<p>If you want to deploy your workloads and applications without having to manage any EC2 instances or containers, you can use AWS Lambda.</p>
+<p>AWS Lambda lets you run code without provisioning or managing servers or containers. You can run code for virtually any type of application or backend service, including data processing, real-time stream processing, machine learning, WebSockets, IoT backends, mobile backends, and web apps, like your corporate directory app!</p>
+<p>AWS Lambda requires zero administration from the user. You upload your source code and Lambda takes care of everything required to run and scale your code with high availability. There are no servers to manage, bringing you continuous scaling with subsecond metering and consistent performance.</p>
+</section>
+<section id="how-lambda-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-lambda-works">How Lambda Works</h3>
+<p>There are three primary components of a Lambda function: - the trigger, - code, and - configuration.</p>
+<p>The code is source code, that describes what the Lambda function should run. This code can be authored in three ways.</p>
+<ul>
+<li>You create the code from scratch.</li>
+<li>You use a blueprint that AWS provides.</li>
+<li>You use same code from the AWS Serverless Application Repository, a resource that contains sample applications, such as “hello world” code, Amazon Alexa Skill sample code, image resizing code, video encoding, and more.</li>
+</ul>
+<p>When you create your Lambda function, you specify the runtime you want your code to run in. There are built-in runtimes such as Python, Node.js, Ruby, Go, Java, .NET Core, or you can implement your Lambda functions to run on a custom runtime.</p>
+<p>The configuration of a Lambda function consists of information that describes how the function should run. In the configuration, you specify network placement, environment variables, memory, invocation type, permission sets, and other configurations. To dive deeper into these configurations, check out the resources section of this unit.</p>
+<p>Triggers describe when the Lambda function should run. A trigger integrates your Lambda function with other AWS services, enabling you to run your Lambda function in response to certain API calls that occur in your AWS account. This makes you quicker to respond to events in your console without having to perform manual actions.</p>
+<p>All you need is the what, how, and when of a Lambda function to have functional compute capacity that runs only when you need it to.</p>
+<p>Amazon’s CTO, Werner Vogels, says, “No server is easier to manage than no server.” This quote summarizes the convenience you can have when running serverless solutions, like AWS Fargate and AWS Lambda. In the next unit, you apply all the information you’ve learned about Amazon EC2, Amazon ECS and Amazon EKS, and AWS Fargate and learn the use cases for each service.</p>
+</section>
+<section id="aws-lambda-function-handler" class="level3">
+<h3 class="anchored" data-anchor-id="aws-lambda-function-handler">AWS Lambda function handler</h3>
+<p>The AWS Lambda function handler is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.</p>
+<p>You can use the following general syntax when creating a function handler in Python:</p>
+<p><code>def handler_name(event, context):      ...     return some_value</code></p>
+<section id="naming" class="level4">
+<h4 class="anchored" data-anchor-id="naming">Naming</h4>
+<p>The Lambda function handler name specified at the time you create a Lambda function is derived from the following: - the name of the file in which the Lambda handler function is located - the name of the Python handler function</p>
+<p>A function handler can be any name; however, the default on the Lambda console is <code>lambda_function.lambda_handler</code>. This name reflects the function name as lambda_handler, and the file where the handler code is stored in lambda_function.py.</p>
+<p>If you choose a different name for your function handler on the Lambda console, you must update the name on the Runtime settings pane.</p>
+</section>
+<section id="billing-granularity" class="level4">
+<h4 class="anchored" data-anchor-id="billing-granularity">Billing Granularity</h4>
+<p>AWS Lambda lets you run code without provisioning or managing servers, and you pay only for what you use. You are charged for the number of times your code is triggered (requests) and for the time your code executes, rounded up to the nearest 1ms (duration).</p>
+<p>AWS rounds up duration to the nearest millisecond with no minimum execution time.</p>
+<p>With this pricing, it can be very cost effective to run functions whose execution time is very low, such as functions with durations under 100ms or low latency APIs.</p>
+<p>Read more here: https://aws.amazon.com/blogs/aws/new-for-aws-lambda-1ms-billing-granularity-adds-cost-savings/</p>
+</section>
+<section id="source-code" class="level4">
+<h4 class="anchored" data-anchor-id="source-code">Source Code</h4>
+<p>You can find a tutorial on creating the AWS Lambda function as well as the code used in the AWS Lambda demo here: https://aws.amazon.com/blogs/compute/resize-images-on-the-fly-with-amazon-s3-aws-lambda-and-amazon-api-gateway/</p>
+</section>
+</section>
+</section>
+<section id="networking-on-aws" class="level1">
+<h1>Networking on AWS</h1>
+<section id="what-is-networking" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-networking">What Is Networking?</h2>
+<p>Networking is how you connect computers around the world and allow them to communicate with one another. In this trail, you’ve already seen a few examples of networking. One is the AWS global infrastructure. AWS has created a network of resources using data centers, Availability Zones, and Regions.</p>
+<section id="know-the-networking-basics" class="level3">
+<h3 class="anchored" data-anchor-id="know-the-networking-basics">Know the Networking Basics</h3>
+<p>Think about sending a letter. When sending a letter, there are three pieces of information you need.</p>
+<ul>
+<li>The payload or letter inside the envelope.</li>
+<li>The address of the sender in the From section.</li>
+<li>The address of the recipient in the To section.</li>
+</ul>
+<p>Let’s go further. Each address must contain information such as:</p>
+<ul>
+<li>Name of sender and recipient</li>
+<li>Street</li>
+<li>City</li>
+<li>State or province</li>
+<li>Zip, area, or postal code</li>
+<li>Country</li>
+</ul>
+<p>You need all parts of an address to ensure that your letter gets to its destination. Without the correct address, postal workers are not able to properly deliver the message. In the digital world, computers handle the delivery of messages in a similar way. This is called routing.</p>
+</section>
+</section>
+<section id="what-are-ip-addresses" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-ip-addresses">What Are IP Addresses?</h2>
+<p>In order to properly route your messages to a location, you need an address. Just like each home has a mail address, each computer has an IP address. However, instead of using the combination of street, city, state, zip code, and country, the IP address uses a combination of bits, 0s and 1s.</p>
+<p>Here is an example of a 32-bit address in binary format:</p>
+<p><code>11000000 10101000 00000001 00011110</code></p>
+<p>It’s called 32-bit because you have 32 digits. Feel free to count!</p>
+<section id="what-is-ipv4-notation" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-ipv4-notation">What Is IPv4 Notation?</h3>
+<p>Typically, you don’t see an IP address in this binary format. Instead, it’s converted into decimal format and noted as an Ipv4 address.</p>
+<p>In the diagram below, the 32 bits are grouped into groups of 8 bits, also called octets. Each of these groups is converted into decimal format separated by a period.</p>
+<p><code>11000000 10101000 00000001 00011110</code></p>
+<p><code>192.168.1.30</code></p>
+<p>In the end, this is what is called an Ipv4 address. This is important to know when trying to communicate to a single computer. But remember, you’re working with a network. This is where CIDR Notation comes in.</p>
+</section>
+<section id="use-cidr-notation" class="level3">
+<h3 class="anchored" data-anchor-id="use-cidr-notation">Use CIDR Notation</h3>
+<p>192.168.1.30 is a single IP address. If you wanted to express IP addresses between the range of 192.168.1.0 and 192.168.1.255, how can you do that?</p>
+<p>One way is by using <strong>Classless Inter-Domain Routing (CIDR) notation</strong>. CIDR notation is a compressed way of specifying a range of IP addresses. Specifying a range determines how many IP addresses are available to you.</p>
+<p>CIDR notation looks like this:</p>
+<p><code>192.168.1.0/24</code></p>
+<ul>
+<li>192 is fixed</li>
+<li>168 is fixed</li>
+<li>1 is fixed</li>
+<li>0 is flexible</li>
+</ul>
+<p>It begins with a starting IP address and is separated by a forward slash (the “/” character) followed by a number. The number at the end specifies how many of the bits of the IP address are fixed. In this example, the first 24 bits of the IP address are fixed. The rest are flexible.</p>
+<p>32 total bits subtracted by 24 fixed bits leaves 8 flexible bits. Each of these flexible bits can be either 0 or 1, because they are binary. That means you have two choices for each of the 8 bits, providing 256 IP addresses in that IP range.</p>
+<p>The higher the number after the /, the smaller the number of IP addresses in your network. For example, a range of <code>192.168.1.0/24</code> is smaller than <code>192.168.1.0/16</code>.</p>
+<p>When working with networks in the AWS Cloud, you choose your network size by using CIDR notation. In AWS, the smallest IP range you can have is /28, which provides you 16 IP addresses. The largest IP range you can have is a /16, which provides you with 65,536 IP addresses.</p>
+<p><a href="https://web.stanford.edu/class/cs101/network-1-introduction.html">Stanford: Introduction to Computer Networking</a></p>
+<p><a href="https://www.ionos.com/digitalguide/server/know-how/cidr-classless-inter-domain-routing/">External Site: Ionos: CIDR: What is classless inter-domain routing?</a></p>
+</section>
+</section>
+</section>
+<section id="introduction-to-amazon-vpc" class="level1">
+<h1>Introduction to Amazon VPC</h1>
+<p>A VPC is an isolated network you create in the AWS cloud, similar to a traditional network in a data center. When you create a VPC, you need to choose three main things.</p>
+<ol type="1">
+<li>The name of your VPC.</li>
+<li>A Region for your VPC to live in. Each VPC spans multiple Availability Zones within the Region you choose.</li>
+<li>A IP range for your VPC in CIDR notation. This determines the size of your network. Each VPC can have up to four /16 IP ranges.</li>
+</ol>
+<p>Using this information, AWS will provision a network and IP addresses for that network.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/kE8VCk32RPiPFQpN9kT4Lw_af022fa3bad0433d9b8b3e6d90064abb_introVPC_1.jpeg?expiry=1665878400000&amp;hmac=t17Tp1ZLy0JeC-8HYia6YFKw2U68hba1h9gRRGZgEW4" class="img-fluid"></p>
+<section id="create-a-subnet" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-subnet">Create a Subnet</h3>
+<p>After you create your VPC, you need to create subnets inside of this network.</p>
+<p>Think of subnets as smaller networks inside your base network—or virtual area networks (VLANs) in a traditional, on-premises network. In an on-premises network, the typical use case for subnets is to isolate or optimize network traffic. In AWS, subnets are used for high availability and providing different connectivity options for your resources.</p>
+<p>When you create a subnet, you need to choose three settings.</p>
+<ol type="1">
+<li>The VPC you want your subnet to live in, in this case VPC (10.0.0.0/16).</li>
+<li>The Availability Zone you want your subnet to live in, in this case AZ1.</li>
+<li>A CIDR block for your subnet, which must be a subset of the VPC CIDR block, in this case 10.0.0.0/24.</li>
+</ol>
+<p>When you launch an EC2 instance, you launch it inside a subnet, which will be located inside the Availability Zone you choose.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/D5Pd-oYISyCT3fqGCLsgxg_de756a8af57b48c0a4d99508da6f6218_Screen-Shot-2021-01-19-at-1.07.15-PM.png?expiry=1665878400000&amp;hmac=Qg4LrVQmRfc9sfE7lBJ4794BWXzZ5BUT3DPKzsQT7BU" class="img-fluid"></p>
+</section>
+<section id="high-availability-with-a-vpc" class="level3">
+<h3 class="anchored" data-anchor-id="high-availability-with-a-vpc">High Availability with A VPC</h3>
+<p>When you create your subnets, keep high availability in mind. In order to maintain redundancy and fault tolerance, create at least two subnets configured in two different Availability Zones.</p>
+<p>As you learned earlier in the trail, it’s important to consider that “everything fails all the time.” In this case, if one of these AZs fail, you still have your resources in another AZ available as backup.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vh_Q1TwVSr6f0NU8FWq-3A_34a546d50f304dabbd047849aa70d923_Screen-Shot-2021-01-19-at-1.11.17-PM.png?expiry=1665878400000&amp;hmac=iz1HvJkUpWLMvBWmcCeVllvZgsx7UKjdDQL72f-HgWA" class="img-fluid"></p>
+</section>
+<section id="reserved-ips" class="level3">
+<h3 class="anchored" data-anchor-id="reserved-ips">Reserved IPs</h3>
+<p>For AWS to configure your VPC appropriately, AWS reserves five IP addresses in each subnet. These IP addresses are used for routing, Domain Name System (DNS), and network management.</p>
+<p>For example, consider a VPC with the IP range 10.0.0.0/22. The VPC includes 1,024 total IP addresses. This is divided into four equal-sized subnets, each with a /24 IP range with 256 IP addresses. Out of each of those IP ranges, there are only 251 IP addresses that can be used because AWS reserves five.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/gmeIF-DjTGOniBfg49xjkw_8a28b362801e4af39dd354ccf6a3b8f1_2xyjkGLySbGco5Bi8lmxkw_ad3d1b2c0a774f0e94c9279fbb6a9a73_IntroVPC_3.jpeg?expiry=1665878400000&amp;hmac=0GO3_NSBd_GiyLjxVH0rmZTYSSvl2a8eFYJ-wJ7W4XY" class="img-fluid"></p>
+<p>Since AWS reserves these five IP addresses, it can impact how you design your network. A common starting place for those who are new to the cloud is to create a VPC with a IP range of /16 and create subnets with a IP range of /24. This provides a large amount of IP addresses to work with at both the VPC and subnet level.</p>
+</section>
+<section id="gateways" class="level3">
+<h3 class="anchored" data-anchor-id="gateways">Gateways</h3>
+<section id="internet-gateway" class="level4">
+<h4 class="anchored" data-anchor-id="internet-gateway">Internet Gateway</h4>
+<p>To enable internet connectivity for your VPC, you need to create an internet gateway. Think of this gateway as similar to a modem. Just as a modem connects your computer to the internet, the internet gateway connects your VPC to the internet. Unlike your modem at home, which sometimes goes down or offline, an internet gateway is highly available and scalable. After you create an internet gateway, you then need to attach it to your VPC.</p>
+</section>
+<section id="virtual-private-gateway" class="level4">
+<h4 class="anchored" data-anchor-id="virtual-private-gateway">Virtual Private Gateway</h4>
+<p>A virtual private gateway allows you to connect your AWS VPC to another private network. Once you create and attach a VGW to a VPC, the gateway acts as anchor on the AWS side of the connection. On the other side of the connection, you’ll need to connect a customer gateway to the other private network. A customer gateway device is a physical device or software application on your side of the connection. Once you have both gateways, you can then establish an encrypted VPN connection between the two sides.</p>
+</section>
+</section>
+</section>
+<section id="amazon-vpc-routing-and-security" class="level1">
+<h1>Amazon VPC Routing and Security</h1>
+<section id="the-main-route-table" class="level2">
+<h2 class="anchored" data-anchor-id="the-main-route-table">The Main Route Table</h2>
+<p>When you create a VPC, AWS creates a route table called the main route table. A route table contains a set of rules, called routes, that are used to determine where network traffic is directed. AWS assumes that when you create a new VPC with subnets, you want traffic to flow between them. Therefore, the default configuration of the main route table is to allow traffic between all subnets in the local network. Below is an example of a main route table:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Destination</th>
+<th>Target</th>
+<th>Status</th>
+<th>Propagated</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10.2.0.0/16</td>
+<td>local</td>
+<td>active</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<p>There are two main parts to this route table.</p>
+<ul>
+<li>The destination, which is a range of IP addresses where you want your traffic to go. In the example of sending a letter, you need a destination to route the letter to the appropriate place. The same is true for routing traffic. In this case, the destination is the IP range of our VPC network.</li>
+<li>The target, which is the connection through which to send the traffic. In this case, the traffic is routed through the local VPC network.</li>
+</ul>
+<section id="custom-route-tables" class="level3">
+<h3 class="anchored" data-anchor-id="custom-route-tables">Custom Route Tables</h3>
+<p>While the main route table controls the routing for your VPC, you may want to be more granular about how you route your traffic for specific subnets. For example, your application may consist of a frontend and a database. You can create separate subnets for these resources and provide different routes for each of them.</p>
+<p>If you associate a custom route table with a subnet, the subnet will use it instead of the main route table. By default, each custom route table you create will have the local route already inside it, allowing communication to flow between all resources and subnets inside the VPC.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/69m1UQ52QS6ZtVEOdsEuvg_6d98f06359fd4ce9bd3233180011cf7d_Screen-Shot-2021-01-19-at-1.24.00-PM.png?expiry=1665878400000&amp;hmac=UDnYR8NB_iJeEgmSqe7dVMSAZH1Wxm6IgBxAQ99zQKs" class="img-fluid"></p>
+</section>
+<section id="secure-your-subnets-with-network-acls" class="level3">
+<h3 class="anchored" data-anchor-id="secure-your-subnets-with-network-acls">Secure Your Subnets with Network ACLs</h3>
+<p>Think of a network ACL as a firewall at the subnet level. A network ACL enables you to control what kind of traffic is allowed to enter or leave your subnet. You can configure this by setting up rules that define what you want to filter. Here’s an example.</p>
+<section id="inbound" class="level4">
+<h4 class="anchored" data-anchor-id="inbound">Inbound</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Rule #</th>
+<th>Type</th>
+<th>ProtocolPort Range</th>
+<th>Source</th>
+<th>Allow/Deny</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td>All IPv4 traffic</td>
+<td>All</td>
+<td>0.0.0.0/0</td>
+<td>ALLOW</td>
+</tr>
+<tr class="even">
+<td>*</td>
+<td>All IPv4 traffic</td>
+<td>All</td>
+<td>0.0.0.0/0</td>
+<td>DENY</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outbound" class="level4">
+<h4 class="anchored" data-anchor-id="outbound">Outbound</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Rule #</th>
+<th>Type</th>
+<th>ProtocolPort Range</th>
+<th>Source</th>
+<th>Allow/Deny</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td>All IPv4 traffic</td>
+<td>All</td>
+<td>0.0.0.0/0</td>
+<td>ALLOW</td>
+</tr>
+<tr class="even">
+<td>*</td>
+<td>All IPv4 traffic</td>
+<td>All</td>
+<td>0.0.0.0/0</td>
+<td>DENY</td>
+</tr>
+</tbody>
+</table>
+<p>The default network ACL, shown in the table above, allows all traffic in and out of your subnet. To allow data to flow freely to your subnet, this is a good starting place.</p>
+<p>However, you may want to restrict data at the subnet level. For example, if you have a web application, you might restrict your network to allow HTTPS traffic and remote desktop protocol (RDP) traffic to your web servers.</p>
+</section>
+<section id="inbound-1" class="level4">
+<h4 class="anchored" data-anchor-id="inbound-1">Inbound</h4>
+<table class="table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 35%">
+<col style="width: 11%">
+<col style="width: 19%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Rule #</th>
+<th>Source IP</th>
+<th>Protocol</th>
+<th>Port</th>
+<th>Allow/Deny</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>100</td>
+<td>All IPv4 traffic</td>
+<td>TCP</td>
+<td>443</td>
+<td>ALLOW</td>
+<td>Allows inbound HTTPS traffic from anywhere</td>
+</tr>
+<tr class="even">
+<td>130</td>
+<td>192.0.2.0/24</td>
+<td>TCP</td>
+<td>3389</td>
+<td>ALLOW</td>
+<td>Allows inbound RDP traffic to the web servers from your home network’s public IP address range (over the internet gateway)</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>All IPv4 traffic</td>
+<td>All</td>
+<td>All</td>
+<td>DENY</td>
+<td>Denies all inbound traffic not already handled by a preceding rule (not modifiable)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="outbound-1" class="level4">
+<h4 class="anchored" data-anchor-id="outbound-1">Outbound</h4>
+<table class="table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 35%">
+<col style="width: 11%">
+<col style="width: 19%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Rule #</th>
+<th>Destination IP</th>
+<th>Protocol</th>
+<th>Port</th>
+<th>Allow/Deny</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>120</td>
+<td>0.0.0.0/0</td>
+<td>TCP</td>
+<td>1025-65535</td>
+<td>ALLOW</td>
+<td>Allows outbound responses to clients on the internet (serving people visiting the web servers in the subnet)</td>
+</tr>
+<tr class="even">
+<td>*</td>
+<td>0.0.0.0/0</td>
+<td>All</td>
+<td>All</td>
+<td>DENY</td>
+<td>Denies all outbound traffic not already handled by a preceding rule (not modifiable)</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that in the network ACL example above, you allow inbound 443 and outbound range 1025-65535. That’s because HTTP uses port 443 to initiate a connection and will respond to an ephemeral port. Network ACL’s are considered stateless, so you need to include both the inbound and outbound ports used for the protocol. If you don’t include the outbound range, your server would respond but the traffic would never leave the subnet.</p>
+<p>Since network ACLs are configured by default to allow incoming and outgoing traffic, you don’t need to change their initial settings unless you need additional security layers.</p>
+</section>
+</section>
+<section id="secure-your-ec2-instances-with-security-groups" class="level3">
+<h3 class="anchored" data-anchor-id="secure-your-ec2-instances-with-security-groups">Secure Your EC2 Instances with Security Groups</h3>
+<p>The next layer of security is for your EC2 Instances. Here, you can create a firewall called a security group. The default configuration of a security group blocks all inbound traffic and allows all outbound traffic.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/LoWSavO8Ss-FkmrzvBrPZg_976ab1cb999648f4bffd70512bd32d27_SG.jpeg?expiry=1665878400000&amp;hmac=IPi7uLzXrk1BYmDB5zKQzljZFCbef0tIn6LVBezkwFk" class="img-fluid"></p>
+<p>You might be wondering: “Wouldn’t this block all EC2 instances from receiving the response of any customer requests?” Well, security groups are stateful, meaning they will remember if a connection is originally initiated by the EC2 instance or from the outside and temporarily allow traffic to respond without having to modify the inbound rules.</p>
+<p>If you want your EC2 instance to accept traffic from the internet, you’ll need to open up inbound ports. If you have a web server, you may need to accept HTTP and HTTPS requests to allow that type of traffic in through your security group. You can create an inbound rule that will allow port 80 (HTTP) and port 443 (HTTPS) as shown below.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Protocol</th>
+<th>Port Range</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HTTP (80)</td>
+<td>TCP (6)</td>
+<td>80</td>
+<td>0.0.0.0/0</td>
+</tr>
+<tr class="even">
+<td>HTTP (80)</td>
+<td>TCP (6)</td>
+<td>80</td>
+<td>::/0</td>
+</tr>
+<tr class="odd">
+<td>HTTP (443)</td>
+<td>TCP (6)</td>
+<td>443</td>
+<td>0.0.0.0/0</td>
+</tr>
+<tr class="even">
+<td>HTTP (443)</td>
+<td>TCP (6)</td>
+<td>443</td>
+<td>::/0</td>
+</tr>
+</tbody>
+</table>
+<p>You learned in a previous unit that subnets can be used to segregate traffic between computers in your network. Security groups can be used to do the same thing. A common design pattern is organizing your resources into different groups and creating security groups for each to control network communication between them.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/ZnKJspBYSOeyibKQWDjnYQ_6e94f0f1d04e4409a37ce7b5ada5c75b_SG2.jpeg?expiry=1665878400000&amp;hmac=wZjWstd32Rczr77V8jjc77b8wbuMdE8tERaTlRlLLnA" class="img-fluid"></p>
+<p>This example allows you to define three tiers and isolate each tier with the security group rules you define. In this case, you only allow internet traffic to the web tier over HTTPS, Web Tier to Application Tier over HTTP, and Application tier to Database tier over MySQL. This is different from traditional on-premises environments, in which you isolate groups of resources via VLAN configuration. In AWS, security groups allow you to achieve the same isolation without tying it to your network.</p>
+<ul>
+<li>s3</li>
+<li>ec2</li>
+<li>vpc</li>
+<li>alb auto load balancer</li>
+<li>asg auto scaling group</li>
+<li>route53</li>
+<li>amazon cloud watch</li>
+<li>identity and excess managwe first 7 chapet</li>
+</ul>
+</section>
+</section>
+<section id="aws-solutions-architect" class="level2">
+<h2 class="anchored" data-anchor-id="aws-solutions-architect">AWS Solutions architect</h2>
+<section id="what-is-virtualizations" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-virtualizations">What is virtualizations?</h3>
+<p>A virtualization architecture is a conceptual model specifying the arrangement and interrelationships of the particular components involved in delivering a virtual – rather than physical – version of something, such as an operating system (OS), a server, a storage device or network resources.</p>
+<p>Act like a their physical counterpart</p>
+<ul>
+<li><p>uses a <strong>hyperisor</strong> that allows a single computer to host many VMs</p></li>
+<li><p>VMs are software containers that run their own OS and act like standalone computers, despite using a fraction of teh underlying hardware</p></li>
+<li><p>hyperisor also assigns computing power to each VM as needed for efficiency</p></li>
+</ul>
+<p>The image below illustrates the difference between traditional computing architecture and a virtualization architecture.</p>
+<p><img src="https://cdn.ttgtmedia.com/rms/onlineImages/server_virtualization-traditional_virtual_architecture_desktop.jpg" class="img-fluid"></p>
+<p>https://www.techtarget.com/whatis/definition/virtualization-architecture</p>
+<p>Traditional - Application - OS -</p>
+<p>Virtual - windows and Linux - Every app can have a different OS - Virtualization layer -</p>
+<p>Virtualisation is used to replace physical files, servers, networks, … infracture with compuetr-generated versions hosted by a service provider</p>
+<p>Providers</p>
+<p>https://www.bigcommerce.com/articles/ecommerce/saas-vs-paas-vs-iaas/</p>
+<section id="saas--software-as-a-service" class="level4">
+<h4 class="anchored" data-anchor-id="saas--software-as-a-service">SaaS- Software as a Service</h4>
+<p>SaaS platforms involve software that is available via third-party over the Internet.</p>
+<p>Software as a Service (SaaS) provides you with a completed product that is run and managed by the service provider. In most cases, people referring to Software as a Service are referring to end-user applications. With a SaaS offering you do not have to think about how the service is maintained or how the underlying infrastructure is managed; you only need to think about how you will use that particular piece of software. A common example of a SaaS application is web-based email which you can use to send and receive email without having to manage feature additions to the email product or maintain the servers and operating systems that the email program is running on.</p>
+<p>Examples of popular SaaS providers include:</p>
+<ul>
+<li>Office365</li>
+<li>Google apps</li>
+<li></li>
+</ul>
+</section>
+<section id="paas--platform-as-a-service" class="level4">
+<h4 class="anchored" data-anchor-id="paas--platform-as-a-service">PaaS- Platform as a Service</h4>
+<p>PaaS focuses primarily on hardware and software tools available over the internet.</p>
+<p>Platform as a Service (PaaS) removes the need for your organization to manage the underlying infrastructure (usually hardware and operating systems) and allows you to focus on the deployment and management of your applications. This helps you be more efficient as you don’t need to worry about resource procurement, capacity planning, software maintenance, patching, or any of the other</p>
+<p>Examples of popular PaaS providers include:</p>
+<ul>
+<li>AWS Elastic Beanstalk.</li>
+<li>Heroku.</li>
+<li>Windows Azure (mainly used as PaaS).</li>
+<li>Force.com.</li>
+<li>Google App Engine.</li>
+</ul>
+</section>
+<section id="iaas--infrastructure-as-a-service" class="level4">
+<h4 class="anchored" data-anchor-id="iaas--infrastructure-as-a-service">IaaS- Infrastructure as a Service</h4>
+<p>IaaS works primarily with cloud-based and pay-as-you-go services such as storage, networking and virtualization.</p>
+<p>Infrastructure as a Service (IaaS) contains the basic building blocks for cloud IT and typically provides access to networking features, computers (virtual or on dedicated hardware), and data storage space. IaaS provides you with the highest level of flexibility and management control over your IT resources and is most similar to existing IT resources that many IT departments and developers are familiar with today.</p>
+<p>Examples of popular IaaS providers include:</p>
+<pre><code>AWS EC2.
+Rackspace.
+Google Compute Engine (GCE).
+Digital Ocean.
+Microsoft Azure. </code></pre>
+</section>
+<section id="characteristics-of-virtualization" class="level4">
+<h4 class="anchored" data-anchor-id="characteristics-of-virtualization">Characteristics of virtualization</h4>
+<ol type="1">
+<li>Resource sharing</li>
+</ol>
+<ul>
+<li>virtualization allows users to build many computing environments from a single host machine. Alllows users to manage the number of active servers, save power limit number of active servers</li>
+</ul>
+<ol start="2" type="1">
+<li>Isolation</li>
+</ol>
+<ul>
+<li>Self-contained VMs in virtualization provided an isolated online environment for guest users (people, apps, OSs). The separation keeps sensitive data safe while allowing guests to stay connected</li>
+</ul>
+<ol start="3" type="1">
+<li>Availability</li>
+</ol>
+<ul>
+<li>Increased uptime, availability, fault tolerance, and help users avoid downtime, reduce productivity and poses security and safety risks</li>
+</ul>
+<p>i.e.&nbsp;Across different data centres, in case one goes down</p>
+<ol start="4" type="1">
+<li>Aggregation</li>
+</ol>
+<ul>
+<li>Virtualization allows various devices to share resources from a single machine, but it may also be used to integrate multiple devices into a single powerful host. Cluster management software is required for aggregation, which links a homogeneous set of computers or servers to create a unified resource centre</li>
+</ul>
+<ol start="5" type="1">
+<li>Reliability</li>
+</ol>
+<ul>
+<li>Automated load balancing (ALB), which runs redundant servers on differnt host machines to prevent disruptions, ensures continual uptime for virtualisation platforms</li>
+</ul>
+<p>Three-tier architecture</p>
+<ul>
+<li>firewall</li>
+<li>web-server</li>
+<li>firewall</li>
+<li>application server</li>
+<li>firewall</li>
+<li>database server</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2020-13-10-AWS-Copy1_files/figure-html/7c9ad511-7-image.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">image.png</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2020-13-10-AWS-Copy1_files/figure-html/7c9ad511-1-image-2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">image-2.png</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2020-13-10-AWS-Copy1_files/figure-html/7c9ad511-2-image-3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">image-3.png</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2020-13-10-AWS-Copy1_files/figure-html/7c9ad511-3-image-4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">image-4.png</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2020-13-10-AWS-Copy1_files/figure-html/7c9ad511-4-image-5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">image-5.png</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2020-13-10-AWS-Copy1_files/figure-html/7c9ad511-5-image-6.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">image-6.png</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2020-13-10-AWS-Copy1_files/figure-html/7c9ad511-6-image-7.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">image-7.png</figcaption><p></p>
+</figure>
+</div>
+<p>https://www.udemy.com/course/practice-exams-aws-certified-solutions-architect-associate/#instructor-2</p>
+<p>https://explore.skillbuilder.aws/learn/signin</p>
+<p>https://aws.amazon.com/certification/certified-solutions-architect-associate/</p>
+<p>https://823250371685.signin.aws.amazon.com 823250371685 user_4 Pa$$w0rd8944</p>
+<p>Cloud computing an internet based computing platform connects large groups of servers for centralised storage and online access to computer service and resources</p>
+<p>Organisation can use shared computing and storage resources insead of constructing and expanding infrastructure on their own when the use cloud computing</p>
+<ul>
+<li>On-demand resources</li>
+<li>scaling up and down</li>
+<li>accessed securely over internet</li>
+<li>pay as you go models, charge based on resources and utilisation</li>
+</ul>
+<p>Three types</p>
+<ul>
+<li><p>Public cloud (AWS, etc</p></li>
+<li><p>Private Cloud (home/office also called data-centre)</p></li>
+<li><p>Hybrid cloud (combined)</p></li>
+<li><p>AWS snowball like an external hard drive</p></li>
+<li><p>AWS import/export suitable for migration moving data centre</p></li>
+<li><p>Different sizes up to trucks</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+<section id="amazon-cloudfront" class="level1">
+<h1>Amazon CloudFront</h1>
+<p>Securely deliver content with low latency and high transfer speeds</p>
+<p>Amazon CloudFront is a content delivery network (CDN) service built for high performance, security, and developer convenience.</p>
+<p><img src="https://d1.awsstatic.com/products/cloudfront/product-page-diagram_CloudFront_HIW.475cd71e52ebbb9acbe55fd1b242c75ebb619a2e.png" class="img-fluid"></p>
+<ul>
+<li>Uses global network of edge locations</li>
+<li>content requests are automatically directed to the nearest edge site to enhance speed</li>
+<li>Suitable to work with EC2 and S3</li>
+<li>Also works with any non-AWS origin server and save the original files in the same way</li>
+</ul>
+<section id="security-management" class="level3">
+<h3 class="anchored" data-anchor-id="security-management">Security Management</h3>
+<ul>
+<li>Security groups (similar to inbound firewall), are a feature of EC2 that allow us to designate which protocols, ports, and source IP ranges are allowed to acces our EC2 instance</li>
+<li>One or more security group can be set for each EC2
+<ul>
+<li>restrict by using subnets or IP addresses</li>
+</ul></li>
+</ul>
+</section>
+<section id="elastic-caches" class="level3">
+<h3 class="anchored" data-anchor-id="elastic-caches">Elastic caches</h3>
+<ul>
+<li><p>Amazon Elastic Caches is a cloud-based memory cache management service. Cache plays a significant role in memory management because it reduces stress on services and increases performance and scalability on the database tier by caching frequently used data.</p></li>
+<li><p>Cache an auxiliary memory from which high-speed retrieval is possible.</p></li>
+</ul>
+</section>
+<section id="amazon-rds" class="level2">
+<h2 class="anchored" data-anchor-id="amazon-rds">Amazon RDS</h2>
+<ul>
+<li><p>Relational Database server- database engine similar to MySQL, Oracle etc</p></li>
+<li><p>Automatically updates database software and handles backups according to users preference</p></li>
+</ul>
+<p>Athena to query S3 by sql??</p>
+</section>
+<section id="storage-and-backups" class="level2">
+<h2 class="anchored" data-anchor-id="storage-and-backups">Storage and Backups</h2>
+<ul>
+<li>S3 (Simple Storage Service)</li>
+<li>Store data as an <strong>object</strong> inside buckets</li>
+<li>As many as want read, write, remove</li>
+</ul>
+</section>
+</section>
+<section id="ec2" class="level1">
+<h1>EC2</h1>
+</section>
+<section id="storage-fundamentals" class="level1">
+<h1>Storage Fundamentals</h1>
+<section id="nas-and-san" class="level2">
+<h2 class="anchored" data-anchor-id="nas-and-san">NAS and SAN</h2>
+<ul>
+<li>IP based dedicated high performance file sharing and storage device</li>
+<li>Share fiels over IP network for NAS clients</li>
+</ul>
+<p>https://www.backblaze.com/blog/whats-the-diff-nas-vs-san/</p>
+<p>Storage Area Network</p>
+<p><img src="2020-13-10-AWS-Copy1_files/figure-html/b845e150-2-image.png" class="img-fluid" alt="image.png"> <img src="2020-13-10-AWS-Copy1_files/figure-html/b845e150-1-image-2.png" class="img-fluid" alt="image-2.png"> - Block storage -</p>
+</section>
+</section>
+<section id="s3" class="level1">
+<h1>S3</h1>
+<p>Similar to NAS - excellent for unstructured data - distributed across 3 availability zones</p>
+<p><img src="attachment:image.png" class="img-fluid" alt="image.png"> <img src="attachment:image-2.png" class="img-fluid" alt="image-2.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachment:image-3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">image-3.png</figcaption><p></p>
+</figure>
+</div>
+<section id="data-durability" class="level3">
+<h3 class="anchored" data-anchor-id="data-durability">Data durability</h3>
+<p>The ability to keep the stored data consistent, intact without the influence of bit rot, drive failures, or any form of corruption. 99.999999999% (11 nines) durability means that if you store 10 million objects, then you expect to lose an object of your data every 10,000 years</p>
+</section>
+<section id="prefixes" class="level2">
+<h2 class="anchored" data-anchor-id="prefixes">Prefixes</h2>
+<p>Can be used to increase perfermoance on requests PUT/COPY/GET/HEAD ?????</p>
+<p>https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html</p>
+<p>You can use prefixes to organize the data that you store in Amazon S3 buckets. A prefix is a string of characters at the beginning of the object key name. A prefix can be any length, subject to the maximum length of the object key name (1,024 bytes). You can think of prefixes as a way to organize your data in a similar way to directories. However, prefixes are not directories.</p>
+<p>Searching by prefix limits the results to only those keys that begin with the specified prefix. The delimiter causes a list operation to roll up all the keys that share a common prefix into a single summary list result.</p>
+<p>The purpose of the prefix and delimiter parameters is to help you organize and then browse your keys hierarchically. To do this, first pick a delimiter for your bucket, such as slash (/), that doesn’t occur in any of your anticipated key names. You can use another character as a delimiter. There is nothing unique about the slash (/) character, but it is a very common prefix delimiter. Next, construct your key names by concatenating all containing levels of the hierarchy, separating each level with the delimiter.</p>
+<p>For example, if you were storing information about cities, you might naturally organize them by continent, then by country, then by province or state. Because these names don’t usually contain punctuation, you might use slash (/) as the delimiter. The following examples use a slash (/) delimiter.</p>
+<pre><code>Europe/France/Nouvelle-Aquitaine/Bordeaux
+
+North America/Canada/Quebec/Montreal
+
+North America/USA/Washington/Bellevue
+
+North America/USA/Washington/Seattle</code></pre>
+<p>If you stored data for every city in the world in this manner, it would become awkward to manage a flat key namespace. By using Prefix and Delimiter with the list operation, you can use the hierarchy that you’ve created to list your data. For example, to list all the states in USA, set Delimiter=‘/’ and Prefix=‘North America/USA/’. To list all the provinces in Canada for which you have data, set Delimiter=‘/’ and Prefix=‘North America/Canada/’.</p>
+<p>.</p>
+</section>
+<section id="what-is-amazon-s3" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-amazon-s3">What Is Amazon S3?</h2>
+<p>Unlike Amazon EBS, Amazon S3 is a standalone storage solution that isn’t tied to compute. It enables you to retrieve your data from anywhere on the web. If you’ve ever used an online storage service to back up the data from your local machine, then you most likely have used a service similar to Amazon S3. The big difference between those online storage services and Amazon S3 is the storage type.</p>
+<p>Amazon S3 is an object storage service. Object storage stores data in a flat structure, using unique identifiers to look up objects when requested. An object is simply a file combined with metadata and that you can store as many of these objects as you’d like. All of these characteristics of object storage are also characteristics of Amazon S3. Understand Amazon S3 Concepts</p>
+<p>In Amazon S3, you have to store your objects in containers called buckets. You can’t upload any object, not even a single photo, to S3 without creating a bucket first. When you create a bucket, you choose, at the very minimum, two things: the bucket name and the AWS Region you want the bucket to reside in.</p>
+<p>The first part is choosing the Region you want the bucket to reside in. Typically, this will be a Region that you’ve used for other resources, such as your compute. When you choose a Region for your bucket, all objects you put inside that bucket are redundantly stored across multiple devices, across multiple Availability Zones. This level of redundancy is designed to provide Amazon S3 customers with 99.999999999% durability and 99.99% availability for objects over a given year.</p>
+<p>The second part is choosing a bucket name which must be unique across all AWS accounts. AWS stops you from choosing a bucket name that has already been chosen by someone else in another AWS account. Once you choose a name, that name is yours and cannot be claimed by anyone else unless you delete that bucket, which then releases the name for others to use.</p>
+<p>AWS uses this name as part of the object identifier. In S3, each object is identified using a URL, which looks like this:</p>
+<p>After the http://, you see the bucket name. In this example, the bucket is named doc. Then, the identifier uses the service name, s3 and specifies the service provider amazonaws. After that, you have an implied folder inside the bucket called 2006-03-01 and the object inside the folder that is named AmazonS3.html. The object name is often referred to as the key name.</p>
+<p>Note, you can have folders inside of buckets to help you organize objects. However, remember that there’s no actual file hierarchy that supports this on the back end. It is instead a flat structure where all files and folders live at the same level. Using buckets and folders implies a hierarchy, which makes it easy to understand for the human eye. S3 Use Cases</p>
+<p>Amazon S3 is one of the most widely used storage services, with far more use cases than could fit on one screen. The following list summarizes some of the most common ways you can use Amazon S3.</p>
+<pre><code>Backup and storage: S3 is a natural place to back up files because it is highly redundant. As mentioned in the last unit, AWS stores your EBS snapshots in S3 to take advantage of its high availability.
+
+Media hosting: Because you can store unlimited objects, and each individual object can be up to 5 TBs, S3 is an ideal location to host video, photo, or music uploads.
+
+Software delivery: You can use S3 to host your software applications that customers can download.
+
+Data lakes: S3 is an optimal foundation for a data lake because of its virtually unlimited scalability. You can increase storage from gigabytes to petabytes of content, paying only for what you use.
+
+Static websites: You can configure your bucket to host a static website of HTML, CSS, and client-side scripts.
+
+Static content: Because of the limitless scaling, the support for large files, and the fact that you access any object over the web at any time, S3 is the perfect place to store static content.</code></pre>
+<p>Choose the Right Connectivity Option for Your Resources</p>
+<p>Everything in Amazon S3 is private by default. This means that all S3 resources, such as buckets, folders, and objects can only be viewed by the user or AWS account that created that resource. Amazon S3 resources are all private and protected to begin with.</p>
+<p>If you decide that you want everyone on the internet to see your photos, you can choose to make your buckets, folders, and objects public. Keep in mind that a public resource means that everyone on the internet can see it. Most of the time, you don’t want your permissions to be all or nothing. Typically, you want to be more granular about the way you provide access to your resources.</p>
+<p>To be more specific about who can do what with your S3 resources, Amazon S3 provides two main access management features: IAM policies and S3 bucket policies. Understand IAM Policies</p>
+<p>Previously, you learned about creating and using IAM policies, and now you get to apply this to Amazon S3. When IAM policies are attached to IAM users, groups, and roles, the policies define which actions they can perform. IAM policies are not tied to any one AWS service and can be used to define access to nearly any AWS action. You should use IAM policies for private buckets when:</p>
+<pre><code>You have many buckets with different permission requirements. Instead of defining many different S3 bucket policies, you can use IAM policies instead.
+
+You want all policies to be in a centralized location. Using IAM policies allows you to manage all policy information in one location.</code></pre>
+<p>Understand S3 Bucket Policies</p>
+<p>S3 bucket policies are similar to IAM policies, in that they are both defined using the same policy language in a JSON format. The difference is IAM policies are attached to users, groups, and roles, whereas S3 bucket policies are only attached to buckets. S3 bucket policies specify what actions are allowed or denied on the bucket.</p>
+<p>For example, if you have a bucket called employeebucket, you can attach an S3 bucket policy to it that allows another AWS account to put objects in that bucket.</p>
+<p>Or if you wanted to allow anonymous viewers to read the objects in employeebucket, then you can apply a policy to that bucket that allows anyone to read objects in the bucket using “Effect”:Allow on the “Action:[”s3:GetObject”]”.</p>
+<p>Here’s an example of what that S3 bucket policy might look like. { “Version”:“2012-10-17”, “Statement”:[{ “Sid”:“PublicRead”, “Effect”:“Allow”, “Principal”: “*“,”Action”:[“s3:GetObject”], “Resource”:[“arn:aws:s3:::employeebucket/*”] }] }</p>
+<p>S3 Bucket policies can only be placed on buckets, and cannot be used for folders or objects. However, the policy that is placed on the bucket applies to every object in that bucket.</p>
+<p>You should use S3 bucket policies when:</p>
+<pre><code>You need a simple way to do cross-account access to S3, without using IAM roles.
+
+Your IAM policies bump up against the defined size limit. S3 bucket policies have a larger size limit.</code></pre>
+<p>Encrypt S3</p>
+<p>Amazon S3 reinforces encryption in transit (as it travels to and from Amazon S3) and at rest. To protect data at rest, you can use:</p>
+<pre><code>Server-side encryption: This allows Amazon S3 to encrypt your object before saving it on disks in its data centers and then decrypt it when you download the objects.
+
+Client-side encryption: Encrypt your data client-side and upload the encrypted data to Amazon S3. In this case, you manage the encryption process, the encryption keys, and all related tools.</code></pre>
+<p>To encrypt in transit, you can use client-side encryption or Secure Sockets Layer (SSL). Use Versioning to Preserve Objects</p>
+<p>As you know, Amazon S3 identifies objects in part by using the object name. For example, when you upload an employee photo to S3, you may name the object employee.jpg and store it in a folder called employees. If you don’t use Amazon S3 versioning, anytime you upload an object called employee.jpg to the employees folder, it overwrites the original file. This can be an issue for several reasons.</p>
+<pre><code>employee.jpg is a common name for an employee photo object. You or someone else who has access to that bucket might not have intended to overwrite it, and now that you have, you no longer have access to the original file.
+
+You may want to preserve different versions of employee.jpg. Without versioning, if you wanted to create a new version of employee.jpg, you would need to upload the object and choose a different name for it. Having several objects all with slight differences in naming variations may cause confusion and clutter in your bucket.</code></pre>
+<p>So, what do you do? You use S3 versioning!</p>
+<p>Versioning enables you to keep multiple versions of a single object in the same bucket. This allows you to preserve old versions of an object without having to use different naming constructs, in case you need to recover from accidental deletions, accidental overwrites, or even application failures. Let’s see how this works.</p>
+<p>If you enable versioning for a bucket, Amazon S3 automatically generates a unique version ID for the object being stored. In one bucket, for example, you can have two objects with the same key, but different version IDs, such as employeephoto.gif (version 111111) and employeephoto.gif (version 121212).</p>
+<p>Versioning-enabled buckets let you recover objects from accidental deletion or overwrite.</p>
+<pre><code>Deleting an object does not remove the object permanently. Instead, Amazon S3 puts a marker on the object that shows you tried to delete it. If you want to restore the object, you can remove this marker and it reinstates the object.
+
+If you overwrite an object, it results in a new object version in the bucket. You still have access to previous versions of the object.</code></pre>
+<p>Understand Versioning States</p>
+<p>Buckets can be in one of three states.</p>
+<pre><code>Unversioned (the default): No new or existing objects in the bucket have a version.
+
+Versioning-enabled: This enables versioning for all objects in the bucket.
+
+Versioning-suspended: This suspends versioning for new objects. All new objects in the bucket will not have a version. However, all existing objects keep their object versions.</code></pre>
+<p>The versioning state applies to all of the objects in that bucket. Keep in mind that storage costs are incurred for all objects in your bucket and all versions of those objects. To reduce your S3 bill, you may want to delete previous versions of your objects that are no longer in use.</p>
+<p>What Are Amazon S3 Storage Classes?</p>
+<p>When you upload an object to Amazon S3 and you don’t specify the storage class, you’re uploading it to the default storage class—often referred to as standard storage. When you learned about Amazon S3 in previous units, you were learning about the standard storage class without even knowing it!</p>
+<p>S3 storage classes let you change your storage tier as your data characteristics change. For example, if you are now accessing your old photos infrequently, you may want to change the storage class those photos are stored in to save on costs.</p>
+<p>There are six S3 storage classes.</p>
+<pre><code>Amazon S3 Standard: This is considered general purpose storage for cloud applications, dynamic websites, content distribution, mobile and gaming applications, and big data analytics.
+
+Amazon S3 Intelligent-Tiering: This tier is useful if your data has unknown or changing access patterns. S3 Intelligent-Tiering stores objects in two tiers, a frequent access tier and an infrequent access tier. Amazon S3 monitors access patterns of your data, and automatically moves your data to the most cost-effective storage tier based on frequency of access.
+
+Amazon S3 Standard-Infrequent Access (S3 Standard-IA): S3 Standard-IA is for data that is accessed less frequently, but requires rapid access when needed. S3 Standard-IA offers the high durability, high throughput, and low latency of S3 Standard, with a low per-GB storage price and per-GB retrieval fee. This storage tier is ideal if you want to store long-term backups, disaster recovery files, and so on.
+
+Amazon S3 One Zone-Infrequent Access (S3 One Zone-IA): Unlike other S3 storage classes which store data in a minimum of three Availability Zones (AZs), S3 One Zone-IA stores data in a single AZ and costs 20% less than S3 Standard-IA. S3 One Zone-IA is ideal for customers who want a lower-cost option for infrequently accessed data but do not require the availability and resilience of S3 Standard or S3 Standard-IA. It’s a good choice for storing secondary backup copies of on-premises data or easily re-creatable data.
+
+Amazon S3 Glacier: S3 Glacier is a secure, durable, and low-cost storage class for data archiving. You can reliably store any amount of data at costs that are competitive with or cheaper than on-premises solutions. To keep costs low yet suitable for varying needs, S3 Glacier provides three retrieval options that range from a few minutes to hours.
+
+Amazon S3 Glacier Deep Archive: S3 Glacier Deep Archive is Amazon S3’s lowest-cost storage class and supports long-term retention and digital preservation for data that may be accessed once or twice in a year. It is designed for customers—particularly those in highly regulated industries, such as the Financial Services, Healthcare, and Public Sectors—that retain data sets for 7 to 10 years or longer to meet regulatory compliance requirements.</code></pre>
+<p>Automate Tier Transitions with Object Lifecycle Management</p>
+<p>If you keep manually changing your objects, such as your employee photos, from storage tier to storage tier, you may want to look into automating this process using a lifecycle policy. When you define a lifecycle policy configuration for an object or group of objects, you can choose to automate two actions: transition and expiration actions.</p>
+<pre><code>Transition actions are used to define when you should transition your objects to another storage class.
+
+Expiration actions define when objects expire and should be permanently deleted.</code></pre>
+<p>For example, you might choose to transition objects to S3 Standard-IA storage class 30 days after you created them, or archive objects to the S3 Glacier storage class one year after creating them.</p>
+<p>The following use cases are good candidates for lifecycle management.</p>
+<pre><code>Periodic logs: If you upload periodic logs to a bucket, your application might need them for a week or a month. After that, you might want to delete them.
+
+Data that changes in access frequency: Some documents are frequently accessed for a limited period of time. After that, they are infrequently accessed. At some point, you might not need real-time access to them, but your organization or regulations might require you to archive them for a specific period. After that, you can delete them.</code></pre>
+</section>
+<section id="elastic-compute-cloud-ec2-vm" class="level2">
+<h2 class="anchored" data-anchor-id="elastic-compute-cloud-ec2-vm">Elastic Compute Cloud EC2 (VM)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2020-13-10-AWS-Copy1_files/figure-html/86f4fc85-1-image.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">image.png</figcaption><p></p>
+</figure>
+</div>
+<p>Amazon EC2 is a web service that provides secure, resizable compute capacity in the cloud. It allows you to provision virtual servers called EC2 instances. Although AWS uses the phrase “web service” to describe it, it doesn’t mean that you are limited to running just web servers on your EC2 instances.</p>
+<p>You can create and manage these instances through the AWS Management Console, the AWS Command Line Interface (CLI), AWS Software Development Kits (SDKs), or through automation tools and infrastructure orchestration services. In order to create an EC2 instance, you need to define:</p>
+<ul>
+<li><p>Hardware specifications, like CPU, memory, network, and storage.</p></li>
+<li><p>Logical configurations, like networking location, firewall rules, authentication, and the operating system of your choice.</p></li>
+</ul>
+<p>When launching an EC2 instance, the first setting you configure is which operating system you want by selecting an Amazon Machine Image (AMI).</p>
+</section>
+<section id="what-is-an-ami" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-an-ami">What Is an AMI?</h2>
+<p>In the traditional infrastructure world, the process of spinning up a server consists of installing an operating system from installation disks, installation drives, or installation wizards over the network. In the AWS Cloud, this operating system installation is no longer your responsibility, and is instead built into the AMI that you choose.</p>
+<p>Not only does an AMI let you configure which operating system you want, you can also select storage mappings, the architecture type (such as 32-bit, 64-bit, or 64-bit ARM), and additional software installed.</p>
+</section>
+<section id="what-is-the-relationship-between-amis-and-ec2-instances-1" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-relationship-between-amis-and-ec2-instances-1">What Is the Relationship Between AMIs and EC2 Instances?</h2>
+<p>EC2 instances are live instantiations of what is defined in an AMI, much like a cake is a live instantiation of a cake recipe. If you are familiar with software development, you can also see this kind of relationship between a Class and an Object. A Class is something you model and define, while an object is something you interact with. In this case, the AMI is how you model and define your instance, while the EC2 instance is the entity you interact with, where you can install your web server, and serve your content to users.</p>
+<p>When you launch a new instance, AWS allocates a virtual machine that runs on a hypervisor. Then the AMI you selected is copied to the root device volume, which contains the image used to boot the volume. In the end, you get a server you can connect to and install packages and any additional software. In this case, you install a web server along with the properly configured source code of your employee directory app.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/uKHYVtl7R0Sh2FbZe6dESw_e92f04dcceed4d23862545b3ccc4f759_f5b8552a9bc44aebb2f2c3c3a54948cd_b-61-b-3-ee-6-29-e-3-4-edd-8-f-81-3-a-1-aa-8919-c-21.png?expiry=1665792000000&amp;hmac=ZTdipNcMteSxrXhnMNuzi56CCOO6Vf7kF8BYXnCYBWI" class="img-fluid"></p>
+<p>One advantage of using AMIs is that they are reusable.</p>
+<p>You might choose a Linux-based AMI and configure the HTTP server, application packages, and any additional software you may need to run your application.</p>
+<p>If you wanted to create a second EC2 instance with the same configurations, how can you easily do that? One option is to go through the entire instance creation and configuration process and try to match your settings to the first instance. However, this is time consuming and leaves room for human error.</p>
+<p>The second, better option, is to create an AMI from your running instance and use this AMI to start a new instance. This way, your new instance will have all the same configurations as your current instance, because the configurations set in the AMIs are the same.</p>
+<p><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/NEmoC0r9SeOJqAtK_cnjbQ_79d49431aca94885872f98957aaf84d2_image-9-.png?expiry=1665792000000&amp;hmac=RVm1Rs86--2YCnKTKfPhztlN-F0aAAOx1Hhf3KE_mOs" class="img-fluid"></p>
+</section>
+<section id="where-can-you-find-amis-1" class="level2">
+<h2 class="anchored" data-anchor-id="where-can-you-find-amis-1">Where Can You Find AMIs?</h2>
+<p>You can select an AMI from the following categories.</p>
+<pre><code>Quick Start AMIs that are premade by AWS and allow you to get started quickly.
+
+AWS Marketplace AMIs that provide popular open source and commercial software from third-party vendors.
+
+My AMIs that are created from your EC2 instances.
+
+Community AMIs that are provided by the AWS user community.
+
+Build your own custom image with EC2 Image Builder.</code></pre>
+<p>Each AMI in the AWS Management Console has an AMI ID, which is prefixed by “ami-”, followed by a random hash of numbers and letters. These IDs are unique to each AWS region.</p>
+<p>Resources</p>
+<pre><code>External Site: AWS: Amazon EC2
+
+External Site: AWS: Amazon Machine Images (AMI)
+
+External Site: AWS: Creating an Amazon EBS-backed Linux AMI
+
+External Site: AWS: What Is EC2 Image Builder?</code></pre>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
