@@ -1,5 +1,4 @@
 ---
-title: "SimmQuatro"
 listing:
   contents: posts
   sort: "date desc"
