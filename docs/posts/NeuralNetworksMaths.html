@@ -286,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Use the gradient descent iteration</p>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="130">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>theta_<span class="op">=</span>np.array([<span class="dv">0</span>, <span class="dv">0</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>thetaALL<span class="op">=</span>[]<span class="op">;</span> jALL<span class="op">=</span>[]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>iterTot<span class="op">=</span><span class="dv">100</span></span>
@@ -312,8 +312,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="with-tensorflow" class="level2">
 <h2 class="anchored" data-anchor-id="with-tensorflow">With TensorFlow</h2>
-<p>We can do approximately the equaivalent thing with tensorflow: - input shape is 1 as the length 50 are treated as different inputs - one dense layer which is given by: - SGD or gradient descent - with a learning rate of 0.5 - and loss calculated by mean squared error - and fit over the same number of epochs = 100</p>
-<div class="cell" data-execution_count="106">
+<p>We can do approximately the same thing with tensorflow: - input shape is 1 as the length 50 are treated as different inputs - one dense layer which is given by: - SGD or gradient descent - with a learning rate of 0.5 - and loss calculated by mean squared error - and fit over the same number of epochs = 100</p>
+<div class="cell" data-execution_count="131">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model<span class="op">=</span>tf.keras.Sequential([</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Input(shape<span class="op">=</span>(<span class="dv">1</span>)),</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    tf.keras.layers.Dense(<span class="dv">1</span>)</span>
@@ -322,11 +322,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>model.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Model: "sequential_25"
+<pre><code>Model: "sequential_28"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
-dense_29 (Dense)             (None, 1)                 2         
+dense_32 (Dense)             (None, 1)                 2         
 =================================================================
 Total params: 2
 Trainable params: 2
@@ -334,7 +334,7 @@ Non-trainable params: 0
 _________________________________________________________________</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="107">
+<div class="cell" data-execution_count="132">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>XX<span class="op">=</span>tf.reshape(X[:,<span class="dv">1</span>],(<span class="bu">len</span>(y),<span class="dv">1</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>yy<span class="op">=</span>tf.reshape(y,(<span class="bu">len</span>(y),<span class="dv">1</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -344,9 +344,13 @@ _________________________________________________________________</code></pre>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.legend([<span class="st">'TensorFlow'</span>,<span class="st">'ComputeGrad'</span>])</span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Iteration'</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Values'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Values'</span>)<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Predictions: m is </span><span class="sc">{</span>model<span class="sc">.</span>get_weights()[<span class="dv">0</span>][<span class="dv">0</span>][<span class="dv">0</span>]<span class="sc">:.4f}</span><span class="ss"> and b is </span><span class="sc">{</span>model<span class="sc">.</span>get_weights()[<span class="dv">1</span>][<span class="dv">0</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Predictions: m is 3.0000 and b is 0.5000</code></pre>
+</div>
 <div class="cell-output cell-output-display">
-<p><img src="NeuralNetworksMaths_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+<p><img src="NeuralNetworksMaths_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 
