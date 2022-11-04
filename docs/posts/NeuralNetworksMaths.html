@@ -161,6 +161,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </i> 
  <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?hl=en&amp;user=HdPDn1sAAAAJ"><i class="bi bi-mortarboard-fill" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
 </ul>
               <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -183,12 +188,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="neural-network-maths" class="level1">
 <h1>Neural Network Maths</h1>
 <blockquote class="blockquote">
-<p>Basic maths of machine learning -</p>
+<p>Basic maths of machine learning</p>
 </blockquote>
 <section id="gradient-descent" class="level2">
 <h2 class="anchored" data-anchor-id="gradient-descent">Gradient Descent</h2>
-<p>Gradient descent is an algroithm used to determine the value of parameters that are used to map input variables to target variables. The steps are: - Determine a loss function that relates predictions and actual values, i.e.&nbsp;a function that determines how good the predictions are - N.B. the function needs to be of a form to encourage gradient descent - Find the gradient of the loss function with respect to the parameters - Update the weights based on this gradient</p>
-<p>For example, in the figure below - if the weight W=0 then the Loss is 1 and the gradient is -1.0. In this case we’d want to increase the value of the weight W towards it’s minimum 0.5 - if the weight W=1 then the Loss is also 1 but the gradient is +1.0. In this case we’d want to reduce the value of the weight W towards it’s minimum 0.5 - if the weight W=0.5 then the loss is close 0 and so is the garient, in this case we wouldn’t want to change the weights by much</p>
+<p>Gradient descent is an algroithm used to determine the value of parameters that are used to map input variables to target variables. The steps are:</p>
+<ul>
+<li>Determine a loss function that relates predictions and actual values, i.e.&nbsp;a function that determines how good the predictions are
+<ul>
+<li>N.B. the function needs to be of a form to encourage gradient descent</li>
+</ul></li>
+<li>Find the gradient of the loss function with respect to the parameters</li>
+<li>Update the weights based on this gradient</li>
+</ul>
+<p>For example, in the figure below:</p>
+<ul>
+<li>if the weight W=0 then the Loss is 1 and the gradient is -1.0. In this case we’d want to increase the value of the weight W towards it’s minimum 0.5</li>
+<li>if the weight W=1 then the Loss is also 1 but the gradient is +1.0. In this case we’d want to reduce the value of the weight W towards it’s minimum 0.5</li>
+<li>if the weight W=0.5 then the loss is close 0 and so is the garient, in this case we wouldn’t want to change the weights by much</li>
+</ul>
 <p>i.e.&nbsp;the weights can be updated by a formula of the form below to get the best fit:</p>
 <p><span class="math display">\[W_{i+1} = W_i - const . \frac{dJ}{dW}\]</span></p>
 <blockquote class="blockquote">
@@ -207,12 +225,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The loss function <code>J</code> is what we are trying to minimise and is the sum of <span class="math inline">\({Y-\hat{y}^2}\)</span>. For simplicity we’ll remove the summation below.</li>
 <li><code>m</code> and <code>b</code> are the parameters we are looking to obtain</li>
 </ul>
-<section id="sec-equation" class="level3">
-<h3 class="anchored" data-anchor-id="sec-equation"></h3>
 <p><span class="math inline">\(\hat{Y}= mX +b\)</span></p>
 <p><span class="math inline">\(Error = \hat{Y} - Y\)</span></p>
 <p><span class="math inline">\(J(m,b) = Error^2\)</span></p>
-<p><span class="math inline">\(Error = mX + b - Y\)</span>{#eq-stddev}</p>
+<p><span class="math inline">\(Error = mX + b - Y\)</span></p>
 <p>What we want to do is update <code>m</code> and <code>b</code> so that <code>J</code> is reduced and the predictions is better. That is for <code>m</code> we obtain a new value (1) from the previous one (0) as follows:</p>
 <p><span class="math inline">\(m_1 = m_0 - \frac{dJ}{dm} . \alpha\)</span></p>
 <p>Where we have also included a learning rate (<span class="math inline">\(\alpha\)</span>&lt;1) to make the changes smoother.</p>
@@ -286,7 +302,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 
-</section>
 </section>
 </section>
 
