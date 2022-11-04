@@ -6,23 +6,7 @@ website:
   title: "ThomasHSimm"
   favicon: /posts/Picture3.png
   body-header: <img src="/posts/header2.png" height=200>
-  sidebar:
-    contents:
-      - section: "About"
-        contents:
-        - about.qmd
-      - section: "Projects"
-        contents:
-        - text: Ok
-          href: /posts/NeuralNetworksMaths.html
-      - section: "Guides"
-        contents:
-        - text: Neural Networks Maths
-          href: /posts/NeuralNetworksMaths.html
-        - text: TensorFlow
-          href: /posts/Tensorflow.html
-        - text: SQL
-          href: /posts/SQL.html
+
   navbar:
     right:
       - about.qmd
@@ -30,6 +14,8 @@ website:
         href: https://github.com/ThomasHSimm
       - icon: twitter
         href: https://twitter.com/ThomasHSimm
+      - icon: mortarboard-fill
+        href: https://scholar.google.com/citations?hl=en&user=HdPDn1sAAAAJ
 format:
   html:
     theme: 

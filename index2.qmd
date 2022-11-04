@@ -1,0 +1,20 @@
+---
+title: "----"
+image: profile.jpg
+
+sidebar:
+  contents:
+    - section: "About"
+      contents:
+      - about.qmd
+    - section: "Projects"
+      contents:
+      - text: Ok
+        href: /posts/NeuralNetworksMaths.html
+    - section: "Guides"
+      contents:
+      - text: Neural Networks Maths
+        href: /posts/NeuralNetworksMaths.html
+      - text: TensorFlow
+        href: /posts/Tensorflow.htm
+---
