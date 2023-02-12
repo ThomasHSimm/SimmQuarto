@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "ThomasHSimm",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nCommunicating code and data\n\n\nUsing the notebook format to communicate code and data\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nCommunicating code and data\n\n\nUsing the notebook format to communicate code and data\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\n  \n\n\n\n\nCommunicating code: Presentations\n\n\nUsing notebooks and streamlit for presentations\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Communicating_Code/CommCodePres.html#content",
@@ -32,7 +32,14 @@
     "href": "posts/Communicating_Code/CommCodePres.html#example-of-a-notebook-output",
     "title": "Communicating code and data",
     "section": "Example of a notebook: output",
-    "text": "Example of a notebook: output\n\nimport altair as alt\nfrom vega_datasets import data\n\nmovies = alt.UrlData(\n    data.movies.url,\n    format=alt.DataFormat(parse={\"Release_Date\":\"date\"})\n)\nratings = ['G', 'NC-17', 'PG', 'PG-13', 'R']\ngenres = ['Action', 'Adventure', 'Black Comedy', 'Comedy',\n       'Concert/Performance', 'Documentary', 'Drama', 'Horror', 'Musical',\n       'Romantic Comedy', 'Thriller/Suspense', 'Western']\n\nbase = alt.Chart(movies, width=200, height=200).mark_point(filled=True).transform_calculate(\n    Rounded_IMDB_Rating = \"floor(datum.IMDB_Rating)\",\n    Hundred_Million_Production =  \"datum.Production_Budget > 100000000.0 ? 100 : 10\",\n    Release_Year = \"year(datum.Release_Date)\"\n).transform_filter(\n    alt.datum.IMDB_Rating > 0\n).transform_filter(\n    alt.FieldOneOfPredicate(field='MPAA_Rating', oneOf=ratings)\n).encode(\n    x=alt.X('Worldwide_Gross:Q', scale=alt.Scale(domain=(100000,10**9), clamp=True)),\n    y='IMDB_Rating:Q',\n    tooltip=\"Title:N\"\n)\n\n# A slider filter\nyear_slider = alt.binding_range(min=1969, max=2018, step=1)\nslider_selection = alt.selection_single(bind=year_slider, fields=['Release_Year'], name=\"Release Year_\")\n\n\nfilter_year = base.add_selection(\n    slider_selection\n).transform_filter(\n    slider_selection\n).properties(title=\"Slider Filtering\")\n\n# A dropdown filter\ngenre_dropdown = alt.binding_select(options=genres)\ngenre_select = alt.selection_single(fields=['Major_Genre'], bind=genre_dropdown, name=\"Genre\")\n\nfilter_genres = base.add_selection(\n    genre_select\n).transform_filter(\n    genre_select\n).properties(title=\"Dropdown Filtering\")\n\n#color changing marks\nrating_radio = alt.binding_radio(options=ratings)\n\nrating_select = alt.selection_single(fields=['MPAA_Rating'], bind=rating_radio, name=\"Rating\")\nrating_color_condition = alt.condition(rating_select,\n                      alt.Color('MPAA_Rating:N', legend=None),\n                      alt.value('lightgray'))\n\nhighlight_ratings = base.add_selection(\n    rating_select\n).encode(\n    color=rating_color_condition\n).properties(title=\"Radio Button Highlighting\")\n\n# Boolean selection for format changes\ninput_checkbox = alt.binding_checkbox()\ncheckbox_selection = alt.selection_single(bind=input_checkbox, name=\"Big Budget Films\")\n\nsize_checkbox_condition = alt.condition(checkbox_selection,\n                                        alt.SizeValue(25),\n                                        alt.Size('Hundred_Million_Production:Q')\n                                       )\n\nbudget_sizing = base.add_selection(\n    checkbox_selection\n).encode(\n    size=size_checkbox_condition\n).properties(title=\"Checkbox Formatting\")\n\n( filter_year | filter_genres) &  (highlight_ratings | budget_sizing  )"
+    "text": "Example of a notebook: output\n\nimport matplotlib.pyplot as plt\nplt.plot(df2['date_of_sampling'])"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#example-of-a-notebook-output-2",
+    "href": "posts/Communicating_Code/CommCodePres.html#example-of-a-notebook-output-2",
+    "title": "Communicating code and data",
+    "section": "Example of a notebook: output 2",
+    "text": "Example of a notebook: output 2\n\nimport altair as alt\nfrom vega_datasets import data\n\nmovies = alt.UrlData(\n    data.movies.url,\n    format=alt.DataFormat(parse={\"Release_Date\":\"date\"})\n)\nratings = ['G', 'NC-17', 'PG', 'PG-13', 'R']\ngenres = ['Action', 'Adventure', 'Black Comedy', 'Comedy',\n       'Concert/Performance', 'Documentary', 'Drama', 'Horror', 'Musical',\n       'Romantic Comedy', 'Thriller/Suspense', 'Western']\n\nbase = alt.Chart(movies, width=200, height=200).mark_point(filled=True).transform_calculate(\n    Rounded_IMDB_Rating = \"floor(datum.IMDB_Rating)\",\n    Hundred_Million_Production =  \"datum.Production_Budget > 100000000.0 ? 100 : 10\",\n    Release_Year = \"year(datum.Release_Date)\"\n).transform_filter(\n    alt.datum.IMDB_Rating > 0\n).transform_filter(\n    alt.FieldOneOfPredicate(field='MPAA_Rating', oneOf=ratings)\n).encode(\n    x=alt.X('Worldwide_Gross:Q', scale=alt.Scale(domain=(100000,10**9), clamp=True)),\n    y='IMDB_Rating:Q',\n    tooltip=\"Title:N\"\n)\n\n# A slider filter\nyear_slider = alt.binding_range(min=1969, max=2018, step=1)\nslider_selection = alt.selection_single(bind=year_slider, fields=['Release_Year'], name=\"Release Year_\")\n\n\nfilter_year = base.add_selection(\n    slider_selection\n).transform_filter(\n    slider_selection\n).properties(title=\"Slider Filtering\")\n\n# A dropdown filter\ngenre_dropdown = alt.binding_select(options=genres)\ngenre_select = alt.selection_single(fields=['Major_Genre'], bind=genre_dropdown, name=\"Genre\")\n\nfilter_genres = base.add_selection(\n    genre_select\n).transform_filter(\n    genre_select\n).properties(title=\"Dropdown Filtering\")\n\n#color changing marks\nrating_radio = alt.binding_radio(options=ratings)\n\nrating_select = alt.selection_single(fields=['MPAA_Rating'], bind=rating_radio, name=\"Rating\")\nrating_color_condition = alt.condition(rating_select,\n                      alt.Color('MPAA_Rating:N', legend=None),\n                      alt.value('lightgray'))\n\nhighlight_ratings = base.add_selection(\n    rating_select\n).encode(\n    color=rating_color_condition\n).properties(title=\"Radio Button Highlighting\")\n\n# Boolean selection for format changes\ninput_checkbox = alt.binding_checkbox()\ncheckbox_selection = alt.selection_single(bind=input_checkbox, name=\"Big Budget Films\")\n\nsize_checkbox_condition = alt.condition(checkbox_selection,\n                                        alt.SizeValue(25),\n                                        alt.Size('Hundred_Million_Production:Q')\n                                       )\n\nbudget_sizing = base.add_selection(\n    checkbox_selection\n).encode(\n    size=size_checkbox_condition\n).properties(title=\"Checkbox Formatting\")\n\n( filter_year | filter_genres) &  (highlight_ratings | budget_sizing  )"
   },
   {
     "objectID": "posts/Communicating_Code/CommCodePres.html#communicating-when-code-is-a-large-element-of-what-is-being-presented",
@@ -124,5 +131,33 @@
     "title": "Communicating code and data",
     "section": "Questions/ Comments",
     "text": "Questions/ Comments\n\nThoughts on:\n\nusing notebooks\ndocumenting code\nencouraging communication of code across ONS areas and experiences\n\nCan we share html files? Or do we have to work within the current framework?\nAnything else?"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#content",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#content",
+    "title": "Communicating code: Presentations",
+    "section": "Content",
+    "text": "Content\n\nQuarto\n\npowerpoint https://quarto.org/docs/presentations/\nhtml\n\nJupyter books\nStreamlit"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#creating-the-template",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#creating-the-template",
+    "title": "Communicating code: Presentations",
+    "section": "Creating the template",
+    "text": "Creating the template\n(Office info correct for Office 365 Feb 2023, Version 2301 Build 16.0.16026.20002)\nIf your workplace has a custom template or you have one you always use, you can incorporate this into quarto.\nHowever, quarto is quite specific on the form this template takes, and requires the following elements - Title Slide - Title and Content - Section Header - Two Content - Comparison - Content with Caption - Blank\nBy selecting Layout from the Home tab in powerpoint the different layouts can be seen\n\nThey can then be modified by going to View tab - Slide Master.\nIf using your own template you will need to match the names of the slides given above. These can be found by hovering over the slides on the left or right clicking on one and selecting “Rename Layout”\n\nAlternatively, create a custom template using quarto and then modify this. The following command creates the template:\nquarto pandoc -o template.pptx --print-default-data-file reference.pptx\nThen go to View tab - Slide Master and modify each slide layout.\nNote if you are trying to match a template, some tips: - go to Design -> Slide Size and match this to your template - when View tab - Slide Master is selected go to first tab (see above it will be left indented) on one you are copying from and select all on this then paste to the new template - these will be background images and other things that want to be passed to all slides - Check other slides for images and font-styles etc to match to the new template"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#load-the-template",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#load-the-template",
+    "title": "Communicating code: Presentations",
+    "section": "Load the template",
+    "text": "Load the template\nTo load the template the first cell in the notebook needs to be modified as follows to reference the template.pptx file.\nformat:\n  pptx:\n    reference-doc: template.pptx\n    slide-level: 2\nIn addition, we can also specify here the rule by which a new slide is defined. If slide-level: 2 is used a new slide is defined by “##’ and a new section header by ‘#’. So if we used ‘###’ this would be a heading within the slide.\nIf slide-level: 1 is used a new slide is defined by “#’ and ‘##’ this would be a heading within the slide (this is normally the default)."
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#check-the-slides",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#check-the-slides",
+    "title": "Communicating code: Presentations",
+    "section": "Check the slides",
+    "text": "Check the slides\nI have found creation of slides to powerpoint more prone to strange results than if .doc/.pdf/.html are used.\nSo check the slides, see if interactive content or code has been included (probably not) and if the slide content goes outside the slide.\n\nIn the example above - There is overlap of text on a slide - Strange ouput of a slide - Code output not displayed"
   }
 ]

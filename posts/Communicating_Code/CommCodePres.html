@@ -187,6 +187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter Notebooks</a></li>
   <li><a href="#example-of-a-notebook" id="toc-example-of-a-notebook" class="nav-link" data-scroll-target="#example-of-a-notebook">Example of a notebook</a></li>
   <li><a href="#example-of-a-notebook-output" id="toc-example-of-a-notebook-output" class="nav-link" data-scroll-target="#example-of-a-notebook-output">Example of a notebook: output</a></li>
+  <li><a href="#example-of-a-notebook-output-2" id="toc-example-of-a-notebook-output-2" class="nav-link" data-scroll-target="#example-of-a-notebook-output-2">Example of a notebook: output 2</a></li>
   <li><a href="#communicating-when-code-is-a-large-element-of-what-is-being-presented" id="toc-communicating-when-code-is-a-large-element-of-what-is-being-presented" class="nav-link" data-scroll-target="#communicating-when-code-is-a-large-element-of-what-is-being-presented">Communicating when code is a large element of what is being presented</a></li>
   <li><a href="#notebook-benefits" id="toc-notebook-benefits" class="nav-link" data-scroll-target="#notebook-benefits">Notebook Benefits</a></li>
   </ul></li>
@@ -237,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 <p><img src="../../posts/header2.png" height="200"></p>
-<div class="cell" data-tags="[&quot;remove-cell&quot;]" data-execution_count="1">
+<div class="cell" data-tags="[&quot;remove-cell&quot;]" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
@@ -245,7 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>module_path <span class="op">=</span> Path( os.getcwd() )</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>module_path <span class="op">=</span> module_path.parent.<span class="fu">__str__</span>() <span class="op">+</span> <span class="st">'</span><span class="ch">\\</span><span class="st">Pesticide'</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>module_path <span class="op">=</span> module_path.parent.parent.parent.<span class="fu">__str__</span>() <span class="op">+</span> <span class="st">'</span><span class="ch">\\</span><span class="st">Pesticide'</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>cwd <span class="op">=</span> module_path</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
@@ -298,93 +299,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="example-of-a-notebook-output" class="level2">
 <h2 class="anchored" data-anchor-id="example-of-a-notebook-output">Example of a notebook: output</h2>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vega_datasets <span class="im">import</span> data</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> alt.UrlData(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    data.movies.url,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span>alt.DataFormat(parse<span class="op">=</span>{<span class="st">"Release_Date"</span>:<span class="st">"date"</span>})</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ratings <span class="op">=</span> [<span class="st">'G'</span>, <span class="st">'NC-17'</span>, <span class="st">'PG'</span>, <span class="st">'PG-13'</span>, <span class="st">'R'</span>]</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> [<span class="st">'Action'</span>, <span class="st">'Adventure'</span>, <span class="st">'Black Comedy'</span>, <span class="st">'Comedy'</span>,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Concert/Performance'</span>, <span class="st">'Documentary'</span>, <span class="st">'Drama'</span>, <span class="st">'Horror'</span>, <span class="st">'Musical'</span>,</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Romantic Comedy'</span>, <span class="st">'Thriller/Suspense'</span>, <span class="st">'Western'</span>]</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> alt.Chart(movies, width<span class="op">=</span><span class="dv">200</span>, height<span class="op">=</span><span class="dv">200</span>).mark_point(filled<span class="op">=</span><span class="va">True</span>).transform_calculate(</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    Rounded_IMDB_Rating <span class="op">=</span> <span class="st">"floor(datum.IMDB_Rating)"</span>,</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    Hundred_Million_Production <span class="op">=</span>  <span class="st">"datum.Production_Budget &gt; 100000000.0 ? 100 : 10"</span>,</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    Release_Year <span class="op">=</span> <span class="st">"year(datum.Release_Date)"</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    alt.datum.IMDB_Rating <span class="op">&gt;</span> <span class="dv">0</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    alt.FieldOneOfPredicate(field<span class="op">=</span><span class="st">'MPAA_Rating'</span>, oneOf<span class="op">=</span>ratings)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>).encode(</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'Worldwide_Gross:Q'</span>, scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>(<span class="dv">100000</span>,<span class="dv">10</span><span class="op">**</span><span class="dv">9</span>), clamp<span class="op">=</span><span class="va">True</span>)),</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'IMDB_Rating:Q'</span>,</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span><span class="st">"Title:N"</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># A slider filter</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>year_slider <span class="op">=</span> alt.binding_range(<span class="bu">min</span><span class="op">=</span><span class="dv">1969</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">2018</span>, step<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>slider_selection <span class="op">=</span> alt.selection_single(bind<span class="op">=</span>year_slider, fields<span class="op">=</span>[<span class="st">'Release_Year'</span>], name<span class="op">=</span><span class="st">"Release Year_"</span>)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>filter_year <span class="op">=</span> base.add_selection(</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    slider_selection</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    slider_selection</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Slider Filtering"</span>)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># A dropdown filter</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>genre_dropdown <span class="op">=</span> alt.binding_select(options<span class="op">=</span>genres)</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>genre_select <span class="op">=</span> alt.selection_single(fields<span class="op">=</span>[<span class="st">'Major_Genre'</span>], bind<span class="op">=</span>genre_dropdown, name<span class="op">=</span><span class="st">"Genre"</span>)</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>filter_genres <span class="op">=</span> base.add_selection(</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    genre_select</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    genre_select</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Dropdown Filtering"</span>)</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">#color changing marks</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>rating_radio <span class="op">=</span> alt.binding_radio(options<span class="op">=</span>ratings)</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>rating_select <span class="op">=</span> alt.selection_single(fields<span class="op">=</span>[<span class="st">'MPAA_Rating'</span>], bind<span class="op">=</span>rating_radio, name<span class="op">=</span><span class="st">"Rating"</span>)</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>rating_color_condition <span class="op">=</span> alt.condition(rating_select,</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>                      alt.Color(<span class="st">'MPAA_Rating:N'</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>                      alt.value(<span class="st">'lightgray'</span>))</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>highlight_ratings <span class="op">=</span> base.add_selection(</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    rating_select</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>).encode(</span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>rating_color_condition</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Radio Button Highlighting"</span>)</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Boolean selection for format changes</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>input_checkbox <span class="op">=</span> alt.binding_checkbox()</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>checkbox_selection <span class="op">=</span> alt.selection_single(bind<span class="op">=</span>input_checkbox, name<span class="op">=</span><span class="st">"Big Budget Films"</span>)</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>size_checkbox_condition <span class="op">=</span> alt.condition(checkbox_selection,</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>                                        alt.SizeValue(<span class="dv">25</span>),</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>                                        alt.Size(<span class="st">'Hundred_Million_Production:Q'</span>)</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>                                       )</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>budget_sizing <span class="op">=</span> base.add_selection(</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    checkbox_selection</span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>).encode(</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>size_checkbox_condition</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Checkbox Formatting"</span>)</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>( filter_year <span class="op">|</span> filter_genres) <span class="op">&amp;</span>  (highlight_ratings <span class="op">|</span> budget_sizing  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plt.plot(df2[<span class="st">'date_of_sampling'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="CommCodePres_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="example-of-a-notebook-output-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-a-notebook-output-2">Example of a notebook: output 2</h2>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vega_datasets <span class="im">import</span> data</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> alt.UrlData(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    data.movies.url,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span>alt.DataFormat(parse<span class="op">=</span>{<span class="st">"Release_Date"</span>:<span class="st">"date"</span>})</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ratings <span class="op">=</span> [<span class="st">'G'</span>, <span class="st">'NC-17'</span>, <span class="st">'PG'</span>, <span class="st">'PG-13'</span>, <span class="st">'R'</span>]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> [<span class="st">'Action'</span>, <span class="st">'Adventure'</span>, <span class="st">'Black Comedy'</span>, <span class="st">'Comedy'</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Concert/Performance'</span>, <span class="st">'Documentary'</span>, <span class="st">'Drama'</span>, <span class="st">'Horror'</span>, <span class="st">'Musical'</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Romantic Comedy'</span>, <span class="st">'Thriller/Suspense'</span>, <span class="st">'Western'</span>]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> alt.Chart(movies, width<span class="op">=</span><span class="dv">200</span>, height<span class="op">=</span><span class="dv">200</span>).mark_point(filled<span class="op">=</span><span class="va">True</span>).transform_calculate(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    Rounded_IMDB_Rating <span class="op">=</span> <span class="st">"floor(datum.IMDB_Rating)"</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    Hundred_Million_Production <span class="op">=</span>  <span class="st">"datum.Production_Budget &gt; 100000000.0 ? 100 : 10"</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    Release_Year <span class="op">=</span> <span class="st">"year(datum.Release_Date)"</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    alt.datum.IMDB_Rating <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    alt.FieldOneOfPredicate(field<span class="op">=</span><span class="st">'MPAA_Rating'</span>, oneOf<span class="op">=</span>ratings)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'Worldwide_Gross:Q'</span>, scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>(<span class="dv">100000</span>,<span class="dv">10</span><span class="op">**</span><span class="dv">9</span>), clamp<span class="op">=</span><span class="va">True</span>)),</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'IMDB_Rating:Q'</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span><span class="st">"Title:N"</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># A slider filter</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>year_slider <span class="op">=</span> alt.binding_range(<span class="bu">min</span><span class="op">=</span><span class="dv">1969</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">2018</span>, step<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>slider_selection <span class="op">=</span> alt.selection_single(bind<span class="op">=</span>year_slider, fields<span class="op">=</span>[<span class="st">'Release_Year'</span>], name<span class="op">=</span><span class="st">"Release Year_"</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>filter_year <span class="op">=</span> base.add_selection(</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    slider_selection</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    slider_selection</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Slider Filtering"</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># A dropdown filter</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>genre_dropdown <span class="op">=</span> alt.binding_select(options<span class="op">=</span>genres)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>genre_select <span class="op">=</span> alt.selection_single(fields<span class="op">=</span>[<span class="st">'Major_Genre'</span>], bind<span class="op">=</span>genre_dropdown, name<span class="op">=</span><span class="st">"Genre"</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>filter_genres <span class="op">=</span> base.add_selection(</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    genre_select</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    genre_select</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Dropdown Filtering"</span>)</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co">#color changing marks</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>rating_radio <span class="op">=</span> alt.binding_radio(options<span class="op">=</span>ratings)</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>rating_select <span class="op">=</span> alt.selection_single(fields<span class="op">=</span>[<span class="st">'MPAA_Rating'</span>], bind<span class="op">=</span>rating_radio, name<span class="op">=</span><span class="st">"Rating"</span>)</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>rating_color_condition <span class="op">=</span> alt.condition(rating_select,</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>                      alt.Color(<span class="st">'MPAA_Rating:N'</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>                      alt.value(<span class="st">'lightgray'</span>))</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>highlight_ratings <span class="op">=</span> base.add_selection(</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    rating_select</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>rating_color_condition</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Radio Button Highlighting"</span>)</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Boolean selection for format changes</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>input_checkbox <span class="op">=</span> alt.binding_checkbox()</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>checkbox_selection <span class="op">=</span> alt.selection_single(bind<span class="op">=</span>input_checkbox, name<span class="op">=</span><span class="st">"Big Budget Films"</span>)</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>size_checkbox_condition <span class="op">=</span> alt.condition(checkbox_selection,</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>                                        alt.SizeValue(<span class="dv">25</span>),</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>                                        alt.Size(<span class="st">'Hundred_Million_Production:Q'</span>)</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>                                       )</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>budget_sizing <span class="op">=</span> base.add_selection(</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    checkbox_selection</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>size_checkbox_condition</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Checkbox Formatting"</span>)</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>( filter_year <span class="op">|</span> filter_genres) <span class="op">&amp;</span>  (highlight_ratings <span class="op">|</span> budget_sizing  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
 
-<div id="altair-viz-0ce7f90752b5441cbe7c54f843649da7"></div>
+<div id="altair-viz-8ba91a2a926a4b868d15a8560d060b3c"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-0ce7f90752b5441cbe7c54f843649da7") {
-      outputDiv = document.getElementById("altair-viz-0ce7f90752b5441cbe7c54f843649da7");
+    if (outputDiv.id !== "altair-viz-8ba91a2a926a4b868d15a8560d060b3c") {
+      outputDiv = document.getElementById("altair-viz-8ba91a2a926a4b868d15a8560d060b3c");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",

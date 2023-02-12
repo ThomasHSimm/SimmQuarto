@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://simmthomas.com/about.html</loc>
-    <lastmod>2023-02-12T19:43:40.159Z</lastmod>
+    <lastmod>2023-02-12T21:37:23.632Z</lastmod>
   </url>
   <url>
     <loc>https://simmthomas.com/index.html</loc>
-    <lastmod>2023-02-12T19:43:40.688Z</lastmod>
+    <lastmod>2023-02-12T21:37:24.201Z</lastmod>
   </url>
   <url>
     <loc>https://simmthomas.com/index2.html</loc>
-    <lastmod>2023-02-12T19:43:41.132Z</lastmod>
+    <lastmod>2023-02-12T21:37:24.634Z</lastmod>
   </url>
   <url>
     <loc>https://simmthomas.com/posts/Communicating_Code/CommCodePres.html</loc>
-    <lastmod>2023-02-12T19:43:41.827Z</lastmod>
+    <lastmod>2023-02-12T21:37:25.302Z</lastmod>
+  </url>
+  <url>
+    <loc>https://simmthomas.com/posts/Communicating_Code/CommCodePres_pres.html</loc>
+    <lastmod>2023-02-12T21:37:25.827Z</lastmod>
   </url>
 </urlset>
