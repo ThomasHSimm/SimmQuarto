@@ -73,9 +73,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -163,6 +163,12 @@ ul.task-list li input[type="checkbox"] {
          <option value="listing-title" data-direction="asc">
           Title
         </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
          <option value="listing-author" data-direction="asc">
           Author
         </option>
@@ -174,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1676213238149" data-listing-reading-time-sort="6.485">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1644624000000" data-listing-file-modified-sort="1676215836874" data-listing-reading-time-sort="6.47">
 <div class="thumbnail">
 <p><a href="./posts/Communicating_Code/CommCodePres.html"> <img src="./posts/Communicating_Code/ghtop_images/jupyter.png" class="thumnail-image"> </a></p>
 </div>
@@ -193,6 +199,9 @@ Using the notebook format to communicate code and data
 </div>
 <div class="metadata">
 <a href="./posts/Communicating_Code/CommCodePres.html">
+<div class="listing-date">
+Feb 12, 2022
+</div>
 <div class="listing-author">
 Thomas H. Simm
 </div>
