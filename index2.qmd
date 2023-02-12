@@ -10,11 +10,11 @@ sidebar:
     - section: "Projects"
       contents:
       - text: Ok
-        href: /posts/NeuralNetworksMaths.html
+        href: /posts/CommCodePres.html
     - section: "Guides"
       contents:
       - text: Neural Networks Maths
-        href: /posts/NeuralNetworksMaths.html
+        href: /posts/CommCodePres.html
       - text: TensorFlow
-        href: /posts/Tensorflow.htm
+        href: /posts/CommCodePres.htm
 ---

@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ThomasHSimm",
+    "section": "",
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nCommunicating code and data\n\n\nUsing the notebook format to communicate code and data\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#content",
+    "href": "posts/Communicating_Code/CommCodePres.html#content",
+    "title": "Communicating code and data",
+    "section": "Content",
+    "text": "Content\n\nNotebooks overview\nConverting Notebooks\nExample useage of notebooks"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#jupyter-notebooks",
+    "href": "posts/Communicating_Code/CommCodePres.html#jupyter-notebooks",
+    "title": "Communicating code and data",
+    "section": "Jupyter Notebooks",
+    "text": "Jupyter Notebooks\nFrom TalkPython: Awesome Jupyter Libraries and Extensions\n\nJupyter is an amazing environment for exploring data and generating executable reports with Python. But there are many external tools, extensions, and libraries to make it so much better and make you more productive.\n\n\nA notebook consists of two parts\n\nmarkdown part where we can:\n\nwrite text, add images, links, html, LaTeX etc\n\ncode part which runs and displays output of code\n\n\nSome links:\n\nJupyter Book\nA curated list of awesome Jupyter projects\nCode Documentation QA of Code\nFastAI guide for better blogs"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#example-of-a-notebook",
+    "href": "posts/Communicating_Code/CommCodePres.html#example-of-a-notebook",
+    "title": "Communicating code and data",
+    "section": "Example of a notebook",
+    "text": "Example of a notebook\nAn example notebook"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#example-of-a-notebook-output",
+    "href": "posts/Communicating_Code/CommCodePres.html#example-of-a-notebook-output",
+    "title": "Communicating code and data",
+    "section": "Example of a notebook: output",
+    "text": "Example of a notebook: output\n\nimport altair as alt\nfrom vega_datasets import data\n\nmovies = alt.UrlData(\n    data.movies.url,\n    format=alt.DataFormat(parse={\"Release_Date\":\"date\"})\n)\nratings = ['G', 'NC-17', 'PG', 'PG-13', 'R']\ngenres = ['Action', 'Adventure', 'Black Comedy', 'Comedy',\n       'Concert/Performance', 'Documentary', 'Drama', 'Horror', 'Musical',\n       'Romantic Comedy', 'Thriller/Suspense', 'Western']\n\nbase = alt.Chart(movies, width=200, height=200).mark_point(filled=True).transform_calculate(\n    Rounded_IMDB_Rating = \"floor(datum.IMDB_Rating)\",\n    Hundred_Million_Production =  \"datum.Production_Budget > 100000000.0 ? 100 : 10\",\n    Release_Year = \"year(datum.Release_Date)\"\n).transform_filter(\n    alt.datum.IMDB_Rating > 0\n).transform_filter(\n    alt.FieldOneOfPredicate(field='MPAA_Rating', oneOf=ratings)\n).encode(\n    x=alt.X('Worldwide_Gross:Q', scale=alt.Scale(domain=(100000,10**9), clamp=True)),\n    y='IMDB_Rating:Q',\n    tooltip=\"Title:N\"\n)\n\n# A slider filter\nyear_slider = alt.binding_range(min=1969, max=2018, step=1)\nslider_selection = alt.selection_single(bind=year_slider, fields=['Release_Year'], name=\"Release Year_\")\n\n\nfilter_year = base.add_selection(\n    slider_selection\n).transform_filter(\n    slider_selection\n).properties(title=\"Slider Filtering\")\n\n# A dropdown filter\ngenre_dropdown = alt.binding_select(options=genres)\ngenre_select = alt.selection_single(fields=['Major_Genre'], bind=genre_dropdown, name=\"Genre\")\n\nfilter_genres = base.add_selection(\n    genre_select\n).transform_filter(\n    genre_select\n).properties(title=\"Dropdown Filtering\")\n\n#color changing marks\nrating_radio = alt.binding_radio(options=ratings)\n\nrating_select = alt.selection_single(fields=['MPAA_Rating'], bind=rating_radio, name=\"Rating\")\nrating_color_condition = alt.condition(rating_select,\n                      alt.Color('MPAA_Rating:N', legend=None),\n                      alt.value('lightgray'))\n\nhighlight_ratings = base.add_selection(\n    rating_select\n).encode(\n    color=rating_color_condition\n).properties(title=\"Radio Button Highlighting\")\n\n# Boolean selection for format changes\ninput_checkbox = alt.binding_checkbox()\ncheckbox_selection = alt.selection_single(bind=input_checkbox, name=\"Big Budget Films\")\n\nsize_checkbox_condition = alt.condition(checkbox_selection,\n                                        alt.SizeValue(25),\n                                        alt.Size('Hundred_Million_Production:Q')\n                                       )\n\nbudget_sizing = base.add_selection(\n    checkbox_selection\n).encode(\n    size=size_checkbox_condition\n).properties(title=\"Checkbox Formatting\")\n\n( filter_year | filter_genres) &  (highlight_ratings | budget_sizing  )"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#communicating-when-code-is-a-large-element-of-what-is-being-presented",
+    "href": "posts/Communicating_Code/CommCodePres.html#communicating-when-code-is-a-large-element-of-what-is-being-presented",
+    "title": "Communicating code and data",
+    "section": "Communicating when code is a large element of what is being presented",
+    "text": "Communicating when code is a large element of what is being presented\n\nMicrosoft Word/ppt- type methods aren’t set-up well to include code\nProgramming files (e.g. .py) aren’t set-up well to share\nVideoing code with outputs is an option, but don’t translate to other formats (i.e. we may also need to do a written format of this)\nApps (e.g. streamlit) can be good.\n\nBut the code is hidden\n\nProgramming notebooks (e.g..ipynb) offer a good and easy to share code but with some limitations\n\nAn easier way is to convert the notebooks to html\n\ne.g. maybe someone doesn’t have python installed"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#notebook-benefits",
+    "href": "posts/Communicating_Code/CommCodePres.html#notebook-benefits",
+    "title": "Communicating code and data",
+    "section": "Notebook Benefits",
+    "text": "Notebook Benefits\n\nNotebooks are intuitive\n\nYou have the code then the result of the code\nPlus can add details of how code works\nAnd it’s linear\n\nCan get things up and working quickly\nAid with communicating code\nEncourages Writing\n\nand writing things down aids thinking in the now and understanding what you did and why in the future\n\n\nCan use shell commands e.g. !pip install pandas\nCan use magic commands e.g. %%time to time a cell\n\nWith the ONS moving towards Python/R from Excel and a varied level of skills. The first of these is particularly important to aid communicating code"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#what-i-have-used-to-convert-notebooks",
+    "href": "posts/Communicating_Code/CommCodePres.html#what-i-have-used-to-convert-notebooks",
+    "title": "Communicating code and data",
+    "section": "What I have used to convert notebooks",
+    "text": "What I have used to convert notebooks\n\nfastpages\n\nPreviously I converted notebooks to html via fastpages but this is now deprecated and they are recommending the use of quarto.\n\nquarto\n\nSo far I have found quarto really good and flexible (N.B. R works too)\nEasy to convert a notebook to multiple formats, including html, powerpoint, pdf, word doc\nBUT Quarto is not possible within ONS (as far as I can tell currently)\n\nnbconvert is another option I tried\n\nbut it doesn’t seem to have the functionality of fastpages or quarto.\n\nJupyter Books seems to be the best option within ONS\n\nMaybe not as good as quarto but it works!"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#others",
+    "href": "posts/Communicating_Code/CommCodePres.html#others",
+    "title": "Communicating code and data",
+    "section": "Others",
+    "text": "Others\n\nI know some people use Sphinx,\n\nis recommended by QA\nFrom what I can tell sphinx on it’s own is not as easy to use as notebooks\nBut there is a jupyter extension nbsphinx\nJupyter Books uses Sphinx heavily under the hood\n\nnbdev\n\nI think is connected to quarto\n\nVoila\n\nVoilà turns Jupyter notebooks into standalone web applications.\nLooks good, bit like streamlit\nbut seems to interfere with other libraries and not checked whether works in ONS\nmercury seems similar\n\nAnything else people use and recommend?"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#quarto-outputs",
+    "href": "posts/Communicating_Code/CommCodePres.html#quarto-outputs",
+    "title": "Communicating code and data",
+    "section": "Quarto Outputs",
+    "text": "Quarto Outputs\nWe can then create different files from this .ipynb Jupyter notebook using the following code:\n\nquarto render testPres.ipynb --to pptx\nquarto render testPres.ipynb --to pdf\nquarto render testPres.ipynb --to html\nquarto render testPres.ipynb --to revealjs\n\nor for Jupyter Books - jupyter-book build .\\PesticideDocs\\"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#creating-a-webpage-from-this",
+    "href": "posts/Communicating_Code/CommCodePres.html#creating-a-webpage-from-this",
+    "title": "Communicating code and data",
+    "section": "Creating a webpage from this",
+    "text": "Creating a webpage from this\nTakes about 30 mins including installing chosen converter. (But can be done much quicker)\n\ncreate a Github repo for your website\nchoose the converter (e.g. Jupyter Books)\n\nAnd follow their instructions\n\ngo to settings -> Pages within the repo\n\nfew options to do\n\nOptional: add your own website url to it\n\nLink how to do this here"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#example-documenting-code",
+    "href": "posts/Communicating_Code/CommCodePres.html#example-documenting-code",
+    "title": "Communicating code and data",
+    "section": "Example: Documenting Code",
+    "text": "Example: Documenting Code\n\nHere is my website for my research project on pesticides in UK food.\nThis is not the same as documentation for a package but there are parallels\n\nThis does a few things:\n\nDocuments the analysis steps I have taken including the code and outputs\n\nUseful for data transparency, useability of the code if needs modifiying/adapting, and why I did XYZ\n\nProvides a way to present the data\n\nThere is a streamlit app, but sometimes I like to be able to see the code"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#example-discussing-code",
+    "href": "posts/Communicating_Code/CommCodePres.html#example-discussing-code",
+    "title": "Communicating code and data",
+    "section": "Example: Discussing Code",
+    "text": "Example: Discussing Code\n\nGP Tables example"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#example-tool-to-aid-learning",
+    "href": "posts/Communicating_Code/CommCodePres.html#example-tool-to-aid-learning",
+    "title": "Communicating code and data",
+    "section": "Example: Tool to aid learning",
+    "text": "Example: Tool to aid learning\nA big area I have been using Jupyter Notebooks for is to aid learning\n\nIf you want to understand something it helps to write it down\nHaving the code next to it is a big advantage\nAnd if stored on github you can access it anywhere\n\nTensoflow cheat sheet"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#example-debugging-code",
+    "href": "posts/Communicating_Code/CommCodePres.html#example-debugging-code",
+    "title": "Communicating code and data",
+    "section": "Example: Debugging Code",
+    "text": "Example: Debugging Code\n\nSince starting at ONS I have been working with understanding an existing project and latterly adding code to it\nThe project consists of multiple python files across several folders\n\nMy Python was good but lots of the functions and their useage weren’t immediately obvious to me\n\nbreak-points in VS Studio is really good to step through the code and work out what happens in the code.\n\nI had not used before with Python (but had lots with MATLAB), and it’s really useful\n\nBut it can be limited what you can do\n\ndifficult to probe code if want to write more than 1 line of code\nthe experience/knowledge exists as you go through it but no documentation to refer to later, e.g. function X does this when I give it Y etc\n\nBy copying and pasting code into Jupyter cells I could see and document how they worked (e.g. changing inputs)\n\nThis (copying and pasting) would get around code changes too (which would be an issue if modules were just imported)\nbecause this was all done in Jupyter notebook I can have a ipynb code file and a html file showing how the code works\nI could even save a pickle file of the variables at a particularly point to understand how the code would work from this point"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#presenting-in-multiple-formats",
+    "href": "posts/Communicating_Code/CommCodePres.html#presenting-in-multiple-formats",
+    "title": "Communicating code and data",
+    "section": "Presenting in multiple formats",
+    "text": "Presenting in multiple formats\n\nJupyter notebooks can be used on their own or as html\nBut can also be used to create presentations, pdf/word documentation or even books\nThis presentation was done with Quarto using the revealjs format\n\nSo it is a presentation format but with a html file\n\nSome of these file types can be difficult within ONS framework to do\n\nI hit a wall when trying to go beyond html and docs with Jupyter books due to dependencies"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#presenting-in-multiple-formats-video",
+    "href": "posts/Communicating_Code/CommCodePres.html#presenting-in-multiple-formats-video",
+    "title": "Communicating code and data",
+    "section": "Presenting in multiple formats: video",
+    "text": "Presenting in multiple formats: video\nVideo\n[]{< video ghtop_images/vid.mp4 >}"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#questions-comments",
+    "href": "posts/Communicating_Code/CommCodePres.html#questions-comments",
+    "title": "Communicating code and data",
+    "section": "Questions/ Comments",
+    "text": "Questions/ Comments\n\nThoughts on:\n\nusing notebooks\ndocumenting code\nencouraging communication of code across ONS areas and experiences\n\nCan we share html files? Or do we have to work within the current framework?\nAnything else?"
+  }
+]

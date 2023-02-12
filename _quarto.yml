@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: _site
 
 website:
   title: "ThomasHSimm"
@@ -12,8 +12,6 @@ website:
       - about.qmd
       - icon: github
         href: https://github.com/ThomasHSimm
-      - icon: twitter
-        href: https://twitter.com/ThomasHSimm
       - icon: mortarboard-fill
         href: https://scholar.google.com/citations?hl=en&user=HdPDn1sAAAAJ
 format:
