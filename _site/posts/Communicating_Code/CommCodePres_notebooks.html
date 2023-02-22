@@ -8,7 +8,7 @@
 
 <meta name="author" content="Thomas H. Simm">
 
-<title>ThomasHSimm - Communicating code and data</title>
+<title>ThomasHSimm - Communicating code: Notebooks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -181,32 +181,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#content" id="toc-content" class="nav-link active" data-scroll-target="#content">Content</a></li>
-  <li><a href="#notebooks" id="toc-notebooks" class="nav-link" data-scroll-target="#notebooks">Notebooks</a>
+  <li><a href="#notebooks-general" id="toc-notebooks-general" class="nav-link active" data-scroll-target="#notebooks-general">Notebooks General</a>
   <ul class="collapse">
   <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter Notebooks</a></li>
   <li><a href="#example-of-a-notebook" id="toc-example-of-a-notebook" class="nav-link" data-scroll-target="#example-of-a-notebook">Example of a notebook</a></li>
-  <li><a href="#example-of-a-notebook-output" id="toc-example-of-a-notebook-output" class="nav-link" data-scroll-target="#example-of-a-notebook-output">Example of a notebook: output</a></li>
-  <li><a href="#example-of-a-notebook-output-2" id="toc-example-of-a-notebook-output-2" class="nav-link" data-scroll-target="#example-of-a-notebook-output-2">Example of a notebook: output 2</a></li>
-  <li><a href="#communicating-when-code-is-a-large-element-of-what-is-being-presented" id="toc-communicating-when-code-is-a-large-element-of-what-is-being-presented" class="nav-link" data-scroll-target="#communicating-when-code-is-a-large-element-of-what-is-being-presented">Communicating when code is a large element of what is being presented</a></li>
-  <li><a href="#notebook-benefits" id="toc-notebook-benefits" class="nav-link" data-scroll-target="#notebook-benefits">Notebook Benefits</a></li>
   </ul></li>
-  <li><a href="#converting-notebooks" id="toc-converting-notebooks" class="nav-link" data-scroll-target="#converting-notebooks">Converting Notebooks</a>
+  <li><a href="#notebooks-markdown-and-code" id="toc-notebooks-markdown-and-code" class="nav-link" data-scroll-target="#notebooks-markdown-and-code">Notebooks Markdown and Code</a>
   <ul class="collapse">
-  <li><a href="#what-i-have-used-to-convert-notebooks" id="toc-what-i-have-used-to-convert-notebooks" class="nav-link" data-scroll-target="#what-i-have-used-to-convert-notebooks">What I have used to convert notebooks</a></li>
-  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others">Others</a></li>
-  <li><a href="#quarto-outputs" id="toc-quarto-outputs" class="nav-link" data-scroll-target="#quarto-outputs">Quarto Outputs</a></li>
-  <li><a href="#creating-a-webpage-from-this" id="toc-creating-a-webpage-from-this" class="nav-link" data-scroll-target="#creating-a-webpage-from-this">Creating a webpage from this</a></li>
+  <li><a href="#markdown-in-a-notebook" id="toc-markdown-in-a-notebook" class="nav-link" data-scroll-target="#markdown-in-a-notebook">Markdown in a notebook</a></li>
+  <li><a href="#code-in-a-notebook" id="toc-code-in-a-notebook" class="nav-link" data-scroll-target="#code-in-a-notebook">Code in a notebook</a></li>
+  <li><a href="#simpler-code-output" id="toc-simpler-code-output" class="nav-link" data-scroll-target="#simpler-code-output">Simpler code output</a></li>
   </ul></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
+  <li><a href="#notebooks-opinion" id="toc-notebooks-opinion" class="nav-link" data-scroll-target="#notebooks-opinion">Notebooks Opinion</a>
+  <ul class="collapse">
+  <li><a href="#notebooks-my-view" id="toc-notebooks-my-view" class="nav-link" data-scroll-target="#notebooks-my-view">Notebooks: my view</a></li>
+  <li><a href="#notebook-benefits" id="toc-notebook-benefits" class="nav-link" data-scroll-target="#notebook-benefits">Notebook Benefits</a></li>
+  <li><a href="#communicating-when-code-is-a-large-element-of-what-is-being-presented" id="toc-communicating-when-code-is-a-large-element-of-what-is-being-presented" class="nav-link" data-scroll-target="#communicating-when-code-is-a-large-element-of-what-is-being-presented">Communicating when code is a large element of what is being presented</a></li>
+  </ul></li>
+  <li><a href="#example-useage" id="toc-example-useage" class="nav-link" data-scroll-target="#example-useage">Example Useage</a>
   <ul class="collapse">
   <li><a href="#example-documenting-code" id="toc-example-documenting-code" class="nav-link" data-scroll-target="#example-documenting-code">Example: Documenting Code</a></li>
-  <li><a href="#example-discussing-code" id="toc-example-discussing-code" class="nav-link" data-scroll-target="#example-discussing-code">Example: Discussing Code</a></li>
   <li><a href="#example-tool-to-aid-learning" id="toc-example-tool-to-aid-learning" class="nav-link" data-scroll-target="#example-tool-to-aid-learning">Example: Tool to aid learning</a></li>
   <li><a href="#example-debugging-code" id="toc-example-debugging-code" class="nav-link" data-scroll-target="#example-debugging-code">Example: Debugging Code</a></li>
-  <li><a href="#presenting-in-multiple-formats" id="toc-presenting-in-multiple-formats" class="nav-link" data-scroll-target="#presenting-in-multiple-formats">Presenting in multiple formats</a></li>
-  <li><a href="#presenting-in-multiple-formats-video" id="toc-presenting-in-multiple-formats-video" class="nav-link" data-scroll-target="#presenting-in-multiple-formats-video">Presenting in multiple formats: video</a></li>
-  <li><a href="#questions-comments" id="toc-questions-comments" class="nav-link" data-scroll-target="#questions-comments">Questions/ Comments</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -216,7 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Communicating code and data</h1>
+<h1 class="title">Communicating code: Notebooks</h1>
 <p class="subtitle lead">Using the notebook format to communicate code and data</p>
 </div>
 
@@ -238,36 +234,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 <p><img src="../../posts/header2.png" height="200"></p>
-<div class="cell" data-tags="[&quot;remove-cell&quot;]" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>module_path <span class="op">=</span> Path( os.getcwd() )</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>module_path <span class="op">=</span> module_path.parent.parent.parent.<span class="fu">__str__</span>() <span class="op">+</span> <span class="st">'</span><span class="ch">\\</span><span class="st">Pesticide'</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>cwd <span class="op">=</span> module_path</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>folder_path <span class="op">=</span> os.path.join(cwd,<span class="st">'data'</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, module_path)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_csv(os.path.join(folder_path,<span class="st">'combined_df.csv'</span>) ,index_col<span class="op">=</span><span class="dv">0</span> )</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># change data type of columns</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>df2[<span class="st">'date_of_sampling'</span>] <span class="op">=</span> pd.to_datetime(df2[<span class="st">'date_of_sampling'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="content" class="level2">
-<h2 class="anchored" data-anchor-id="content">Content</h2>
-<ul>
-<li>Notebooks overview</li>
-<li>Converting Notebooks</li>
-<li>Example useage of notebooks</li>
-</ul>
-</section>
-<section id="notebooks" class="level1">
-<h1>Notebooks</h1>
+<section id="notebooks-general" class="level1">
+<h1>Notebooks General</h1>
 <section id="jupyter-notebooks" class="level2">
 <h2 class="anchored" data-anchor-id="jupyter-notebooks">Jupyter Notebooks</h2>
 <p>From <a href="https://talkpython.fm/episodes/show/394/awesome-jupyter-libraries-and-extensions-in-2022">TalkPython: Awesome Jupyter Libraries and Extensions</a></p>
@@ -297,105 +265,132 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>An example notebook</p>
 <p><img src="ghtop_images/jupyter.png" class="img-fluid"></p>
 </section>
-<section id="example-of-a-notebook-output" class="level2">
-<h2 class="anchored" data-anchor-id="example-of-a-notebook-output">Example of a notebook: output</h2>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plt.plot(df2[<span class="st">'date_of_sampling'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="CommCodePres_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
-</div>
-</div>
 </section>
-<section id="example-of-a-notebook-output-2" class="level2">
-<h2 class="anchored" data-anchor-id="example-of-a-notebook-output-2">Example of a notebook: output 2</h2>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vega_datasets <span class="im">import</span> data</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> alt.UrlData(</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    data.movies.url,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span>alt.DataFormat(parse<span class="op">=</span>{<span class="st">"Release_Date"</span>:<span class="st">"date"</span>})</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ratings <span class="op">=</span> [<span class="st">'G'</span>, <span class="st">'NC-17'</span>, <span class="st">'PG'</span>, <span class="st">'PG-13'</span>, <span class="st">'R'</span>]</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> [<span class="st">'Action'</span>, <span class="st">'Adventure'</span>, <span class="st">'Black Comedy'</span>, <span class="st">'Comedy'</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Concert/Performance'</span>, <span class="st">'Documentary'</span>, <span class="st">'Drama'</span>, <span class="st">'Horror'</span>, <span class="st">'Musical'</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Romantic Comedy'</span>, <span class="st">'Thriller/Suspense'</span>, <span class="st">'Western'</span>]</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> alt.Chart(movies, width<span class="op">=</span><span class="dv">200</span>, height<span class="op">=</span><span class="dv">200</span>).mark_point(filled<span class="op">=</span><span class="va">True</span>).transform_calculate(</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    Rounded_IMDB_Rating <span class="op">=</span> <span class="st">"floor(datum.IMDB_Rating)"</span>,</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    Hundred_Million_Production <span class="op">=</span>  <span class="st">"datum.Production_Budget &gt; 100000000.0 ? 100 : 10"</span>,</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    Release_Year <span class="op">=</span> <span class="st">"year(datum.Release_Date)"</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    alt.datum.IMDB_Rating <span class="op">&gt;</span> <span class="dv">0</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    alt.FieldOneOfPredicate(field<span class="op">=</span><span class="st">'MPAA_Rating'</span>, oneOf<span class="op">=</span>ratings)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>).encode(</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'Worldwide_Gross:Q'</span>, scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>(<span class="dv">100000</span>,<span class="dv">10</span><span class="op">**</span><span class="dv">9</span>), clamp<span class="op">=</span><span class="va">True</span>)),</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'IMDB_Rating:Q'</span>,</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span><span class="st">"Title:N"</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># A slider filter</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>year_slider <span class="op">=</span> alt.binding_range(<span class="bu">min</span><span class="op">=</span><span class="dv">1969</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">2018</span>, step<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>slider_selection <span class="op">=</span> alt.selection_single(bind<span class="op">=</span>year_slider, fields<span class="op">=</span>[<span class="st">'Release_Year'</span>], name<span class="op">=</span><span class="st">"Release Year_"</span>)</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>filter_year <span class="op">=</span> base.add_selection(</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    slider_selection</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    slider_selection</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Slider Filtering"</span>)</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># A dropdown filter</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>genre_dropdown <span class="op">=</span> alt.binding_select(options<span class="op">=</span>genres)</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>genre_select <span class="op">=</span> alt.selection_single(fields<span class="op">=</span>[<span class="st">'Major_Genre'</span>], bind<span class="op">=</span>genre_dropdown, name<span class="op">=</span><span class="st">"Genre"</span>)</span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>filter_genres <span class="op">=</span> base.add_selection(</span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    genre_select</span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    genre_select</span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Dropdown Filtering"</span>)</span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co">#color changing marks</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>rating_radio <span class="op">=</span> alt.binding_radio(options<span class="op">=</span>ratings)</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>rating_select <span class="op">=</span> alt.selection_single(fields<span class="op">=</span>[<span class="st">'MPAA_Rating'</span>], bind<span class="op">=</span>rating_radio, name<span class="op">=</span><span class="st">"Rating"</span>)</span>
-<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>rating_color_condition <span class="op">=</span> alt.condition(rating_select,</span>
-<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>                      alt.Color(<span class="st">'MPAA_Rating:N'</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
-<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>                      alt.value(<span class="st">'lightgray'</span>))</span>
-<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>highlight_ratings <span class="op">=</span> base.add_selection(</span>
-<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    rating_select</span>
-<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>).encode(</span>
-<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>rating_color_condition</span>
-<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Radio Button Highlighting"</span>)</span>
-<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Boolean selection for format changes</span></span>
-<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>input_checkbox <span class="op">=</span> alt.binding_checkbox()</span>
-<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>checkbox_selection <span class="op">=</span> alt.selection_single(bind<span class="op">=</span>input_checkbox, name<span class="op">=</span><span class="st">"Big Budget Films"</span>)</span>
-<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>size_checkbox_condition <span class="op">=</span> alt.condition(checkbox_selection,</span>
-<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>                                        alt.SizeValue(<span class="dv">25</span>),</span>
-<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>                                        alt.Size(<span class="st">'Hundred_Million_Production:Q'</span>)</span>
-<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>                                       )</span>
-<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>budget_sizing <span class="op">=</span> base.add_selection(</span>
-<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    checkbox_selection</span>
-<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>).encode(</span>
-<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>size_checkbox_condition</span>
-<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Checkbox Formatting"</span>)</span>
-<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>( filter_year <span class="op">|</span> filter_genres) <span class="op">&amp;</span>  (highlight_ratings <span class="op">|</span> budget_sizing  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<section id="notebooks-markdown-and-code" class="level1">
+<h1>Notebooks Markdown and Code</h1>
+<section id="markdown-in-a-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-in-a-notebook">Markdown in a notebook</h2>
+<p>Some useful commands:</p>
+<ol type="1">
+<li><p><code># Notebooks Markdown and Code</code> and <code>## Markdown in a notebook</code></p></li>
+<li><p><code>![](ghtop_images/pest.png)</code> looks like this</p></li>
+</ol>
+<p><img src="ghtop_images/pest.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li>And the same with a mp4 file <code>![](ghtop_images/revealjs.mp4)</code></li>
+</ol>
+<p><video src="ghtop_images/revealjs.mp4" class="img-fluid" controls=""><a href="ghtop_images/revealjs.mp4">Video</a></video></p>
+<ol start="4" type="1">
+<li><code>&gt; If we want text like this</code></li>
+</ol>
+<blockquote class="blockquote">
+<p>If we want text like this</p>
+</blockquote>
+<ol start="5" type="1">
+<li>Or if we want code use `a = b + c`</li>
+</ol>
+<p>or:</p>
+<p>```</p>
+<p>a = b</p>
+<p>a = a + c</p>
+<p>```</p>
+<p><code>a = b + c</code></p>
+<ol start="6" type="1">
+<li>HTML works too</li>
+</ol>
+<pre><code>&lt;img src="ghtop_images/pest.png"&gt;&lt;/img&gt;</code></pre>
+<p><img src="ghtop_images/pest.png"></p>
+</section>
+<section id="code-in-a-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="code-in-a-notebook">Code in a notebook</h2>
+<p>Example interactive format using altair:</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> altair <span class="im">as</span> alt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vega_datasets <span class="im">import</span> data</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>movies <span class="op">=</span> alt.UrlData(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    data.movies.url,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">format</span><span class="op">=</span>alt.DataFormat(parse<span class="op">=</span>{<span class="st">"Release_Date"</span>:<span class="st">"date"</span>})</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>ratings <span class="op">=</span> [<span class="st">'G'</span>, <span class="st">'NC-17'</span>, <span class="st">'PG'</span>, <span class="st">'PG-13'</span>, <span class="st">'R'</span>]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>genres <span class="op">=</span> [<span class="st">'Action'</span>, <span class="st">'Adventure'</span>, <span class="st">'Black Comedy'</span>, <span class="st">'Comedy'</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Concert/Performance'</span>, <span class="st">'Documentary'</span>, <span class="st">'Drama'</span>, <span class="st">'Horror'</span>, <span class="st">'Musical'</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>       <span class="st">'Romantic Comedy'</span>, <span class="st">'Thriller/Suspense'</span>, <span class="st">'Western'</span>]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> alt.Chart(movies, width<span class="op">=</span><span class="dv">200</span>, height<span class="op">=</span><span class="dv">200</span>).mark_point(filled<span class="op">=</span><span class="va">True</span>).transform_calculate(</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    Rounded_IMDB_Rating <span class="op">=</span> <span class="st">"floor(datum.IMDB_Rating)"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    Hundred_Million_Production <span class="op">=</span>  <span class="st">"datum.Production_Budget &gt; 100000000.0 ? 100 : 10"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    Release_Year <span class="op">=</span> <span class="st">"year(datum.Release_Date)"</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    alt.datum.IMDB_Rating <span class="op">&gt;</span> <span class="dv">0</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    alt.FieldOneOfPredicate(field<span class="op">=</span><span class="st">'MPAA_Rating'</span>, oneOf<span class="op">=</span>ratings)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>alt.X(<span class="st">'Worldwide_Gross:Q'</span>, scale<span class="op">=</span>alt.Scale(domain<span class="op">=</span>(<span class="dv">100000</span>,<span class="dv">10</span><span class="op">**</span><span class="dv">9</span>), clamp<span class="op">=</span><span class="va">True</span>)),</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'IMDB_Rating:Q'</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span><span class="st">"Title:N"</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># A slider filter</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>year_slider <span class="op">=</span> alt.binding_range(<span class="bu">min</span><span class="op">=</span><span class="dv">1969</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">2018</span>, step<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>slider_selection <span class="op">=</span> alt.selection_single(bind<span class="op">=</span>year_slider, fields<span class="op">=</span>[<span class="st">'Release_Year'</span>], name<span class="op">=</span><span class="st">"Release Year_"</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>filter_year <span class="op">=</span> base.add_selection(</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    slider_selection</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    slider_selection</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Slider Filtering"</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># A dropdown filter</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>genre_dropdown <span class="op">=</span> alt.binding_select(options<span class="op">=</span>genres)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>genre_select <span class="op">=</span> alt.selection_single(fields<span class="op">=</span>[<span class="st">'Major_Genre'</span>], bind<span class="op">=</span>genre_dropdown, name<span class="op">=</span><span class="st">"Genre"</span>)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>filter_genres <span class="op">=</span> base.add_selection(</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    genre_select</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>).transform_filter(</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    genre_select</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Dropdown Filtering"</span>)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co">#color changing marks</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>rating_radio <span class="op">=</span> alt.binding_radio(options<span class="op">=</span>ratings)</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>rating_select <span class="op">=</span> alt.selection_single(fields<span class="op">=</span>[<span class="st">'MPAA_Rating'</span>], bind<span class="op">=</span>rating_radio, name<span class="op">=</span><span class="st">"Rating"</span>)</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>rating_color_condition <span class="op">=</span> alt.condition(rating_select,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>                      alt.Color(<span class="st">'MPAA_Rating:N'</span>, legend<span class="op">=</span><span class="va">None</span>),</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>                      alt.value(<span class="st">'lightgray'</span>))</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>highlight_ratings <span class="op">=</span> base.add_selection(</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    rating_select</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>rating_color_condition</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Radio Button Highlighting"</span>)</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Boolean selection for format changes</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>input_checkbox <span class="op">=</span> alt.binding_checkbox()</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>checkbox_selection <span class="op">=</span> alt.selection_single(bind<span class="op">=</span>input_checkbox, name<span class="op">=</span><span class="st">"Big Budget Films"</span>)</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>size_checkbox_condition <span class="op">=</span> alt.condition(checkbox_selection,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>                                        alt.SizeValue(<span class="dv">25</span>),</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>                                        alt.Size(<span class="st">'Hundred_Million_Production:Q'</span>)</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>                                       )</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>budget_sizing <span class="op">=</span> base.add_selection(</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    checkbox_selection</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>).encode(</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    size<span class="op">=</span>size_checkbox_condition</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>).properties(title<span class="op">=</span><span class="st">"Checkbox Formatting"</span>)</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>( filter_year <span class="op">|</span> filter_genres) <span class="op">&amp;</span>  (highlight_ratings <span class="op">|</span> budget_sizing  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
 
-<div id="altair-viz-8ba91a2a926a4b868d15a8560d060b3c"></div>
+<div id="altair-viz-cb41cb296a2d4069bfac08074d039ab7"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-8ba91a2a926a4b868d15a8560d060b3c") {
-      outputDiv = document.getElementById("altair-viz-8ba91a2a926a4b868d15a8560d060b3c");
+    if (outputDiv.id !== "altair-viz-cb41cb296a2d4069bfac08074d039ab7") {
+      outputDiv = document.getElementById("altair-viz-cb41cb296a2d4069bfac08074d039ab7");
     }
     const paths = {
       "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
@@ -446,21 +441,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="communicating-when-code-is-a-large-element-of-what-is-being-presented" class="level2">
-<h2 class="anchored" data-anchor-id="communicating-when-code-is-a-large-element-of-what-is-being-presented">Communicating when code is a large element of what is being presented</h2>
+<section id="simpler-code-output" class="level2">
+<h2 class="anchored" data-anchor-id="simpler-code-output">Simpler code output</h2>
+<pre><code>x = np.arange(0,np.pi,.01)
+y = np.sin(x)
+plt.plot(x,y)</code></pre>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>,np.pi,<span class="fl">.01</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.sin(x)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="CommCodePres_notebooks_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="notebooks-opinion" class="level1">
+<h1>Notebooks Opinion</h1>
+<section id="notebooks-my-view" class="level2">
+<h2 class="anchored" data-anchor-id="notebooks-my-view">Notebooks: my view</h2>
+<p>Although notebooks have their <em>validish</em> detractors <a href="https://www.youtube.com/watch?v=7jiPeIFXb6U">I don’t like notebooks.- Joel Grus Youtube</a> I think if you approach them in the right way they are a super powerful tool.</p>
+<p>The negatives seem to be:</p>
 <ul>
-<li>Microsoft Word/ppt- type methods aren’t set-up well to include code</li>
-<li>Programming files (e.g.&nbsp;<code>.py</code>) aren’t set-up well to share</li>
-<li>Videoing code with outputs is an option, but don’t translate to other formats (i.e.&nbsp;we may also need to do a written format of this)</li>
-<li>Apps (e.g.&nbsp;streamlit) can be good.
+<li>encourage bad practice in code (a genuine problem)</li>
+<li>issues around order of what cell is run (easily got around with good practice)</li>
+<li>issues around lack of auto complete (I don’t see the issue, use in visual studio autocomplete is there)</li>
+<li>no grammar/spelling correction</li>
+<li>issues with using git and version control
 <ul>
-<li>But the code is hidden</li>
+<li>there are ways around this though</li>
 </ul></li>
-<li>Programming notebooks (e.g.<code>.ipynb</code>) offer a good and easy to share code but with some limitations</li>
-</ul>
-<p>An easier way is to convert the notebooks to html</p>
-<ul>
-<li>e.g.&nbsp;maybe someone doesn’t have python installed</li>
 </ul>
 </section>
 <section id="notebook-benefits" class="level2">
@@ -478,93 +490,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>and writing things down aids thinking in the now and understanding what you did and why in the future<br>
 </li>
+<li><a href="https://www.fast.ai/posts/2019-05-13-blogging-advice.html">FastAI guide for better blogs</a></li>
 </ul></li>
 <li>Can use shell commands e.g.&nbsp;<code>!pip install pandas</code></li>
 <li>Can use <a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">magic commands</a> e.g.&nbsp;<code>%%time</code> to time a cell</li>
+<li>Easy to convert code to a pipeline</li>
 </ul>
-<p>With the ONS moving towards Python/R from Excel and a varied level of skills. The first of these is particularly important to aid communicating code</p>
+<p>With many companies moving towards Python/R from Excel and a varied level of skills. The first of these is particularly important to aid communicating code</p>
 </section>
-</section>
-<section id="converting-notebooks" class="level1">
-<h1>Converting Notebooks</h1>
-<section id="what-i-have-used-to-convert-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="what-i-have-used-to-convert-notebooks">What I have used to convert notebooks</h2>
+<section id="communicating-when-code-is-a-large-element-of-what-is-being-presented" class="level2">
+<h2 class="anchored" data-anchor-id="communicating-when-code-is-a-large-element-of-what-is-being-presented">Communicating when code is a large element of what is being presented</h2>
 <ul>
-<li><a href="https://fastpages.fast.ai/">fastpages</a>
+<li>Microsoft Word/ppt- type methods aren’t set-up well to include code</li>
+<li>Programming files (e.g.&nbsp;<code>.py</code>) aren’t set-up well to share</li>
+<li>Videoing code with outputs is an option, but don’t translate to other formats (i.e.&nbsp;we may also need to do a written format of this)</li>
+<li>Apps (e.g.&nbsp;streamlit) can be good.
 <ul>
-<li>Previously I converted notebooks to html via fastpages but this is now deprecated and they are recommending the use of quarto.</li>
+<li>But the code is hidden</li>
 </ul></li>
-<li><a href="https://quarto.org/">quarto</a>
+<li>Programming notebooks (e.g.<code>.ipynb</code>) offer a good and easy to share code but with some limitations</li>
+</ul>
+<p>An easier way is to convert the notebooks to html</p>
 <ul>
-<li>So far I have found <strong>quarto</strong> really good and flexible (<em>N.B. R works too</em>)</li>
-<li>Easy to convert a notebook to multiple formats, including html, powerpoint, pdf, word doc</li>
-<li><strong>BUT</strong> Quarto is not possible within ONS (as far as I can tell currently)</li>
-</ul></li>
-<li><a href="https://nbconvert.readthedocs.io/en/latest/">nbconvert</a> is another option I tried
-<ul>
-<li>but it doesn’t seem to have the functionality of fastpages or quarto.</li>
-</ul></li>
-<li><a href="https://jupyterbook.org/en/stable/intro.html">Jupyter Books</a> seems to be the best option within ONS
-<ul>
-<li>Maybe not as good as quarto but it works!</li>
-</ul></li>
+<li>e.g.&nbsp;maybe someone doesn’t have python installed</li>
 </ul>
 </section>
-<section id="others" class="level2">
-<h2 class="anchored" data-anchor-id="others">Others</h2>
-<ul>
-<li>I know some people use <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a>,
-<ul>
-<li>is recommended by QA</li>
-<li>From what <a href="https://www.sphinx-doc.org/en/master/tutorial/index.html">I can tell sphinx</a> on it’s own is not as easy to use as notebooks</li>
-<li>But there is a jupyter extension <a href="https://nbsphinx.readthedocs.io/en/0.8.10/">nbsphinx</a></li>
-<li>Jupyter Books uses Sphinx heavily <a href="https://jupyterbook.org/en/stable/explain/sphinx.html">under the hood</a></li>
-</ul></li>
-<li><a href="https://nbdev.fast.ai/getting_started.html">nbdev</a>
-<ul>
-<li>I think is connected to quarto</li>
-</ul></li>
-<li><a href="https://github.com/voila-dashboards/voila">Voila</a>
-<ul>
-<li>Voilà turns Jupyter notebooks into standalone web applications.</li>
-<li>Looks good, bit like streamlit</li>
-<li>but seems to interfere with other libraries and not checked whether works in ONS</li>
-<li><a href="https://github.com/mljar/mercury">mercury</a> seems similar</li>
-</ul></li>
-<li>Anything else people use and recommend?</li>
-</ul>
 </section>
-<section id="quarto-outputs" class="level2">
-<h2 class="anchored" data-anchor-id="quarto-outputs">Quarto Outputs</h2>
-<p>We can then create different files from this .ipynb Jupyter notebook using the following code:</p>
-<ul>
-<li><code>quarto render testPres.ipynb --to pptx</code></li>
-<li><code>quarto render testPres.ipynb --to pdf</code></li>
-<li><code>quarto render testPres.ipynb --to html</code></li>
-<li><code>quarto render testPres.ipynb --to revealjs</code></li>
-</ul>
-<p>or for Jupyter Books - <code>jupyter-book build .\PesticideDocs\</code></p>
-</section>
-<section id="creating-a-webpage-from-this" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-webpage-from-this">Creating a webpage from this</h2>
-<p>Takes about 30 mins including installing chosen converter. <em>(But can be done much quicker)</em></p>
-<ul>
-<li>create a Github repo for your website</li>
-<li>choose the converter (e.g.&nbsp;Jupyter Books)
-<ul>
-<li>And follow their instructions</li>
-</ul></li>
-<li>go to settings -&gt; Pages within the repo
-<ul>
-<li>few options to do</li>
-</ul></li>
-<li>Optional: add your own website url to it</li>
-</ul>
-<p>Link how to do this <a href="https://kirenz.github.io/codelabs/codelabs/jupyter-book/#7">here</a></p>
-</section>
-</section>
-<section id="examples" class="level1">
-<h1>Examples</h1>
+<section id="example-useage" class="level1">
+<h1>Example Useage</h1>
 <section id="example-documenting-code" class="level2">
 <h2 class="anchored" data-anchor-id="example-documenting-code">Example: Documenting Code</h2>
 <ul>
@@ -583,12 +536,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul>
 <p><img src="ghtop_images/pest.png" class="img-fluid"></p>
-</section>
-<section id="example-discussing-code" class="level2">
-<h2 class="anchored" data-anchor-id="example-discussing-code">Example: Discussing Code</h2>
-<ul>
-<li>GP Tables example</li>
-</ul>
 </section>
 <section id="example-tool-to-aid-learning" class="level2">
 <h2 class="anchored" data-anchor-id="example-tool-to-aid-learning">Example: Tool to aid learning</h2>
@@ -623,38 +570,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>because this was all done in Jupyter notebook I can have a ipynb code file and a html file showing how the code works</li>
 <li>I could even save a pickle file of the variables at a particularly point to understand how the code would work from this point</li>
 </ul></li>
-</ul>
-</section>
-<section id="presenting-in-multiple-formats" class="level2">
-<h2 class="anchored" data-anchor-id="presenting-in-multiple-formats">Presenting in multiple formats</h2>
-<ul>
-<li>Jupyter notebooks can be used on their own or as html</li>
-<li>But can also be used to create presentations, pdf/word documentation or even books</li>
-<li>This presentation was done with Quarto using the <code>revealjs</code> format
-<ul>
-<li>So it is a presentation format but with a html file</li>
-</ul></li>
-<li>Some of these file types can be difficult within ONS framework to do
-<ul>
-<li>I hit a wall when trying to go beyond html and docs with Jupyter books due to dependencies</li>
-</ul></li>
-</ul>
-</section>
-<section id="presenting-in-multiple-formats-video" class="level2">
-<h2 class="anchored" data-anchor-id="presenting-in-multiple-formats-video">Presenting in multiple formats: video</h2>
-<p><video src="ghtop_images/vid.mp4" class="img-fluid" controls=""><a href="ghtop_images/vid.mp4">Video</a></video></p>
-</section>
-<section id="questions-comments" class="level2">
-<h2 class="anchored" data-anchor-id="questions-comments">Questions/ Comments</h2>
-<ul>
-<li>Thoughts on:
-<ul>
-<li>using notebooks</li>
-<li>documenting code</li>
-<li>encouraging communication of code across ONS areas and experiences</li>
-</ul></li>
-<li>Can we share html files? Or do we have to work within the current framework?</li>
-<li>Anything else?</li>
 </ul>
 
 

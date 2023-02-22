@@ -2,7 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/Communicating_Code/CommCodePres.html"
+      "/posts/Communicating_Code/CommCodePres.html",
+      "/posts/Communicating_Code/CommCodePres_html.html",
+      "/posts/Communicating_Code/CommCodePres_notebooks.html",
+      "/posts/Communicating_Code/CommCodePres_pres.html",
+      "/posts/Communicating_Code/CommCodePres_tables.html",
+      "/posts/Communicating_Code/PresentationOfCommunicatingCode.html"
     ]
   }
 ]
