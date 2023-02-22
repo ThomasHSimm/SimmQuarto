@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "ThomasHSimm",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nCommunicating code and data\n\n\nUsing the notebook format to communicate code and data\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\nNo matching items"
+    "text": "Order By\n       Default\n         \n          Title\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n  \n\n\n\n\nCommunicating code and data\n\n\nUsing the notebook format to communicate code and data\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\n  \n\n\n\n\nCommunicating code: Website\n\n\nUsing the notebook format for a website\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\n  \n\n\n\n\nCommunicating code: Notebooks\n\n\nUsing the notebook format to communicate code and data\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\n  \n\n\n\n\nCommunicating code: Presentations\n\n\nUsing notebooks and streamlit for presentations\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\n  \n\n\n\n\nCommunicating code: Tables\n\n\nCommunicating tabular data\n\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\n  \n\n\n\n\nCommunicating code and data\n\n\nUsing the notebook format and app frameworks to communicate code and data\n\n\n\n\n\n\n\n\n\nThomas H. Simm\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/Communicating_Code/CommCodePres.html#content",
@@ -32,7 +32,14 @@
     "href": "posts/Communicating_Code/CommCodePres.html#example-of-a-notebook-output",
     "title": "Communicating code and data",
     "section": "Example of a notebook: output",
-    "text": "Example of a notebook: output\n\nimport altair as alt\nfrom vega_datasets import data\n\nmovies = alt.UrlData(\n    data.movies.url,\n    format=alt.DataFormat(parse={\"Release_Date\":\"date\"})\n)\nratings = ['G', 'NC-17', 'PG', 'PG-13', 'R']\ngenres = ['Action', 'Adventure', 'Black Comedy', 'Comedy',\n       'Concert/Performance', 'Documentary', 'Drama', 'Horror', 'Musical',\n       'Romantic Comedy', 'Thriller/Suspense', 'Western']\n\nbase = alt.Chart(movies, width=200, height=200).mark_point(filled=True).transform_calculate(\n    Rounded_IMDB_Rating = \"floor(datum.IMDB_Rating)\",\n    Hundred_Million_Production =  \"datum.Production_Budget > 100000000.0 ? 100 : 10\",\n    Release_Year = \"year(datum.Release_Date)\"\n).transform_filter(\n    alt.datum.IMDB_Rating > 0\n).transform_filter(\n    alt.FieldOneOfPredicate(field='MPAA_Rating', oneOf=ratings)\n).encode(\n    x=alt.X('Worldwide_Gross:Q', scale=alt.Scale(domain=(100000,10**9), clamp=True)),\n    y='IMDB_Rating:Q',\n    tooltip=\"Title:N\"\n)\n\n# A slider filter\nyear_slider = alt.binding_range(min=1969, max=2018, step=1)\nslider_selection = alt.selection_single(bind=year_slider, fields=['Release_Year'], name=\"Release Year_\")\n\n\nfilter_year = base.add_selection(\n    slider_selection\n).transform_filter(\n    slider_selection\n).properties(title=\"Slider Filtering\")\n\n# A dropdown filter\ngenre_dropdown = alt.binding_select(options=genres)\ngenre_select = alt.selection_single(fields=['Major_Genre'], bind=genre_dropdown, name=\"Genre\")\n\nfilter_genres = base.add_selection(\n    genre_select\n).transform_filter(\n    genre_select\n).properties(title=\"Dropdown Filtering\")\n\n#color changing marks\nrating_radio = alt.binding_radio(options=ratings)\n\nrating_select = alt.selection_single(fields=['MPAA_Rating'], bind=rating_radio, name=\"Rating\")\nrating_color_condition = alt.condition(rating_select,\n                      alt.Color('MPAA_Rating:N', legend=None),\n                      alt.value('lightgray'))\n\nhighlight_ratings = base.add_selection(\n    rating_select\n).encode(\n    color=rating_color_condition\n).properties(title=\"Radio Button Highlighting\")\n\n# Boolean selection for format changes\ninput_checkbox = alt.binding_checkbox()\ncheckbox_selection = alt.selection_single(bind=input_checkbox, name=\"Big Budget Films\")\n\nsize_checkbox_condition = alt.condition(checkbox_selection,\n                                        alt.SizeValue(25),\n                                        alt.Size('Hundred_Million_Production:Q')\n                                       )\n\nbudget_sizing = base.add_selection(\n    checkbox_selection\n).encode(\n    size=size_checkbox_condition\n).properties(title=\"Checkbox Formatting\")\n\n( filter_year | filter_genres) &  (highlight_ratings | budget_sizing  )"
+    "text": "Example of a notebook: output\n\nimport matplotlib.pyplot as plt\nplt.plot(df2['date_of_sampling'])"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres.html#example-of-a-notebook-output-2",
+    "href": "posts/Communicating_Code/CommCodePres.html#example-of-a-notebook-output-2",
+    "title": "Communicating code and data",
+    "section": "Example of a notebook: output 2",
+    "text": "Example of a notebook: output 2\n\nimport altair as alt\nfrom vega_datasets import data\n\nmovies = alt.UrlData(\n    data.movies.url,\n    format=alt.DataFormat(parse={\"Release_Date\":\"date\"})\n)\nratings = ['G', 'NC-17', 'PG', 'PG-13', 'R']\ngenres = ['Action', 'Adventure', 'Black Comedy', 'Comedy',\n       'Concert/Performance', 'Documentary', 'Drama', 'Horror', 'Musical',\n       'Romantic Comedy', 'Thriller/Suspense', 'Western']\n\nbase = alt.Chart(movies, width=200, height=200).mark_point(filled=True).transform_calculate(\n    Rounded_IMDB_Rating = \"floor(datum.IMDB_Rating)\",\n    Hundred_Million_Production =  \"datum.Production_Budget > 100000000.0 ? 100 : 10\",\n    Release_Year = \"year(datum.Release_Date)\"\n).transform_filter(\n    alt.datum.IMDB_Rating > 0\n).transform_filter(\n    alt.FieldOneOfPredicate(field='MPAA_Rating', oneOf=ratings)\n).encode(\n    x=alt.X('Worldwide_Gross:Q', scale=alt.Scale(domain=(100000,10**9), clamp=True)),\n    y='IMDB_Rating:Q',\n    tooltip=\"Title:N\"\n)\n\n# A slider filter\nyear_slider = alt.binding_range(min=1969, max=2018, step=1)\nslider_selection = alt.selection_single(bind=year_slider, fields=['Release_Year'], name=\"Release Year_\")\n\n\nfilter_year = base.add_selection(\n    slider_selection\n).transform_filter(\n    slider_selection\n).properties(title=\"Slider Filtering\")\n\n# A dropdown filter\ngenre_dropdown = alt.binding_select(options=genres)\ngenre_select = alt.selection_single(fields=['Major_Genre'], bind=genre_dropdown, name=\"Genre\")\n\nfilter_genres = base.add_selection(\n    genre_select\n).transform_filter(\n    genre_select\n).properties(title=\"Dropdown Filtering\")\n\n#color changing marks\nrating_radio = alt.binding_radio(options=ratings)\n\nrating_select = alt.selection_single(fields=['MPAA_Rating'], bind=rating_radio, name=\"Rating\")\nrating_color_condition = alt.condition(rating_select,\n                      alt.Color('MPAA_Rating:N', legend=None),\n                      alt.value('lightgray'))\n\nhighlight_ratings = base.add_selection(\n    rating_select\n).encode(\n    color=rating_color_condition\n).properties(title=\"Radio Button Highlighting\")\n\n# Boolean selection for format changes\ninput_checkbox = alt.binding_checkbox()\ncheckbox_selection = alt.selection_single(bind=input_checkbox, name=\"Big Budget Films\")\n\nsize_checkbox_condition = alt.condition(checkbox_selection,\n                                        alt.SizeValue(25),\n                                        alt.Size('Hundred_Million_Production:Q')\n                                       )\n\nbudget_sizing = base.add_selection(\n    checkbox_selection\n).encode(\n    size=size_checkbox_condition\n).properties(title=\"Checkbox Formatting\")\n\n( filter_year | filter_genres) &  (highlight_ratings | budget_sizing  )"
   },
   {
     "objectID": "posts/Communicating_Code/CommCodePres.html#communicating-when-code-is-a-large-element-of-what-is-being-presented",
@@ -116,7 +123,7 @@
     "href": "posts/Communicating_Code/CommCodePres.html#presenting-in-multiple-formats-video",
     "title": "Communicating code and data",
     "section": "Presenting in multiple formats: video",
-    "text": "Presenting in multiple formats: video\nVideo\n[]{< video ghtop_images/vid.mp4 >}"
+    "text": "Presenting in multiple formats: video\nVideo"
   },
   {
     "objectID": "posts/Communicating_Code/CommCodePres.html#questions-comments",
@@ -124,5 +131,789 @@
     "title": "Communicating code and data",
     "section": "Questions/ Comments",
     "text": "Questions/ Comments\n\nThoughts on:\n\nusing notebooks\ndocumenting code\nencouraging communication of code across ONS areas and experiences\n\nCan we share html files? Or do we have to work within the current framework?\nAnything else?"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_html.html#what-i-have-used-to-convert-notebooks-to-html",
+    "href": "posts/Communicating_Code/CommCodePres_html.html#what-i-have-used-to-convert-notebooks-to-html",
+    "title": "Communicating code: Website",
+    "section": "What I have used to convert notebooks to html",
+    "text": "What I have used to convert notebooks to html\n\nfastpages\n\nPreviously I converted notebooks to html via fastpages but this is now deprecated and they are recommending the use of quarto.\n\nquarto\n\nSo far I have found quarto really good and flexible (N.B. R works too)\nEasy to convert a notebook to multiple formats, including html, powerpoint, pdf, word doc\nBUT Quarto is not possible if installing from non pip sources is an issue (as far as I can tell currently)\n\nnbconvert is another option I tried\n\nbut it doesn’t seem to have the functionality of fastpages or quarto.\n\nJupyter Books seems to be the best option within companies with installation issues\n\nMaybe not as good as quarto but it works!"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_html.html#others",
+    "href": "posts/Communicating_Code/CommCodePres_html.html#others",
+    "title": "Communicating code: Website",
+    "section": "Others",
+    "text": "Others\n\nI know some people use Sphinx,\n\nis recommended by QA\nFrom what I can tell sphinx on it’s own is not as easy to use as notebooks\nBut there is a jupyter extension nbsphinx\nJupyter Books uses Sphinx heavily under the hood\n\nnbdev\n\nI think is connected to quarto\n\nVoila\n\nVoilà turns Jupyter notebooks into standalone web applications.\nLooks good, bit like streamlit\nbut seems to interfere with other libraries\nmercury seems similar"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_html.html#creating-html-other-formats",
+    "href": "posts/Communicating_Code/CommCodePres_html.html#creating-html-other-formats",
+    "title": "Communicating code: Website",
+    "section": "Creating html (& other formats)",
+    "text": "Creating html (& other formats)\n\nQuarto\nInstallation is via a package i.e. .msi for Windows or .pkg for Mac. Which can cause issues.\nWorks with both ipynb and qmd files, which are both a mixture of markdown and executable code.\nThe only thing that needs to be done with the notebook is add a YAML block at the start of the notebook, like the following (raq not markdown was used):\n---\ntitle: \"Communicating code: Website\"\nsubtitle: \"Using the notebook format for a website\"\nauthor: \"Thomas H. Simm\"\nformat:\n  html:\n    toc: true\ntitle-slide-attributes:\n  data-background-size: contain\n  data-background-opacity: \"0.5\"\njupyter: python3\n---\nWe can create different files from this .ipynb Jupyter notebook using the following code:\n\nquarto render testPres.ipynb --to pptx\nquarto render testPres.ipynb --to pdf\nquarto render testPres.ipynb --to html\nquarto render testPres.ipynb --to revealjs\n\nFurther, formatting for projects (i.e. for website) can be done within the configuration file _quarto.yml\nproject:\n  type: website\n  output-dir: _site\n\nwebsite:\n  title: \"ThomasHSimm\"\n  favicon: /posts/Picture3.png\n  body-header: <img src=\"/posts/header2.png\" height=200>\n\n  navbar:\n    right:\n      - about.qmd\n      - icon: github\n        href: https://github.com/ThomasHSimm\n      - icon: mortarboard-fill\n        href: https://scholar.google.com/citations?hl=en&user=HdPDn1sAAAAJ\nformat:\n  html:\n    theme: \n      light: flatly\n      dark: darkly\n    css: styles.css"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_html.html#jupyter-books",
+    "href": "posts/Communicating_Code/CommCodePres_html.html#jupyter-books",
+    "title": "Communicating code: Website",
+    "section": "Jupyter Books",
+    "text": "Jupyter Books\nWe can create different files from this .ipynb Jupyter notebook using the following code:\n\njupyter-book build .\\PesticideDocs\\\njupyter-book build <path-to-book>\njupyter-book build <path-to-book> --builder pdfhtml\njupyter-book build <path-to-book> --builder singlehtml\n\nThe only difference in notebook is that it needs to have One header in a markdown cell for the table of contents, e.g. \n# Title of page\n\nConfiguration file\nA seperate files _config.yml is used to define how the html (or other) files will look\n# Book settings\n# Learn more at https://jupyterbook.org/customize/config.html\n\ntitle: Defra Pesticide Testing, Data Analysis\nauthor: Thomas Simm\nlogo: ONS-logo.png\nexclude_patterns: [_build, Thumbs.db, .DS_Store, \"**.ipynb_checkpoints\"]\n\n\n# Force re-execution of notebooks on each build.\n# See https://jupyterbook.org/content/execute.html\nexecute:\n  execute_notebooks: force\n\n# Define the name of the latex output file for PDF builds\nlatex:\n  latex_documents:\n    targetname: book.tex\n\n# Add a bibtex file so that we can create citations\nbibtex_bibfiles:\n  - references.bib\n\n# Information about where the book exists on the web\nrepository:\n  url: https://github.com/ThomasHSimm/Pesticide  # Online location of your book\n  path_to_book: docs  # Optional path to your book, relative to the repository root\n  branch: master  # Which branch of the repository should be used when creating links (optional)\n\n# Add GitHub buttons to your book\n# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository\n# HTML-specific settings\nhtml:\n  favicon                   : \"_images/favicon.jpg\"  # A path to a favicon image\n  use_edit_page_button      : false  # Whether to add an \"edit this page\" button to pages. If `true`, repository information in repository: must be filled in\n  use_repository_button     : false  # Whether to add a link to your repository button\n  use_issues_button         : false  # Whether to add an \"open an issue\" button\n  use_multitoc_numbering    : true   # Continuous numbering across parts/chapters\n  extra_navbar              : Powered by <a href=\"https://jupyterbook.org\">Jupyter Book</a>\n                              <br>Home website <a href=\"https://thomashsimm.com/\">thomashsimm.com</a> # Will be displayed underneath the left navbar.\n  extra_footer              : \"\"  # Will be displayed underneath the footer.\n  google_analytics_id       : \"\"  # A GA id that can be used to track book views.\n  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar\n  baseurl                   : \"\"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/\n  comments:\n    hypothesis              : false\n    utterances              : false\n  announcement              : \"\" # A banner announcement at the top of the site.\n\nAnd in addition to the config file a table of contents file is required _toc.yml:\n# Table of contents\n# Learn more at https://jupyterbook.org/customize/toc.html\n\nformat: jb-book\nroot: intro\nchapters:\n- file: Pesticide_Plots\n- file: References\n- file: UK_areas\n- file: using_jupyter_books"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_html.html#creating-a-webpage-from-this",
+    "href": "posts/Communicating_Code/CommCodePres_html.html#creating-a-webpage-from-this",
+    "title": "Communicating code: Website",
+    "section": "Creating a webpage from this",
+    "text": "Creating a webpage from this\nTakes about 30 mins including installing the chosen converter. (But can be done much quicker)\n\ncreate a Github repo for your website\nchoose the converter (e.g. Jupyter Books)\n\nAnd follow their instructions\n\ngo to settings -> Pages within the repo\n\nfew options to do\n\nOptional: add your own website url to it\n\nLink how to do this here\nIn Quarto a command from your PC in the repo, publishes the website:\nquarto publish quarto-pub\nOr equivalently with Jupyter Books:\nghp-import -n -p -f _build/html"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_html.html#creating-directly-from-the-repo",
+    "href": "posts/Communicating_Code/CommCodePres_html.html#creating-directly-from-the-repo",
+    "title": "Communicating code: Website",
+    "section": "Creating directly from the repo",
+    "text": "Creating directly from the repo\nIf we instead want to convert notebook files directly from a repo to create a website then this can be done with Netlify.\nThis is useful if using Gitlab (i.e. not Github) or don’t want all the extra html files cluttering the repo.\n\nSteps:\nhttps://jupyterbook.org/en/stable/publish/netlify.html\n\nSign up and connect Github/Gitlab\nAdd a requirements.txt file and also toc.yml to directory\nOn netlify -> Add new site -> import from an existing repo\nInsert something like below\n\nN.B. the command:\npip install -r requirements.txt && jupyter-book build .\nand folder location \n\n\nExample:\n\nGitlab repo\nResulting website https://thomashsimm.netlify.app/intro.html\n\nAnd from the inner folder"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#jupyter-notebooks",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#jupyter-notebooks",
+    "title": "Communicating code: Notebooks",
+    "section": "Jupyter Notebooks",
+    "text": "Jupyter Notebooks\nFrom TalkPython: Awesome Jupyter Libraries and Extensions\n\nJupyter is an amazing environment for exploring data and generating executable reports with Python. But there are many external tools, extensions, and libraries to make it so much better and make you more productive.\n\n\nA notebook consists of two parts\n\nmarkdown part where we can:\n\nwrite text, add images, links, html, LaTeX etc\n\ncode part which runs and displays output of code\n\n\nSome links:\n\nJupyter Book\nA curated list of awesome Jupyter projects\nCode Documentation QA of Code\nFastAI guide for better blogs"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#example-of-a-notebook",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#example-of-a-notebook",
+    "title": "Communicating code: Notebooks",
+    "section": "Example of a notebook",
+    "text": "Example of a notebook\nAn example notebook"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#markdown-in-a-notebook",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#markdown-in-a-notebook",
+    "title": "Communicating code: Notebooks",
+    "section": "Markdown in a notebook",
+    "text": "Markdown in a notebook\nSome useful commands:\n\n# Notebooks Markdown and Code and ## Markdown in a notebook\n![](ghtop_images/pest.png) looks like this\n\n\n\nAnd the same with a mp4 file ![](ghtop_images/revealjs.mp4)\n\nVideo\n\n> If we want text like this\n\n\nIf we want text like this\n\n\nOr if we want code use `a = b + c`\n\nor:\n```\na = b\na = a + c\n```\na = b + c\n\nHTML works too\n\n<img src=\"ghtop_images/pest.png\"></img>"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#code-in-a-notebook",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#code-in-a-notebook",
+    "title": "Communicating code: Notebooks",
+    "section": "Code in a notebook",
+    "text": "Code in a notebook\nExample interactive format using altair:\n\nimport altair as alt\nfrom vega_datasets import data\n\nmovies = alt.UrlData(\n    data.movies.url,\n    format=alt.DataFormat(parse={\"Release_Date\":\"date\"})\n)\nratings = ['G', 'NC-17', 'PG', 'PG-13', 'R']\ngenres = ['Action', 'Adventure', 'Black Comedy', 'Comedy',\n       'Concert/Performance', 'Documentary', 'Drama', 'Horror', 'Musical',\n       'Romantic Comedy', 'Thriller/Suspense', 'Western']\n\nbase = alt.Chart(movies, width=200, height=200).mark_point(filled=True).transform_calculate(\n    Rounded_IMDB_Rating = \"floor(datum.IMDB_Rating)\",\n    Hundred_Million_Production =  \"datum.Production_Budget > 100000000.0 ? 100 : 10\",\n    Release_Year = \"year(datum.Release_Date)\"\n).transform_filter(\n    alt.datum.IMDB_Rating > 0\n).transform_filter(\n    alt.FieldOneOfPredicate(field='MPAA_Rating', oneOf=ratings)\n).encode(\n    x=alt.X('Worldwide_Gross:Q', scale=alt.Scale(domain=(100000,10**9), clamp=True)),\n    y='IMDB_Rating:Q',\n    tooltip=\"Title:N\"\n)\n\n# A slider filter\nyear_slider = alt.binding_range(min=1969, max=2018, step=1)\nslider_selection = alt.selection_single(bind=year_slider, fields=['Release_Year'], name=\"Release Year_\")\n\n\nfilter_year = base.add_selection(\n    slider_selection\n).transform_filter(\n    slider_selection\n).properties(title=\"Slider Filtering\")\n\n# A dropdown filter\ngenre_dropdown = alt.binding_select(options=genres)\ngenre_select = alt.selection_single(fields=['Major_Genre'], bind=genre_dropdown, name=\"Genre\")\n\nfilter_genres = base.add_selection(\n    genre_select\n).transform_filter(\n    genre_select\n).properties(title=\"Dropdown Filtering\")\n\n#color changing marks\nrating_radio = alt.binding_radio(options=ratings)\n\nrating_select = alt.selection_single(fields=['MPAA_Rating'], bind=rating_radio, name=\"Rating\")\nrating_color_condition = alt.condition(rating_select,\n                      alt.Color('MPAA_Rating:N', legend=None),\n                      alt.value('lightgray'))\n\nhighlight_ratings = base.add_selection(\n    rating_select\n).encode(\n    color=rating_color_condition\n).properties(title=\"Radio Button Highlighting\")\n\n# Boolean selection for format changes\ninput_checkbox = alt.binding_checkbox()\ncheckbox_selection = alt.selection_single(bind=input_checkbox, name=\"Big Budget Films\")\n\nsize_checkbox_condition = alt.condition(checkbox_selection,\n                                        alt.SizeValue(25),\n                                        alt.Size('Hundred_Million_Production:Q')\n                                       )\n\nbudget_sizing = base.add_selection(\n    checkbox_selection\n).encode(\n    size=size_checkbox_condition\n).properties(title=\"Checkbox Formatting\")\n\n( filter_year | filter_genres) &  (highlight_ratings | budget_sizing  )"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#simpler-code-output",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#simpler-code-output",
+    "title": "Communicating code: Notebooks",
+    "section": "Simpler code output",
+    "text": "Simpler code output\nx = np.arange(0,np.pi,.01)\ny = np.sin(x)\nplt.plot(x,y)\n\nimport matplotlib.pyplot as plt\nimport numpy as np\nx = np.arange(0,np.pi,.01)\ny = np.sin(x)\nplt.plot(x,y)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#notebooks-my-view",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#notebooks-my-view",
+    "title": "Communicating code: Notebooks",
+    "section": "Notebooks: my view",
+    "text": "Notebooks: my view\nAlthough notebooks have their validish detractors I don’t like notebooks.- Joel Grus Youtube I think if you approach them in the right way they are a super powerful tool.\nThe negatives seem to be:\n\nencourage bad practice in code (a genuine problem)\nissues around order of what cell is run (easily got around with good practice)\nissues around lack of auto complete (I don’t see the issue, use in visual studio autocomplete is there)\nno grammar/spelling correction\nissues with using git and version control\n\nthere are ways around this though"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#notebook-benefits",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#notebook-benefits",
+    "title": "Communicating code: Notebooks",
+    "section": "Notebook Benefits",
+    "text": "Notebook Benefits\n\nNotebooks are intuitive\n\nYou have the code then the result of the code\nPlus can add details of how code works\nAnd it’s linear\n\nCan get things up and working quickly\nAid with communicating code\nEncourages Writing\n\nand writing things down aids thinking in the now and understanding what you did and why in the future\n\nFastAI guide for better blogs\n\nCan use shell commands e.g. !pip install pandas\nCan use magic commands e.g. %%time to time a cell\nEasy to convert code to a pipeline\n\nWith many companies moving towards Python/R from Excel and a varied level of skills. The first of these is particularly important to aid communicating code"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#communicating-when-code-is-a-large-element-of-what-is-being-presented",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#communicating-when-code-is-a-large-element-of-what-is-being-presented",
+    "title": "Communicating code: Notebooks",
+    "section": "Communicating when code is a large element of what is being presented",
+    "text": "Communicating when code is a large element of what is being presented\n\nMicrosoft Word/ppt- type methods aren’t set-up well to include code\nProgramming files (e.g. .py) aren’t set-up well to share\nVideoing code with outputs is an option, but don’t translate to other formats (i.e. we may also need to do a written format of this)\nApps (e.g. streamlit) can be good.\n\nBut the code is hidden\n\nProgramming notebooks (e.g..ipynb) offer a good and easy to share code but with some limitations\n\nAn easier way is to convert the notebooks to html\n\ne.g. maybe someone doesn’t have python installed"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#example-documenting-code",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#example-documenting-code",
+    "title": "Communicating code: Notebooks",
+    "section": "Example: Documenting Code",
+    "text": "Example: Documenting Code\n\nHere is my website for my research project on pesticides in UK food.\nThis is not the same as documentation for a package but there are parallels\n\nThis does a few things:\n\nDocuments the analysis steps I have taken including the code and outputs\n\nUseful for data transparency, useability of the code if needs modifiying/adapting, and why I did XYZ\n\nProvides a way to present the data\n\nThere is a streamlit app, but sometimes I like to be able to see the code"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#example-tool-to-aid-learning",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#example-tool-to-aid-learning",
+    "title": "Communicating code: Notebooks",
+    "section": "Example: Tool to aid learning",
+    "text": "Example: Tool to aid learning\nA big area I have been using Jupyter Notebooks for is to aid learning\n\nIf you want to understand something it helps to write it down\nHaving the code next to it is a big advantage\nAnd if stored on github you can access it anywhere\n\nTensoflow cheat sheet"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_notebooks.html#example-debugging-code",
+    "href": "posts/Communicating_Code/CommCodePres_notebooks.html#example-debugging-code",
+    "title": "Communicating code: Notebooks",
+    "section": "Example: Debugging Code",
+    "text": "Example: Debugging Code\n\nSince starting at ONS I have been working with understanding an existing project and latterly adding code to it\nThe project consists of multiple python files across several folders\n\nMy Python was good but lots of the functions and their useage weren’t immediately obvious to me\n\nbreak-points in VS Studio is really good to step through the code and work out what happens in the code.\n\nI had not used before with Python (but had lots with MATLAB), and it’s really useful\n\nBut it can be limited what you can do\n\ndifficult to probe code if want to write more than 1 line of code\nthe experience/knowledge exists as you go through it but no documentation to refer to later, e.g. function X does this when I give it Y etc\n\nBy copying and pasting code into Jupyter cells I could see and document how they worked (e.g. changing inputs)\n\nThis (copying and pasting) would get around code changes too (which would be an issue if modules were just imported)\nbecause this was all done in Jupyter notebook I can have a ipynb code file and a html file showing how the code works\nI could even save a pickle file of the variables at a particularly point to understand how the code would work from this point"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#content",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#content",
+    "title": "Communicating code: Presentations",
+    "section": "Content",
+    "text": "Content\n\nQuarto\n\npowerpoint https://quarto.org/docs/presentations/\nhtml\n\nJupyter books\nStreamlit"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#creating-the-template",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#creating-the-template",
+    "title": "Communicating code: Presentations",
+    "section": "Creating the template",
+    "text": "Creating the template\n(Office info correct for Office 365 Feb 2023, Version 2301 Build 16.0.16026.20002)\nIf your workplace has a custom template or you have one you always use, you can incorporate this into quarto.\nHowever, quarto is quite specific on the form this template takes, and requires the following elements - Title Slide - Title and Content - Section Header - Two Content - Comparison - Content with Caption - Blank\nBy selecting Layout from the Home tab in powerpoint the different layouts can be seen\n\nThey can then be modified by going to View tab - Slide Master.\nIf using your own template you will need to match the names of the slides given above. These can be found by hovering over the slides on the left or right clicking on one and selecting “Rename Layout”\n\nAlternatively, create a custom template using quarto and then modify this. The following command creates the template:\nquarto pandoc -o template.pptx --print-default-data-file reference.pptx\nThen go to View tab - Slide Master and modify each slide layout.\nNote if you are trying to match a template, some tips: - go to Design -> Slide Size and match this to your template - when View tab - Slide Master is selected go to first tab (see above it will be left indented) on one you are copying from and select all on this then paste to the new template - these will be background images and other things that want to be passed to all slides - Check other slides for images and font-styles etc to match to the new template"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#load-the-template",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#load-the-template",
+    "title": "Communicating code: Presentations",
+    "section": "Load the template",
+    "text": "Load the template\nTo load the template the first cell in the notebook needs to be modified as follows to reference the template.pptx file.\nformat:\n  pptx:\n    reference-doc: template.pptx\n    slide-level: 2\nIn addition, we can also specify here the rule by which a new slide is defined. If slide-level: 2 is used a new slide is defined by “##’ and a new section header by ‘#’. So if we used ‘###’ this would be a heading within the slide.\nIf slide-level: 1 is used a new slide is defined by “#’ and ‘##’ this would be a heading within the slide (this is normally the default)."
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#check-the-slides",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#check-the-slides",
+    "title": "Communicating code: Presentations",
+    "section": "Check the slides",
+    "text": "Check the slides\nI have found creation of slides to powerpoint more prone to strange results than if .doc/.pdf/.html are used.\nSo check the slides, see if interactive content or code has been included (probably not) and if the slide content goes outside the slide.\n\nIn the example above - There is overlap of text on a slide - Strange ouput of a slide - Code output not displayed"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#adding-style-to-revealjs",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#adding-style-to-revealjs",
+    "title": "Communicating code: Presentations",
+    "section": "Adding style to revealjs",
+    "text": "Adding style to revealjs\nA simple way to add template like details to a revealjs file is to add a style.css sheet.\nIn the example below, the style sheet adds logo.png to the bottom right of each sheet\nThe file style.css looks like this:\n.reveal .slide-logo {\n  display: block;\n  position: fixed;\n  top: unset !important;\n  left: unset !important;\n  bottom: 50px;\n  right: 12px;\n  height: 100px !important;\n  width: 100x !important;\n  max-width: unset !important;\n  max-height: unset !important;\n}\nAnd the revealjs part at the top of the jupyter notebook looks like this\nrevealjs:\n    slide-number: true\n    height: 1080\n    width: 1920\n    logo: logo.png\n    css: style.css\nSo this would then look like the following, with the logo (logo.png) in the bottom right, and size and positioning given by the css file"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#what-the-revealjs-file-looks-like",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#what-the-revealjs-file-looks-like",
+    "title": "Communicating code: Presentations",
+    "section": "What the revealjs file looks like",
+    "text": "What the revealjs file looks like\nVideo"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-overview",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-overview",
+    "title": "Communicating code: Presentations",
+    "section": "Streamlit Functionality: overview",
+    "text": "Streamlit Functionality: overview\nStreamlit allows various functionality:\n\ntextbox\nimages/videos\ncharts/tables\nmenus/buttons\netc"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-streamlit_layout",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-streamlit_layout",
+    "title": "Communicating code: Presentations",
+    "section": "Streamlit Functionality: streamlit_layout",
+    "text": "Streamlit Functionality: streamlit_layout\nBut unlike some apps (am thinking MATLAB GUIs) you can’t create the look and functionality separately. So if you want something in a certain position it can be tricky. HTML can be used with st.markdown to give more control but it isn’t recommended to use by streamlit.\nInstead, to create the layout as you would like they have the following features:"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-columns-and-sidebar",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-columns-and-sidebar",
+    "title": "Communicating code: Presentations",
+    "section": "Streamlit Functionality: columns and sidebar",
+    "text": "Streamlit Functionality: columns and sidebar\nThe most useable are the first two: columns and sidebar\nColumns allows us to split the app vertically. The code is fairly simple:\nEither colL, colM, colR = st.columns(3) for 3 equal columns or to split columns with different sizes:\ncolL, _, colR = st.columns((10, 5, 20))\nwith colL:\n    st.write('On the left')\nwith colR:\n    st.write('On the right twice as big as left')\nst.sidebar just adds a sidebar to the app that can be hidden or shown.\nAnything in the sidebar is just prefixed by st.sidebar so:\nst.sidebar.write('I am in the sidebar')\nst.write('I am in the main app')\nst.sidebar.write('I am back in the sidebar')"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-html",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-html",
+    "title": "Communicating code: Presentations",
+    "section": "Streamlit Functionality: html",
+    "text": "Streamlit Functionality: html\nIt is possible to add various additional personalisations using html. BUT it does come with security risks and so is [not recommended]](https://github.com/streamlit/streamlit/issues/152)\n\nBut it does allow much more control over the layout of the app that can be useful for a presentation: - Can add a background image - Can add background color to a textbox - Control over positioning of widgets - lots more\nHTML is implementated using st.markdown with unsafe_allow_html=True inside the former"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-html-examples",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-html-examples",
+    "title": "Communicating code: Presentations",
+    "section": "Streamlit Functionality: html examples",
+    "text": "Streamlit Functionality: html examples\nadd background to a text box\ntext = \"Code Examples\"\n        st.markdown(f'<center><p style=font-family:\"Calibri\";background-color:#FFFFFF;color:#000000;font-size:42px;border-radius:10%><b>{text}</b></p></center>', unsafe_allow_html=True)\n\nOr to add a background image\nimport streamlit as st\nimport base64\n\n@st.cache(allow_output_mutation=True)\ndef get_base64_of_bin_file(bin_file):\n    with open(bin_file, 'rb') as f:\n        data = f.read()\n    return base64.b64encode(data).decode()\n\ndef set_png_as_page_bg(png_file):\n    bin_str = get_base64_of_bin_file(png_file) \n    page_bg_img = '''\n    <style>\n    .stApp {\n    background-image: url(\"data:image/png;base64,%s\");\n    background-size: contain;\n    background-repeat: no-repeat;\n    background-attachment: scroll; # doesn't work\n    }\n    </style>\n    ''' % bin_str\n    st.markdown(page_bg_img, unsafe_allow_html=True)\n    return"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-echo",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-echo",
+    "title": "Communicating code: Presentations",
+    "section": "Streamlit Functionality: echo",
+    "text": "Streamlit Functionality: echo\n\nSometimes you want your Streamlit app to contain both your usual Streamlit graphic elements and the code that generated those elements. That’s where st.echo() comes in\n\nEasier to display this by an example:\n\nIn the example above the right of the image is given below (st.columns is used, where the input for the function is found from the left column).\n\nst.echo is used with the with statement.\neverything within the with is printed to the screen and executed\n\nwith st.echo():\n    # Everything inside this block will be both printed to the screen\n    # and executed.\n\n    def do_pd_replace(text, text_search, text_sub):\n        col_name = \"Start string\"\n        df = pd.DataFrame(data=[text], columns=[col_name])\n\n        df[\"Final String\"] = df[col_name].replace(\n            text_search, text_sub, regex=True\n        )\n\n        st.dataframe(df)\n        st.write(f\"text_search = '{text_search}' and text_sub = '{text_sub}'\")\n        st.write(f\"Input string = '{text}'\")\n        st.write(f\"Output string = '{df['Final String'].values[0]}'\")\n\n    do_pd_replace(text, text_search, text_sub)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-pages",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#streamlit-functionality-pages",
+    "title": "Communicating code: Presentations",
+    "section": "Streamlit Functionality: pages",
+    "text": "Streamlit Functionality: pages\nBy simply creating a folder called pages and putting other streamlit .py files in the folder they can then be accessed in the sidebar.\n\nA main file needs to be outside the pages folder\nThe .py files in pages behave as if they were outside the folder (i.e. when loading files/functions)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_pres.html#example-streamlit-presentation",
+    "href": "posts/Communicating_Code/CommCodePres_pres.html#example-streamlit-presentation",
+    "title": "Communicating code: Presentations",
+    "section": "Example Streamlit Presentation",
+    "text": "Example Streamlit Presentation\nVideo"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#excel-files",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#excel-files",
+    "title": "Communicating code: Tables",
+    "section": "Excel files",
+    "text": "Excel files\n\nChatGPT: What are the problems of Excel and xlsx files?\n\n\nLimited scalability: Excel has a limit on the number of rows and columns it can handle effectively.\nInaccurate data: The manual nature of data entry in Excel can lead to errors and inaccuracies.\nFragility: Complex Excel spreadsheets can break easily if any formula or cell reference is altered.\nLack of security: Excel files are vulnerable to unauthorized access and malicious attacks.\nSlow performance: Large and complex Excel files can become slow to open and use, leading to decreased productivity.\nCompatibility issues: XLSX files may not be compatible with older versions of Excel, or with other software applications.\nLimited collaboration: Sharing Excel files and making changes to them can be difficult, especially when multiple people are involved.\n\nFor me it is the Slow performance alongside: (a) we are doing the data manipulation outside Excel anyway and (b) having to have another application open\n\nods with Excel\nAbout 10 s to open 3 ods files with Excel\n\n\n.ods converted to html in firefox browser\nAbout 6 s to open 3 converted ods files in a browser\n\n\n.ods converted to html firefox browser no new tabs\nAlmost instant when open converted ods files in same browser"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#what-aspect-of-tables-i-am-considering",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#what-aspect-of-tables-i-am-considering",
+    "title": "Communicating code: Tables",
+    "section": "What aspect of tables I am considering",
+    "text": "What aspect of tables I am considering"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#convert-xlsx-to-html",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#convert-xlsx-to-html",
+    "title": "Communicating code: Tables",
+    "section": "Convert xlsx to html?",
+    "text": "Convert xlsx to html?\n\nOpening xlsx files in Excel is slow\nConverting to html if we don’t want to edit could be an option\nIf we are moving to Python/R aren’t non-Excel options worth considering??\n\nConverting xlsx files to html\n\nSeems the most obvious course\nBut it doesn’t seem that easy with code\n\nbut easy within Excel"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#what-does-chatgpt-say-to-convert-excel-file",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#what-does-chatgpt-say-to-convert-excel-file",
+    "title": "Communicating code: Tables",
+    "section": "What does chatgpt say to convert excel file?",
+    "text": "What does chatgpt say to convert excel file?\n\nConvert an excel file to html with python"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#what-does-chatgpt-say-without-pandas",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#what-does-chatgpt-say-without-pandas",
+    "title": "Communicating code: Tables",
+    "section": "What does chatgpt say without pandas?",
+    "text": "What does chatgpt say without pandas?\n\nconvert excel file to html in python without pandas include the excel formatting such as column width\n\n\n\nimport pandas as pd\n\nimport os\nfrom pathlib import Path\nimport sys\n\nmodule_path = Path( os.getcwd() )\nmodule_path = module_path.parent.parent.parent.__str__() + '\\\\Pesticide'\n\ncwd = module_path\n\nfolder_path = os.path.join(cwd,'data')\n\nsys.path.insert(0, module_path)\n\ndf2 = pd.read_csv(os.path.join(folder_path,'combined_df.csv') ,index_col=0 )\n# change data type of columns\ndf2['date_of_sampling'] = pd.to_datetime(df2['date_of_sampling'])"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#pandas",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#pandas",
+    "title": "Communicating code: Tables",
+    "section": "pandas",
+    "text": "pandas\n\nSince (in Python) we are mainly working with pandas. Let’s consider how pandas outputs can be modified.\npandas options\n\nSome code functionality\n# precision of all columns\npd.set_option(\"display.precision\", 2)\n# Or map as a string\ndf2['amount_pc_str'] = df2['amount_pc'].map(lambda x: '%.3f' % x)\n# some other options\npd.set_option('max_colwidth', 20)\npd.set_option('display.max_columns', None)\npd.set_option('display.expand_frame_repr', False)\npd.set_option('max_colwidth', 0)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#pandas-basic",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#pandas-basic",
+    "title": "Communicating code: Tables",
+    "section": "pandas basic",
+    "text": "pandas basic\n\ndf2\n\n\n\n\n\n  \n    \n      \n      sample_id\n      date_of_sampling\n      description\n      country_of_origin\n      retail_outlet\n      address\n      brand_name\n      packer_/_manufacturer_/_importer\n      product\n      address_postcode\n      packer_postcode\n      address_area\n      packer_area\n      chem_name\n      amount_detected\n      mrl\n      amount_pc\n    \n  \n  \n    \n      0\n      1958/2016\n      2016-08-08\n      Bramley Apples\n      UK\n      Asda\n      Creechbarrow Road, Taunton TA1 2AN\n      Asda\n      Asda Stores Ltd Leeds, UK LS11 5AD\n      Apple\n      TA1 2AN\n      LS11 5AD\n      Somerset\n      West Yorkshire\n      boscalid\n      0.03\n      2.0\n      0.015\n    \n    \n      1\n      1958/2016\n      2016-08-08\n      Bramley Apples\n      UK\n      Asda\n      Creechbarrow Road, Taunton TA1 2AN\n      Asda\n      Asda Stores Ltd Leeds, UK LS11 5AD\n      Apple\n      TA1 2AN\n      LS11 5AD\n      Somerset\n      West Yorkshire\n      pyraclostrobin\n      0.01\n      0.5\n      0.020\n    \n    \n      2\n      0230/2016\n      2016-08-08\n      Bramley Apples\n      UK\n      Co-op\n      Northgate, Louth LN11 0LT\n      Co-op\n      Co-operative Group Ltd Manchester M60 0AG\n      Apple\n      LN11 0LT\n      M60 0AG\n      Lincolnshire\n      Greater Manchester\n      boscalid\n      0.05\n      2.0\n      0.025\n    \n    \n      3\n      0230/2016\n      2016-08-08\n      Bramley Apples\n      UK\n      Co-op\n      Northgate, Louth LN11 0LT\n      Co-op\n      Co-operative Group Ltd Manchester M60 0AG\n      Apple\n      LN11 0LT\n      M60 0AG\n      Lincolnshire\n      Greater Manchester\n      flonicamid (sum)\n      0.02\n      0.2\n      0.100\n    \n    \n      4\n      0230/2016\n      2016-08-08\n      Bramley Apples\n      UK\n      Co-op\n      Northgate, Louth LN11 0LT\n      Co-op\n      Co-operative Group Ltd Manchester M60 0AG\n      Apple\n      LN11 0LT\n      M60 0AG\n      Lincolnshire\n      Greater Manchester\n      pyraclostrobin\n      0.03\n      0.5\n      0.060\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      35155\n      2858/2020 Organic\n      2020-10-20\n      Organic Sweet Potatoes\n      Spain\n      Tesco\n      300 Beverley Way, New Malden KT3 4PJ\n      Tesco\n      Tesco Stores Ltd Welwyn Garden City AL7 1GA\n      Sweet_Potatoes_Q4_(BNA)\n      KT3 4PJ\n      AL7 1GA\n      Greater London\n      Hertfordshire\n      0\n      0.00\n      0.0\n      0.000\n    \n    \n      35156\n      0562/2020 Organic\n      2020-10-05\n      Organic Duchy Sweet Potatoes\n      Egypt\n      Waitrose\n      Mill Lane, Swindon SN1 7BX\n      Waitrose\n      Waitrose Ltd Doncastle Road, Bracknell, Berksh...\n      Sweet_Potatoes_Q4_(BNA)\n      SN1 7BX\n      RG12 8YA\n      Wiltshire\n      Berkshire\n      0\n      0.00\n      0.0\n      0.000\n    \n    \n      35157\n      0563/2020\n      2020-10-05\n      Sweet Potatoes\n      USA\n      Waitrose\n      Mill Lane, Swindon SN1 7BX\n      Waitrose\n      Waitrose Ltd Doncastle Road, Bracknell, Berksh...\n      Sweet_Potatoes_Q4_(BNA)\n      SN1 7BX\n      RG12 8YA\n      Wiltshire\n      Berkshire\n      0\n      0.00\n      0.0\n      0.000\n    \n    \n      35158\n      2601/2020\n      2020-10-14\n      Sweet Potatoes\n      USA\n      Waitrose\n      Ossington Way, Newark NG24 1FF\n      Waitrose\n      Waitrose Ltd Doncastle Road, Bracknell, Berksh...\n      Sweet_Potatoes_Q4_(BNA)\n      NG24 1FF\n      RG12 8YA\n      Nottinghamshire\n      Berkshire\n      0\n      0.00\n      0.0\n      0.000\n    \n    \n      35159\n      2601/2020\n      2020-10-14\n      Sweet Potatoes\n      USA\n      Waitrose\n      Ossington Way, Newark NG24 1FF\n      Waitrose\n      Waitrose Ltd Doncastle Road, Bracknell, Berksh...\n      Sweet_Potatoes_Q4_(BNA)\n      NG24 1FF\n      RG12 8YA\n      Nottinghamshire\n      Berkshire\n      0\n      0.00\n      0.0\n      0.000\n    \n  \n\n35160 rows × 17 columns"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#pandas-overview",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#pandas-overview",
+    "title": "Communicating code: Tables",
+    "section": "pandas overview",
+    "text": "pandas overview\n\nUsing pandas we can control various outputs\nBut these still need a format to display within\nAnd display functionality is not easy\n\nOr convert to a html file\ndf2.iloc[:500].to_html('df2_500.html')\nBut using a style sheet as shown in stack overflow by Parfait\n\ndf_out = df2.iloc[:500].copy()\n\npd.set_option('colheader_justify', 'center')   # FOR TABLE <th>\n\nhtml_string = '''\n<html>\n  <head><title>HTML Pandas Dataframe with CSS</title></head>\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"df_style.css\"/>\n  <body>\n    {table}\n  </body>\n</html>.\n'''\n\n# OUTPUT AN HTML FILE\nwith open('df2_500.html', 'w') as f:\n    f.write(html_string.format(table=df_out.to_html(classes='mystyle')))"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#section",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#section",
+    "title": "Communicating code: Tables",
+    "section": "",
+    "text": "https://www.python-excel.org/"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#ipydatagrid",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#ipydatagrid",
+    "title": "Communicating code: Tables",
+    "section": "ipydatagrid",
+    "text": "ipydatagrid\nhttps://github.com/bloomberg/ipydatagrid\n\n\nfrom ipydatagrid import DataGrid, TextRenderer, VegaExpr\nimport ipydatagrid\ndatagrid = DataGrid(df2, selection_mode=\"cell\", editable=True,\n                   base_row_size=32, base_column_size=150)\n\ndatagrid = DataGrid(df2, base_row_size=30, base_column_size=150)\ndatagrid"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#itables-code",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#itables-code",
+    "title": "Communicating code: Tables",
+    "section": "itables code",
+    "text": "itables code\nfrom itables import init_notebook_mode\n\nimport itables\ninit_notebook_mode(all_interactive=True)\n\nitables.show(df2)\n\nfrom itables import init_notebook_mode\n\nimport itables\ninit_notebook_mode(all_interactive=True)\n\nitables.show(df2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      \n      sample_id\n      date_of_sampling\n      description\n      country_of_origin\n      retail_outlet\n      address\n      brand_name\n      packer_/_manufacturer_/_importer\n      product\n      address_postcode\n      packer_postcode\n      address_area\n      packer_area\n      chem_name\n      amount_detected\n      mrl\n      amount_pc\n    \n  Loading... (need help?)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#dash",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#dash",
+    "title": "Communicating code: Tables",
+    "section": "Dash",
+    "text": "Dash\nhttps://dash.plotly.com/datatable\n\nDownloaded 800,000 times per month, Dash is the original low-code framework for rapidly building data apps in Python, R, Julia, and F# (experimental).\n\nhttps://medium.com/plotly/introducing-jupyterdash-811f1f57c02e\n\nimport plotly.express as px\nfrom jupyter_dash import JupyterDash\nimport dash_core_components as dcc\nimport dash_html_components as html\nfrom dash.dependencies import Input, Output# Load Data\ndf = px.data.tips()# Build App\napp = JupyterDash(__name__)\napp.layout = html.Div([\n    html.H1(\"JupyterDash Demo\"),\n    dcc.Graph(id='graph'),\n    html.Label([\n        \"colorscale\",\n        dcc.Dropdown(\n            id='colorscale-dropdown', clearable=False,\n            value='plasma', options=[\n                {'label': c, 'value': c}\n                for c in px.colors.named_colorscales()\n            ])\n    ]),\n])# Define callback to update graph\n@app.callback(\n    Output('graph', 'figure'),\n    [Input(\"colorscale-dropdown\", \"value\")]\n)\ndef update_figure(colorscale):\n    return px.scatter(\n        df, x=\"total_bill\", y=\"tip\", color=\"size\",\n        color_continuous_scale=colorscale,\n        render_mode=\"webgl\", title=\"Tips\"\n    )# Run app and display result inline in the notebook\napp.run_server(mode='inline')\n\nC:\\Users\\44781\\AppData\\Local\\Temp\\ipykernel_15260\\3294666565.py:3: UserWarning: \nThe dash_core_components package is deprecated. Please replace\n`import dash_core_components as dcc` with `from dash import dcc`\n  import dash_core_components as dcc\nC:\\Users\\44781\\AppData\\Local\\Temp\\ipykernel_15260\\3294666565.py:4: UserWarning: \nThe dash_html_components package is deprecated. Please replace\n`import dash_html_components as html` with `from dash import html`\n  import dash_html_components as html"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#streamlit",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#streamlit",
+    "title": "Communicating code: Tables",
+    "section": "Streamlit",
+    "text": "Streamlit\n\nA faster way to build and share data apps\n\n\nDash can be run within a notebook but is principally an app.\nStreamlit is a similar app.\nBut much easier to code.\n\nimport pandas as pd\nimport streamlit as st\nall_dfs = pd.read_csv(\"./data/combined_df.csv\")\nst.dataframe(all_dfs.head())"
+  },
+  {
+    "objectID": "posts/Communicating_Code/CommCodePres_tables.html#and-more",
+    "href": "posts/Communicating_Code/CommCodePres_tables.html#and-more",
+    "title": "Communicating code: Tables",
+    "section": "And more",
+    "text": "And more\n\nDataTables\n\nDataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, built upon the foundations of progressive enhancement, that adds all of these advanced features to any HTML table.\n\n\n\nJupyter widgets\nIf you are looking for Jupyter widgets, have a look at (taken from https://mwouts.github.io/itables/references.html) - QGrid by Quantopian - IPyaggrid by Louis Raison and Olivier Borderies - IPySheet by QuantStack."
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#content",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#content",
+    "title": "Communicating code and data",
+    "section": "Content",
+    "text": "Content\n\nNotebooks\n\nWhat are they?\nExamples\nPros and cons\n\nApps\n\nVoila\nStreamlit\n\nWebsites and HTML\n\nConverting notebooks to HTML and websites\n\nPresentations\n\nUsing notebooks for presentations\n\nTabular Data\n\nComments on Excel\nThoughts on code alternatives"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#jupyter-notebooks",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#jupyter-notebooks",
+    "title": "Communicating code and data",
+    "section": "Jupyter Notebooks",
+    "text": "Jupyter Notebooks\nFrom TalkPython: Awesome Jupyter Libraries and Extensions\n\nJupyter is an amazing environment for exploring data and generating executable reports with Python. But there are many external tools, extensions, and libraries to make it so much better and make you more productive.\n\n\nA notebook consists of two parts\n\nmarkdown part where we can:\n\nwrite text, add images, links, html, LaTeX etc\n\ncode part which runs and displays output of code\n\n\nSome links:\n\nJupyter Book\nA curated list of awesome Jupyter projects\nCode Documentation QA of Code\nFastAI guide for better blogs"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-of-a-notebook",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-of-a-notebook",
+    "title": "Communicating code and data",
+    "section": "Example of a notebook",
+    "text": "Example of a notebook\nAn example notebook"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#markdown-in-a-notebook-1",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#markdown-in-a-notebook-1",
+    "title": "Communicating code and data",
+    "section": "Markdown in a notebook 1",
+    "text": "Markdown in a notebook 1\nSome useful commands:\n\n# Notebooks General and ## Markdown in a notebook 1\n![](ghtop_images/pest.png) looks like this"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#markdown-in-a-notebook-2",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#markdown-in-a-notebook-2",
+    "title": "Communicating code and data",
+    "section": "Markdown in a notebook 2",
+    "text": "Markdown in a notebook 2\n\nAnd the same with a mp4 file ![](ghtop_images/revealjs.mp4)\nOr a youtube video \"\""
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#markdown-in-a-notebook-3",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#markdown-in-a-notebook-3",
+    "title": "Communicating code and data",
+    "section": "Markdown in a notebook 3",
+    "text": "Markdown in a notebook 3\n\n> If we want text like this\n\n\nIf we want text like this\n\n\nOr if we want code use `a = b + c`\n\nor:\n```\na = b\na = a + c\n```\n\na = b\n\na = a + c"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#markdown-in-a-notebook-4",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#markdown-in-a-notebook-4",
+    "title": "Communicating code and data",
+    "section": "Markdown in a notebook 4",
+    "text": "Markdown in a notebook 4\n\nHTML works too\n\n<img src=\"ghtop_images/pest.png\"></img>"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#code-in-a-notebook",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#code-in-a-notebook",
+    "title": "Communicating code and data",
+    "section": "Code in a notebook",
+    "text": "Code in a notebook\nExample interactive format using altair:"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#simpler-code-output",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#simpler-code-output",
+    "title": "Communicating code and data",
+    "section": "Simpler code output",
+    "text": "Simpler code output\nx = np.arange(0,np.pi,.01)\ny = np.sin(x)\nplt.plot(x,y)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#other-code-stuff",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#other-code-stuff",
+    "title": "Communicating code and data",
+    "section": "Other code stuff",
+    "text": "Other code stuff\n\nCan use shell commands e.g. !pip install pandas\nCan use magic commands e.g. %%time to time a cell\n\n%%time\ny=0\nfor x in range(0,100):\n    y+=x\nprint(f\"y is {y}\")\n\n\ny is 4950\nCPU times: total: 0 ns\nWall time: 0 ns"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#but-not-everyone-loves-notebooks",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#but-not-everyone-loves-notebooks",
+    "title": "Communicating code and data",
+    "section": "But Not everyone loves notebooks :(",
+    "text": "But Not everyone loves notebooks :(\nNotebooks have their validish detractors I don’t like notebooks.- Joel Grus Youtube"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#notebooks-opinion",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#notebooks-opinion",
+    "title": "Communicating code and data",
+    "section": "Notebooks Opinion",
+    "text": "Notebooks Opinion\nAlthough notebooks have their validish detractors I don’t like notebooks.- Joel Grus Youtube I think if you approach them in the right way they are a super powerful tool.\nThe negatives seem to be:\n\nencourage bad practice in code (a genuine problem)\nissues around order of what cell is run (easily got around with good practice)\nissues around lack of auto complete (I don’t see the issue, use in visual studio autocomplete is there)\nno grammar/spelling correction\nissues with using git and version control\n\nthere are ways around this though\n\nanything else?"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#notebook-benefits",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#notebook-benefits",
+    "title": "Communicating code and data",
+    "section": "Notebook Benefits",
+    "text": "Notebook Benefits\n\nNotebooks are intuitive\n\nYou have the code then the result of the code\nCan add text or images\nAnd it’s linear\n\nCan get things up and working quickly\nAid with communicating code\nEncourages Writing\n\nand writing things down aids thinking in the now and understanding what you did and why in the future\n\nFastAI guide for better blogs\n\nEasy to convert code to a pipeline\nTreat it as a notebook\n\nin the same way an artist would have a sketchbook to help make final piece\n\nWith many companies moving towards Python/R from Excel and a varied level of skills.\n\n“Aid with communicating code” is particularly important"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-documenting-code",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-documenting-code",
+    "title": "Communicating code and data",
+    "section": "Example: Documenting Code",
+    "text": "Example: Documenting Code\n\nHere is my website for my research project on pesticides in UK food\nThis is not the same as documentation for a package but there are parallels\n\nThis does a few things:\n\nDocuments the analysis steps I have taken including the code and outputs\n\nUseful for data transparency, useability of the code if needs modifiying/adapting, and why I did XYZ\n\nProvides a way to present the data\n\nThere is a streamlit app, but sometimes I like to be able to see the code"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-tool-to-aid-learning",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-tool-to-aid-learning",
+    "title": "Communicating code and data",
+    "section": "Example: Tool to aid learning",
+    "text": "Example: Tool to aid learning\nA big area I have been using Jupyter Notebooks for is to aid learning\n\nIf you want to understand something it helps to write it down\nHaving the code next to it is a big advantage\nAnd if stored on github you can access it anywhere\n\nTensoflow cheat sheet"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-debugging-code",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-debugging-code",
+    "title": "Communicating code and data",
+    "section": "Example: Debugging Code",
+    "text": "Example: Debugging Code\n\nSince starting at ONS I have been working with understanding an existing project and latterly adding code to it\nThe project consists of multiple python files across several folders\n\nMy Python was good but lots of the functions and their useage weren’t immediately obvious to me\n\nbreak-points in VS Studio is really good to step through the code and work out what happens in the code.\n\nI had not used before with Python (but had lots with MATLAB), and it’s really useful\n\nBut it can be limited what you can do\n\ndifficult to probe code if want to write more than 1 line of code\nthe experience/knowledge exists as you go through it but no documentation to refer to later, e.g. function X does this when I give it Y etc"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-debugging-code-2",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-debugging-code-2",
+    "title": "Communicating code and data",
+    "section": "Example: Debugging Code 2",
+    "text": "Example: Debugging Code 2\n\nBy copying and pasting code into Jupyter cells I could see and document how they worked (e.g. changing inputs)\n\nThis (copying and pasting) would get around code changes too (which would be an issue if modules were just imported)\nbecause this was all done in Jupyter notebook I can have a ipynb code file and a html file showing how the code works\nI could even save a pickle file of the variables at a particularly point to understand how the code would work from this point"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#apps-overview",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#apps-overview",
+    "title": "Communicating code and data",
+    "section": "Apps Overview",
+    "text": "Apps Overview\nThere are many packages that can be used to convert python code to an app\nUsing Notebooks directly\n\nVoila\nmercury\n\nApps without notebooks\n\nPySimpleGUI\n\nSimple and useful but not the best for displaying data\n\nDash\n\nLooks really good, but also super complicated\n\nStreamlit\n\nEasy and looks good"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#voila",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#voila",
+    "title": "Communicating code and data",
+    "section": "Voila",
+    "text": "Voila\n\nVoila is relatively simple to use\nrun with something like voila .\\Excel_Voila.ipynb\nconverts notebook to an app\ncan use things like ipywidgets for interactivity\nthe reason I’m interested in it’s use is streamlit doesn’t seem to give flexibility to modify table output I’d like"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-overview",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-overview",
+    "title": "Communicating code and data",
+    "section": "Streamlit Overview",
+    "text": "Streamlit Overview\n\nStreamlit is an open-source Python library that makes it easy to create and share beautiful, custom web apps for machine learning and data science. In just a few minutes you can build and deploy powerful data apps. So let’s get started!\n\nPrincipally used to create apps, but some of the functionality works well for code/data presentations"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-overview",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-overview",
+    "title": "Communicating code and data",
+    "section": "Streamlit Functionality: overview",
+    "text": "Streamlit Functionality: overview\nStreamlit allows various functionality:\n\ntextbox\nimages/videos\ncharts/tables\nmenus/buttons\netc"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-streamlit_layout",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-streamlit_layout",
+    "title": "Communicating code and data",
+    "section": "Streamlit Functionality: streamlit_layout",
+    "text": "Streamlit Functionality: streamlit_layout\nBut unlike some apps (am thinking MATLAB GUIs) you can’t create the look and functionality separately. So if you want something in a certain position it can be tricky. HTML can be used with st.markdown to give more control but it isn’t recommended to use by streamlit.\nInstead, to create the layout as you would like they have the following features:"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-columns-and-sidebar",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-columns-and-sidebar",
+    "title": "Communicating code and data",
+    "section": "Streamlit Functionality: columns and sidebar",
+    "text": "Streamlit Functionality: columns and sidebar\nThe most useable are the first two: columns and sidebar\nColumns allows us to split the app vertically. The code is fairly simple:\nEither colL, colM, colR = st.columns(3) for 3 equal columns or to split columns with different sizes:\ncolL, _, colR = st.columns((10, 5, 20))\nwith colL:\n    st.write('On the left')\nwith colR:\n    st.write('On the right twice as big as left')\nst.sidebar just adds a sidebar to the app that can be hidden or shown.\nAnything in the sidebar is just prefixed by st.sidebar so:\nst.sidebar.write('I am in the sidebar')\nst.write('I am in the main app')\nst.sidebar.write('I am back in the sidebar')"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-html",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-html",
+    "title": "Communicating code and data",
+    "section": "Streamlit Functionality: html",
+    "text": "Streamlit Functionality: html\nIt is possible to add various additional personalisations using html. - BUT it does come with security risks and so is [not recommended]](https://github.com/streamlit/streamlit/issues/152)\n\nAllows much more control over the layout of the app that can be useful for a presentation: - Can add a background image - Can add background color to a textbox - Control over positioning of widgets - lots more\nHTML is implementated using st.markdown with unsafe_allow_html=True inside the former"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-html-examples",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-html-examples",
+    "title": "Communicating code and data",
+    "section": "Streamlit Functionality: html examples",
+    "text": "Streamlit Functionality: html examples\nadd background to a text box\ntext = \"Code Examples\"\n        st.markdown(f'<center><p style=font-family:\"Calibri\";background-color:#FFFFFF;color:#000000;font-size:42px;border-radius:10%><b>{text}</b></p></center>', unsafe_allow_html=True)\n\nOr to add a background image\nimport streamlit as st\nimport base64\n\n@st.cache(allow_output_mutation=True)\ndef get_base64_of_bin_file(bin_file):\n    with open(bin_file, 'rb') as f:\n        data = f.read()\n    return base64.b64encode(data).decode()\n\ndef set_png_as_page_bg(png_file):\n    bin_str = get_base64_of_bin_file(png_file) \n    page_bg_img = '''\n    <style>\n    .stApp {\n    background-image: url(\"data:image/png;base64,%s\");\n    background-size: contain;\n    background-repeat: no-repeat;\n    background-attachment: scroll; # doesn't work\n    }\n    </style>\n    ''' % bin_str\n    st.markdown(page_bg_img, unsafe_allow_html=True)\n    return"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-echo",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-echo",
+    "title": "Communicating code and data",
+    "section": "Streamlit Functionality: echo",
+    "text": "Streamlit Functionality: echo\n\nSometimes you want your Streamlit app to contain both your usual Streamlit graphic elements and the code that generated those elements. That’s where st.echo() comes in\n\nEasier to display this by an example:\n\nIn the example above the right of the image is given below (st.columns is used, where the input for the function is found from the left column).\n\nst.echo is used with the with statement.\neverything within the with is printed to the screen and executed\n\nwith st.echo():\n    # Everything inside this block will be both printed to the screen\n    # and executed.\n\n    def do_pd_replace(text, text_search, text_sub):\n        col_name = \"Start string\"\n        df = pd.DataFrame(data=[text], columns=[col_name])\n\n        df[\"Final String\"] = df[col_name].replace(\n            text_search, text_sub, regex=True\n        )\n\n        st.dataframe(df)\n        st.write(f\"text_search = '{text_search}' and text_sub = '{text_sub}'\")\n        st.write(f\"Input string = '{text}'\")\n        st.write(f\"Output string = '{df['Final String'].values[0]}'\")\n\n    do_pd_replace(text, text_search, text_sub)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-pages",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit-functionality-pages",
+    "title": "Communicating code and data",
+    "section": "Streamlit Functionality: pages",
+    "text": "Streamlit Functionality: pages\nBy simply creating a folder called pages and putting other streamlit .py files in the folder they can then be accessed in the sidebar.\n\nA main file needs to be outside the pages folder\nThe .py files in pages behave as if they were outside the folder (i.e. when loading files/functions)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-streamlit-presentation",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#example-streamlit-presentation",
+    "title": "Communicating code and data",
+    "section": "Example Streamlit Presentation",
+    "text": "Example Streamlit Presentation\nVideo"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#what-i-have-used-to-convert-notebooks-to-html",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#what-i-have-used-to-convert-notebooks-to-html",
+    "title": "Communicating code and data",
+    "section": "What I have used to convert notebooks to html",
+    "text": "What I have used to convert notebooks to html\n\nfastpages\n\nI have used fastpages, but this is now deprecated and they are recommending the use of quarto\n\nquarto\n\nSo far I have found quarto really good and flexible (N.B. R works too)\nEasy to convert a notebook to multiple formats, including html, powerpoint, pdf, word doc\nBUT Quarto is not possible if installing from non pip sources is an issue (as far as I can tell currently)\n\nnbconvert is another option I tried\n\nbut it doesn’t seem to have the functionality of fastpages or quarto\n\nJupyter Books seems to be the best option within companies with installation issues\n\nMaybe not as good as quarto but it works!"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#others",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#others",
+    "title": "Communicating code and data",
+    "section": "Others",
+    "text": "Others\n\nI know some people use Sphinx,\n\nis recommended by QA\nFrom what I can tell sphinx on it’s own is not as easy to use as notebooks\nBut there is a jupyter extension nbsphinx\nJupyter Books uses Sphinx heavily under the hood\n\nnbdev\n\nI think is connected to quarto\n\nVoila\n\nVoilà turns Jupyter notebooks into standalone web applications.\nLooks good, bit like streamlit\nbut seems to interfere with other libraries\nmercury seems similar"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-html-other-formats",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-html-other-formats",
+    "title": "Communicating code and data",
+    "section": "Creating html (& other formats)",
+    "text": "Creating html (& other formats)\nQuarto\nInstallation is via a package i.e. .msi for Windows or .pkg for Mac. Which can cause issues.\nWorks with both ipynb and qmd files, which are both a mixture of markdown and executable code.\nThe only thing that needs to be done with the notebook is add a YAML block at the start of the notebook, like the following (raq not markdown was used):\n---\ntitle: \"Communicating code: Website\"\nsubtitle: \"Using the notebook format for a website\"\nauthor: \"Thomas H. Simm\"\nformat:\n  html:\n    toc: true\ntitle-slide-attributes:\n  data-background-size: contain\n  data-background-opacity: \"0.5\"\njupyter: python3\n---\nWe can create different files from this .ipynb Jupyter notebook using the following code:\n\nquarto render testPres.ipynb --to pptx\nquarto render testPres.ipynb --to pdf\nquarto render testPres.ipynb --to html\nquarto render testPres.ipynb --to revealjs"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#quarto-1",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#quarto-1",
+    "title": "Communicating code and data",
+    "section": "Quarto",
+    "text": "Quarto\nFurther, formatting for projects (i.e. for website) can be done within the configuration file _quarto.yml\nproject:\n  type: website\n  output-dir: _site\n\nwebsite:\n  title: \"ThomasHSimm\"\n  favicon: /posts/Picture3.png\n  body-header: <img src=\"/posts/header2.png\" height=200>\n\n  navbar:\n    right:\n      - about.qmd\n      - icon: github\n        href: https://github.com/ThomasHSimm\n      - icon: mortarboard-fill\n        href: https://scholar.google.com/citations?hl=en&user=HdPDn1sAAAAJ\nformat:\n  html:\n    theme: \n      light: flatly\n      dark: darkly\n    css: styles.css"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#jupyter-books",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#jupyter-books",
+    "title": "Communicating code and data",
+    "section": "Jupyter Books",
+    "text": "Jupyter Books\nWe can create different files from this .ipynb Jupyter notebook using the following code:\n\njupyter-book build .\\PesticideDocs\\\njupyter-book build <path-to-book>\njupyter-book build <path-to-book> --builder pdfhtml\njupyter-book build <path-to-book> --builder singlehtml\n\nThe only difference in notebook is that it needs to have One header in a markdown cell for the table of contents, e.g. \n# Title of page"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#configuration-file",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#configuration-file",
+    "title": "Communicating code and data",
+    "section": "Configuration file",
+    "text": "Configuration file\nA seperate files _config.yml is used to define how the html (or other) files will look\n# Book settings\n# Learn more at https://jupyterbook.org/customize/config.html\n\ntitle: Defra Pesticide Testing, Data Analysis\nauthor: Thomas Simm\nlogo: ONS-logo.png\nexclude_patterns: [_build, Thumbs.db, .DS_Store, \"**.ipynb_checkpoints\"]\n\n\n# Force re-execution of notebooks on each build.\n# See https://jupyterbook.org/content/execute.html\nexecute:\n  execute_notebooks: force\n\n# Define the name of the latex output file for PDF builds\nlatex:\n  latex_documents:\n    targetname: book.tex\n\n# Add a bibtex file so that we can create citations\nbibtex_bibfiles:\n  - references.bib\n\n# Information about where the book exists on the web\nrepository:\n  url: https://github.com/ThomasHSimm/Pesticide  # Online location of your book\n  path_to_book: docs  # Optional path to your book, relative to the repository root\n  branch: master  # Which branch of the repository should be used when creating links (optional)\n\n# Add GitHub buttons to your book\n# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository\n# HTML-specific settings\nhtml:\n  favicon                   : \"_images/favicon.jpg\"  # A path to a favicon image\n  use_edit_page_button      : false  # Whether to add an \"edit this page\" button to pages. If `true`, repository information in repository: must be filled in\n  use_repository_button     : false  # Whether to add a link to your repository button\n  use_issues_button         : false  # Whether to add an \"open an issue\" button\n  use_multitoc_numbering    : true   # Continuous numbering across parts/chapters\n  extra_navbar              : Powered by <a href=\"https://jupyterbook.org\">Jupyter Book</a>\n                              <br>Home website <a href=\"https://thomashsimm.com/\">thomashsimm.com</a> # Will be displayed underneath the left navbar.\n  extra_footer              : \"\"  # Will be displayed underneath the footer.\n  google_analytics_id       : \"\"  # A GA id that can be used to track book views.\n  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar\n  baseurl                   : \"\"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/\n  comments:\n    hypothesis              : false\n    utterances              : false\n  announcement              : \"\" # A banner announcement at the top of the site."
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#table-of-content",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#table-of-content",
+    "title": "Communicating code and data",
+    "section": "Table of content",
+    "text": "Table of content\nAnd in addition to the config file a table of contents file is required _toc.yml:\n# Table of contents\n# Learn more at https://jupyterbook.org/customize/toc.html\n\nformat: jb-book\nroot: intro\nchapters:\n- file: Pesticide_Plots\n- file: References\n- file: UK_areas\n- file: using_jupyter_books"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-a-webpage-from-this",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-a-webpage-from-this",
+    "title": "Communicating code and data",
+    "section": "Creating a webpage from this",
+    "text": "Creating a webpage from this\nTakes about 30 mins including installing the chosen converter. (But can be done much quicker)\n\ncreate a Github repo for your website\nchoose the converter (e.g. Jupyter Books)\n\nAnd follow their instructions\n\ngo to settings -> Pages within the repo\n\nfew options to do\n\nOptional: add your own website url to it\n\nLink how to do this here\nIn Quarto a command from your PC in the repo, publishes the website:\nquarto publish quarto-pub\nOr equivalently with Jupyter Books:\nghp-import -n -p -f _build/html"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-directly-from-the-repo",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-directly-from-the-repo",
+    "title": "Communicating code and data",
+    "section": "Creating directly from the repo",
+    "text": "Creating directly from the repo\nIf we instead want to convert notebook files directly from a repo to create a website then this can be done with Netlify.\nThis is useful if using Gitlab (i.e. not Github) or don’t want all the extra html files cluttering the repo.\nSteps:\nhttps://jupyterbook.org/en/stable/publish/netlify.html\n\nSign up and connect Github/Gitlab\nAdd a requirements.txt file and also toc.yml to directory\nOn netlify -> Add new site -> import from an existing repo\nInsert something like below\n\nN.B. the command:\npip install -r requirements.txt && jupyter-book build .\nand folder location"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#on-netlify",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#on-netlify",
+    "title": "Communicating code and data",
+    "section": "On netlify",
+    "text": "On netlify\n\nExample:\n\nGitlab repo\nResulting website https://thomashsimm.netlify.app/intro.html"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#quarto-presentations",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#quarto-presentations",
+    "title": "Communicating code and data",
+    "section": "Quarto Presentations",
+    "text": "Quarto Presentations\nQuarto supports a variety of formats for creating presentations, including:\n\nrevealjs — reveal.js (HTML)\npptx — PowerPoint (MS Office)\nbeamer — Beamer (LaTeX/PDF)\n\nI’ll consider the first two"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#quarto-powerpoint-overview",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#quarto-powerpoint-overview",
+    "title": "Communicating code and data",
+    "section": "Quarto PowerPoint overview",
+    "text": "Quarto PowerPoint overview\nThe steps to make a PowerPoint presentation from a notebook:\n\nCreate the inbuilt template.pptx file\nAdjust it to match your own template\nAt the top of the notebook insert format for pptx including the template file\nChoose how you will define a new page\nYou will probably need to manually check the slides and adjust as required\n\nespecially for interactive content and code"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-the-template",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-the-template",
+    "title": "Communicating code and data",
+    "section": "Creating the template",
+    "text": "Creating the template\n(Office info correct for Office 365 Feb 2023, Version 2301 Build 16.0.16026.20002)\nIf your workplace has a custom template or you have one you always use, you can incorporate this into quarto.\nHowever, quarto is quite specific on the form this template takes, and requires the following elements\n\nTitle Slide\nTitle and Content\nSection Header\nTwo Content\nComparison\nContent with Caption\nBlank"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-a-ppt-template",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-a-ppt-template",
+    "title": "Communicating code and data",
+    "section": "Creating a ppt template",
+    "text": "Creating a ppt template\nBy selecting Layout from the Home tab in powerpoint the different layouts can be seen\n\nThey can then be modified by going to View tab - Slide Master."
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-a-ppt-template-2",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-a-ppt-template-2",
+    "title": "Communicating code and data",
+    "section": "Creating a ppt template 2",
+    "text": "Creating a ppt template 2\nIf using your own template you will need to match the names of the slides given above. These can be found by hovering over the slides on the left or right clicking on one and selecting “Rename Layout”"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-a-ppt-template-3",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#creating-a-ppt-template-3",
+    "title": "Communicating code and data",
+    "section": "Creating a ppt template 3",
+    "text": "Creating a ppt template 3\nAlternatively, create a custom template using quarto and then modify this. The following command creates the template:\nquarto pandoc -o template.pptx --print-default-data-file reference.pptx\nThen go to View tab - Slide Master and modify each slide layout.\nNote if you are trying to match a template, some tips: - go to Design -> Slide Size and match this to your template - when View tab - Slide Master is selected go to first tab (see above it will be left indented) on one you are copying from and select all on this then paste to the new template - these will be background images and other things that want to be passed to all slides - Check other slides for images and font-styles etc to match to the new template"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#load-the-template",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#load-the-template",
+    "title": "Communicating code and data",
+    "section": "Load the template",
+    "text": "Load the template\nTo load the template the first cell in the notebook needs to be modified as follows to reference the template.pptx file.\nformat:\n  pptx:\n    reference-doc: template.pptx\n    slide-level: 2\nIn addition, we can also specify here the rule by which a new slide is defined. If slide-level: 2 is used a new slide is defined by “##’ and a new section header by ‘#’. So if we used ‘###’ this would be a heading within the slide.\nIf slide-level: 1 is used a new slide is defined by “#’ and ‘##’ this would be a heading within the slide (this is normally the default)."
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#check-the-slides",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#check-the-slides",
+    "title": "Communicating code and data",
+    "section": "Check the slides",
+    "text": "Check the slides\nI have found creation of slides to powerpoint more prone to strange results than if .doc/.pdf/.html are used.\nSo check the slides, see if interactive content or code has been included (probably not) and if the slide content goes outside the slide.\n\nIn the example above - There is overlap of text on a slide - Strange ouput of a slide - Code output not displayed"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#adding-style-to-revealjs",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#adding-style-to-revealjs",
+    "title": "Communicating code and data",
+    "section": "Adding style to revealjs",
+    "text": "Adding style to revealjs\nA simple way to add template like details to a revealjs file is to add a style.css sheet.\nIn the example below, the style sheet adds logo.png to the bottom right of each sheet\nThe file style.css looks like this:\n.reveal .slide-logo {\n  display: block;\n  position: fixed;\n  top: unset !important;\n  left: unset !important;\n  bottom: 50px;\n  right: 12px;\n  height: 100px !important;\n  width: 100x !important;\n  max-width: unset !important;\n  max-height: unset !important;\n}"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#adding-style-to-revealjs-1",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#adding-style-to-revealjs-1",
+    "title": "Communicating code and data",
+    "section": "Adding style to revealjs",
+    "text": "Adding style to revealjs\nAnd the revealjs part at the top of the jupyter notebook looks like this\nrevealjs:\n    slide-number: true\n    height: 1080\n    width: 1920\n    logo: logo.png\n    css: style.css\nSo this would then look like the following, with the logo (logo.png) in the bottom right, and size and positioning given by the css file"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#what-the-revealjs-file-looks-like",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#what-the-revealjs-file-looks-like",
+    "title": "Communicating code and data",
+    "section": "What the revealjs file looks like",
+    "text": "What the revealjs file looks like\nVideo"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#excel-files",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#excel-files",
+    "title": "Communicating code and data",
+    "section": "Excel files",
+    "text": "Excel files\n\nChatGPT: What are the problems of Excel and xlsx files?\n\n\nLimited scalability: Excel has a limit on the number of rows and columns it can handle effectively.\nInaccurate data: The manual nature of data entry in Excel can lead to errors and inaccuracies.\nFragility: Complex Excel spreadsheets can break easily if any formula or cell reference is altered.\nLack of security: Excel files are vulnerable to unauthorized access and malicious attacks.\nSlow performance: Large and complex Excel files can become slow to open and use, leading to decreased productivity.\nCompatibility issues: XLSX files may not be compatible with older versions of Excel, or with other software applications.\nLimited collaboration: Sharing Excel files and making changes to them can be difficult, especially when multiple people are involved.\n\nFor me it is the Slow performance alongside: (a) we are doing the data manipulation outside Excel anyway and (b) having to have another application open"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#what-aspect-of-tables-i-am-considering",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#what-aspect-of-tables-i-am-considering",
+    "title": "Communicating code and data",
+    "section": "What aspect of tables I am considering",
+    "text": "What aspect of tables I am considering"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#loading-data",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#loading-data",
+    "title": "Communicating code and data",
+    "section": "Loading data",
+    "text": "Loading data\nods with Excel\nAbout 10 s to open 3 ods files with Excel\n.ods converted to html in firefox browser\nAbout 6 s to open 3 converted ods files in a browser\n.ods converted to html firefox browser no new tabs\nAlmost instant when open converted ods files in same browser"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#convert-xlsx-to-html",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#convert-xlsx-to-html",
+    "title": "Communicating code and data",
+    "section": "Convert xlsx to html?",
+    "text": "Convert xlsx to html?\n\nOpening xlsx files in Excel is slow\nConverting to html if we don’t want to edit could be an option\nIf we are moving to Python/R aren’t non-Excel options worth considering??\n\nConverting xlsx files to html\n\nSeems the most obvious course\nBut it doesn’t seem that easy with code\n\nbut easy within Excel"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#pandas",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#pandas",
+    "title": "Communicating code and data",
+    "section": "pandas",
+    "text": "pandas\n\nSince (in Python) we are mainly working with pandas. Let’s consider how pandas outputs can be modified.\npandas options\n\nSome code functionality\n# precision of all columns\npd.set_option(\"display.precision\", 2)\n# Or map as a string\ndf2['amount_pc_str'] = df2['amount_pc'].map(lambda x: '%.3f' % x)\n# some other options\npd.set_option('max_colwidth', 20)\npd.set_option('display.max_columns', None)\npd.set_option('display.expand_frame_repr', False)\npd.set_option('max_colwidth', 0)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#pandas-basic",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#pandas-basic",
+    "title": "Communicating code and data",
+    "section": "pandas basic",
+    "text": "pandas basic\n\n\n\n\n\n\n  \n    \n      \n      sample_id\n      date_of_sampling\n      description\n      country_of_origin\n      retail_outlet\n      address\n      brand_name\n      packer_/_manufacturer_/_importer\n      product\n      address_postcode\n      packer_postcode\n      address_area\n      packer_area\n      chem_name\n      amount_detected\n      mrl\n      amount_pc\n    \n  \n  \n    \n      0\n      1958/2016\n      2016-08-08\n      Bramley Apples\n      UK\n      Asda\n      Creechbarrow Road, Taunton TA1 2AN\n      Asda\n      Asda Stores Ltd Leeds, UK LS11 5AD\n      Apple\n      TA1 2AN\n      LS11 5AD\n      Somerset\n      West Yorkshire\n      boscalid\n      0.03\n      2.0\n      0.015\n    \n    \n      1\n      1958/2016\n      2016-08-08\n      Bramley Apples\n      UK\n      Asda\n      Creechbarrow Road, Taunton TA1 2AN\n      Asda\n      Asda Stores Ltd Leeds, UK LS11 5AD\n      Apple\n      TA1 2AN\n      LS11 5AD\n      Somerset\n      West Yorkshire\n      pyraclostrobin\n      0.01\n      0.5\n      0.020\n    \n    \n      2\n      0230/2016\n      2016-08-08\n      Bramley Apples\n      UK\n      Co-op\n      Northgate, Louth LN11 0LT\n      Co-op\n      Co-operative Group Ltd Manchester M60 0AG\n      Apple\n      LN11 0LT\n      M60 0AG\n      Lincolnshire\n      Greater Manchester\n      boscalid\n      0.05\n      2.0\n      0.025\n    \n    \n      3\n      0230/2016\n      2016-08-08\n      Bramley Apples\n      UK\n      Co-op\n      Northgate, Louth LN11 0LT\n      Co-op\n      Co-operative Group Ltd Manchester M60 0AG\n      Apple\n      LN11 0LT\n      M60 0AG\n      Lincolnshire\n      Greater Manchester\n      flonicamid (sum)\n      0.02\n      0.2\n      0.100\n    \n    \n      4\n      0230/2016\n      2016-08-08\n      Bramley Apples\n      UK\n      Co-op\n      Northgate, Louth LN11 0LT\n      Co-op\n      Co-operative Group Ltd Manchester M60 0AG\n      Apple\n      LN11 0LT\n      M60 0AG\n      Lincolnshire\n      Greater Manchester\n      pyraclostrobin\n      0.03\n      0.5\n      0.060\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      35155\n      2858/2020 Organic\n      2020-10-20\n      Organic Sweet Potatoes\n      Spain\n      Tesco\n      300 Beverley Way, New Malden KT3 4PJ\n      Tesco\n      Tesco Stores Ltd Welwyn Garden City AL7 1GA\n      Sweet_Potatoes_Q4_(BNA)\n      KT3 4PJ\n      AL7 1GA\n      Greater London\n      Hertfordshire\n      0\n      0.00\n      0.0\n      0.000\n    \n    \n      35156\n      0562/2020 Organic\n      2020-10-05\n      Organic Duchy Sweet Potatoes\n      Egypt\n      Waitrose\n      Mill Lane, Swindon SN1 7BX\n      Waitrose\n      Waitrose Ltd Doncastle Road, Bracknell, Berksh...\n      Sweet_Potatoes_Q4_(BNA)\n      SN1 7BX\n      RG12 8YA\n      Wiltshire\n      Berkshire\n      0\n      0.00\n      0.0\n      0.000\n    \n    \n      35157\n      0563/2020\n      2020-10-05\n      Sweet Potatoes\n      USA\n      Waitrose\n      Mill Lane, Swindon SN1 7BX\n      Waitrose\n      Waitrose Ltd Doncastle Road, Bracknell, Berksh...\n      Sweet_Potatoes_Q4_(BNA)\n      SN1 7BX\n      RG12 8YA\n      Wiltshire\n      Berkshire\n      0\n      0.00\n      0.0\n      0.000\n    \n    \n      35158\n      2601/2020\n      2020-10-14\n      Sweet Potatoes\n      USA\n      Waitrose\n      Ossington Way, Newark NG24 1FF\n      Waitrose\n      Waitrose Ltd Doncastle Road, Bracknell, Berksh...\n      Sweet_Potatoes_Q4_(BNA)\n      NG24 1FF\n      RG12 8YA\n      Nottinghamshire\n      Berkshire\n      0\n      0.00\n      0.0\n      0.000\n    \n    \n      35159\n      2601/2020\n      2020-10-14\n      Sweet Potatoes\n      USA\n      Waitrose\n      Ossington Way, Newark NG24 1FF\n      Waitrose\n      Waitrose Ltd Doncastle Road, Bracknell, Berksh...\n      Sweet_Potatoes_Q4_(BNA)\n      NG24 1FF\n      RG12 8YA\n      Nottinghamshire\n      Berkshire\n      0\n      0.00\n      0.0\n      0.000\n    \n  \n\n35160 rows × 17 columns"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#pandas-overview",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#pandas-overview",
+    "title": "Communicating code and data",
+    "section": "pandas overview",
+    "text": "pandas overview\n\nUsing pandas we can control various outputs\nBut these still need a format to display within\nAnd display functionality is not easy\n\nOr convert to a html file\ndf2.iloc[:500].to_html('df2_500.html')\nBut using a style sheet as shown in stack overflow by Parfait"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#ipydatagrid",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#ipydatagrid",
+    "title": "Communicating code and data",
+    "section": "ipydatagrid",
+    "text": "ipydatagrid\nhttps://github.com/bloomberg/ipydatagrid"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code",
+    "title": "Communicating code and data",
+    "section": "itables code",
+    "text": "itables code\nfrom itables import init_notebook_mode\n\nimport itables\ninit_notebook_mode(all_interactive=True)\n\nitables.show(df2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n      \n      sample_id\n      date_of_sampling\n      description\n      country_of_origin\n      retail_outlet\n      address\n      brand_name\n      packer_/_manufacturer_/_importer\n      product\n      address_postcode\n      packer_postcode\n      address_area\n      packer_area\n      chem_name\n      amount_detected\n      mrl\n      amount_pc\n    \n  Loading... (need help?)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#dash",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#dash",
+    "title": "Communicating code and data",
+    "section": "Dash",
+    "text": "Dash\nhttps://dash.plotly.com/datatable\n\nDownloaded 800,000 times per month, Dash is the original low-code framework for rapidly building data apps in Python, R, Julia, and F# (experimental).\n\nhttps://medium.com/plotly/introducing-jupyterdash-811f1f57c02e\n\n\nOSError: Address 'http://127.0.0.1:8050' already in use.\n    Try passing a different port to run_server."
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#streamlit",
+    "title": "Communicating code and data",
+    "section": "Streamlit",
+    "text": "Streamlit\n\nA faster way to build and share data apps\n\n\nDash can be run within a notebook but is principally an app.\nStreamlit is a similar app.\nBut much easier to code.\n\nimport pandas as pd\nimport streamlit as st\nall_dfs = pd.read_csv(\"./data/combined_df.csv\")\nst.dataframe(all_dfs.head())\n# Or\nst.tables(all_dfs)"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#and-more",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#and-more",
+    "title": "Communicating code and data",
+    "section": "And more",
+    "text": "And more\nDataTables\n\nDataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, built upon the foundations of progressive enhancement, that adds all of these advanced features to any HTML table.\n\nJupyter widgets\nIf you are looking for Jupyter widgets, have a look at (taken from https://mwouts.github.io/itables/references.html) - QGrid by Quantopian - IPyaggrid by Louis Raison and Olivier Borderies - IPySheet by QuantStack."
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#more-details-on-itables",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#more-details-on-itables",
+    "title": "Communicating code and data",
+    "section": "More details on itables",
+    "text": "More details on itables\nFrom my brief review I found itables the best package\n\nIt works\nIt gives lots of control of table output to be consistent with good-practice\n\nColumn width\nNumber formatting\nColumn alignment\n\nAlongside\n\nSearch\nColumn ordering\nHow many rows are shown\nScrolling options\netc"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code1",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code1",
+    "title": "Communicating code and data",
+    "section": "itables code1",
+    "text": "itables code1\ndef _indi_columnDefs(cols, format,col_width):\n    if 'num_format' in format:\n        if format['num_format'] == \"#,##0\":\n            format_str = \"',', '.', 0, ''\"\n        elif format['num_format'] ==  '0.0':\n            format_str = \"',', '.', 1, ''\"\n        else: \n            format_str = \"',', '.', 3, ''\"\n    else:\n        format_str = \"',', '.', 3, ''\"\n    columnDefs= {\n            \"targets\": cols,\n            \"className\":f\"dt-{format['align']}\",\n            \"render\": JavascriptCode(f\"$.fn.dataTable.render.number({format_str})\"),\n            \"width\": f\"{col_width}px\",\n        }\n    return columnDefs"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code2",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code2",
+    "title": "Communicating code and data",
+    "section": "itables code2",
+    "text": "itables code2\nstyle = {\n    \"general\": {\n        \"table_output\" :{\n            \"pct_cols\" : {\n                \"regex_defined\": [\"%\" , \"[Pp]ercentage\"],\n                \"format\": {\"num_format\": \"0.0\", \"align\": \"right\"}\n            },\n            \"total_cols\" : {\n                    \"regex_defined\": [\"[Tt]otal\" ],\n                    \"format\": { \"num_format\": \"0.0\", \"align\": \"center\"}\n            },\n            \"code_cols\" : {\n                \"regex_defined\": [\"[Cc]ode\"],\n                \"format\": { \"align\": \"left\"}\n            },\n            \"_else\" : {\n                \"regex_defined\": [],\n                \"format\": {\"num_format\": \"#,##0\", \"align\": \"right\"}\n            }\n        \n        },\n        \"col_width\": 130.0\n    }\n}"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code3",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code3",
+    "title": "Communicating code and data",
+    "section": "itables code3",
+    "text": "itables code3\n\ndef _create_style_col(style: dict, df: pd.DataFrame):\n    style_col = {}\n    colsAll=[]\n    for keys in style['general']['table_output'].keys():\n        if keys !='_else':\n            # print(\">>\",keys)\n            cols=[]\n            for i,column in enumerate(df.columns):\n                # print(column)\n                if [True for reg in style['general']['table_output'][keys]['regex_defined'] if re.search(reg,column)]:\n                    # print(i,column)\n                    cols.append(i)\n            # print(cols)\n            colsAll = colsAll + cols\n            style_col[keys]=cols\n\n    style_col['_else'] = [ i for i,column in enumerate(df.columns) if i not in colsAll]\n\n    return style_col"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code4",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code4",
+    "title": "Communicating code and data",
+    "section": "itables code4",
+    "text": "itables code4\ndef create_columnDefs(style: dict, df: pd.DataFrame):\n    \n    style_col = _create_style_col(style, df)\n    columnDefs = []\n    for keys in style['general']['table_output'].keys():\n        columnDefs.append( _indi_columnDefs(style_col[keys],\n                                            style['general']['table_output'][keys]['format'],\n                                            style['general']['col_width']) )\n    return columnDefs"
+  },
+  {
+    "objectID": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code5",
+    "href": "posts/Communicating_Code/PresentationOfCommunicatingCode.html#itables-code5",
+    "title": "Communicating code and data",
+    "section": "itables code5",
+    "text": "itables code5\n\ncolumnDefs= create_columnDefs(style, data)\nshow(\n    data,\n    # style=\"table-layout:auto;width:80%;float:left\",\n    classes=\"display\",\n    \n    # specify how many rows\n    lengthMenu = [25,100,-1],\n    # or to scroll through data\n    scrollX=True,\n    # scrollY=\"800px\", \n    scrollCollapse=True, \n    # paging=False,\n\n    style=f\"width:{style['general']['col_width']*10}px\",\n    autoWidth=False,\n\n    # add footer\n    # footer=True,\n    \n    columnDefs=columnDefs,\n    tags =f'<caption style=\"caption-side: Bottom\">File: {files[0]} and Tab: {ansa.value}</caption>'\n)"
   }
 ]
